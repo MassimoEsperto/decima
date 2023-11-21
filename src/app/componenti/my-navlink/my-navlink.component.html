@@ -1,0 +1,30 @@
+<div *ngIf="!isCollapse" class="colonna" routerLink="{{link}}">
+    <div>
+        <i class="{{icon}} navbar-font-icon"></i>
+    </div>
+    <div>
+        <span class="navbar-font-label">{{label}}</span>
+    </div>
+</div>
+
+<div *ngIf="isCollapse&&!isAdmin" class="colonna" routerLink="{{link}}" data-bs-toggle="collapse"
+    data-bs-target="#impostazioni_utente" aria-expanded="false" aria-controls="impostazioni_utente"
+    (click)="myClick.emit()">
+    <div>
+        <i class="{{icon}} navbar-font-icon"></i>
+    </div>
+    <div>
+        <span class="navbar-font-label">{{label}}</span>
+    </div>
+</div>
+
+<div *ngIf="isCollapse&&isAdmin" class="colonna" routerLink="{{link}}" data-bs-toggle="collapse"
+    data-bs-target="#impostazioni_admin" aria-expanded="false" aria-controls="impostazioni_admin"
+    (click)="myClick.emit()">
+    <div>
+        <i class="{{icon}} navbar-font-icon"></i>
+    </div>
+    <div>
+        <span class="navbar-font-label">{{label}}</span>
+    </div>
+</div>

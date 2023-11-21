@@ -1,0 +1,78 @@
+<!-- Modal -->
+<div class="modal fade modalTipeViewMatch" id="modalTipeViewMatch" tabindex="-1" aria-labelledby="modalViewMatch" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <div style="text-align: center;">
+                    <h4>SHIT CUP</h4>
+                </div>
+
+                <div class="divisione pb-8">
+                    <div class="col-half sfidante">
+                        <h6>{{match.CASA.squadra}}</h6>
+                    </div>
+                    <div class="col-half sfidante">
+                        <h6> {{match.TRASFERTA.squadra}}</h6>
+                    </div>
+                </div>
+
+                <div class="divisione">
+                    <div class="col-half">
+                        <div class="font-size-smart pa-4">
+                            <div class="formazioni">
+                                <div *ngFor="let item of match.CASA.formazione" class="my-flex-between-w">
+                                    <div>
+                                        {{item.nome}}
+                                    </div>
+                                    <div>
+                                        {{item.voto}}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="pb-8">Modulo: {{match.CASA.modulo}}</div>
+                                <div class="pb-8">Bonus: {{match.CASA.bonus}}</div>
+                                <div class="my-flex-between-w">
+                                    <div>
+                                        TOT.
+                                    </div>
+                                    <div>
+                                        {{match.CASA.somma}}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-half">
+                        <div class="font-size-smart pa-4">
+                            <div class="formazioni">
+                                <div *ngFor="let item of match.TRASFERTA.formazione" class="my-flex-between-w">
+                                    <div>
+                                        {{item.nome}}
+                                    </div>
+                                    <div>
+                                        {{item.voto}}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="pb-8">Modulo: {{match.TRASFERTA.modulo}}</div>
+                                <div class="pb-8">Bonus: {{match.TRASFERTA.bonus}}</div>
+                                <div class="my-flex-between-w">
+                                    <div>
+                                        TOT.
+                                    </div>
+                                    <div>
+                                        {{match.TRASFERTA.somma}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

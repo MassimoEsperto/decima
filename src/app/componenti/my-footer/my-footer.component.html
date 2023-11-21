@@ -1,0 +1,45 @@
+<div class="impostazioni">
+    <!-- Footer Elements -->
+    <div class="container">
+
+        <div class="pt-16 pb-8">
+            <div class="my-flex-around">
+                <div class="flex-colonna">
+                    <strong>{{language.label.footer.info}}</strong>
+                    <br>
+                    <span class="cursore pb-8"
+                        (click)="goToLink('https://chat.whatsapp.com/JICQWVbYoqCKh9gek92EIW')">Whatsapp</span>
+                    <span class="cursore pb-8" (click)="logOut()">{{language.label.pannello.log_out}}</span>
+                    <span class="cursore pb-8" routerLink="/dashboard/info-utente">{{language.label.footer.profilo}}</span>
+                    <span *ngIf="!amministrazione" class="cursore pb-8" (click)="azzeraMessaggi()"
+                        routerLink="/dashboard/comunicazioni">{{language.label.footer.comunicazioni}}</span>
+                    <span *ngIf="amministrazione" class="cursore pb-8"
+                        routerLink="/adminstrator/comunicazioni">{{language.label.footer.comunicazioni}}</span>
+                </div>
+                <div class="flex-colonna">
+                    <strong>{{language.label.footer.competizione}}</strong>
+                    <br>
+                    <span class="cursore pb-8"  data-bs-toggle="modal" data-bs-target="#albodoroModal">{{language.label.footer.albo}}</span>
+                    <a class="cursore pb-8"
+                        href="assets/download/regolamento_schitcup.pdf">{{language.label.footer.regolamento}}</a>
+                   
+                        <span class="cursore pb-8"
+                    data-bs-toggle="modal" data-bs-target="#languageModal"
+                    >{{language.label.footer.cambio_lingua}}</span>
+                    
+                    
+                    
+                    <span *ngIf="loggato.ruolo==RUOLI_UTENTE.ADMIN&&amministrazione" class="cursore pb-8"
+                        routerLink="/dashboard/home">{{language.label.smart.exit}}</span>
+                    <span *ngIf="loggato.ruolo==RUOLI_UTENTE.ADMIN&&!amministrazione" class="cursore pb-8"
+                        routerLink="/adminstrator/utenti">{{language.label.smart.admin}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2024 Copyright: Shitcup {{versione}}</div>
+    <!-- Copyright -->
+</div>

@@ -1,0 +1,23 @@
+<div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-success text-white">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="languageModalLabel">{{data.titolo}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="flex-colonna opzioni">
+                    <div *ngFor="let item of data.lista" class="pt-8 pb-8 cursore" (click)="onSelected(item)">
+                        <i class="{{item.ico}}"></i> {{item.nome}}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">{{language.label.bottoni.annulla}}</button>
+                <button type="button" class="btn btn-primary" (click)="onChangeLanguage()"
+                    [disabled]="!selected">{{language.label.bottoni.conferma}}</button>
+            </div>
+        </div>
+    </div>
+</div>

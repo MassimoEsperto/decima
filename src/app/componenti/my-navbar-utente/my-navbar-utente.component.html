@@ -1,0 +1,46 @@
+<div class="navbar-fissa">
+
+    <div class="navigazione">
+
+        <!-- HOME -->
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="'/dashboard/home'" [icon]="'bi bi-house-gear-fill'"
+            [label]="language.label.smart.home" (myClick)="isCollapse=false">
+        </my-navlink>
+
+        <!-- CALENDARIO -->
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="'/dashboard/calendario'" [icon]="'bi bi-calendar3'"
+            [label]="language.label.smart.calendario" (myClick)="isCollapse=false">
+        </my-navlink>
+
+        <!-- SQUADRE -->
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="'/dashboard/squadre'" [icon]="'bi bi-binoculars-fill'"
+            [label]="language.label.smart.rose" (myClick)="isCollapse=false">
+        </my-navlink>
+
+        <!-- CLASSIFICA -->
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="'/dashboard/classifica'" [icon]="'bi bi-graph-up-arrow'"
+            [label]="language.label.smart.classifiche" (myClick)="isCollapse=false">
+        </my-navlink>
+
+        <!-- INFO -->
+        <div class="colonna" data-bs-toggle="collapse" data-bs-target="#impostazioni_utente" aria-expanded="false"
+            aria-controls="impostazioni_utente" (click)="isCollapse=!isCollapse">
+            <div>
+                <i class="bi bi-chat-dots-fill navbar-font-icon"></i>
+            </div>
+            <div>
+                <span class="navbar-font-label">{{language.label.smart.info}}</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="collapse" id="impostazioni_utente" #impostazioni_utente>
+
+        <my-footer *ngIf="isCollapse" data-bs-toggle="collapse" data-bs-target="#impostazioni_utente" aria-expanded="false"
+            aria-controls="impostazioni_utente" (click)="isCollapse=false" [amministrazione]="false"></my-footer>
+        <my-footer *ngIf="!isCollapse"></my-footer>
+
+    </div>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="pt-8 pb-16 ">
+
+    <div *ngFor="let item of calendario.partite">
+
+         <!--Card content-->
+         <div class="card">
+            <div class="card-body">
+
+                
+            <!--Card content-->
+            <div  (click)="viewMatch(item)" data-bs-toggle="modal" data-bs-target="#modalTipeViewMatch">
+                <div class="squadre cursore">
+                    <div class="row col-4 col-sm-4 col-md-5 col-lg-5">
+                        <div class="col-12 col-sm-12 col-md-2 col-lg-2  punteggio cursore">
+                            <img src="assets/avatar/{{item.CASA.avatar}}.png" class="avatar" width="24px" />
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-10 col-lg-10  punteggio">
+                            <label class="nome_squadra cursore">
+                                {{item.CASA.squadra}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="punteggio col-4 col-sm-4 col-md-2 col-lg-2">
+                        <span *ngIf="calendario.calcolato=='1'">{{item.CASA.goals}}-{{item.TRASFERTA.goals}}</span>
+                        <span *ngIf="calendario.calcolato!='1'">VS</span>
+                    </div>
+                    <div class="row col-4 col-sm-4 col-md-5 col-lg-5">
+                        <div class="col-12 col-sm-12 col-md-2 col-lg-2  punteggio cursore">
+                            <img src="assets/avatar/{{item.TRASFERTA.avatar}}.png" class="avatar" width="24px" />
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-10 col-lg-10 punteggio">
+                            <label class="nome_squadra cursore">
+                                {{item.TRASFERTA.squadra}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
