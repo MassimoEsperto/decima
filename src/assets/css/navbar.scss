@@ -1,0 +1,22 @@
+.navbar-fissa {
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+    background-color: $colore-base;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 4px;
+ }
+
+ .navbar-font-icon{
+    font-size: 1.2rem;
+ }
+
+ .navbar-font-label{
+    font-size: 0.8rem;
+ }

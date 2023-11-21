@@ -1,0 +1,41 @@
+.qualificato{
+    background-color: lightgreen !important;
+}
+
+.spareggi{
+    background-color: lightblue !important;
+}
+
+.leggenda{
+    width: 64px;
+    height: 14px;
+    margin-right: 8px;
+}
+
+
+.card-body {
+    padding: 0.50rem;
+}
+
+.numeri{
+    width: 40px;
+}
+
+.table-spareggi {
+    --bs-table-bg: lightblue;
+}
+
+.table-qualificato {
+    --bs-table-bg: lightgreen;
+}
+
+.table-red  {
+    --bs-table-color: #fff;
+    --bs-table-bg: red;
+}
+
+.accordion {
+    --bs-accordion-btn-focus-border-color: none;
+    --bs-accordion-btn-focus-box-shadow: none;
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+}

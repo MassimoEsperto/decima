@@ -1,0 +1,29 @@
+.page{
+    min-height: 100vh;
+    padding: 8px 8px 64px 8px; 
+}
+
+.titolo-page{
+    text-align:center;
+    color:gainsboro;
+    padding: 8px;
+}
+
+.sub-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 64px;
+    padding-top: 16px;
+}
+
+.page-link {
+    background-color: #6c757d;
+    border-color: #565e64;
+    color: aliceblue;
+}
+
+.page-item.active .page-link {
+    background-color: #344858;
+    border-color: #425a6e;
+}

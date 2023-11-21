@@ -1,0 +1,35 @@
+.modal-fullscreen .modal-header {
+    //   background: #215eb7; 
+    color: gainsboro;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    border-bottom: 0px !important;
+}
+
+.modal-fullscreen .modal-footer {
+    //   background: #215eb7; 
+    color: gainsboro;
+    border-top: 0px !important;
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+}
+
+/*
+   .modal-fullscreen .modal-content {
+       background-image: url("assets/img/modale.png");
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-size: cover;
+   }*/
+/*
+   .modal-fullscreen .modal-body {
+       background-color:azure; 
+   }
+   */
+
+.fullscreen {
+    overflow: auto;
+    position: absolute;
+    top: 96px;
+    right: 8px;
+    bottom: 64px;
+    left: 8px;
+}

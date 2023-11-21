@@ -1,0 +1,227 @@
+{
+    "page": {
+        "cambia_dati": "CHANGE DATA",
+        "cambia_squadra": "UPDATE TEAM",
+        "seleziona_squadra": "SELECT TEAM",
+        "cambia_img": "CHANGE IMAGE",
+        "personalizza": "CUSTOMIZE",
+        "giornata": "DAY",
+        "da_disputare": "TO DISPUTE",
+        "inizio_partita": "START MATCH",
+        "inserisci_formazione": "INSERT TRAINING",
+        "vedi_live": "SEE ALL LIVE",
+        "risultati": "RESULTS",
+        "classifiche": "RANKINGS",
+        "calendario": "CALENDAR",
+        "girone": "GROUP",
+        "media_partite": "AVERAGE MATCHES",
+        "squadra": "TEAM",
+        "rosa_utente": "USER LIST",
+        "rose_utenti": "USERS LIST",
+        "indisponibili": "NOT AVAILABLE",
+        "convocabili": "SUMMONABLE",
+        "formazione": "TRAINING",
+        "calcolo": "IN CALCULATION...",
+        "serie": "SERIE A",
+        "fase": "PHASE",
+        "data": "DATE",
+        "voti_live": "LIVE VOTES",
+        "statistiche": "STATISTICS",
+        "generale": "UNIQUE GROUPS",
+        "altri_match": "OTHER GAMES",
+        "cosi_campo": "So on the pitch",
+        "live_match": "Live Match",
+        "modulo": "MODULE",
+        "punti_bonus": "BONUS POINTS",
+        "sfoglia_risultati": "BROWSE RESULTS",
+        "fasi": {
+            "gironi": "GROUPS",
+            "spareggi": "SHOOTS",
+            "quarti": "QUARTER",
+            "semi_finale": "SEMIFINAL",
+            "finale": "FINAL"
+        },
+        "percorso": {
+            "0": "ENTERED IN THE COMPETITION",
+            "1": "ENTERED IN THE GROUPS",
+            "2": "ENTER PLAY-OFFS",
+            "3": "QUALIFIED EIGHTH",
+            "4": "QUARTER QUALIFYING",
+            "5": "QUALIFIED SEMI-FINAL",
+            "6": "FINAL QUALIFYING"
+        },
+        "stati": {
+            "in_corsa": "STILL RUNNING",
+            "eliminato": "USER DELETED",
+            "vincitore": "WINNER OF THE SHITCUP"
+        }
+    },
+    "bottoni": {
+        "invia": "SEND",
+        "inserisci": "INSERT",
+        "schiera": "DEPLOY",
+        "salva": "SAVE",
+        "conferma": "CONFIRM",
+        "entra": "COME IN",
+        "avatar": "Select Avatar",
+        "annulla": "CANCEL",
+        "aggiungi_squadra": "ADD TEAM",
+        "cambia": "CHANGE"
+    },
+    "alert": {
+        "success": "Incredible It Worked!",
+        "email": "Soon you will receive an email with the requested info",
+        "formazione": "There are no games with your account"
+    },
+    "presentazione": {
+        "discorso": "THE SHIT CUP HAS BECOME AN ELEMENT OF WORSHIP AND STYLE, A FUNDAMENTAL FEATURE FOR ALL FOOTBALLERS LOOKING FOR REDEMPTION FROM A BANKRUPTCY SEASON.",
+        "aggiorna_versione": "YOU MUST UPDATE THE VERSION",
+        "versione_locale": "Local version",
+        "versione_applicazione": "Application version",
+        "soluzione": "Solution indicated",
+        "svuotare_cache": "Empty caches and delete cookies ..",
+        "gestione_squadre": "TEAM MANAGEMENT"
+    },
+    "pannello": {
+        "admin": "ADMIN",
+        "home": "HOME",
+        "formazione": "TRAINING MANAGEMENT",
+        "calendario": "RESULTS CALENDAR",
+        "rose": "USER ROSE LIST",
+        "log_out": "LOG-OUT",
+        "classifiche": "RANKINGS",
+        "comunicazioni": "COMMUNICATIONS"
+    },
+    "header": {
+        "admin": "ADMIN",
+        "home": "HOME",
+        "formazione": "TRAINING",
+        "calendario": "CALENDAR",
+        "rose": "TEAMS",
+        "classifiche": "RANKINGS",
+        "comunicazioni": "COMMUNICATIONS"
+    },
+    "smart": {
+        "admin": "ADMIN",
+        "home": "HOME",
+        "calendario": "CALE.",
+        "rose": "TEAMS",
+        "classifiche": "RANK.",
+        "info": "INFO",
+        "exit":"EXIT",
+        "utenti": "USERS",
+        "comunicazioni": "COMMUNICATIONS",
+        "calciatori": "FOOTBALLERS",
+        "date": "DATE",
+        "competizione": "COMPETITION"
+    },
+    "login": {
+        "recupera_password": "Recover Password",
+        "registrati": "Register",
+        "login": "Login",
+        "torna_al_login": "Back to Login",
+        "step": {
+            "passo": "STEP",
+            "indietro": "BACK",
+            "successivo": "NEXT",
+            "di": "OF",
+            "lega": "Enter the name of the league of your current fantasy football",
+            "squadra": "Select your current fantasy football team",
+            "rosa": "Squad confirmation consisting of 3 goalkeepers 8 defenders 8 midfielders and 6 forwards",
+            "dati": "Enter your personal data valid for this competition"
+        }
+    },
+    "modali": {
+        "cambia_lingua": "CHANGE LANGUAGE",
+        "lingue": [
+            {
+                "cod": "ita",
+                "nome": "Italian",
+                "ico": "fas fa-pizza-slice"
+            },
+            {
+                "cod": "eng",
+                "nome": "English",
+                "ico": "fas fa-igloo"
+            },
+            {
+                "cod": "fra",
+                "nome": "French",
+                "ico": "fab fa-fort-awesome"
+            },
+            {
+                "cod": "cin",
+                "nome": "Chinese",
+                "ico": "fas fa-torii-gate"
+            }
+        ]
+    },
+    "footer": {
+        "regolamento": "Regulation",
+        "info": "INFORMATION",
+        "competizione": "COMPETITION",
+        "chi_siamo": "Who we are",
+        "nostro_blog": "Our Blog",
+        "cambio_lingua": "Change language",
+        "albo": "Roll of honor",
+        "profilo": "Profile",
+        "comunicazioni": "Communications",
+        "log_out": "LOG-OUT"
+    },
+    "albo": {
+        "titolo": "Roll of honor",
+        "lista": [
+            {
+                "subtitolo": "Edition 2014/2015",
+                "messaggio1": "Number of participants is 12",
+                "messaggio2": "Winner Profeta"
+            },
+            {
+                "subtitolo": "Edition 2015/2016",
+                "messaggio1": "Number of participants is 12",
+                "messaggio2": "Winner Profeta"
+            },
+            {
+                "subtitolo": "Edition 2016/2017",
+                "messaggio1": "Number of participants is 12",
+                "messaggio2": "Winner Profeta"
+            },
+            {
+                "subtitolo": "Edition 2017/2018",
+                "messaggio1": "Number of participants is 12",
+                "messaggio2": "Winner Ostello Il Maestro"
+            },
+            {
+                "subtitolo": "Edition 2018/2019",
+                "messaggio1": "Number of participants is 8",
+                "messaggio2": "Winner Ostello Il Maestro"
+            },
+            {
+                "subtitolo": "Edition 2019/2020",
+                "messaggio1": "Number of participants is 0",
+                "messaggio2": "Not disputed"
+            },
+            {
+                "subtitolo": "Edition 2020/2021",
+                "messaggio1": "Number of participants is 12, for the first time the tournament extended to several leagues",
+                "messaggio2": "Winner Smithwiks"
+            },
+            {
+                "subtitolo": "Edition 2021/2022",
+                "messaggio1": "Number of participants is 20",
+                "messaggio2": "Winner Slayer84"
+            },
+            {
+                "subtitolo": "Edition 2022/2023",
+                "messaggio1": "Number of participants is 20",
+                "messaggio2": "Winner Kil Kil"
+            },
+            {
+                "subtitolo": "Edition 2023/2024",
+                "messaggio1": "Number of participants is 36",
+                "messaggio2": "Winner ????"
+            }
+            
+        ]
+    }
+}

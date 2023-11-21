@@ -1,0 +1,226 @@
+{
+    "page": {
+        "cambia_dati": "CAMBIA DATI",
+        "cambia_squadra": "AGGIORNA SQUADRA",
+        "seleziona_squadra": "SELEZIONA SQUADRA",
+        "cambia_img": "CAMBIA IMMAGINE",
+        "personalizza": "PERSONALIZZA",
+        "giornata": "GIORNATA",
+        "da_disputare": "DA DISPUTARE",
+        "inizio_partita": "INIZIO PARTITA",
+        "inserisci_formazione": "INSERISCI FORMAZIONE",
+        "vedi_live": "VEDI TUTTI I LIVE",
+        "risultati": "RISULTATI",
+        "classifiche": "CLASSIFICHE",
+        "calendario": "CALENDARIO",
+        "girone": "GIRONE",
+        "media_partite": "MEDIA PARTITE",
+        "squadra": "SQUADRA",
+        "rosa_utente": "ROSA UTENTE",
+        "rose_utenti": "ROSE UTENTI",
+        "indisponibili": "INDISPONIBILI",
+        "convocabili": "CONVOCABILI",
+        "formazione": "FORMAZIONE",
+        "calcolo": "IN CALCOLO...",
+        "serie": "SERIE A",
+        "fase": "FASE",
+        "data": "DATA",
+        "voti_live": "VOTI LIVE",
+        "statistiche": "STATISTICHE",
+        "generale": "RANKING UNICO",
+        "altri_match": "ALTRE PARTITE",
+        "cosi_campo": "Cosi in campo",
+        "live_match": "Live Match",
+        "modulo": "MODULO",
+        "punti_bonus": "PUNTI BONUS",
+        "sfoglia_risultati": "SFOGLIA RISULTATI",
+        "fasi": {
+            "gironi": "GIRONI",
+            "spareggi": "SPAREGGI",
+            "quarti": "QUARTI",
+            "semi_finale": "SEMIFINALE",
+            "finale": "FINALE"
+        },
+        "percorso": {
+            "0": "ISCRITTO ALLA COMPETIZIONE",
+            "1": "INSERITO NEI GIRONI",
+            "2": "ACCESSO SPAREGGI",
+            "3": "QUALIFICATA OTTAVI",
+            "4": "QUALIFICATA QUARTI",
+            "5": "QUALIFICATA SEMIFINALE",
+            "6": "QUALIFICATA FINALE"
+        },
+        "stati": {
+            "in_corsa": "ANCORA IN CORSA",
+            "eliminato": "UTENTE ELIMINATO",
+            "vincitore": "VINCITORE DELLA SHITCUP"
+        }
+    },
+    "alert": {
+        "success": "Incredibile Ha Funzionato!",
+        "email": "A breve riceverai una email con le info richieste",
+        "formazione": "Non sono previste partite col tuo account"
+    },
+    "presentazione": {
+        "discorso": "LA SHIT CUP E' DIVENTATA UN ELEMENTO DI CULTO E DI STILE, CARATTERISTICA FONDAMENTALE PER TUTTI I FANTALLENATORI IN CERCA DI RISCATTO DA UNA STAGIONE FALLIMENTARE.",
+        "aggiorna_versione": "DEVI AGGIORNARE LA VERSIONE",
+        "versione_locale": "Versione locale",
+        "versione_applicazione": "Versione applicazione",
+        "soluzione": "Soluzione indicata",
+        "svuotare_cache": "Svuotare le cache e cancellare i cookie..",
+        "gestione_squadre": "GESTIONE SQUADRE"
+    },
+    "bottoni": {
+        "invia": "INVIA",
+        "inserisci": "INSERISCI",
+        "salva": "SALVA",
+        "conferma": "CONFERMA",
+        "schiera": "SCHIERA",
+        "entra": "ENTRA",
+        "avatar": "Seleziona Avatar",
+        "annulla": "ANNULLA",
+        "aggiungi_squadra": "AGGIUNGI SQUADRA",
+        "cambia": "CAMBIA"
+    },
+    "pannello": {
+        "admin": "ADMIN",
+        "home": "HOME",
+        "formazione": "GESTIONE FORMAZIONE",
+        "calendario": "CALENDARIO RISULTATI",
+        "rose": "LISTA ROSE UTENTI",
+        "log_out": "LOG-OUT",
+        "classifiche": "CLASSIFICHE",
+        "comunicazioni": "COMUNICAZIONI"
+    },
+    "header": {
+        "admin": "ADMIN",
+        "home": "HOME",
+        "formazione": "FORMAZIONE",
+        "calendario": "CALENDARIO",
+        "rose": "ROSE",
+        "classifiche": "CLASSIFICHE",
+        "comunicazioni": "COMUNICAZIONI"
+    },
+    "smart": {
+        "admin": "ADMIN",
+        "home": "HOME",
+        "calendario": "CALENDARIO",
+        "rose": "ROSE",
+        "classifiche": "CLASSIFICHE",
+        "info": "INFO",
+        "exit":"EXIT",
+        "utenti": "UTENTI",
+        "comunicazioni": "COMUNICAZIONI",
+        "calciatori": "CALCIATORI",
+        "date": "DATE",
+        "competizione": "COMPETIZIONE"
+    },
+    "login": {
+        "recupera_password": "Recupera Password",
+        "registrati": "Registrati",
+        "login": "Login",
+        "torna_al_login": "Torna Al Login",
+        "step": {
+            "passo": "PASSO",
+            "indietro": "INDIETRO",
+            "successivo": "SUCCESSIVO",
+            "di": "DI",
+            "lega": "Inserisci il nome della lega del tuo attuale fantacalcio",
+            "squadra": "Selezione la tua attuale squadra del fantacalcio",
+            "rosa": "Conferma rosa composta da 3 portieri 8 difensori 8 centrocampisti e 6 attaccanti",
+            "dati": "Inserisci i tuoi dati personali validi per questa competizione"
+        }
+    },
+    "modali": {
+        "cambia_lingua": "CAMBIA LINGUAGGIO",
+        "lingue": [
+            {
+                "cod": "ita",
+                "nome": "Italiano",
+                "ico": "bi bi-house-gear-fill"
+            },
+            {
+                "cod": "eng",
+                "nome": "Inglese",
+                "ico": "fas fa-igloo"
+            },
+            {
+                "cod": "fra",
+                "nome": "Francese",
+                "ico": "fab fa-fort-awesome"
+            },
+            {
+                "cod": "cin",
+                "nome": "Cinese",
+                "ico": "fas fa-torii-gate"
+            }
+        ]
+    },
+    "footer": {
+        "regolamento": "Regolamento",
+        "info": "INFORMAZIONI",
+        "competizione": "COMPETIZIONE",
+        "chi_siamo": "Chi siamo",
+        "nostro_blog": "Il Nostro Blog",
+        "cambio_lingua": "Cambio lingua",
+        "albo": "Albo d'oro",
+        "profilo": "Profilo",
+        "comunicazioni": "Comunicazioni",
+        "log_out": "LOG-OUT"
+    },
+    "albo": {
+        "titolo": "Albo d'oro",
+        "lista": [
+            {
+                "subtitolo": "Edizione 2014/2015",
+                "messaggio1": "Numero dei partecipanti è di 12",
+                "messaggio2": "Vincitore Profeta"
+            },
+            {
+                "subtitolo": "Edizione 2015/2016",
+                "messaggio1": "Numero dei partecipanti è di 12",
+                "messaggio2": "Vincitore Profeta"
+            },
+            {
+                "subtitolo": "Edizione 2016/2017",
+                "messaggio1": "Numero dei partecipanti è di 12",
+                "messaggio2": "Vincitore Profeta"
+            },
+            {
+                "subtitolo": "Edizione 2017/2018",
+                "messaggio1": "Numero dei partecipanti è di 12",
+                "messaggio2": "Vincitore Ostello Il Maestro"
+            },
+            {
+                "subtitolo": "Edizione 2018/2019",
+                "messaggio1": "Numero dei partecipanti è di 8",
+                "messaggio2": "Vincitore Ostello Il Maestro"
+            },
+            {
+                "subtitolo": "Edizione 2019/2020",
+                "messaggio1": "Numero dei partecipanti è di 0",
+                "messaggio2": "Non disputata"
+            },
+            {
+                "subtitolo": "Edizione 2020/2021",
+                "messaggio1": "Numero dei partecipanti è di 12, per la prima volta il torneo si esteso a diverse leghe",
+                "messaggio2": "Vincitore Smithwiks"
+            },
+            {
+                "subtitolo": "Edizione 2021/2022",
+                "messaggio1": "Numero dei partecipanti è di 20",
+                "messaggio2": "Vincitore Slayer84"
+            },
+            {
+                "subtitolo": "Edizione 2022/2023",
+                "messaggio1": "Numero dei partecipanti è di 20",
+                "messaggio2": "Vincitore Kil Kil"
+            },
+            {
+                "subtitolo": "Edizione 2023/2024",
+                "messaggio1": "Numero dei partecipanti è di 36",
+                "messaggio2": "Vincitore ????"
+            }
+        ]
+    }
+}

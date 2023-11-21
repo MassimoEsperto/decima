@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Paint';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Paint'), url('../../assets/font/FingerPaint-Regular.woff') format('woff');
+}
+
+* {
+    font-family: 'Paint', sans-serif !important
+}
+
+.font-small {
+    font-size: 8px;
+}

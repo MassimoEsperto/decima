@@ -1,0 +1,227 @@
+{
+    "page": {
+        "cambia_dati": "更改数据",
+        "cambia_squadra": "讓團隊",
+        "seleziona_squadra": "讓團隊",
+        "cambia_img": "更改图像",
+        "personalizza": "定制",
+        "giornata": "日",
+        "da_disputare": "有争议",
+        "inizio_partita": "游戏开始",
+        "inserisci_formazione": "插入训练",
+        "vedi_live": "現場直播",
+        "risultati": "结果",
+        "classifiche": "排名",
+        "calendario": "结果日历",
+        "girone": "团体",
+        "media_partite": "平均比賽",
+        "squadra": "团队",
+        "rosa_utente": "用户密码",
+        "rose_utenti": "用户密码",
+        "indisponibili": "不可",
+        "convocabili": "可召喚",
+        "formazione": "训练",
+        "calcolo": "計算中...",
+        "serie": "一個聯賽",
+        "fase": "階段",
+        "data": "日期",
+        "voti_live": "現場投票",
+        "statistiche": "統計數據",
+        "generale": "獨特的所有組",
+        "altri_match": "其他遊戲",
+        "cosi_campo": "坎波科西",
+        "live_match": "現場比賽",
+        "modulo": "MODULO",
+        "punti_bonus": "PUNTI BONUS",
+        "sfoglia_risultati": "瀏覽結果",
+        "fasi": {
+            "gironi": "團體",
+            "spareggi": "射擊",
+            "quarti": "四分之一",
+            "semi_finale": "半-決賽",
+            "finale": "決賽"
+        },
+        "percorso": {
+            "0": "參賽者",
+            "1": "進入小組",
+            "2": "進入季后賽",
+            "3": "第八名合格",
+            "4": "合格區",
+            "5": "合格的半決賽選手",
+            "6": "最終預選賽"
+        },
+        "stati": {
+            "in_corsa": "仍在運行",
+            "eliminato": "用戶已刪除",
+            "vincitore": "贏家 SHITCUP"
+        }
+    },
+    "alert": {
+        "success": "难以置信！",
+        "email": "很快您将收到一封包含所请求信息的电子邮件",
+        "formazione": "您的帐户没有游戏"
+    },
+    "presentazione": {
+        "discorso": "粪便杯已成为一种敬畏和时尚的元素，是所有希望从破产季节中赎回的足球运动员的基本特征。",
+        "aggiorna_versione": "您必须更新版本",
+        "versione_locale": "本地版本",
+        "versione_applicazione": "应用程序版本",
+        "soluzione": "已指示解决方案",
+        "svuotare_cache": "清空缓存并删除 co​​okie ..",
+        "gestione_squadre": "團隊管理"
+    },
+    "bottoni": {
+        "invia": "发送",
+        "inserisci": "插",
+        "schiera": "大批",
+        "salva": "保存",
+        "conferma": "確認",
+        "entra": "进来",
+        "avatar": "选择头像",
+        "annulla": "取消",
+        "aggiungi_squadra": "添加團隊",
+        "cambia": "更改数据"
+    },
+    "pannello": {
+        "admin": "行政",
+        "home": "家",
+        "formazione": "培训管理",
+        "calendario": "结果日历",
+        "rose": "玫瑰用户列表",
+        "log_out": "注销",
+        "classifiche": "排名",
+        "comunicazioni": "通訊"
+    },
+    "header": {
+        "admin": "行政",
+        "home": "家",
+        "formazione": "培训管理",
+        "calendario": "结果日历",
+        "rose": "玫瑰用户列表",
+        "classifiche": "排名",
+        "comunicazioni": "通訊",
+        "info": "信息",
+        "exit":"EXIT"
+    },
+    "smart": {
+        "admin": "行政",
+        "home": "家",
+        "calendario": "结果日历",
+        "rose": "玫瑰用户列表",
+        "classifiche": "排名",
+        "info": "信息",
+        "utenti": "用戶",
+        "comunicazioni": "通訊",
+        "calciatori": "足球運動員",
+        "date": "日期",
+        "competizione": "競爭"
+    },
+    "login": {
+        "recupera_password": "恢复密码",
+        "registrati": "注册",
+        "login": "登录",
+        "torna_al_login": "返回登录",
+        "step": {
+            "passo": "一步步",
+            "indietro": "返回",
+            "successivo": "下一個",
+            "di": "迪",
+            "lega": "輸入您當前夢幻足球的聯賽名稱",
+            "squadra": "選擇您當前的夢幻足球隊",
+            "rosa": "球隊確認由 3 名守門員 8 名後衛 8 名中場球員和 6 名前鋒組成",
+            "dati": "輸入您對本次比賽有效的個人數據"
+        }
+    },
+    "modali": {
+        "cambia_lingua": "改变语言",
+        "lingue": [
+            {
+                "cod": "ita",
+                "nome": "义大利文",
+                "ico": "fas fa-pizza-slice"
+            },
+            {
+                "cod": "eng",
+                "nome": "英语",
+                "ico": "fas fa-igloo"
+            },
+            {
+                "cod": "fra",
+                "nome": "法语",
+                "ico": "fab fa-fort-awesome"
+            },
+            {
+                "cod": "cin",
+                "nome": "中国人",
+                "ico": "fas fa-torii-gate"
+            }
+        ]
+    },
+    "footer": {
+        "regolamento": "法规",
+        "info": "信息",
+        "competizione": "竞赛",
+        "chi_siamo": "我们是谁",
+        "nostro_blog": "我们的博客",
+        "cambio_lingua": "更改语言",
+        "albo": "荣誉卷",
+        "profilo": "輪廓",
+        "comunicazioni": "通訊",
+        "log_out": "注销"
+    },
+    "albo": {
+        "titolo": "荣誉卷",
+        "lista": [
+            {
+                "subtitolo": "版 2014/2015",
+                "messaggio1": "参加人数为 12",
+                "messaggio2": "优胜者 Profeta"
+            },
+            {
+                "subtitolo": "版 2015/2016",
+                "messaggio1": "参加人数为 12",
+                "messaggio2": "优胜者 Profeta"
+            },
+            {
+                "subtitolo": "版 2016/2017",
+                "messaggio1": "参加人数为 12",
+                "messaggio2": "优胜者 Profeta"
+            },
+            {
+                "subtitolo": "版 2017/2018",
+                "messaggio1": "参加人数为 12",
+                "messaggio2": "优胜者 Ostello Il Maestro"
+            },
+            {
+                "subtitolo": "版 2018/2019",
+                "messaggio1": "参加人数为 8",
+                "messaggio2": "优胜者 Ostello Il Maestro"
+            },
+            {
+                "subtitolo": "版 2019/2020",
+                "messaggio1": "参加人数为 0",
+                "messaggio2": "无争议"
+            },
+            {
+                "subtitolo": "版 2020/2021",
+                "messaggio1": "参加人数为 12, 比赛第一次扩展到几个联赛",
+                "messaggio2": "优胜者 Smithwiks"
+            },
+            {
+                "subtitolo": "版 2021/2022",
+                "messaggio1": "参加人数为 20",
+                "messaggio2": "优胜者 Slayer84"
+            },
+            {
+                "subtitolo": "版 2022/2023",
+                "messaggio1": "参加人数为 20",
+                "messaggio2": "优胜者 Kil Kil"
+            },
+            {
+                "subtitolo": "版 2023/2024",
+                "messaggio1": "参加人数为 36",
+                "messaggio2": "优胜者 ?????"
+            }
+        ]
+    }
+}
