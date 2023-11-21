@@ -1,0 +1,98 @@
+@import 'assets/css/variabili.scss';
+@import 'assets/css/animazioni.scss';
+@import 'assets/css/padding.scss';
+@import 'assets/css/margin.scss';
+@import 'assets/css/bottoni.scss';
+@import 'assets/css/font.scss';
+@import 'assets/css/page.scss';
+@import 'assets/css/card.scss';
+@import 'assets/css/scrollbar.scss';
+@import 'assets/css/modali.scss';
+@import 'assets/css/form.scss';
+@import 'assets/css/flex.scss';
+@import 'assets/css/navbar.scss';
+@import 'assets/css/refactoring.scss';
+
+
+.dispatcher {
+    min-height: 100vh;
+    background-image: $sfondo-shit;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gradient-body {
+    min-height: 100vh;
+    background-image: $gradiente-shit;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.cursore {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.spinner-fisso {
+    position: fixed;
+    overflow: hidden;
+    right: 0;
+    z-index: 10;
+    padding: 16px;
+}
+
+.nome_squadra {
+    display: inline-block;
+    margin-bottom: 0;
+    min-width: 140px;
+    text-align: center;
+}
+
+.text-centro {
+    text-align: center;
+}
+
+.text-destra {
+    text-align: right;
+}
+
+.text-sinistra {
+    text-align: left;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+
+.bg-transparent {
+   background-color: initial !important;
+}
+
+.bg-warning {
+   background-color: $colore-verde!important;
+}
+
+.opzioni div:hover{
+    background-color: $colore-verde;
+}
+
+.text-white {
+   color: #fff!important;
+}
+
+.modal .modal-header {
+    color: gainsboro;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    border-bottom: 0px !important;
+}
+
+.modal .modal-footer {
+    color: gainsboro;
+    border-top: 0px !important;
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+}
