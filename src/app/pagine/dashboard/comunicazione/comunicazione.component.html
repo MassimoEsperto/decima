@@ -1,0 +1,29 @@
+<div *ngIf="spinner.getLoading()" class="fadein">
+
+    <div *ngFor="let item of comunicazioni">
+        <div *ngIf="item.visualizzata==1" class="pb-16 pb-16">
+            <div class="card-trasparent">
+                <div class="card-header">{{item.tempo}} </div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5>{{item.titolo}}</h5>
+                    </div>
+                    <p class="text-white">{{item.messaggio}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="item.visualizzata==0"  class="pb-16 pb-16">
+            <div class="card-green">
+                <div class="card-header">{{item.tempo}} </div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5>{{item.titolo}}</h5>
+                    </div>
+                    <p class="text-white">{{item.messaggio}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

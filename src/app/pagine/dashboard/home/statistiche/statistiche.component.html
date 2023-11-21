@@ -1,0 +1,114 @@
+<div *ngIf="statistiche" class="pb-8 pt-32">
+
+    <div class="card bg-warning text-white">
+        <div class="card-body">
+            <div>{{language.label.page.statistiche}}</div>
+        </div>
+    </div>
+
+    <div class="pb-8 pt-8">
+        <div class="card">
+
+            <div class="card-body">
+                <div class="display-around">
+                    <div class="text-centro">
+                        <div><span>GIO</span></div>
+                        <div><span>{{statistiche.total}}</span></div>
+                    </div>
+                    <div class="text-centro">
+                        <div><span>WIN</span></div>
+                        <div><span>{{statistiche.win}}</span></div>
+                    </div>
+                    <div class="text-centro">
+                        <div><span>LOSE</span></div>
+                        <div><span>{{statistiche.lose}}</span></div>
+                    </div>
+                    <div class="text-centro">
+                        <div><span>PAR</span></div>
+                        <div><span>{{statistiche.par}}</span></div>
+                    </div>
+                    <div class="text-centro">
+                        <div><span>GOL</span></div>
+                        <div><span>{{statistiche.goals}}</span></div>
+                    </div>
+                    <div class="text-centro">
+                        <div><span>RANK</span></div>
+                        <div><span>{{statistiche.ranking}}</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-8 pb-8">
+
+        <div class="card">
+            <div class="card-body">
+                <img src="assets/avatar/START.png" class="avatar" width="24px" />
+                {{language.label.page.percorso[0]}}
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngFor="let element of percorso" class="pt-8 pb-8">
+
+        <div class="card">
+            <div class="card-header">
+                <img src="assets/avatar/TRAGUARDO.png" class="avatar" width="24px" />
+                {{language.label.page.percorso[element.fase]}}
+            </div>
+        </div>
+
+        <div *ngFor="let item of element.partite">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="squadre">
+                        <div class="col-5 pa-0">
+                            <div class="text-centro">
+                                <label [ngStyle]="{'font-weight': item.CASA.is_player ? 'bold' : 'normal' }">
+                                    {{item.CASA.squadra}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-2 pa-0">
+                            <div class="text-centro">
+                                <label>{{item.CASA.goals}}-{{item.TRASFERTA.goals}}</label>
+                            </div>
+                        </div>
+                        <div class="col-5 pa-0">
+                            <div class="text-centro">
+                                <label [ngStyle]="{'font-weight': item.TRASFERTA.is_player ? 'bold' : 'normal' }">
+                                    {{item.TRASFERTA.squadra}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-8 pb-8">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="text-centro text-bold">{{statistiche.loggato.squadra}}
+                    {{getStato(statistiche.stato)}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>

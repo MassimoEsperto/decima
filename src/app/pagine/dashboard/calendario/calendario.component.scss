@@ -1,0 +1,19 @@
+.fasi{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   // margin-bottom: -16px;
+   overflow: hidden;
+
+}
+
+.col-half {
+    flex-basis: 50%;
+  }
+
+.fase{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

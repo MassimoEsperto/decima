@@ -1,0 +1,142 @@
+<div *ngIf="spinner.getLoading()" class="fadein">
+
+    <my-titolo [title]="language.label.page.classifiche"></my-titolo>
+
+    <div *ngIf="classifiche.gironi.length" class="pt-24 pb-8">
+
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div>{{language.label.page.fasi.gironi}}</div>
+            </div>
+        </div>
+
+        <div *ngFor="let classifica of classifiche.gironi">
+            <div class="pt-8 pb-8">
+                <div class="card text-bg-light">
+
+                    <div class="card-header" style="text-align: right;">
+                        <div>
+                            <h6 class="ma-0">{{language.label.page.girone}} {{classifica.girone}}</h6>
+                        </div>
+                    </div>
+
+                    <!--Card content-->
+                    <div>
+                        <table class="table table-borderless ma-0" style="border-radius: 8px;">
+                            <thead class="table-red">
+                                <tr>
+                                    <th *ngFor="let head of headElementsGironi;let i=index" scope="col"
+                                        [ngClass]="i > 0 ? 'numeri' : 'niente'">{{head}} </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let el of classifica.teams"
+                                    [ngClass]="{'table-qualificato': el.condizione === CONDIZIONE_GIRONE.QAULIFICATO }">
+                                    <td [ngClass]="{'spareggi' : el.condizione === CONDIZIONE_GIRONE.SPAREGGI }">
+                                        <div class="flex-start">
+                                            <img src="assets/avatar/{{el.avatar}}.png" class="avatar" width="24px" />
+                                            <div class="pl-8">{{el.squadra}}</div>
+                                        </div>
+                                    </td>
+                                    <td [ngClass]="{'spareggi' : el.condizione === CONDIZIONE_GIRONE.SPAREGGI }">
+                                        {{el.gol}}</td>
+                                    <td [ngClass]="{'spareggi' : el.condizione === CONDIZIONE_GIRONE.SPAREGGI }">
+                                        {{el.punti}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pb-8 pt-8">
+            <div class="card">
+                <div class="card-body">
+                    <div>
+                        <span style="font-size: 14px;">QUALIFICATE: </span>
+                        <div class="flex-start">
+                            <div class="qualificato leggenda"></div>
+                            <div>
+                                <span style="font-size: 14px;">
+                                    <div fas icon="bullhorn"></div> AL TURNO
+                                    SUCCESSIVO
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex-start">
+                            <div class="spareggi leggenda"></div>
+                            <div>
+                                <span style="font-size: 14px;">
+                                    <div fas icon="bullhorn"></div> AGLI
+                                    SPAREGGI
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div *ngIf="classifiche.factory.length" class="pt-8 pb-8">
+
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div>COEFFICIENTE MERDA</div>
+            </div>
+        </div>
+
+        <div class="pt-8 pb-8">
+
+            <div class="accordion" id="accordionCoefficiente">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseCoefficiente" aria-expanded="true"
+                            aria-controls="collapseCoefficiente">
+                            <div style="width: 100%;" class="pr-8">
+                                <div class="my-flex-between">
+                                    <div><strong>{{language.label.page.generale}}</strong></div>
+                                    <img src="assets/img/monkey_cup.png" class="avatar" width="24px" />
+                                </div>
+                            </div>
+                        </button>
+
+                    </h2>
+                    <div id="collapseCoefficiente" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionCoefficiente">
+                        <div class="accordion-body">
+                            <div>
+                                <table class="table table-borderless ma-0" style="border-radius: 8px;">
+                                    <thead class="table-red">
+                                        <tr>
+                                            <th *ngFor="let head of headElementsFactory;let i=index" scope="col"
+                                                [ngClass]="i > 0 ? 'numeri' : 'niente'">{{head}} </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let el of classifiche.factory">
+                                            <td>
+                                                <div class="flex-start">
+                                                    <img src="assets/avatar/{{el.avatar}}.png" class="avatar"
+                                                        width="24px" />
+                                                    <div class="pl-8">{{el.squadra}}</div>
+                                                </div>
+                                            </td>
+                                            <td style="font-weight: bold;">{{el.factory}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

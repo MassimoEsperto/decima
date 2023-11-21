@@ -1,0 +1,55 @@
+<div [hidden]="!spinner.getLoading()" class="fadein">
+
+    <my-titolo [title]="language.label.page.calendario"></my-titolo>
+
+       <div class="fasi ma-0 pa-0">
+     
+        <div data-bs-target="#carouselExample" data-bs-slide="prev" class="cursore pt-8">
+            <img src="assets/img/freccias.png" class="avatar" width="48px" />
+        </div>
+
+        <div class="text-white text-centro">
+            <span style="font-size: 16px;" class="pl-4">{{language.label.page.sfoglia_risultati}}</span>
+        </div>
+      
+        <div data-bs-target="#carouselExample" data-bs-slide="next" class="cursore pt-8">
+            <img src="assets/img/frecciad.png" class="avatar" width="48px" />
+        </div>
+
+    </div>
+
+    <div id="carouselExample" #carousel class="carousel slide ">
+        <div class="carousel-inner">
+            <div *ngFor="let palinsesto of calendario; let i = index" class="carousel-item"
+                [ngClass]="{'active' : i === today }">
+
+                <div class="text-white text-centro pb-16 mt--t-16">
+                    <span style="font-size: 16px;">{{language.label.page.giornata}} {{palinsesto.giornata}}°</span>
+                </div>
+
+                <div class="row ma-0" style="border-radius: 10px;">
+                    <div class="fase col-4"
+                        style="background-color:#00c851;color: white;border-radius: 8px 0px 0px 8px;">
+                        <span><u>{{language.label.page.serie}}</u></span>
+                        <span>{{palinsesto.serie_a}}°</span>
+                    </div>
+                    <div class="fase col-4 pt-8 pb-8" style="background-color:white;">
+                        <span style="color:#00c851;"><u>{{language.label.page.fase}}</u></span>
+                        <span style="color:#f44336;">{{getFasi(palinsesto.fase)}}</span>
+                    </div>
+                    <div class="fase col-4"
+                        style="background-color:#f44336;color: white;border-radius: 0px 8px 8px 0px;">
+                        <span><u>{{language.label.page.data}}</u></span>
+                        <span>{{palinsesto.data}}</span>
+                    </div>
+                
+            </div>
+                <my-risultati [calendario]="palinsesto"></my-risultati>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

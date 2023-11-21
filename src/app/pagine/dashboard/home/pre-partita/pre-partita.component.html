@@ -1,0 +1,99 @@
+<div *ngIf="dash.match.ESISTENTE" class="pt-16">
+
+    <div class="row ma-0">
+  
+      <!-- Match-->
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pa-0">
+  
+        <div class="pb-16">
+  
+        <div class="card-green">
+          <div class="card-header">
+            <div>{{language.label.page.inizio_partita}}: {{dash.turno.data_inizio}}</div>
+          </div>
+          <!--Card content-->
+          <div class="card-body sfondo_campo">
+            <div class="pt-8 pb-8">
+                <div class="squadre">
+              <div class="col-4 col-sm-4 col-md-5 col-lg-5">
+                <div class="punteggio">
+                  <img src="assets/avatar/{{dash.match.CASA.avatar}}.png" class="avatar" width="24px" />
+                </div>
+                <div class="col-12 col-sm-12 col-md-10 col-lg-10  punteggio">
+                  <label class="nome_squadra text-bold">
+                    {{dash.match.CASA.squadra}}
+                  </label>
+                </div>
+              </div>
+              <div class="punteggio col-4 col-sm-4 col-md-2 col-lg-2"></div>
+              <div class="col-4 col-sm-4 col-md-5 col-lg-5">
+                <div class="punteggio">
+                  <img src="assets/avatar/{{dash.match.TRASFERTA.avatar}}.png" class="avatar" width="24px" />
+                </div>
+                <div class="col-12 col-sm-12 col-md-10 col-lg-10 punteggio">
+                  <label class="nome_squadra text-bold">
+                    {{dash.match.TRASFERTA.squadra}}
+                  </label>
+                </div>
+              </div>
+            </div>
+        </div>
+  
+            <div class="pt-16 pb-24 pr-8 pl-8">
+              <my-button [submit]="false" [color]="'bg-warning text-white'" [block]="true" [label]="language.label.page.inserisci_formazione"
+                (myClick)="inserisciFormazione()"></my-button>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-2 pa-0"></div>
+
+
+      <!-- lavagna-->
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pa-0">
+  <div class="card-green">
+        <div class="card-body">
+  
+          <div class="sfondo_lavagna pa-8">
+            <div class="sfidante pb-16"> <label class="text-bold">
+                {{language.label.page.cosi_campo}}
+              </label></div>
+  
+            <div class="lavagna pb-8">
+  
+              <div class="divisione">
+                <div class="col-half">
+                  <div class="font-size-smart pr-4">
+                    <div class="formazioni">
+                      <label *ngFor="let gesso of dash.match.CASA.schieramento">
+                        {{gesso.ruolo}} {{gesso.nome}}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-half">
+                  <div class="font-size-smart pl-4">
+                    <div class="formazioni">
+                      <label *ngFor="let gesso of dash.match.TRASFERTA.schieramento">
+                        {{gesso.ruolo}} {{gesso.nome}}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+      </div>
+  
+      </div>
+    </div>
+  
+  </div>
+  

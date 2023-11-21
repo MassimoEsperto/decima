@@ -1,0 +1,119 @@
+<div *ngIf="spinner.getLoading()" class="fadein">
+
+    <div [hidden]="schieramento">
+
+        <my-titolo [title]="language.label.page.rosa_utente"></my-titolo>
+
+        <div class="card">
+            <div class="card-header">
+                <div>{{language.label.page.convocabili}}</div>
+            </div>
+            <div class="card-body">
+                <div class="pt-16">
+                    <div class="form-check" *ngFor="let player of rosa; index as i;">
+                        <input class="form-check-input" type="checkbox" id="{{'check'+player.id}}" name="{{player}}"
+                            [(ngModel)]="rosa[i].selected" [disabled]="!disabledTeam(player) && !player.selected">
+                        <label class="form-check-label" for="{{'check'+player.id}}">
+                            {{player.tipo}} {{player.nome}} {{percentuale[player.nome]?percentuale[player.nome]:'0%'}}
+                        </label>
+                    </div>
+                </div>
+                <div class="pt-16 pb-16">
+                    <my-button [submit]="true" [color]="'btn-success'" [block]="true" (myClick)="schiera()"
+                        [disabled]="selected().length!=5" [label]="language.label.bottoni.schiera"></my-button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="pt-16 pb-16">
+            <div class="card">
+                <div class="card-header">
+                    <div style="color: red">{{language.label.page.indisponibili}} :</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-check" *ngFor="let item of formazione.indisponibili">
+                        <input class="form-check-input" type="checkbox" value="" [id]="item.nome" disabled>
+                        <label class="form-check-label" [for]="item.nome">
+                            {{item.tipo}} {{item.nome}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div [hidden]="!schieramento" class="display-center-n text-centro pb-32">
+
+        <div class="pb-32">
+
+            <my-titolo [title]="language.label.page.formazione"></my-titolo>
+
+            <div>
+                <div class="squadra-list" (click)="changeView()">
+
+                    <div class="display-center-n pa-8">
+                        <div *ngFor="let ele of squadra">
+                            <div *ngIf="ele.tipo=='P'">
+                                <img src="assets/caricature/{{ele.icona}}.png" class="avatar" width="40px" />
+                                <div class="squadra-box">
+                                    <div>{{ele.tipo+" "+ele.nickname}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="display-center-n pa-8">
+                        <div *ngFor="let ele of squadra">
+                            <div *ngIf="ele.tipo=='D'">
+                                <img src="assets/caricature/{{ele.icona}}.png" class="avatar" width="40px" />
+                                <div class="squadra-box">
+                                    <div>{{ele.tipo+" "+ele.nickname}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="display-center-n pa-8">
+                        <div *ngFor="let ele of squadra">
+                            <div *ngIf="ele.tipo=='C'">
+                                <img src="assets/caricature/{{ele.icona}}.png" class="avatar" width="40px" />
+                                <div class="squadra-box">
+                                    <div>{{ele.tipo+" "+ele.nickname}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="display-center-n pa-8">
+                        <div *ngFor="let ele of squadra">
+                            <div *ngIf="ele.tipo=='A'">
+                                <img src="assets/caricature/{{ele.icona}}.png" class="avatar" width="40px" />
+                                <div class="squadra-box">
+                                    <div>{{ele.tipo+" "+ele.nickname}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div *ngIf="modulo" class="pt-16">
+                    <p style="color: white;margin-bottom:0">{{language.label.page.modulo}} : {{modulo.descrizione}}</p>
+                    <p style="color: white;margin-bottom:0">{{language.label.page.punti_bonus}} : {{modulo.bonus}}</p>
+                </div>
+
+                <div class="pt-16 pb-16">
+                    <my-button [color]="'btn-primary'" [block]="true" [disabled]="squadra.length!=5"
+                        [label]="language.label.bottoni.salva" [loading]="loading_btn"
+                        (myClick)="setFormazione()"></my-button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- </div> -->
+</div>

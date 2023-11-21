@@ -1,0 +1,46 @@
+<div *ngIf="spinner.getLoading()" class="fadein">
+    
+    <my-titolo [title]="language.label.page.rose_utenti"></my-titolo>
+
+    <div class="pt-8 pb-32">
+
+    <div class="accordion" id="accordionRose">
+
+        <div *ngFor="let item of rose; let i = index" class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapse' + i" aria-expanded="true" [attr.aria-controls]="'collapse' + i">
+                    <div style="width: 100%;" class="pr-8">
+                        <div class="my-flex-between">
+                            <div>{{item.squadra}}</div>
+                            <img src="assets/avatar/{{item.avatar}}.png" class="avatar" width="24px" />
+                        </div>
+                    </div>
+                </button>
+
+            </h2>
+            <div [id]="'collapse' + i" class="accordion-collapse collapse" data-bs-parent="#accordionRose">
+                <div class="accordion-body">
+                    <div>
+                        Username: {{item.username}}
+                    </div>
+
+                    <div>
+                        Lega: {{item.lega}}
+                    </div>
+
+                    <div>
+                        Account: {{item.account}}
+                    </div>
+
+                    <br>
+
+                    <div *ngFor="let ele of item.lista;let i = index">
+                        {{i+1}} {{ele.ruolo}} {{ele.calciatore}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
