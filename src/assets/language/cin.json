@@ -138,22 +138,22 @@
             {
                 "cod": "ita",
                 "nome": "义大利文",
-                "ico": "fas fa-pizza-slice"
+                "ico": "bi bi-cup-hot-fill"
             },
             {
                 "cod": "eng",
                 "nome": "英语",
-                "ico": "fas fa-igloo"
+                "ico": "bi bi-egg-fried"
             },
             {
                 "cod": "fra",
                 "nome": "法语",
-                "ico": "fab fa-fort-awesome"
+                "ico": "bi bi-valentine2"
             },
             {
                 "cod": "cin",
                 "nome": "中国人",
-                "ico": "fas fa-torii-gate"
+                "ico": "bi bi-cpu-fill"
             }
         ]
     },

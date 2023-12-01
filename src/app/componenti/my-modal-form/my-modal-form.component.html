@@ -1,0 +1,41 @@
+ <!-- UPDATE UTENTE -->
+ <div class="modal fade" modal-dialog-centered id="updUtenteModal" tabindex="-1" aria-labelledby="updUtenteModalLabel"
+ data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id="updUtenteModalLabel">updUtenteModal</h5>
+     </div>
+     <div class="modal-body">
+        utente
+       <div *ngIf="data">{{data.squadra}}</div>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+       <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+         (click)="message.confermato()">SI</button> -->
+     </div>
+   </div>
+ </div>
+</div>
+
+ <!-- UPDATE CALENDARIO -->
+ <div class="modal fade" modal-dialog-centered id="updCalendarioModal" tabindex="-1" aria-labelledby="updCalendarioModalLabel"
+ data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id="updCalendarioModalLabel">updCalendarioModal</h5>
+     </div>
+     <div class="modal-body">
+        calendario
+       <div *ngIf="data">girone : {{data.girone}}</div>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+       <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+         (click)="message.confermato()">SI</button> -->
+     </div>
+   </div>
+ </div>
+</div>

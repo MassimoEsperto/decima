@@ -14,21 +14,20 @@ export class RecPassComponent extends OnInitComp implements OnInit {
 
   @Output() submitto = new EventEmitter();
   @Input() combo: any;
-  
+
   constructor(
     private alert: AlertService,
     private auth: AuthService) {
     super();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  onRecPass(payload: any) {
+  onRecPass(utente: any) {
 
     this.loading_btn = true
 
-    this.auth.recuperaPassword(payload.utente.id)
+    this.auth.recuperaPassword(utente.id)
       .pipe(finalize(() =>
         this.loading_btn = false
       ))

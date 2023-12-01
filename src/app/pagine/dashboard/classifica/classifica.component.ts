@@ -6,6 +6,7 @@ import { LanguageService } from 'src/app/servizi/language.service';
 import { PlayerService } from 'src/app/servizi/player.service';
 import { SpinnerService } from 'src/app/servizi/spinner.service';
 
+
 @Component({
   selector: 'classifica',
   templateUrl: './classifica.component.html',
@@ -17,6 +18,7 @@ export class ClassificaComponent extends OnInitComp implements OnInit {
 
   headElementsGironi = [this.language.label.page['squadra'], 'GOL', 'PT'];
   headElementsFactory = [this.language.label.page['squadra'], 'CM'];
+  
 
   constructor(
     private playerService: PlayerService,
@@ -25,6 +27,7 @@ export class ClassificaComponent extends OnInitComp implements OnInit {
     public spinner: SpinnerService) {
     super();
   }
+  
 
   ngOnInit(): void { this.getClassifiche() }
 

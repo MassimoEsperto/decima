@@ -1,11 +1,59 @@
-<p class="d-inline-flex gap-1">
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Button with data-bs-target
-    </button>
-  </p>
-  <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+<div *ngIf="spinner.getLoading()" class="fadein">
+
+  <my-info-card [info]="info"></my-info-card>
+
+  <div class="card">
+  
+    <div class="card-body">
+
+      <div class="display-center pt-16">
+        <!-- table -->
+        <div class="table-responsive">
+
+          <table class="table table-striped">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">USERNAME</th>
+                <th scope="col">RUOLO</th>
+                <th scope="col">SQUADRA</th>
+                <th scope="col">STATO</th>
+                <th scope="col">UPD</th>
+                <th scope="col">DEL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ele of squadre; let id = index">
+                <th scope="row">
+                  <span>{{ele.id_utente}}</span>
+                </th>
+                <td>
+                  <span>{{ele.username}}</span>
+                </td>
+                <td>
+                  <span>{{ele.ruolo}}</span>
+                </td>
+                <td>
+                  <span>{{ele.squadra}}</span>
+                </td>
+                <td>
+                  <span>{{ele.stato}}</span>
+                </td>
+                <td>
+                  <div (click)="onUpdUtente(ele)" class="text-center cursore" data-bs-toggle="modal" data-bs-target="#updUtenteModal"><i class="bi bi-incognito"></i></div>
+                </td>
+                <td>
+                  <span class="table-remove">
+                    <i class="bi bi-trash-fill cursore" (click)="onDelete(ele)"
+                        data-bs-toggle="modal" data-bs-target="#confirmModal"></i>
+                </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
     </div>
   </div>
-

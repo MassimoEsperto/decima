@@ -1,6 +1,8 @@
-<div class="card text-center animate__animated animate__rubberBand">
+<div class="card text-center animate__animated animate__rubberBand login">
     <div class="card-header testo-bold">
-        LOGIN
+        <div class="pa-16">
+            <strong style="font-size: large;">LOGIN</strong>
+        </div>
     </div>
     <div class="card-body">
 
@@ -23,7 +25,7 @@
 
 
             <div class="pt-16 pb-16">
-                <my-button [disabled]="!loginForm.form.valid" [block]="true" [color]="'btn-danger'"
+                <my-button [disabled]="!loginForm.form.valid" [block]="true" [color]="'bg-primary text-white'"
                     [loading]="loading_btn" [submit]="true" [label]="'CONFERMA'">
                 </my-button>
             </div>
@@ -33,7 +35,7 @@
 
     </div>
     <div class="card-footer text-muted display-around">
-        <a class="cursore" (click)="submitto.emit(LOGIN_PAGE.REGISTER)">Registrati</a>
+        <a class="cursore pr-16" (click)="submitto.emit(LOGIN_PAGE.REGISTER)">Registrati</a>
         <a class="cursore" (click)="submitto.emit(LOGIN_PAGE.REC_PASS)">Recupera Password</a>
     </div>
 </div>

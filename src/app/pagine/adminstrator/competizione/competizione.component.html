@@ -1,1 +1,25 @@
-<p>competizione works!</p>
+<div *ngIf="spinner.getLoading()" class="fadein">
+
+    <my-info-card [info]="info"></my-info-card>
+
+    <div class="card">
+
+        <div class="card-body">
+            <nav>
+                <div class="nav nav-tabs" role="tablist">
+                    <button *ngFor="let ele of PAGE.COMPETIZIONE.VIEW_POSSIBILI" (click)="PAGE.VIEW=ele.id"
+                        class="nav-link">{{ele.descrizione}}</button>
+                </div>
+            </nav>
+
+            <div class="tab-content">
+                <div class="pt-16 pb-16">
+                    <recupero-formazioni *ngIf="PAGE.VIEW == PAGE.COMPETIZIONE.RECUPERO" [administrator]="administrator"></recupero-formazioni>
+                    <calcolo-voti *ngIf="PAGE.VIEW == PAGE.COMPETIZIONE.CALCOLO" [calcolato]="administrator.calcolato"></calcolo-voti>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

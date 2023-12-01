@@ -1,0 +1,70 @@
+<div *ngIf="administrator">
+
+    <div class="pt-8">
+        <div class="row pa-0 ma-0">
+            <div class="col-6 pa-0 ma-0">
+                <select class="form-select" [(ngModel)]="giornata_selezionata" placeholder="Giornata"
+                    (change)="formazioni_inserite=[]">
+                    <optgroup label="Da Calcolare">
+                        <option *ngFor="let g of administrator.calcolato['NO']" [ngValue]="g">Giornata {{g}}°</option>
+                    </optgroup>
+                    <optgroup label="Gia Calcolato">
+                        <option *ngFor="let g of administrator.calcolato['SI']" [ngValue]="g">Giornata {{g}}°</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="col-6 pa-0 ma-0">
+                <div class="pl-8">
+                    <my-button [submit]="false" [color]="'btn-primary'" [block]="false"
+                        [disabled]="!giornata_selezionata" [label]="'PROCEDI'" [loading]="loading_btn"
+                        (myClick)="formazioniInserite()"></my-button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="pt-16">
+        <div *ngFor="let item of formazioni_inserite" class="pt-8">
+
+            <div class="my-card">
+                <div class="my-card-header">
+                    <div class="row pa-0 ma-0">
+                        <div class="col-6">
+                            <span>{{item.CASA.squadra}}</span>
+                        </div>
+                        <div class="col-6">
+                            <span>{{item.TRASFERTA.squadra}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-card-body font-size-smart">
+                    <div class="row pa-0 ma-0">
+                        <div class="col-6 pa-0 ma-0">
+                            <div *ngFor="let ele of item.CASA.schieramento">
+                                <span>{{ele.nickname}}</span>
+                            </div>
+                            <div class="pt-8">
+                                <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [label]="'RECUPERA'"
+                                    [loading]="loading_btn" (myClick)="recuperaFormazioneCasa(item)"
+                                    [disabled]="item.CASA.schieramento.length==5"></my-button>
+                            </div>
+
+                        </div>
+                        <div class="col-6 pa-0 ma-0">
+                            <div *ngFor="let ele of item.TRASFERTA.schieramento">
+                                <span>{{ele.nickname}}</span>
+                            </div>
+                            <div class="pt-8">
+                                <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [label]="'RECUPERA'"
+                                    [loading]="loading_btn" (myClick)="recuperaFormazioneTrasferta(item)"
+                                    [disabled]="item.TRASFERTA.schieramento.length==5"></my-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

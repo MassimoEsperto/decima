@@ -1,21 +1,46 @@
-<div class="forms gradient-body">
-    <div *ngIf="!loading_page" class="forms">
-        <div>
+<div class="gradient-body">
+    <div class="page-login">
+        <div *ngIf="!loading_page&&!errore" class="display-center">
+            <div>
 
-            <sign-in *ngIf="view==LOGIN_PAGE.SIGN_IN" (submitto)="changeView($event)"></sign-in>
-            <register *ngIf="view==LOGIN_PAGE.REGISTER" (submitto)="changeView($event)"></register>
-            <rec-pass *ngIf="view==LOGIN_PAGE.REC_PASS" (submitto)="changeView($event)" [combo]="utenti"></rec-pass>
+                <sign-in *ngIf="view==LOGIN_PAGE.SIGN_IN" (submitto)="changeView($event)"></sign-in>
+                <register *ngIf="view==LOGIN_PAGE.REGISTER" (submitto)="changeView($event)"></register>
+                <rec-pass *ngIf="view==LOGIN_PAGE.REC_PASS" (submitto)="changeView($event)" [combo]="utenti"></rec-pass>
+
+            </div>
+        </div>
+
+        <div *ngIf="loading_page" class="display-center">
+
+            <div class="col-12 col-sm-1 col-md-2 col-lg-2 ma-0 pa-0">
+            </div>
+            <div class="col-12 col-sm-10 col-md-8 col-lg-8 ma-0 pa-0">
+                <div class="page">
+                    <frontespizio></frontespizio>
+                </div>
+            </div>
+            <div class="col-12 col-sm-1 col-md-2 col-lg-2 ma-0 pa-0">
+            </div>
 
         </div>
-    </div>
 
-    <div *ngIf="loading_page">
-
-        <!-- <div class="display-center">
-        <div class="col-sm-12 col-md-6">
-            <img src="assets/img/welcome.png" alt="ShitCup" class="immagine">
+        <div *ngIf="errore&&!loading_page" class="fadein pa-8">
+            <div class="text-white">
+                <h5>{{language.label.presentazione.aggiorna_versione}}</h5>
+                <div *ngIf="verifica">
+                    <p>{{language.label.presentazione.versione_locale}}: {{verifica.locale}}</p>
+                    <p>{{language.label.presentazione.versione_applicazione}}: {{verifica.applicazione}}</p>
+                </div>
+                <hr>
+                <p>{{language.label.presentazione.soluzione}}:</p>
+                <p>{{language.label.presentazione.svuotare_cache}}</p>
+            </div>
+            <div class="flex-center">
+                <div class="pa-32">
+                    <img src="assets/img/monkey_cup.png" alt="Scimmia" class="width-100">
+                </div>
+            </div>
         </div>
-    </div>
-    <my-locandina></my-locandina> -->
+
     </div>
 </div>

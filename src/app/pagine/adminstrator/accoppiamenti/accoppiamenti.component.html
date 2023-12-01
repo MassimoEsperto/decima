@@ -1,0 +1,27 @@
+<div *ngIf="spinner.getLoading()" class="fadein">
+
+    <my-info-card [info]="info"></my-info-card>
+
+    <div class="card">
+
+        <div class="card-body">
+            <nav>
+                <div class="nav nav-tabs" role="tablist">
+                    <button *ngFor="let ele of PAGE.ACCOPPIAMENTI.VIEW_POSSIBILI" (click)="PAGE.VIEW=ele.id"
+                        class="nav-link">{{ele.descrizione}}</button>
+                </div>
+            </nav>
+
+            <div class="tab-content">
+                <div class="pt-16 pb-16">
+                    <sorteggi-gironi *ngIf="PAGE.VIEW == PAGE.ACCOPPIAMENTI.SORTEGGI" [accoppiamenti]="accoppiamenti"></sorteggi-gironi>
+                    <eliminatorie *ngIf="PAGE.VIEW == PAGE.ACCOPPIAMENTI.ELIMINATORIE" [accoppiamenti]="accoppiamenti"></eliminatorie>
+                    <data-partite *ngIf="PAGE.VIEW == PAGE.ACCOPPIAMENTI.DATE_PARTITE" [accoppiamenti]="accoppiamenti"></data-partite>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

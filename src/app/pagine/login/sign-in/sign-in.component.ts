@@ -34,10 +34,13 @@ export class SignInComponent extends OnInitComp implements OnInit {
 
         next: (result: any) => {
 
-          this.router.navigate(['dashboard/home'])
-          // .then(() =>{
-          //   window.location.reload();
-          // });
+          let num_msg: number = Number(result.num_msg)
+       
+          if (num_msg > 0)
+            this.router.navigate(['dashboard/comunicazioni']);
+          else
+            this.router.navigate(['dashboard/home']);
+
 
         },
         error: (error: any) => {

@@ -52,7 +52,8 @@ export const ADMIN_SERVICE = {
   UPD_ACCOPPIAMENTO: "upd_accoppiamento",
   DEL_ACCOPPIAMENTO: "del_accoppiamento",
   DEL_OBJECT_BY_ID: "del_object_by_id",
-  GET_ALL_OBJECTS: "get_all_objects"
+  GET_ALL_OBJECTS: "get_all_objects",
+  UPD_CALCIATORE: "upd_calciatore"
 
 }
 
@@ -105,4 +106,48 @@ export const LOGIN_PAGE = {
 export const ALERT_MSG = {
   SUCCESS: "Incredibile ha funzionato",
   ERRORR: "Errore di sistema"
+}
+
+export const SUB_PAGE_ADMIN = {
+
+  VIEW: 0,
+  COMPETIZIONE: {
+    RECUPERO: 1,
+    CALCOLO: 2,
+    VIEW_POSSIBILI: [
+      { id: 1, descrizione: "RECUPERO" },
+      { id: 2, descrizione: "CALCOLO" }
+    ]
+  },
+  ACCOPPIAMENTI: {
+    DATE_PARTITE: 1,
+    ELIMINATORIE: 2,
+    SORTEGGI: 3,
+    VIEW_POSSIBILI: [
+      { id: 1, descrizione: "DATE" },
+      { id: 2, descrizione: "ELIMINATORIE" },
+      { id: 3, descrizione: "SORTEGGI" }
+    ]
+  },
+  CALCIATORI: {
+    SVINCOLATI: 1,
+    CARICA_SQUADRE: 2,
+    SOSTITUISCI: 3,
+    NICKNAME: 4,
+    VIEW_POSSIBILI: [
+      { id: 1, descrizione: "SVINCOLATI" },
+      { id: 2, descrizione: "CARICA" },
+      { id: 3, descrizione: "SOSTITUISCI" },
+      { id: 4, descrizione: "NICKNAME" }
+    ]
+  },
+  NOTIFICHE: {
+    SCRIVI: 1,
+    INVIA: 2,
+    VIEW_POSSIBILI: [
+      { id: 1, descrizione: "SCRIVI" },
+      { id: 2, descrizione: "INVIA" }
+    ]
+  }
+
 }

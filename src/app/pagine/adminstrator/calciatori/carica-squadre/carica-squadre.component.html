@@ -1,0 +1,64 @@
+<div class="card">
+    <div class="card-header">
+        ASSOCIA MANUALMENTE UNA SQUADRA CARICATA DA EXCEL AD UN UTENTE
+    </div>
+    <div class="card-body">
+        <div class="pt-16 pb-8">
+            <label class="btn btn-dark">
+                <span class="pr-8">UPLOAD</span><i class="bi bi-cloud-arrow-up-fill"></i>
+                <input type="file" style="display: none;" (change)="importSquadre($event)"
+                    accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+            </label>
+        </div>
+
+        <div *ngIf="formazioni.length" class="pt-16">
+            <p>LEGA {{lega}}</p>
+
+            <form class="text-center" #carica="ngForm" (submit)="onAssocia(carica.form.value); carica.resetForm()">
+
+                <div class="pt-16 pb-16">
+                    <label for="select-squadra">Seleziona Squadra</label>
+                    <select id="select-squadra" class="form-control mb-4 mt-4 custom-select" name="squadra" ngModel
+                        required>
+                        <option *ngFor="let element of formazioni" [ngValue]="element"> {{element.utente}}</option>
+                    </select>
+                </div>
+
+                <div class="pt-16 pb-16">
+                    <label for="nome-squadra">Nome Squadra</label>
+                    <input type="text" id="nome-squadra" class="form-control" placeholder="Nome Squadra" minlength="4"
+                        ngModel name="nome" required maxlength="16" />
+                </div>
+
+                <div class="pt-16 pb-16">
+                    <label for="select-utente">Utente</label>
+                    <select id="select-utente" class="form-control mb-4 mt-4 custom-select" name="utente" ngModel
+                        required>
+                        <option *ngFor="let element of utenti" [ngValue]="element">{{element.username}}
+                        </option>
+                    </select>
+                </div>
+
+                <div *ngIf="carica.form && carica.form.valid && carica.form.value.utente" class="pt-8 pb-16">
+                    <p>RIEPILOGO:</p>
+                    <div style="text-align: left;" class="pt-8 pl-8 pb-16">
+                        <div>USERNAME: {{carica.form.value.utente.username}}</div>
+                        <div>SQUADRA: {{carica.form.value.nome}}</div>
+                        <div>EMAIL: {{carica.form.value.utente.email}}</div>
+                    </div>
+
+                    <div style="text-align: left;" class="pt-8 pl-8">
+                        <div *ngFor="let element of carica.form.value.squadra.squadra;let i=index">
+                            {{i+1}}) {{element.nome}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pb-16 pt-8">
+                    <my-button [submit]="true" [color]="'btn-primary'" [block]="true" [disabled]="carica.form.invalid"
+                        [label]="'INVIA'" [loading]="loading_btn"></my-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div *ngIf="spinner.getLoading()" class="fadein">
+
+    <my-titolo [title]="language.label.page.voti_live"></my-titolo>
+
+    <div *ngIf="formazioni">
+        <div *ngFor="let fanta of formazioni" class="pb-16">
+
+            <div class="my-card mb-8">
+                <div class="my-card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <span>{{fanta.CASA.squadra}}</span>
+                        </div>
+                        <div class="col-6">
+                            <span>{{fanta.TRASFERTA.squadra}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-card-body font-size-smart">
+                    <div class="row">
+                        <div class="col-6">
+                            <div *ngFor="let schieramento of fanta.CASA.schieramento">
+                                <span>{{schieramento.ruolo}} {{schieramento.nickname}}
+                                    {{votilive[schieramento.calciatore]?votilive[schieramento.calciatore]:'-'}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div *ngFor="let schieramento of fanta.TRASFERTA.schieramento">
+                                <span>{{schieramento.ruolo}} {{schieramento.nickname}}
+                                    {{votilive[schieramento.calciatore]?votilive[schieramento.calciatore]:'-'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>

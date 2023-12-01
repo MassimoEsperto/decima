@@ -1,0 +1,16 @@
+<div>
+    <span>PUOI INSERIRE O AGGIORNARE L'INTERA LISTA DI CALCIATORI PARTENDO DAL FILE EXCEL</span>
+</div>
+<div class="my-flex-between">
+
+    <label class="btn btn-dark">
+        <span class="pr-8">UPLOAD</span><i class="bi bi-cloud-arrow-up-fill"></i>
+        <input type="file" style="display: none;" (change)="importListaCalciatori($event)"
+            accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+    </label>
+    <div class="pt-16 pb-16">
+        <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [disabled]="!rose.length" [label]="'INVIA'"
+            [confirm]="true" [loading]="loading_btn" (myClick)="onAggiungiCalciatori()"></my-button>
+    </div>
+
+</div>

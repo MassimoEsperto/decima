@@ -17,6 +17,8 @@ import { MyModalViewMatch } from '../componenti/my-modal-view-match/my-modal-vie
 import { MyLogo } from '../componenti/my-logo/my-logo.component';
 import { MyModalAlbo } from '../componenti/my-modal-albo/my-modal-albo.component';
 import { MyModalLanguage } from '../componenti/my-modal-language/my-modal-language.component';
+import { MyInfoCard } from '../componenti/my-info-card/my-info-card.component';
+import { MyModalForm } from '../componenti/my-modal-form/my-modal-form.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { MyModalLanguage } from '../componenti/my-modal-language/my-modal-langua
     MyModalViewMatch,
     MyLogo,
     MyModalAlbo,
-    MyModalLanguage
+    MyModalLanguage,
+    MyInfoCard,
+    MyModalForm
   ],
   exports: [
     MyButton,
@@ -57,7 +61,9 @@ import { MyModalLanguage } from '../componenti/my-modal-language/my-modal-langua
     MyModalViewMatch,
     MyLogo,
     MyModalAlbo,
-    MyModalLanguage
+    MyModalLanguage,
+    MyInfoCard,
+    MyModalForm
   ],
   providers: [
   ],

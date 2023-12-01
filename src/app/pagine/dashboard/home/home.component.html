@@ -1,36 +1,36 @@
 <div *ngIf="spinner.getLoading()" class="fadein">
 
-    <div *ngIf="dash">
-      <div>
-        <my-titolo [title]="dash.turno.giornata+'° '+ language.label.page.giornata"></my-titolo>
-      </div>
-  
-      <my-logo [is_upgrade]="this.dash.turno.is_upgrade"></my-logo>
-
-  
-      <div [ngSwitch]="this.dash.turno.periodo">
-  
-        <div *ngSwitchCase="PERIODO_GIORNATA.PRE_PARTITA">
-  
-          <pre-partita [dash]="dash"></pre-partita>
-  
-        </div>
-  
-        <div *ngSwitchCase="PERIODO_GIORNATA.PARTITA_LIVE">
-  
-          <partita-incorso [dash]="dash"></partita-incorso> 
-        
-        </div>
-  
-        <div *ngSwitchCase="PERIODO_GIORNATA.POST_PARTITA">
-  
-          <post-partita [dash]="dash"></post-partita>
-  
-        </div>
-  
-      </div>
-  
-      <statistiche [statistiche]="dash.statistiche" [percorso]="dash.percorso"></statistiche>
-  
+  <div *ngIf="dash">
+    <div>
+      <my-titolo [title]="dash.turno.giornata+'° '+ language.label.page.giornata"></my-titolo>
     </div>
+
+    <my-logo [is_upgrade]="this.dash.turno.is_upgrade"></my-logo>
+
+
+    <div [ngSwitch]="this.dash.turno.periodo">
+
+      <div *ngSwitchCase="PERIODO_GIORNATA.PRE_PARTITA">
+
+        <pre-partita [dash]="dash"></pre-partita>
+
+      </div>
+
+      <div *ngSwitchCase="PERIODO_GIORNATA.PARTITA_LIVE">
+
+        <partita-incorso [dash]="dash"></partita-incorso>
+
+      </div>
+
+      <div *ngSwitchCase="PERIODO_GIORNATA.POST_PARTITA">
+
+        <post-partita [dash]="dash"></post-partita>
+
+      </div>
+
+    </div>
+
+    <statistiche [statistiche]="dash.statistiche" [percorso]="dash.percorso"></statistiche>
+
   </div>
+</div>

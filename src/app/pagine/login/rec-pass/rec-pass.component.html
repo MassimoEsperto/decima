@@ -1,6 +1,8 @@
-<div class="card text-center animate__animated animate__rubberBand">
-    <div class="card-header testo-bold">
-        RECUPERA PASSWORD UTENTE
+<div class="card text-center animate__animated animate__rubberBand login">
+    <div class="card-header">
+        <div class="pa-16">
+            <strong style="font-size: large;">RECUPERA PASSWORD</strong>
+        </div>
     </div>
     <div class="card-body">
 
@@ -9,18 +11,16 @@
             <div class="pt-16 pb-16">
                 <select class="form-select" aria-label="select"
                     name="utente"  ngModel required>
-                    <option *ngFor="let item of combo" [ngValue]="item">{{item.username}}
+                    <option *ngFor="let item of combo.utenti" [ngValue]="item.id_utente">{{item.username}}
                     </option>
                 </select>
             </div>
           
 
-
             <div class="pt-16 pb-16">
-                <!-- <my-button [disabled]="!loginForm.form.valid" [block]="true" [color]="'btn-danger'"
+                <my-button [disabled]="!loginForm.form.valid" [block]="true" [color]="'btn-primary'"
                     [loading]="loading_btn" [submit]="true" [label]="'CONFERMA'">
-                </my-button> -->
-                <button></button>
+                </my-button>
             </div>
 
         </form>

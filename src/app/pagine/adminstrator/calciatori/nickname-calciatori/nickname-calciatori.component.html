@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header">
+        CAMBIA NICKNAME CALCIATORE
+    </div>
+    <div class="card-body">
+
+        <form class="text-center" #element="ngForm" (submit)="onRinomina(element.form.value); element.resetForm()">
+
+            <div class="pt-16">
+                <label for="select-player">DA RINOMINARE</label>
+                <select id="select-player" class="form-control mb-4 mt-4 custom-select" name="id" ngModel required>
+                    <option *ngFor="let n of lista_attuale" [ngValue]="n.id_calciatore">{{n.ruolo}}
+                        {{n.nome_calciatore}} ({{n.nickname}})
+                    </option>
+                </select>
+            </div>
+
+            <div class="pt-16 pb-16">
+                <label for="nome-nickname">NICKNAME</label>
+                <input type="text" id="nome-nickname" class="form-control" placeholder="Nome Nickname" minlength="4"
+                    name="nickname" ngModel required maxlength="16" />
+            </div>
+
+            <div class="pt-16 pb-16">
+                <my-button [submit]="true" [color]="'btn-primary'" [block]="true" [disabled]="element.form.invalid"
+                    [label]="'INVIA'" [loading]="loading_btn"></my-button>
+            </div>
+        </form>
+
+    </div>
+</div>

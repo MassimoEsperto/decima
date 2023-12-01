@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LanguageService } from 'src/app/servizi/language.service';
 
 @Component({
   selector: 'post-partita',
@@ -8,5 +9,7 @@ import { Component, Input } from '@angular/core';
 export class PostPartitaComponent {
 
   @Input() dash: any;
+
+  constructor(public language: LanguageService) {}
   
 }

@@ -9,14 +9,17 @@ import { UtentiComponent } from '../pagine/adminstrator/utenti/utenti.component'
 import { CompetizioneComponent } from '../pagine/adminstrator/competizione/competizione.component';
 import { HomeComponent } from '../pagine/dashboard/home/home.component';
 import { ClassificaComponent } from '../pagine/dashboard/classifica/classifica.component';
-import { DateComponent } from '../pagine/adminstrator/date/date.component';
 import { CalciatoriComponent } from '../pagine/adminstrator/calciatori/calciatori.component';
-import { ComunicazioniComponent } from '../pagine/adminstrator/comunicazioni/comunicazioni.component';
 import { AuthGuard } from '../servizi/auth-guard';
 import { AdminGuard } from '../servizi/admin-guard';
 import { InfoUtenteComponent } from '../pagine/dashboard/info-utente/info-utente.component';
 import { SchieramentoComponent } from '../pagine/dashboard/schieramento/schieramento.component';
 import { ComunicazioneComponent } from '../pagine/dashboard/comunicazione/comunicazione.component';
+import { VotiLiveComponent } from '../pagine/dashboard/voti-live/voti-live.component';
+import { IscrizioneComponent } from '../pagine/iscrizione/iscrizione.component';
+import { UpgradeSquadraComponent } from '../pagine/dashboard/upgrade-squadra/upgrade-squadra.component';
+import { AccoppiamentiComponent } from '../pagine/adminstrator/accoppiamenti/accoppiamenti.component';
+import { NotificheComponent } from '../pagine/adminstrator/notifiche/notifiche.component';
 
 const routes: Routes = [
   {
@@ -27,6 +30,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'iscrizione',
+    component: IscrizioneComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'dashboard',
@@ -60,7 +68,16 @@ const routes: Routes = [
       {
         path: 'comunicazioni',
         component: ComunicazioneComponent
+      },
+      {
+        path: 'voti-live',
+        component: VotiLiveComponent
+      },
+      {
+        path: 'upgrade-squadra',
+        component: UpgradeSquadraComponent
       }
+
     ]
   },
   {
@@ -78,7 +95,7 @@ const routes: Routes = [
       },
       {
         path: 'date',
-        component: DateComponent
+        component: AccoppiamentiComponent
       },
       {
         path: 'calciatori',
@@ -86,7 +103,7 @@ const routes: Routes = [
       },
       {
         path: 'comunicazioni',
-        component: ComunicazioniComponent
+        component: NotificheComponent
       }
     ]
   }

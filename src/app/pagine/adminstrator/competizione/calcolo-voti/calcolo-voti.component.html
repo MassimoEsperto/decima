@@ -1,0 +1,119 @@
+<div class="pt-8">
+    <div class="row pa-0 ma-0">
+        <div class="col-6 pa-0 ma-0">
+            <select class="form-select" [(ngModel)]="giornata_selezionata" placeholder="Giornata"
+                (change)="formazioni_inserite=[]">
+                <optgroup label="Da Calcolare">
+                    <option *ngFor="let g of calcolato['NO']" [ngValue]="g">Giornata {{g}}°</option>
+                </optgroup>
+                <optgroup label="Gia Calcolato">
+                    <option *ngFor="let g of calcolato['SI']" [ngValue]="g">Giornata {{g}}°</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="col-6 pa-0 ma-0">
+            <div class="pl-8">
+                <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [disabled]="!giornata_selezionata"
+                    [label]="'PROCEDI'" [loading]="loading_btn" (myClick)="formazioniByGionata()"></my-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div *ngIf="formazioni_inserite">
+    <label class="btn btn-dark">
+        <span class="pr-8">UPLOAD</span><i class="bi bi-cloud-arrow-up-fill"></i>
+        <input type="file" style="display: none;" (change)="importVoti($event)"
+            accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+    </label>
+
+
+
+    <div class="pt-16">
+        <div *ngFor="let item of formazioni_inserite" class="pt-8">
+
+            <div class="my-card">
+                <div class="my-card-header">
+                    <div class="row pa-0 ma-0">
+                        <div class="col-6 pa-0 ma-0">
+                            <div class="pr-8">
+                                <div class="my-flex-between">
+                                    <span>{{item.CASA.squadra}}</span>
+                                    <input value="{{item.CASA.goals}}" [(ngModel)]="item.CASA.goals" type="number"
+                                        class="form-control voto" disabled>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-6 pa-0 ma-0">
+                            <div class="pl-8">
+                                <div class="my-flex-between">
+                                    <span>{{item.TRASFERTA.squadra}}</span>
+                                    <input value="{{item.TRASFERTA.goals}}" [(ngModel)]="item.TRASFERTA.goals"
+                                        type="number" class="form-control voto" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-card-body font-size-smart">
+                    <div class="row pa-0 ma-0">
+                        <div class="col-6 pa-0 ma-0">
+                            <div *ngFor="let ele of item.CASA.schieramento" class="pr-8">
+                                <div class="my-flex-between">
+                                    <span class="pr-8">{{ele.nickname}}</span>
+                                    <input value="{{ele.voto}}" [(ngModel)]="ele.voto" type="number"
+                                        class="form-control voto">
+                                </div>
+                            </div>
+                            <div class="pr-8">
+                                <div class="my-flex-between">
+                                    <label class="pr-8">BONUS</label>
+                                    <input value="{{item.CASA.bonus}}" type="number" class="form-control voto">
+                                </div>
+                            </div>
+                            <div class="pr-8">
+                                <div class="my-flex-between">
+                                    <label class="pr-8">TOT.</label>
+                                    <input value="{{item.CASA.somma}}" [(ngModel)]="item.CASA.somma" type="number"
+                                        class="form-control voto" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 pa-0 ma-0">
+                            <div *ngFor="let ele of item.TRASFERTA.schieramento" class="pl-8">
+                                <div class="my-flex-between">
+                                    <span class="pr-8">{{ele.nickname}}</span>
+                                    <input value="{{ele.voto}}" [(ngModel)]="ele.voto" type="number"
+                                        class="form-control voto">
+                                </div>
+                            </div>
+                            <div class="pl-8">
+                                <div class="my-flex-between">
+                                    <label class="pr-8">BONUS</label>
+                                    <input value="{{item.TRASFERTA.bonus}}" type="number" class="form-control voto">
+                                </div>
+                            </div>
+                            <div class="pl-8">
+                                <div class="my-flex-between">
+                                    <label class="pr-8">TOT.</label>
+                                    <input value="{{item.TRASFERTA.somma}}" [(ngModel)]="item.TRASFERTA.somma"
+                                        type="number" class="form-control voto" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="pa-8">
+        <my-button [submit]="false" [color]="'btn-danger'" [block]="true" [disabled]="!voti_file"
+            [label]="'CALCOLA GIORNATA'" [loading]="loading_btn" (myClick)="onCalcolaGiornata()"></my-button>
+    </div>
+</div>

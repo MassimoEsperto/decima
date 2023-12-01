@@ -1,0 +1,101 @@
+import { Component, Input } from '@angular/core';
+import { finalize } from 'rxjs';
+import { AdminService } from 'src/app/servizi/admin.service';
+import { AlertService } from 'src/app/servizi/alert.service';
+
+@Component({
+  selector: 'recupero-formazioni',
+  templateUrl: './recupero-formazioni.component.html',
+  styleUrls: ['./recupero-formazioni.component.scss']
+})
+export class RecuperoFormazioniComponent {
+
+  @Input() administrator: any;
+
+  loading_btn: boolean = false
+  giornata_selezionata: string = "";
+  formazioni_inserite: any;
+
+  constructor(
+    private alert: AlertService,
+    private adminService: AdminService) {
+  }
+
+
+  ngOnInit() {
+    this.giornata_selezionata = this.administrator.calcolato['NO'][0]
+  }
+
+
+  recuperaFormazioneCasa(item: any) {
+
+    let payload = {
+      id_squadra: item.CASA.id_squadra,
+      id_avversario: item.TRASFERTA.id_squadra,
+      id_risultato: item.CASA.id_risultato,
+      id_calendario: item.id_calendario,
+      in_casa: 1
+    }
+
+    this.setFormazione(payload);
+  }
+
+  recuperaFormazioneTrasferta(item: any) {
+
+    let payload = {
+      id_squadra: item.TRASFERTA.id_squadra,
+      id_avversario: item.CASA.id_squadra,
+      id_risultato: item.TRASFERTA.id_risultato,
+      id_calendario: item.id_calendario,
+      in_casa: 0
+    }
+
+    this.setFormazione(payload);
+  }
+
+
+  formazioniInserite() {
+    this.loading_btn = true;
+
+    this.adminService.getFormazioniByGionata(this.giornata_selezionata)
+      .pipe(finalize(() => {
+        this.loading_btn = false;
+      }
+      ))
+      .subscribe({
+
+        next: (result: any) => {
+          this.formazioni_inserite = result
+        },
+        error: (error: any) => {
+          this.alert.error(error);
+
+        }
+      })
+
+  }
+
+
+  setFormazione(payload: any) {
+
+    this.loading_btn = true;
+
+    this.adminService.recuperoFormazione(payload)
+      .pipe(finalize(() =>
+        this.loading_btn = false
+      ))
+      .subscribe({
+
+        next: (result: any) => {
+          this.formazioniInserite();
+        },
+        error: (error: any) => {
+          this.alert.error(error);
+
+        }
+      })
+
+  }
+
+}
+

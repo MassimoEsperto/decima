@@ -137,22 +137,22 @@
             {
                 "cod": "ita",
                 "nome": "Italiano",
-                "ico": "bi bi-house-gear-fill"
+                "ico": "bi bi-cup-hot-fill"
             },
             {
                 "cod": "eng",
                 "nome": "Inglese",
-                "ico": "fas fa-igloo"
+                "ico": "bi bi-egg-fried"
             },
             {
                 "cod": "fra",
                 "nome": "Francese",
-                "ico": "fab fa-fort-awesome"
+                "ico": "bi bi-valentine2"
             },
             {
                 "cod": "cin",
                 "nome": "Cinese",
-                "ico": "fas fa-torii-gate"
+                "ico": "bi bi-cpu-fill"
             }
         ]
     },

@@ -28,6 +28,26 @@ import { PostPartitaComponent } from '../pagine/dashboard/home/post-partita/post
 import { StatisticheComponent } from '../pagine/dashboard/home/statistiche/statistiche.component';
 import { SchieramentoComponent } from '../pagine/dashboard/schieramento/schieramento.component';
 import { ComunicazioneComponent } from '../pagine/dashboard/comunicazione/comunicazione.component';
+import { FrontespizioComponent } from '../pagine/login/frontespizio/frontespizio.component';
+import { VotiLiveComponent } from '../pagine/dashboard/voti-live/voti-live.component';
+import { RegistraSquadraComponent } from '../pagine/iscrizione/registra-squadra/registra-squadra.component';
+import { IscrizioneComponent } from '../pagine/iscrizione/iscrizione.component';
+import { UpgradeSquadraComponent } from '../pagine/dashboard/upgrade-squadra/upgrade-squadra.component';
+import { ListaSquadreComponent } from '../pagine/iscrizione/lista-squadre/lista-squadre.component';
+import { CalcoloVotiComponent } from '../pagine/adminstrator/competizione/calcolo-voti/calcolo-voti.component';
+import { AccoppiamentiComponent } from '../pagine/adminstrator/accoppiamenti/accoppiamenti.component';
+import { DataPartiteComponent } from '../pagine/adminstrator/accoppiamenti/data-partite/data-partite.component';
+import { SorteggiGironiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi-gironi/sorteggi-gironi.component';
+import { EliminatorieComponent } from '../pagine/adminstrator/accoppiamenti/eliminatorie/eliminatorie.component';
+import { ListaSvincolatiComponent } from '../pagine/adminstrator/calciatori/lista-svincolati/lista-svincolati.component';
+import { CaricaSquadreComponent } from '../pagine/adminstrator/calciatori/carica-squadre/carica-squadre.component';
+import { SostituisciCalciatoreComponent } from '../pagine/adminstrator/calciatori/sostituisci-calciatore/sostituisci-calciatore.component';
+import { CalciatoriComponent } from '../pagine/adminstrator/calciatori/calciatori.component';
+import { NotificheComponent } from '../pagine/adminstrator/notifiche/notifiche.component';
+import { InviaNotificaComponent } from '../pagine/adminstrator/notifiche/invia-notifica/invia-notifica.component';
+import { ScriviNotificaComponent } from '../pagine/adminstrator/notifiche/scrivi-notifica/scrivi-notifica.component';
+import { RecuperoFormazioniComponent } from '../pagine/adminstrator/competizione/recupero-formazioni/recupero-formazioni.component';
+import { NicknameCalciatoriComponent } from '../pagine/adminstrator/calciatori/nickname-calciatori/nickname-calciatori.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +58,11 @@ import { ComunicazioneComponent } from '../pagine/dashboard/comunicazione/comuni
     SignInComponent,
     RegisterComponent,
     RecPassComponent,
+    FrontespizioComponent,
+    //iscrizione
+    IscrizioneComponent,
+    RegistraSquadraComponent,
+    ListaSquadreComponent,
     //dash
     DashboardComponent,
     HomeComponent,
@@ -51,10 +76,26 @@ import { ComunicazioneComponent } from '../pagine/dashboard/comunicazione/comuni
     StatisticheComponent,
     SchieramentoComponent,
     ComunicazioneComponent,
+    VotiLiveComponent,
+    UpgradeSquadraComponent,
     //admin
     AdminstratorComponent,
     UtentiComponent,
-    CompetizioneComponent
+    CompetizioneComponent,
+    CalcoloVotiComponent,
+    RecuperoFormazioniComponent,
+    AccoppiamentiComponent,
+    DataPartiteComponent,
+    SorteggiGironiComponent,
+    EliminatorieComponent,
+    ListaSvincolatiComponent,
+    CaricaSquadreComponent,
+    SostituisciCalciatoreComponent,
+    NicknameCalciatoriComponent,
+    CalciatoriComponent,
+    NotificheComponent,
+    InviaNotificaComponent,
+    ScriviNotificaComponent
   ],
   imports: [
     BrowserModule,

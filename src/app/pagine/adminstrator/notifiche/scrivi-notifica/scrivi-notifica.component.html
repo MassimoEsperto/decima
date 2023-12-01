@@ -1,0 +1,29 @@
+<div class="inserisci">
+    <div class="card text-white bg-success">
+        <div class="card-header">Nuova Notifica</div>
+        <div class="card-body">
+
+            <form class="text-center" #messaggio="ngForm"
+                (submit)="setComunicazione(messaggio.form.value); messaggio.resetForm()">
+
+                <!-- Name -->
+                <div class="pt-16 pb-16">
+                    <input type="text" class="form-control mb-4" name="titolo" placeholder="titolo" ngModel required />
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" name="testo" placeholder="Messaggio" ngModel
+                        required></textarea>
+                </div>
+
+                <!-- Send button -->
+                <div class="pt-16 pb-16">
+                    <my-button [submit]="true" [color]="'btn-danger'" [block]="true" [disabled]="messaggio.form.invalid"
+                        [label]="'SCRIVI'" [loading]="loading_btn"></my-button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

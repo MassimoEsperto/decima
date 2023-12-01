@@ -1,0 +1,29 @@
+<div class="invia">
+    <div class="card text-white bg-success">
+        <div class="card-header">Invia Notifica</div>
+        <div class="card-body">
+
+            <form class="text-center" #element="ngForm"
+                (submit)="associaComunicazione(element.form.value); element.resetForm()">
+
+                <div class="pt-16 pb-16">
+                    <select multiple class="form-control mb-4 mt-4 custom-select" placeholder="Utenti" name="utenti"
+                        ngModel required>
+                        <option *ngFor="let u of utenti" [ngValue]="u.id">{{u.username}}</option>
+                    </select>
+                </div>
+
+                <select class="form-control mb-4 mt-4 custom-select" placeholder="Notifiche" name="notifica" ngModel
+                    required>
+                    <option *ngFor="let n of notifiche" [ngValue]="n.id_comunicazione">{{n.titolo}}</option>
+                </select>
+
+                <!-- Send button -->
+                <div class="pt-16 pb-16">
+                    <my-button [submit]="true" [color]="'btn-danger'" [block]="true" [disabled]="element.form.invalid"
+                        [label]="'INVIA'" [loading]="loading_btn"></my-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

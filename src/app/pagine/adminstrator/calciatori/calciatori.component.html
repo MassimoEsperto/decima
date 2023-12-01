@@ -1,1 +1,31 @@
-<p>calciatori works!</p>
+<div *ngIf="spinner.getLoading()" class="fadein">
+
+    <my-info-card [info]="info"></my-info-card>
+
+    <div class="card">
+
+        <div class="card-body">
+            <nav>
+                <div class="nav nav-tabs" role="tablist">
+                    <button *ngFor="let ele of PAGE.CALCIATORI.VIEW_POSSIBILI" (click)="PAGE.VIEW=ele.id"
+                        class="nav-link">{{ele.descrizione}}</button>
+                </div>
+            </nav>
+
+            <div class="tab-content">
+                <div class="pt-16 pb-16">
+              
+
+                    <carica-squadre *ngIf="PAGE.VIEW == PAGE.CALCIATORI.CARICA_SQUADRE"
+                    [listaRose]="administrator.lista_calciatori" [utenti]="administrator.utenti"></carica-squadre>
+                    <lista-svincolati *ngIf="PAGE.VIEW == PAGE.CALCIATORI.SVINCOLATI" [lista_attuale]="administrator.lista_calciatori"></lista-svincolati>
+                    <sostituisci-calciatore *ngIf="PAGE.VIEW == PAGE.CALCIATORI.SOSTITUISCI"
+                    [listaRose]="administrator.lista_calciatori"></sostituisci-calciatore>
+                    <nickname-calciatori *ngIf="PAGE.VIEW == PAGE.CALCIATORI.NICKNAME" [lista_attuale]="administrator.lista_calciatori"></nickname-calciatori>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

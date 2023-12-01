@@ -5,15 +5,16 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ViewMatchService {
-  
-  private subject = new Subject<any>();  
 
- 
-  getMatch(): Observable<any> {  
-      return this.subject.asObservable();  
-  }  
+  private subject = new Subject<any>();
+
+
+  getMatch(): Observable<any> {
+    return this.subject.asObservable();
+  }
 
   setMatch(match: any) {
-    this.subject.next({ data: match});
-}
+    this.subject.next({ data: match });
+  }
+
 }

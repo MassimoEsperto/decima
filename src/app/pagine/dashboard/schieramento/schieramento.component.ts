@@ -92,23 +92,6 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
     this.modulo = this.moduli[indice]
   }
 
-  // sortedByRuoli(squadra:any) {
-
-  //   let sortedsquadra = squadra.sort((n1: { tipo: number; }, n2: { tipo: number; }) => {
-  //     if (n1.tipo < n2.tipo) {
-  //       return 1;
-  //     }
-
-  //     if (n1.tipo > n2.tipo) {
-  //       return -1;
-  //     }
-
-  //     return 0;
-  //   });
-
-  //   return sortedsquadra;
-  // }
-
 
   getConvocabili() {
 
@@ -159,7 +142,7 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
         next: (result: any) => {
           this.alert.success(this.language.label.alert.success);
           setTimeout(() => {
-            this.router.navigate(['home/dashboard']);
+            this.router.navigate(['dashboard/home']);
           }, 3000);
 
         },

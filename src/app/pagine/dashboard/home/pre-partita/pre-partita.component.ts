@@ -10,8 +10,7 @@ import { LanguageService } from 'src/app/servizi/language.service';
 export class PrePartitaComponent {
 
   @Input() dash: any;
-
-  
+ 
   constructor(private router: Router,public language: LanguageService) {}
 
   inserisciFormazione() {
