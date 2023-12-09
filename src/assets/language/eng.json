@@ -37,6 +37,7 @@
         "fasi": {
             "gironi": "GROUPS",
             "spareggi": "SHOOTS",
+            "ottavi": "EIGHTH",
             "quarti": "QUARTER",
             "semi_finale": "SEMIFINAL",
             "finale": "FINAL"

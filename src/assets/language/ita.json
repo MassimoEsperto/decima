@@ -37,6 +37,7 @@
         "fasi": {
             "gironi": "GIRONI",
             "spareggi": "SPAREGGI",
+            "ottavi": "OTTAVI",
             "quarti": "QUARTI",
             "semi_finale": "SEMIFINALE",
             "finale": "FINALE"

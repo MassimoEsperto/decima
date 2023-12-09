@@ -37,6 +37,7 @@
         "fasi": {
             "gironi": "GROUPES",
             "spareggi": "TIRAGES",
+            "ottavi": "HUITIEME",
             "quarti": "TRIMESTRE",
             "semi_finale": "DEMIFINALE",
             "finale": "FINAL"
