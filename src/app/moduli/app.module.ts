@@ -95,7 +95,8 @@ import { NicknameCalciatoriComponent } from '../pagine/adminstrator/calciatori/n
     CalciatoriComponent,
     NotificheComponent,
     InviaNotificaComponent,
-    ScriviNotificaComponent
+    ScriviNotificaComponent,
+  
   ],
   imports: [
     BrowserModule,

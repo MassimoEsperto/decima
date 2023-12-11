@@ -3,7 +3,7 @@
   <my-info-card [info]="info"></my-info-card>
 
   <div class="card">
-  
+
     <div class="card-body">
 
       <div class="display-center pt-16">
@@ -40,13 +40,16 @@
                   <span>{{ele.stato}}</span>
                 </td>
                 <td>
-                  <div (click)="onUpdUtente(ele)" class="text-center cursore" data-bs-toggle="modal" data-bs-target="#updUtenteModal"><i class="bi bi-incognito"></i></div>
+                  <div (click)="onUpdUtente(ele)" class="text-center cursore" data-bs-toggle="modal"
+                    data-bs-target="#updUtenteModal">
+                    <i class="bi bi-incognito table_icon"></i>
+                  </div>
                 </td>
                 <td>
-                  <span class="table-remove">
-                    <i class="bi bi-trash-fill cursore" (click)="onDelete(ele)"
-                        data-bs-toggle="modal" data-bs-target="#confirmModal"></i>
-                </span>
+                  <span>
+                    <i class="bi bi-trash-fill cursore table_icon" (click)="onDelete(ele)" data-bs-toggle="modal"
+                      data-bs-target="#confirmModal"></i>
+                  </span>
                 </td>
               </tr>
             </tbody>

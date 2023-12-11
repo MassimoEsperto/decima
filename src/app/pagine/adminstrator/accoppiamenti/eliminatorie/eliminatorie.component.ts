@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
 import { ConfirmDialogService } from 'src/app/servizi/confirm-dialog.service';
 import { ModalFormService } from 'src/app/servizi/modal-form.service';
 
@@ -15,7 +14,6 @@ export class EliminatorieComponent {
 
   constructor(
     private adminService: AdminService,
-    private alert: AlertService,
     private forms: ModalFormService,
     private confirmDialog: ConfirmDialogService,
   ) { }
