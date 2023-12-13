@@ -1,18 +1,19 @@
 import { Component, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import { finalize } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { AlertService } from 'src/app/servizi/alert.service';
 import { LanguageService } from 'src/app/servizi/language.service';
 import { PlayerService } from 'src/app/servizi/player.service';
 import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { UtilService } from 'src/app/servizi/util.service';
 
 
 @Component({
   selector: 'calendario',
   templateUrl: './calendario.component.html',
-  styleUrls: ['./calendario.component.scss']
+  styleUrls: ['./calendario.component.scss'],
+  providers: [ UtilService ],
 })
-export class CalendarioComponent extends OnInitComp implements AfterViewInit {
+export class CalendarioComponent implements AfterViewInit {
 
 
   today: number = 1;
@@ -25,8 +26,8 @@ export class CalendarioComponent extends OnInitComp implements AfterViewInit {
     private el: ElementRef,
     private alert: AlertService,
     public language: LanguageService,
+    public util: UtilService,
     public spinner: SpinnerService) {
-    super();
   }
 
   ngOnInit(): void { this.getCalendario() }
@@ -74,26 +75,5 @@ export class CalendarioComponent extends OnInitComp implements AfterViewInit {
 
   }
 
-
-  getFasi(num: number) {
-
-    switch (Number(num)) {
-      case this.FASE_COMPETIZIONE.GIRONI:
-        return this.language.label.page.fasi.gironi
-      case this.FASE_COMPETIZIONE.SPAREGGI:
-        return this.language.label.page.fasi.spareggi
-      case this.FASE_COMPETIZIONE.OTTAVI:
-        return this.language.label.page.fasi.ottavi
-      case this.FASE_COMPETIZIONE.QUARTI:
-        return this.language.label.page.fasi.quarti
-      case this.FASE_COMPETIZIONE.SEMI_FINALE:
-        return this.language.label.page.fasi.semi_finale
-      case this.FASE_COMPETIZIONE.FINALE:
-        return this.language.label.page.fasi.finale
-      default: return ""
-    }
-
-
-  }
 
 }

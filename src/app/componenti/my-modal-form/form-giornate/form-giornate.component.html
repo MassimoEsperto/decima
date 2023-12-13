@@ -1,1 +1,74 @@
-<p>form-giornate works!</p>
+<div *ngIf="combo && data">
+
+
+    <!-- Form -->
+    <form #giornataForm="ngForm" (submit)="OnSetGiornata(data)">
+
+        <!-- Giornata -->
+        <div class="pt-16">
+            <label for="input-giornata">GIORNATA SHIT</label>
+            <input id="input-giornata" type="number" class="form-control" placeholder="giornata"
+                [(ngModel)]="data.giornata" name="giornata" required #giornata="ngModel" />
+        </div>
+
+        <!-- Serie A -->
+        <div class="pt-16">
+            <label for="input-serie">GIORNATA SERIE A</label>
+            <input id="input-serie" type="number" class="form-control" placeholder="serie A" [(ngModel)]="data.serie_a"
+                name="serie_a" required #serie_a="ngModel" />
+        </div>
+
+        <!-- Fasi-->
+        <div class="pt-16">
+            <label for="select-fase">FASE</label>
+            <select id="select-fase" class="form-control custom-select" [(ngModel)]="data.fase" name="fase" required
+                #fase="ngModel">
+                <option *ngFor="let item of combo.fasi" [ngValue]="item.id">{{item.descrizione}}</option>
+            </select>
+        </div>
+
+        <!-- Date-->
+        <div class="pt-16">
+            <label for="select-inizio">INIZIO GIORNATA</label>
+            <input id="select-inizio" type="datetime-local" class="form-control" [(ngModel)]="data.inizio_giornata"
+                name="inizio_giornata" required #inizio_giornata="ngModel" />
+        </div>
+
+        <div class="pt-16">
+            <label for="select-prima">PRIMA GIORNATA</label>
+            <input id="select-prima" type="datetime-local" class="form-control" [(ngModel)]="data.prima_partita"
+                name="prima_partita" required #prima_partita="ngModel" />
+        </div>
+
+        <div class="pt-16">
+            <label for="select-ultima">ULTIMA GIORNATA</label>
+            <input id="select-ultima" type="datetime-local" class="form-control" [(ngModel)]="data.ultima_partita"
+                name="ultima_partita" required #ultima_partita="ngModel" />
+        </div>
+
+        <div class="pt-16">
+            <label for="select-fine">FINE GIORNATA</label>
+            <input id="select-fine" type="datetime-local" class="form-control" [(ngModel)]="data.fine_giornata"
+                name="fine_giornata" required #fine_giornata="ngModel" />
+        </div>
+
+        <!-- Mercato-->
+        <div class="pt-16">
+            <label for="select-upgrade">MERCATO</label>
+            <select id="select-upgrade" class="form-control custom-select" name="upgrade" [(ngModel)]="data.is_upgrade"
+                required>
+                <option *ngFor="let item of combo.boleano" [ngValue]="item.valore">{{item.descrizione}}</option>
+            </select>
+        </div>
+
+
+        <!-- Sign in button -->
+        <div class="pt-16">
+            <my-button [submit]="true" [color]="'btn-primary'" [block]="true" [disabled]="!giornataForm.valid"
+                [label]="'SALVA'" [loading]="loading_btn" >
+            </my-button>
+        </div>
+    </form>
+    <!-- Form -->
+ 
+</div>

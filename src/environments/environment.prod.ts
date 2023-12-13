@@ -1,5 +1,5 @@
 export const env = {
-  production: true
+  production: false
 };
 
 // Versione applicazione
@@ -34,6 +34,7 @@ export const ADMIN_SERVICE = {
   GET_ADMINISTRATOR: "get_administrator",
   UPD_DETAIL_UTENTE: "upd_detail_utente",
   DEL_UTENTE: "del_utente",
+  DEL_SQUADRA: "del_squadra",
   DEL_ROSA_UTENTE: "del_rosa_utente",
   SET_CALCOLO_GIORNATA: "set_calcolo_giornata",
   SET_SVINCOLATI: "set_svincolati",
@@ -115,8 +116,8 @@ export const SUB_PAGE_ADMIN = {
     RECUPERO: 1,
     CALCOLO: 2,
     VIEW_POSSIBILI: [
-      { id: 1, descrizione: "RECUPERO SQUADRE" },
-      { id: 2, descrizione: "CALCOLO VOTI" }
+      { id: 1, descrizione: "RECUPERO" },
+      { id: 2, descrizione: "CALCOLO" }
     ]
   },
   ACCOPPIAMENTI: {
@@ -124,28 +125,41 @@ export const SUB_PAGE_ADMIN = {
     ELIMINATORIE: 2,
     SORTEGGI: 3,
     VIEW_POSSIBILI: [
-      { id: 1, descrizione: "DATE PARTITE" },
-      { id: 2, descrizione: "ELIMINATORIE" },
-      { id: 3, descrizione: "SORTEGGI GIRONI" }
+      { id: 1, descrizione: "DATE" },
+      { id: 2, descrizione: "PARTITE" },
+      { id: 3, descrizione: "SORTEGGI" }
     ]
   },
   CALCIATORI: {
     SVINCOLATI: 1,
     CARICA_SQUADRE: 2,
     SOSTITUISCI: 3,
+    NICKNAME: 4,
     VIEW_POSSIBILI: [
-      { id: 1, descrizione: "LISTA SVINCOLATI" },
-      { id: 2, descrizione: "CARICA SQUADRE" },
-      { id: 3, descrizione: "SOSTITUISCI CALCIATORI" }
+      { id: 1, descrizione: "SVINCOLATI" },
+      { id: 2, descrizione: "CARICA" },
+      { id: 3, descrizione: "SOSTITUISCI" },
+      { id: 4, descrizione: "NICKNAME" }
     ]
   },
   NOTIFICHE: {
     SCRIVI: 1,
     INVIA: 2,
     VIEW_POSSIBILI: [
-      { id: 1, descrizione: "SCRIVI NOTIFICHE" },
-      { id: 2, descrizione: "INVIA NOTIFICA" }
+      { id: 1, descrizione: "SCRIVI" },
+      { id: 2, descrizione: "INVIA" }
     ]
   }
 
 }
+
+export const BOLEANO = [
+  {
+    valore: "1",
+    descrizione: "SI"
+  },
+  {
+    valore: "0",
+    descrizione: "NO"
+  }
+]

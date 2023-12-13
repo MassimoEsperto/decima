@@ -77,12 +77,24 @@
    background-color: $colore-verde!important;
 }
 
+.bg-opaco {
+    background-color: rgba(0, 0, 0, 0.03);
+ }
+
+
+
 .opzioni div:hover{
     background-color: $colore-verde;
 }
 
 .text-white {
    color: #fff!important;
+}
+
+.voto{
+    width: 48px;
+    height: 24px;
+    padding-left: 4px;
 }
 
 .modal .modal-header {
@@ -141,3 +153,46 @@
 .table_icon{
     font-size: 24px;
 }
+
+.dropdown-menu{
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+
+/*SQUADRA*/
+
+.squadra-list {
+	
+	background: url('~src/assets/img/campo_formazioni.png');
+	background-repeat: no-repeat, repeat;
+	background-size: cover;
+	min-height: 240px;
+	min-width: 240px;
+    max-width: 480px;
+	padding-top: 16px;
+	padding-right: 8px;
+	padding-left: 8px;
+	padding-bottom: 16px;
+	cursor: pointer;
+}
+
+.squadra-box {
+	background-color: #f1f1f1;
+	color: black;
+	font-weight: bold;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 4px;
+	text-align: center;
+	height: 24px;
+	width: 128px;
+	margin:4px;
+	font-size: 12px;
+	border-radius: 4px;
+	opacity: 0.5;
+}
+
+.col-half {
+    flex-basis: 50%;
+  }

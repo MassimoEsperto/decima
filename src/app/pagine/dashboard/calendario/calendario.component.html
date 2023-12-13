@@ -2,7 +2,7 @@
 
     <my-titolo [title]="language.label.page.calendario"></my-titolo>
 
-       <div class="fasi ma-0 pa-0">
+       <div class="flex-fasi ma-0 pa-0">
      
         <div data-bs-target="#carouselExample" data-bs-slide="prev" class="cursore pt-8">
             <img src="assets/img/freccias.png" class="avatar" width="48px" />
@@ -28,16 +28,16 @@
                 </div>
 
                 <div class="row ma-0" style="border-radius: 10px;">
-                    <div class="fase col-4"
+                    <div class="flex-colonna col-4"
                         style="background-color:#00c851;color: white;border-radius: 8px 0px 0px 8px;">
                         <span><u>{{language.label.page.serie}}</u></span>
                         <span>{{palinsesto.serie_a}}°</span>
                     </div>
-                    <div class="fase col-4 pt-8 pb-8" style="background-color:white;">
+                    <div class="flex-colonna col-4 pt-8 pb-8" style="background-color:white;">
                         <span style="color:#00c851;"><u>{{language.label.page.fase}}</u></span>
-                        <span style="color:#f44336;">{{getFasi(palinsesto.fase)}}</span>
+                        <span style="color:#f44336;">{{util.getFasi(palinsesto.fase)}}</span>
                     </div>
-                    <div class="fase col-4"
+                    <div class="flex-colonna col-4"
                         style="background-color:#f44336;color: white;border-radius: 0px 8px 8px 0px;">
                         <span><u>{{language.label.page.data}}</u></span>
                         <span>{{palinsesto.data}}</span>

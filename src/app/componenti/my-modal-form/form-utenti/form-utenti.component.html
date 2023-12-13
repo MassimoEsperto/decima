@@ -1,0 +1,62 @@
+<div *ngIf="combo && data">
+
+
+    <!-- Form -->
+    <form #utenteForm="ngForm" (submit)="OnSetUtente(data)">
+
+        <!-- Username -->
+        <div class="pt-16">
+            <label for="input-username">USERNAME</label>
+            <input id="input-username" type="text" class="form-control" placeholder="username"
+                [(ngModel)]="data.username" name="username" readonly #username="ngModel" />
+        </div>
+
+        <!-- Squadra -->
+        <div class="pt-16">
+            <label for="input-squadra">SQUADRA</label>
+            <input id="input-squadra" type="text" class="form-control" placeholder="squadra" [(ngModel)]="data.squadra"
+                name="squadra" readonly #squadra="ngModel" />
+        </div>
+
+        <!-- Email -->
+        <div class="pt-16">
+            <label for="input-email">EMAIL</label>
+            <input id="input-email" type="text" class="form-control" placeholder="email" [(ngModel)]="data.email"
+                name="email" readonly #email="ngModel" />
+        </div>
+
+        <!-- Account -->
+        <div class="pt-16">
+            <label for="input-account">ACCOUNT</label>
+            <input id="input-account" type="text" class="form-control" placeholder="account" [(ngModel)]="data.account"
+                name="account" readonly #account="ngModel" />
+        </div>
+
+        <!-- Stato-->
+        <div class="pt-16">
+            <label for="select-stato">STATO</label>
+            <select id="select-stato" class="form-control custom-select" [(ngModel)]="data.id_stato" name="id_stato" required
+                #stato="ngModel">
+                <option *ngFor="let item of combo.stati" [ngValue]="item.id_stato">{{item.stato}}</option>
+            </select>
+        </div>
+
+        <!-- Ruolo-->
+        <div class="pt-16">
+            <label for="select-ruolo">RUOLO</label>
+            <select id="select-ruolo" class="form-control custom-select" [(ngModel)]="data.id_ruolo" name="id_ruolo" required
+                #ruolo="ngModel">
+                <option *ngFor="let item of combo.ruoli" [ngValue]="item.id_ruolo">{{item.ruolo}}</option>
+            </select>
+        </div>
+
+        <!-- Sign in button -->
+        <div class="pt-16">
+            <my-button [submit]="true" [color]="'btn-primary'" [block]="true" [disabled]="!utenteForm.valid"
+                [label]="'SALVA'" [loading]="loading_btn">
+            </my-button>
+        </div>
+    </form>
+    <!-- Form -->
+
+</div>

@@ -24,7 +24,7 @@ export class SquadreComponent extends OnInitComp implements OnInit {
     super();
   }
 
-  ngOnInit(): void {this.getSquadre() }
+  ngOnInit(): void { this.getSquadre() }
 
 
   getSquadre() {
@@ -39,7 +39,6 @@ export class SquadreComponent extends OnInitComp implements OnInit {
 
         next: (result: any) => {
           this.rose = result
-          console.log("this.squadre", this.rose)
         },
         error: (error: any) => {
           this.alert.error(error);

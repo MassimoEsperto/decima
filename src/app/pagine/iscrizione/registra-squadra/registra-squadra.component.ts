@@ -104,11 +104,11 @@ export class RegistraSquadraComponent implements OnInit {
   }
 
 
-  registraSquadra() {
+  registraSquadra(payload: any) {
 
     this.loading_btn = true;
 
-    this.authService.registraSquadra(this.payload)
+    this.authService.registraSquadra(payload)
       .pipe(finalize(() => this.loading_btn = false))
       .subscribe({
         next: (result: any) => {
@@ -124,8 +124,7 @@ export class RegistraSquadraComponent implements OnInit {
 
 
   onRegistraSquadra() {
-
-    console.log("payload", this.payload)
+    this.registraSquadra(this.payload)
   }
 
 

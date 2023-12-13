@@ -23,7 +23,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let ele of squadre; let id = index">
+              <tr *ngFor="let ele of administrator.squadre; let id = index">
                 <th scope="row">
                   <span>{{ele.id_utente}}</span>
                 </th>
@@ -40,7 +40,7 @@
                   <span>{{ele.stato}}</span>
                 </td>
                 <td>
-                  <div (click)="onUpdUtente(ele)" class="text-center cursore" data-bs-toggle="modal"
+                  <div (click)="onUpdate(ele)" class="text-center cursore" data-bs-toggle="modal"
                     data-bs-target="#updUtenteModal">
                     <i class="bi bi-incognito table_icon"></i>
                   </div>

@@ -47,7 +47,6 @@ export class AccoppiamentiComponent implements OnInit {
 
         next: (result: any) => {
           this.accoppiamenti = result
-          console.log("this.accoppiamenti",this.accoppiamenti)
         },
         error: (error: any) => {
           this.alert.error(error);

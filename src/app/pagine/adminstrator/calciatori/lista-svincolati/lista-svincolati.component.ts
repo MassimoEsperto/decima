@@ -36,16 +36,15 @@ export class ListaSvincolatiComponent implements OnInit {
 
 
   onAggiungiCalciatori() {
-
-    console.log("aggiungiCalciatori ")
+    this.aggiungiCalciatori(this.rose)
   }
 
 
-  aggiungiCalciatori() {
+  aggiungiCalciatori(payload: any) {
 
     this.loading_btn = true;
 
-    this.adminService.insertSvincolati(this.rose)
+    this.adminService.insertSvincolati(payload)
       .pipe(finalize(() => {
         this.loading_btn = false;
       }
@@ -62,6 +61,6 @@ export class ListaSvincolatiComponent implements OnInit {
   }
 
 
-  
+
 
 }

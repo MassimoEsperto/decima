@@ -6,12 +6,12 @@ import { LanguageService } from 'src/app/servizi/language.service';
 import { UtilService } from 'src/app/servizi/util.service';
 
 @Component({
-  selector: 'form-giornate',
-  templateUrl: './form-giornate.component.html',
-  styleUrls: ['./form-giornate.component.scss'],
+  selector: 'form-utenti',
+  templateUrl: './form-utenti.component.html',
+  styleUrls: ['./form-utenti.component.scss'],
   providers: [UtilService],
 })
-export class FormGiornate {
+export class FormUtenti {
 
   @Output() mySubmit = new EventEmitter();
   @Input() data: any;
@@ -34,31 +34,16 @@ export class FormGiornate {
 
   }
 
-  updateGiornata(payload: any) {
+  updateUtente(payload: any) {
 
-    this.adminService.cambiaDate(payload)
+    this.adminService.updDetailUtente(payload)
       .pipe(finalize(() =>
         this.loading_btn = false
       ))
       .subscribe({
         next: (result: any) => {
-          this.successo()
-        },
-        error: (error: any) => {
-          this.alert.error(error);
-        }
-      })
 
-  }
-
-  insertGiornata(payload: any) {
-
-    this.adminService.newData(payload)
-      .pipe(finalize(() =>
-        this.loading_btn = false
-      ))
-      .subscribe({
-        next: (result: any) => {
+          this.alert.success(this.language.label.alert.success);
           this.successo()
         },
         error: (error: any) => {
@@ -68,28 +53,17 @@ export class FormGiornate {
   }
 
 
-  OnSetGiornata(input: any) {
+  OnSetUtente(payload: any) {
 
     this.loading_btn = true
 
-    let payload = {
-      giornata: input.giornata,
-      serie_a: input.serie_a,
-      inizio_giornata: input.inizio_giornata.replace("T", " "),
-      prima_partita: input.prima_partita.replace("T", " "),
-      ultima_partita: input.ultima_partita.replace("T", " "),
-      fine_giornata: input.fine_giornata.replace("T", " "),
-      is_upgrade: input.is_upgrade,
-      fase: input.fase
-    }
-
     if (this.data.insert) {
-      this.insertGiornata(payload)
+      console.log("Insert non presente")
     } else {
-      this.updateGiornata(payload)
+      this.updateUtente(payload)
     }
   }
 
 
-}
 
+}

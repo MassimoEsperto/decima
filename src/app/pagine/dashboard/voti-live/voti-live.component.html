@@ -5,8 +5,8 @@
     <div *ngIf="formazioni">
         <div *ngFor="let fanta of formazioni" class="pb-16">
 
-            <div class="my-card mb-8">
-                <div class="my-card-header">
+            <div class="card bg-warning text-white">
+                <div class="card-header bg-opaco">
                     <div class="row">
                         <div class="col-6">
                             <span>{{fanta.CASA.squadra}}</span>
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="my-card-body font-size-smart">
+                <div class="card-body font-size-smart">
                     <div class="row">
                         <div class="col-6">
                             <div *ngFor="let schieramento of fanta.CASA.schieramento">

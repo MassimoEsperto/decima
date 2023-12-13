@@ -96,9 +96,8 @@ export class AdminService extends HttpSenderService {
     return this.putFree(ADMIN_SERVICE.UPD_DETAIL_UTENTE, payload)
   }
 
-  deleteUtente(id_utente: string) {
-    const params = new HttpParams().set('id_utente', id_utente);
-    return this.getFree(ADMIN_SERVICE.DEL_UTENTE, params)
+  deleteSquadra(payload: any) {
+    return this.postFree(ADMIN_SERVICE.DEL_SQUADRA, payload)
   }
 
   deleteRosa(id_utente: string) {

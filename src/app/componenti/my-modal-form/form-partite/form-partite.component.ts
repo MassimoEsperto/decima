@@ -6,12 +6,12 @@ import { LanguageService } from 'src/app/servizi/language.service';
 import { UtilService } from 'src/app/servizi/util.service';
 
 @Component({
-  selector: 'form-giornate',
-  templateUrl: './form-giornate.component.html',
-  styleUrls: ['./form-giornate.component.scss'],
+  selector: 'form-partite',
+  templateUrl: './form-partite.component.html',
+  styleUrls: ['./form-partite.component.scss'],
   providers: [UtilService],
 })
-export class FormGiornate {
+export class FormPartite {
 
   @Output() mySubmit = new EventEmitter();
   @Input() data: any;
@@ -25,38 +25,18 @@ export class FormGiornate {
     private util: UtilService
   ) { }
 
-
   successo() {
-
     this.alert.success(this.language.label.alert.success);
     this.mySubmit.emit(true)
     this.util.clodeModal()
-
   }
 
-  updateGiornata(payload: any) {
+  updateAccoppiamento(payload: any) {
 
-    this.adminService.cambiaDate(payload)
-      .pipe(finalize(() =>
-        this.loading_btn = false
-      ))
-      .subscribe({
-        next: (result: any) => {
-          this.successo()
-        },
-        error: (error: any) => {
-          this.alert.error(error);
-        }
-      })
-
-  }
-
-  insertGiornata(payload: any) {
-
-    this.adminService.newData(payload)
-      .pipe(finalize(() =>
-        this.loading_btn = false
-      ))
+    this.adminService.updAccoppiamento(payload)
+      .pipe(finalize(() => {
+        this.loading_btn = false;
+      }))
       .subscribe({
         next: (result: any) => {
           this.successo()
@@ -67,29 +47,41 @@ export class FormGiornate {
       })
   }
 
+  insertAccoppiamento(payload: any) {
 
-  OnSetGiornata(input: any) {
+    this.adminService.setAccoppiamento(payload)
+      .pipe(finalize(() => {
+        this.loading_btn = false;
+      }))
+      .subscribe({
+        next: (result: any) => {
+          this.successo()
+        },
+        error: (error: any) => {
+          this.alert.error(error);
+        }
+      })
+  }
+
+  OnSetAccoppiamento(input: any) {
 
     this.loading_btn = true
 
     let payload = {
+      id_casa: input.id_casa,
+      id_trasferta: input.id_trasferta,
       giornata: input.giornata,
-      serie_a: input.serie_a,
-      inizio_giornata: input.inizio_giornata.replace("T", " "),
-      prima_partita: input.prima_partita.replace("T", " "),
-      ultima_partita: input.ultima_partita.replace("T", " "),
-      fine_giornata: input.fine_giornata.replace("T", " "),
-      is_upgrade: input.is_upgrade,
-      fase: input.fase
+      id_calendario: input.id_calendario
+
     }
 
     if (this.data.insert) {
-      this.insertGiornata(payload)
+      this.insertAccoppiamento(payload)
     } else {
-      this.updateGiornata(payload)
+      this.updateAccoppiamento(payload)
     }
   }
 
 
-}
 
+}

@@ -36,9 +36,7 @@ import { UpgradeSquadraComponent } from '../pagine/dashboard/upgrade-squadra/upg
 import { ListaSquadreComponent } from '../pagine/iscrizione/lista-squadre/lista-squadre.component';
 import { CalcoloVotiComponent } from '../pagine/adminstrator/competizione/calcolo-voti/calcolo-voti.component';
 import { AccoppiamentiComponent } from '../pagine/adminstrator/accoppiamenti/accoppiamenti.component';
-import { DataPartiteComponent } from '../pagine/adminstrator/accoppiamenti/data-partite/data-partite.component';
 import { SorteggiGironiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi-gironi/sorteggi-gironi.component';
-import { EliminatorieComponent } from '../pagine/adminstrator/accoppiamenti/eliminatorie/eliminatorie.component';
 import { ListaSvincolatiComponent } from '../pagine/adminstrator/calciatori/lista-svincolati/lista-svincolati.component';
 import { CaricaSquadreComponent } from '../pagine/adminstrator/calciatori/carica-squadre/carica-squadre.component';
 import { SostituisciCalciatoreComponent } from '../pagine/adminstrator/calciatori/sostituisci-calciatore/sostituisci-calciatore.component';
@@ -48,6 +46,10 @@ import { InviaNotificaComponent } from '../pagine/adminstrator/notifiche/invia-n
 import { ScriviNotificaComponent } from '../pagine/adminstrator/notifiche/scrivi-notifica/scrivi-notifica.component';
 import { RecuperoFormazioniComponent } from '../pagine/adminstrator/competizione/recupero-formazioni/recupero-formazioni.component';
 import { NicknameCalciatoriComponent } from '../pagine/adminstrator/calciatori/nickname-calciatori/nickname-calciatori.component';
+import { PartiteComponent } from '../pagine/adminstrator/accoppiamenti/partite/partite.component';
+import { DataGiornateComponent } from '../pagine/adminstrator/accoppiamenti/data-giornate/data-giornate.component';
+
+
 
 @NgModule({
   declarations: [
@@ -85,9 +87,9 @@ import { NicknameCalciatoriComponent } from '../pagine/adminstrator/calciatori/n
     CalcoloVotiComponent,
     RecuperoFormazioniComponent,
     AccoppiamentiComponent,
-    DataPartiteComponent,
+    DataGiornateComponent,
     SorteggiGironiComponent,
-    EliminatorieComponent,
+    PartiteComponent,
     ListaSvincolatiComponent,
     CaricaSquadreComponent,
     SostituisciCalciatoreComponent,

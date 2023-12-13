@@ -75,8 +75,7 @@ export class SostituisciCalciatoreComponent {
       player_out: element.utente.id_calciatore
     }
 
-    console.log("payload", payload)
-    //this.sostituisciCalciatore(payload)
+    this.sostituisciCalciatore(payload)
   }
 
 

@@ -2,9 +2,9 @@
     <div class="card-header">GESTIONE GIORNATE</div>
     <div class="card-body">
 
-        <div class="pt-8 pb-24">
-            <my-button [color]="'btn-primary'" [block]="true" (myClick)="onAddRecord()"
-                [label]="'AGGIUNGI NUOVA'"></my-button>
+        <div class="pt-16 pb-16">
+            <my-button [color]="'btn-primary'" [block]="true" (myClick)="onInsert()" data-bs-toggle="modal"
+                data-bs-target="#updGiornataModal" [label]="'AGGIUNGI NUOVA'"></my-button>
         </div>
 
         <div class="display-center pt-16">
@@ -12,41 +12,33 @@
             <div class="table-responsive">
 
                 <table class="table table-bordered table-striped text-center">
-                    <thead class="table-dark">
+                    <thead>
                         <tr>
-                            <th class="text-center">ID</th>
+                            <th class="text-center">G</th>
+                            <th class="text-center">A</th>
                             <th class="text-center">FASE</th>
-                            <th class="text-center">GIORNATA</th>
-
-                            <th class="text-center">UPGRADE</th>
-                            <th class="text-center">SERIE_A</th>
-
-                            <th class="text-center">INIZIO_GIORNATA</th>
-                            <th class="text-center">PRIMA_PARTITA</th>
-                            <th class="text-center">FINE_GIORNATA</th>
-                            <th class="text-center">ULTIMA_GIORNATA</th>
-
+                            <th class="text-center">INIZIO</th>
+                            <th class="text-center">PRIMA</th>
+                            <th class="text-center">ULTIMA</th>
+                            <th class="text-center">FINE</th>
+                            <th class="text-center">CHANGE</th>
                             <th class="text-center">UPD</th>
                             <th class="text-center">DEL</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of accoppiamenti.giornate">
-                            <td>{{item.id_giornate}}</td>
-                            <td>{{item.fase}}</td>
                             <td>{{item.giornata}}</td>
-
-                            <td>{{item.is_upgrade}}</td>
                             <td>{{item.serie_a}}</td>
-
+                            <td>{{util.getFasi(item.fase)}}</td>
                             <td>{{item.inizio_giornata}}</td>
                             <td>{{item.prima_partita}}</td>
                             <td>{{item.ultima_partita}}</td>
                             <td>{{item.fine_giornata}}</td>
-
+                            <td>{{util.getBoleano(item.is_upgrade)}}</td>
                             <td>
                                 <div (click)="onUpdate(item)" class="text-center cursore" data-bs-toggle="modal"
-                                    data-bs-target="#updCalendarioModal">
+                                    data-bs-target="#updGiornataModal">
                                     <i class="bi bi-incognito table_icon"></i>
                                 </div>
                             </td>
@@ -63,29 +55,6 @@
             </div>
 
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
 </div>

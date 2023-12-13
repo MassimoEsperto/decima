@@ -1,0 +1,44 @@
+<div *ngIf="combo && data">
+
+
+    <!-- Form -->
+    <form #accoppiamentoForm="ngForm" (submit)="OnSetAccoppiamento(data)">
+
+     <!-- Squadra Casa-->
+     <div class="pt-16">
+        <label for="select-casa">CASA</label>
+        <select id="select-casa" class="form-control custom-select" [(ngModel)]="data.id_casa" name="casa" required
+            #casa="ngModel">
+            <option *ngFor="let item of combo.squadre" [ngValue]="item.id_squadra">{{item.squadra}}</option>
+        </select>
+    </div>
+
+         <!-- Squadra Trasferta-->
+         <div class="pt-16">
+            <label for="select-trasferta">TRASFERTA</label>
+            <select id="select-trasferta" class="form-control custom-select" [(ngModel)]="data.id_trasferta" name="trasferta" required
+                #trasferta="ngModel">
+                <option *ngFor="let item of combo.squadre" [ngValue]="item.id_squadra">{{item.squadra}}</option>
+            </select>
+        </div>
+
+
+        <!-- Giornata -->
+        <div class="pt-16">
+            <label for="input-giornata">GIORNATA SHIT</label>
+            <input id="input-giornata" type="number" class="form-control" placeholder="giornata"
+                [(ngModel)]="data.giornata" name="giornata" required #giornata="ngModel" />
+        </div>
+
+        <!-- Sign in button -->
+        <div class="pt-16">
+            <my-button [submit]="true" [color]="'btn-primary'" [block]="true" [disabled]="!accoppiamentoForm.valid"
+                [label]="'SALVA'" [loading]="loading_btn" >
+            </my-button>
+        </div>
+    </form>
+    <!-- Form -->
+ 
+</div>
+
+

@@ -1,11 +1,13 @@
 <div class="card">
-    <div class="card-header">GESTIONE ACCOPPIAMENTI</div>
+    <div class="card-header">GESTIONE PARTITE</div>
     <div class="card-body">
 
         <div class="pt-8 pb-24">
-            <my-button [color]="'btn-primary'" [block]="true" (myClick)="onAddRecord()" [label]="'AGGIUNGI NUOVO'"></my-button>
+            <my-button [color]="'btn-primary'" [block]="true" (myClick)="onInsert()" data-bs-toggle="modal"
+            data-bs-target="#updCalendarioModal" [label]="'AGGIUNGI NUOVO'"></my-button>
         </div>
           <table class="table table-bordered table-responsive table-striped text-center">
+            <thead>
             <tr>
                 <th class="text-center">ID</th>
                 <th class="text-center">GIO</th>
@@ -13,6 +15,8 @@
                 <th class="text-center">UPD</th>
                 <th class="text-center">DEL</th>
             </tr>
+        </thead>
+        <tbody>
             <ng-container *ngFor="let item of accoppiamenti.calendario">
 
                 <tr *ngFor="let ele of item.partite">
@@ -33,6 +37,7 @@
                     </td>
                 </tr>
             </ng-container>
+        </tbody>
         </table>
 
     </div>

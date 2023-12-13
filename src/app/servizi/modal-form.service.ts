@@ -13,8 +13,21 @@ export class ModalFormService {
     return this.subject.asObservable();
   }
 
-  setData(data: any) {
-    this.subject.next({ data: data });
+
+  setData(data: any, sottomesso: () => void): any {
+    const that = this;
+    this.subject.next({
+      data: data,
+      sottomesso(): any {
+        that.subject.next("");
+        sottomesso();
+      }
+    });
+
+  }
+
+  setCombo(combo: any) {
+    this.subject.next({ combo: combo });
   }
   
 }

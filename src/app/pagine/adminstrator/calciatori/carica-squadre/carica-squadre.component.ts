@@ -90,8 +90,8 @@ export class CaricaSquadreComponent {
       lega: this.lega
     }
 
-    //this.clean(payload);
-    console.log("onAssocia", payload)
+    this.clean(payload);
+    
   }
 
 }

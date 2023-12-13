@@ -33,7 +33,7 @@ export const ADMIN_SERVICE = {
 
   GET_ADMINISTRATOR: "get_administrator",
   UPD_DETAIL_UTENTE: "upd_detail_utente",
-  DEL_UTENTE: "del_utente",
+  DEL_SQUADRA: "del_squadra",
   DEL_ROSA_UTENTE: "del_rosa_utente",
   SET_CALCOLO_GIORNATA: "set_calcolo_giornata",
   SET_SVINCOLATI: "set_svincolati",
@@ -125,7 +125,7 @@ export const SUB_PAGE_ADMIN = {
     SORTEGGI: 3,
     VIEW_POSSIBILI: [
       { id: 1, descrizione: "DATE" },
-      { id: 2, descrizione: "ELIMINATORIE" },
+      { id: 2, descrizione: "PARTITE" },
       { id: 3, descrizione: "SORTEGGI" }
     ]
   },
@@ -151,3 +151,14 @@ export const SUB_PAGE_ADMIN = {
   }
 
 }
+
+export const BOLEANO = [
+  {
+    valore: "1",
+    descrizione: "SI"
+  },
+  {
+    valore: "0",
+    descrizione: "NO"
+  }
+]

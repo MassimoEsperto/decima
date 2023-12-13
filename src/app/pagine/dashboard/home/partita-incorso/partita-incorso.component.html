@@ -16,25 +16,25 @@
                         <!--Card content-->
                         <div class="card-body sfondo_campo">
                             <div class="pt-8 pb-8">
-                                <div class="squadre">
+                                <div class="display-center-n">
                                     <div class="col-4 col-sm-4 col-md-5 col-lg-5">
-                                        <div class="punteggio">
+                                        <div class="display-center">
                                             <img src="assets/avatar/{{dash.match.CASA.avatar}}.png" class="avatar"
                                                 width="24px" />
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-10 col-lg-10  punteggio">
+                                        <div class="col-12 col-sm-12 col-md-10 col-lg-10  display-center">
                                             <label class="nome_squadra text-bold">
                                                 {{dash.match.CASA.squadra}}
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="punteggio col-4 col-sm-4 col-md-2 col-lg-2"></div>
+                                    <div class="display-center col-4 col-sm-4 col-md-2 col-lg-2"></div>
                                     <div class="col-4 col-sm-4 col-md-5 col-lg-5">
-                                        <div class="punteggio">
+                                        <div class="display-center">
                                             <img src="assets/avatar/{{dash.match.TRASFERTA.avatar}}.png" class="avatar"
                                                 width="24px" />
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-10 col-lg-10 punteggio">
+                                        <div class="col-12 col-sm-12 col-md-10 col-lg-10 display-center">
                                             <label class="nome_squadra text-bold">
                                                 {{dash.match.TRASFERTA.squadra}}
                                             </label>
@@ -66,16 +66,16 @@
                 <div class="card-body">
 
                     <div class="sfondo_lavagna pa-8">
-                        <div class="sfidante pb-16"> <label class="text-bold">
+                        <div class="text-centro text-bold pb-16"> <label class="text-bold">
                                 {{language.label.page.live_match}}
                             </label></div>
 
                         <div class="lavagna pb-8">
 
-                            <div class="divisione">
+                            <div class="flex-start ma-0 pa-0">
                                 <div class="col-half">
                                     <div class="font-size-smart pr-4">
-                                        <div class="formazioni">
+                                        <div class="display-start-column">
                                             <label *ngFor="let gesso of dash.match.CASA.schieramento">
                                                 {{gesso.nome}}
                                                 {{votilive[gesso.calciatore]}}
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="col-half">
                                     <div class="font-size-smart pl-4">
-                                        <div class="formazioni">
+                                        <div class="display-start-column">
                                             <label *ngFor="let gesso of dash.match.TRASFERTA.schieramento">
                                                 {{gesso.nome}}
                                                 {{votilive[gesso.calciatore]}}

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AdminService } from 'src/app/servizi/admin.service';
 import { ModalFormService } from 'src/app/servizi/modal-form.service';
 
 
@@ -14,23 +13,26 @@ export class MyModalForm implements OnInit {
   private subscription: Subscription = new Subscription;
 
   data: any;
+  combo: any;
+  input: any;
 
-  constructor(
-    private forms: ModalFormService,
-    private adminService: AdminService
-  ) { }
+  constructor(private forms: ModalFormService) { }
 
   ngOnInit(): any {
 
     this.subscription = this.forms.getData().subscribe((input: any) => {
-      this.data = input.data.record;
-      if (this.data) {
-        console.log("this.data",this.data)
-      }
+
+      this.input = input
+      this.data = input.data ? input.data : this.data;
+      this.combo = input.combo ? input.combo.lista : this.combo;
+
     });
   }
 
- 
+  sottomesso() {
+    this.input.sottomesso();
+  }
+
   ngOnDestroy() {
     document.body.removeAttribute("style");
   }

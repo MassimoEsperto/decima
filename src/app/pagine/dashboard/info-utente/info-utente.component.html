@@ -5,7 +5,7 @@
   <div *ngIf="loggato.qta">
 
 
-    <div *ngIf="loggato.qta > 1" class="pt-16 pb-64 text-centro" >
+    <div *ngIf="loggato.qta > 1" class="pt-16 pb-64 text-centro">
       <div class="card">
         <div class="card-header">
           <div>{{language.label.page.seleziona_squadra}}</div>
@@ -38,7 +38,7 @@
 
 
     <div class="row ma-0 pa-0">
-       
+
       <div class="col-12 col-sm-12 col-md-6 col-lg-5 ma-0 pa-0">
 
         <div class="pb-64 text-centro">
@@ -46,10 +46,10 @@
             <div class="card-header">
               <div>{{language.label.page.cambia_img}}</div>
             </div>
-    
+
             <!--Card content-->
             <div class="card-body">
-    
+
               <div class="image-preview mt-16" *ngIf="avatarSel">
                 <img src="assets/avatar/{{avatarSel.nome}}.png" width="220" height="220" />
               </div>
@@ -57,9 +57,9 @@
                 <img src="assets/img/omino.png" width="220" height="220" />
               </div>
               <br>
-    
+
               <div class="dropup-center dropup">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   {{language.label.bottoni.avatar}}
                 </button>
@@ -71,10 +71,10 @@
                   </li>
                 </ul>
               </div>
-    <div class="pt-16 pb-16">
-              <my-button [submit]="false" [color]="'btn-primary'" [block]="true" [disabled]="!avatarSel"
-              [label]="language.label.bottoni.invia" [loading]="loading_btn" (myClick)="updateAvatar()"></my-button>
-            </div>
+              <div class="pt-16 pb-16">
+                <my-button [submit]="false" [color]="'btn-primary'" [block]="true" [disabled]="!avatarSel"
+                  [label]="language.label.bottoni.invia" [loading]="loading_btn" (myClick)="updateAvatar()"></my-button>
+              </div>
             </div>
           </div>
         </div>
@@ -88,17 +88,17 @@
             <div class="card-header">
               <div>{{language.label.page.cambia_dati}}</div>
             </div>
-    
+
             <!--Card content-->
             <div class="card-body">
-    
+
               <!-- Form -->
               <form #myForm="ngForm" (submit)="updateUtente(loggato)">
-    
+
                 <!-- Username -->
                 <div class="pt-32">
-                  <input type="text" id="username" class="form-control" placeholder="Username" minlength="4" maxlength="12"
-                    [(ngModel)]="loggato.username" name="username" readonly #user="ngModel" />
+                  <input type="text" id="username" class="form-control" placeholder="Username" minlength="4"
+                    maxlength="12" [(ngModel)]="loggato.username" name="username" readonly #user="ngModel" />
                 </div>
                 <!-- Email -->
                 <div class="pt-32">
@@ -117,22 +117,22 @@
                 </div>
                 <!-- Sign in button -->
                 <div class="pt-32 pb-16">
-    
+
                   <my-button [submit]="true" [color]="'btn-primary'" [block]="true" [confirm]="true"
                     (myClick)="updateUtente(loggato)" [disabled]="!myForm.valid" [label]="language.label.bottoni.invia"
                     [loading]="loading_btn">
                   </my-button>
-    
+
                 </div>
               </form>
               <!-- Form -->
-    
+
             </div>
-    
+
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-   
+
 
 
   </div>

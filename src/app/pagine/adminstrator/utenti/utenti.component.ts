@@ -6,6 +6,7 @@ import { ConfirmDialogService } from 'src/app/servizi/confirm-dialog.service';
 import { LanguageService } from 'src/app/servizi/language.service';
 import { ModalFormService } from 'src/app/servizi/modal-form.service';
 import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { BOLEANO } from 'src/environments/environment';
 
 @Component({
   selector: 'utenti',
@@ -14,7 +15,7 @@ import { SpinnerService } from 'src/app/servizi/spinner.service';
 })
 export class UtentiComponent implements OnInit {
 
-  squadre: any;
+  administrator: any;
 
   info = {
     titolo: "GESTIONE UTENTI",
@@ -30,12 +31,33 @@ export class UtentiComponent implements OnInit {
     private confirmDialog: ConfirmDialogService,
   ) { }
 
+
   ngOnInit() {
-    this.getSquadreUtenti()
+    this.getAdministrator()
   }
 
 
-  getSquadreUtenti() {
+  onUpdate(record: any) {
+    record.insert = false
+    this.forms.setData(record, () => {
+      this.getAdministrator()
+    })
+  }
+
+  onInsert() {
+    let record = { insert: true }
+    this.forms.setData(record, () => {
+      this.getAdministrator()
+    })
+  }
+
+  OnSetCombo() {
+    let lista = { boleano: BOLEANO, stati: this.administrator.stati_squadre, ruoli: this.administrator.ruoli }
+    this.forms.setCombo({ lista })
+  }
+
+
+  getAdministrator() {
 
     this.spinner.view();
 
@@ -46,38 +68,36 @@ export class UtentiComponent implements OnInit {
       .subscribe({
 
         next: (result: any) => {
-          this.squadre = result.squadre
-          console.log("squadre", this.squadre)
+          this.administrator = result
+          this.OnSetCombo()
         },
         error: (error: any) => {
           this.alert.error(error);
         }
       })
 
-  }
-
-  onUpdUtente(record: any) {
-    this.forms.setData({ record })
   }
 
 
   onDelete(ele: any) {
 
+    let payload = { id_squadra: ele.id_squadra }
+
     this.confirmDialog.confirmThis("Sei sicuro di voler eliminare la squadra " + ele.squadra + " ?", () => {
 
-      console.log("delete ", ele.id_squadra
-      )
+      console.log("delete ", payload)
+      //this.deleteSquadra(payload)
     })
   }
 
   /* CHIAMATE AI SERVIZI */
-  remove(id: any, id_utente: string) {
+  deleteSquadra(payload: any) {
 
-    this.adminService.deleteUtente(id_utente)
+    this.adminService.deleteSquadra(payload)
       .subscribe({
         next: (result: any) => {
           this.alert.success(this.language.label.alert.success);
-          this.getSquadreUtenti()
+          this.getAdministrator()
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -86,20 +106,7 @@ export class UtentiComponent implements OnInit {
   }
 
 
-  updDetailUtente(user: any) {
 
-    this.adminService.updDetailUtente(user)
-      .subscribe({
-        next: (result: any) => {
-
-          this.alert.success(this.language.label.alert.success);
-          this.getSquadreUtenti()
-        },
-        error: (error: any) => {
-          this.alert.error(error);
-        }
-      })
-  }
 
   /* FINE CHIAMATE AI SERVIZI */
 

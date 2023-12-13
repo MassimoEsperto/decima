@@ -53,18 +53,18 @@ export class ListaSquadreComponent implements OnInit {
 
   onDelete(id: any) {
 
+    let payload = { id: id }
+
     this.confirmDialogService.confirmThis("Sei sicuro di voler eliminare la squadra ?", () => {
-      //this.delSquadra(id);
-      console.log("delSquadra ", id)
+      //this.delSquadra(payload);
+      console.log("delSquadra ", payload)
     })
   }
 
 
-  delSquadra(id: any) {
+  delSquadra(payload: any) {
 
     this.loading_btn = true;
-
-    let payload = { id: id }
 
     this.playerService.delSquadra(payload)
       .pipe(finalize(() => this.loading_btn = false))

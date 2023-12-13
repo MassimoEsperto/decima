@@ -19,8 +19,9 @@ import { MyModalAlbo } from '../componenti/my-modal-albo/my-modal-albo.component
 import { MyModalLanguage } from '../componenti/my-modal-language/my-modal-language.component';
 import { MyInfoCard } from '../componenti/my-info-card/my-info-card.component';
 import { MyModalForm } from '../componenti/my-modal-form/my-modal-form.component';
-import { FormCalendario } from '../componenti/my-modal-form/form-calendario/form-calendario.component';
 import { FormGiornate } from '../componenti/my-modal-form/form-giornate/form-giornate.component';
+import { FormUtenti } from '../componenti/my-modal-form/form-utenti/form-utenti.component';
+import { FormPartite } from '../componenti/my-modal-form/form-partite/form-partite.component';
 
 
 @NgModule({
@@ -49,8 +50,9 @@ import { FormGiornate } from '../componenti/my-modal-form/form-giornate/form-gio
     MyInfoCard,
     MyModalForm,
     //form
-    FormCalendario,
-    FormGiornate
+    FormPartite,
+    FormGiornate,
+    FormUtenti
   ],
   exports: [
     MyButton,
@@ -69,8 +71,9 @@ import { FormGiornate } from '../componenti/my-modal-form/form-giornate/form-gio
     MyModalLanguage,
     MyInfoCard,
     MyModalForm,
-    FormCalendario,
-    FormGiornate
+    FormPartite,
+    FormGiornate,
+    FormUtenti
   ],
   providers: [
   ],

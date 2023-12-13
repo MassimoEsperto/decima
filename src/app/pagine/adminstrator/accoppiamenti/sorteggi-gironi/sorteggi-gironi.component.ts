@@ -76,10 +76,8 @@ export class SorteggiGironiComponent extends OnInitComp implements OnInit {
     let lista = this.sorteggiati.map((item: { id: any; }) => item.id);
 
     let payload = { squadre: lista, girone: this.girone }
-    //this.setGeneraCompetizioneGironi(payload)
-    console.log("girone", payload)
-
-
+    this.setGeneraCompetizioneGironi(payload)
+   
   }
 
   getStartNewGrirone() {

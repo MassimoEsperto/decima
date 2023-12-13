@@ -27,8 +27,8 @@
     <div class="pt-16">
         <div *ngFor="let item of formazioni_inserite" class="pt-8">
 
-            <div class="my-card">
-                <div class="my-card-header">
+            <div class="card bg-warning text-white">
+                <div class="card-header bg-opaco">
                     <div class="row pa-0 ma-0">
                         <div class="col-6">
                             <span>{{item.CASA.squadra}}</span>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="my-card-body font-size-smart">
+                <div class="card-body font-size-smart">
                     <div class="row pa-0 ma-0">
                         <div class="col-6 pa-0 ma-0">
                             <div *ngFor="let ele of item.CASA.schieramento">
