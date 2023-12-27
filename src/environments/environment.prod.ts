@@ -7,6 +7,10 @@ export const VERSION = "7.0.1"
 
 export const WS_BASE_URL = `https://fantashitcup.altervista.org/WorldWideFantashit/web-services`
 
+export const ASSETS_BASE_URL = `https://fantashitcup.altervista.org/WorldWideFantashit/ShitCup/assets`
+
+export const WHATSAPP_URL = `https://chat.whatsapp.com/JICQWVbYoqCKh9gek92EIW`
+
 // Timeout richieste POST
 export const REQUEST_TIMEOUT = 2 * 60 * 1000 // 2 minuti
 
