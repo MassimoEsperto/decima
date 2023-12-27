@@ -14,7 +14,7 @@
 
             <div class="tab-content">
                 <div class="pt-16 pb-16">
-                    <sorteggi-gironi *ngIf="PAGE.VIEW == PAGE.ACCOPPIAMENTI.SORTEGGI" [accoppiamenti]="accoppiamenti"></sorteggi-gironi>
+                    <sorteggi *ngIf="PAGE.VIEW == PAGE.ACCOPPIAMENTI.SORTEGGI"></sorteggi>
                     <partite *ngIf="PAGE.VIEW == PAGE.ACCOPPIAMENTI.ELIMINATORIE" [accoppiamenti]="accoppiamenti" (aggiorna)="getAccoppiamenti()"></partite>
                     <data-giornate *ngIf="PAGE.VIEW == PAGE.ACCOPPIAMENTI.DATE_PARTITE" [accoppiamenti]="accoppiamenti" (aggiorna)="getAccoppiamenti()"></data-giornate>
                 </div>

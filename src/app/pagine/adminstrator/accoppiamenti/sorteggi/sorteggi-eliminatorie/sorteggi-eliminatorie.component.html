@@ -1,0 +1,107 @@
+<div class="pa-8" *ngIf="view == views.DEFAULT">
+    <div class="pb-16">
+        <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [label]="'NUOVA ELIMINATORIA'"
+            (myClick)="getStartNewEliminatoria()"></my-button>
+    </div>
+
+</div>
+
+<div *ngIf="view == views.LISTA" class="pb-16">
+
+    <div>
+        <div class="pt-16">
+            <select class="form-control custom-select" [(ngModel)]="opzioni.fase">
+                <option *ngFor="let fase of fasi" [ngValue]="fase">FASE {{fase.descrizione}}</option>
+            </select>
+        </div>
+
+        <div class="pt-16">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="opzioniGirone" name="opzioniGirone"
+                    [(ngModel)]="opzioni.girone">
+                <label class="form-check-label" for="opzioniGirone">
+                    GIRONI DIVERSI ?
+                </label>
+            </div>
+        </div>
+
+        <div class="pt-16 pb-32">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="opzioniUtente" name="opzioniUtente"
+                    [(ngModel)]="opzioni.utente">
+                <label class="form-check-label" for="opzioniUtente">
+                    UTENTI DIVERSI ?
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <div>SORTEGGIO TABELLONE</div>
+        </div>
+        <div class="card-body">
+
+            <div class="pt-16">
+                <div class="form-check" (click)="selezionaTutto($event)">
+                    <input class="form-check-input" type="checkbox" id="all01">
+                    <label class="form-check-label" for="all01">
+                        SELEZIONA TUTTO
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="pt-16">
+                <div class="form-check" *ngFor="let element of sorteggiabili; index as i;">
+                    <input class="form-check-input" type="checkbox" id="{{'check'+element.id}}" name="{{element}}"
+                        [(ngModel)]="sorteggiabili[i].selected">
+                    <label class="form-check-label" for="{{'check'+element.id}}">
+                        {{element.descrizione}}
+                    </label>
+                </div>
+            </div>
+            <div class="pt-16 pb-16">
+                <my-button [submit]="true" [color]="'btn-primary'" [block]="true" (myClick)="sorteggio()"
+                    [loading]="loading_btn" [disabled]="selected().length==0||!opzioni.fase"
+                    [label]="'SORTEGGIA'"></my-button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="pt-32 pr-8 pl-8" *ngIf="view == views.CARD">
+
+    <div class="card">
+        <div class="card-header" style="background-color: white;">FASE {{opzioni.fase.descrizione}} </div>
+
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead class="red white-text rounded-lg">
+                    <tr>
+                        <th scope="col">CASA </th>
+                        <th scope="col">TRASFERTA </th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr *ngFor="let el of eliminatorie">
+                        <td>{{el.casa.descrizione}}</td>
+                        <td>{{el.trasferta.descrizione}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="pt-16">
+        <my-button [submit]="false" [color]="'btn-primary'" [block]="true" [label]="'CONFERMA'" [loading]="loading_btn"
+            [confirm]="true" (myClick)="salvaGirone()"></my-button>
+    </div>
+    <div class="pt-16 pb-16">
+        <my-button [submit]="false" [color]="'btn-danger'" [block]="true" [label]="'ANNULLA'" [loading]="loading_btn"
+            (myClick)="annulla()"></my-button>
+    </div>
+
+
+</div>

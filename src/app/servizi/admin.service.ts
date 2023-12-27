@@ -30,6 +30,10 @@ export class AdminService extends HttpSenderService {
     return this.getFree(ADMIN_SERVICE.GET_GENERA_COMPETIZIONE_GIRONI)
   }
 
+  getGeneraCompetizioneEliminatorie() {
+    return this.getFree(ADMIN_SERVICE.GET_GENERA_COMPETIZIONE_ELIMINATORIE)
+  }
+
   getAccoppiamenti(): Observable<any[]> {
     return this.getFree(ADMIN_SERVICE.GET_ACCOPPIAMENTI)
   }
@@ -66,6 +70,10 @@ export class AdminService extends HttpSenderService {
 
   setGeneraCompetizioneGironi(payload: any): Observable<any[]> {
     return this.postFree(ADMIN_SERVICE.SET_GENERA_COMPETIZIONE_GIRONI, payload)
+  }
+
+  setGeneraCompetizioneEliminatorie(payload: any): Observable<any[]> {
+    return this.postFree(ADMIN_SERVICE.SET_GENERA_COMPETIZIONE_ELIMINATORIE, payload)
   }
 
   sostituisciCalciatore(payload: any) {

@@ -36,7 +36,6 @@ import { UpgradeSquadraComponent } from '../pagine/dashboard/upgrade-squadra/upg
 import { ListaSquadreComponent } from '../pagine/iscrizione/lista-squadre/lista-squadre.component';
 import { CalcoloVotiComponent } from '../pagine/adminstrator/competizione/calcolo-voti/calcolo-voti.component';
 import { AccoppiamentiComponent } from '../pagine/adminstrator/accoppiamenti/accoppiamenti.component';
-import { SorteggiGironiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi-gironi/sorteggi-gironi.component';
 import { ListaSvincolatiComponent } from '../pagine/adminstrator/calciatori/lista-svincolati/lista-svincolati.component';
 import { CaricaSquadreComponent } from '../pagine/adminstrator/calciatori/carica-squadre/carica-squadre.component';
 import { SostituisciCalciatoreComponent } from '../pagine/adminstrator/calciatori/sostituisci-calciatore/sostituisci-calciatore.component';
@@ -48,6 +47,9 @@ import { RecuperoFormazioniComponent } from '../pagine/adminstrator/competizione
 import { NicknameCalciatoriComponent } from '../pagine/adminstrator/calciatori/nickname-calciatori/nickname-calciatori.component';
 import { PartiteComponent } from '../pagine/adminstrator/accoppiamenti/partite/partite.component';
 import { DataGiornateComponent } from '../pagine/adminstrator/accoppiamenti/data-giornate/data-giornate.component';
+import { SorteggiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi.component';
+import { SorteggiEliminatorieComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-eliminatorie/sorteggi-eliminatorie.component';
+import { SorteggiGironiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-gironi/sorteggi-gironi.component';
 
 
 
@@ -88,7 +90,9 @@ import { DataGiornateComponent } from '../pagine/adminstrator/accoppiamenti/data
     RecuperoFormazioniComponent,
     AccoppiamentiComponent,
     DataGiornateComponent,
+    SorteggiComponent,
     SorteggiGironiComponent,
+    SorteggiEliminatorieComponent,
     PartiteComponent,
     ListaSvincolatiComponent,
     CaricaSquadreComponent,

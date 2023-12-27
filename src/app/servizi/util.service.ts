@@ -58,7 +58,132 @@ export class UtilService {
       default: return BOLEANO[1].descrizione
     }
 
+  }
 
+  isDisPari(numero: number) {
+    if (isNaN(numero) == false) {
+      return (numero % 2 == 1 ? true : false);
+    }
+    else {
+      return false;
+    }
+  }
+
+  sorteggiaEliminatorie(sorteggiati: any, opzioni: any) {
+    let eliminatorie: any = []
+    this.setTabellone(sorteggiati, opzioni, eliminatorie)
+    return eliminatorie
+  }
+
+
+  setTabellone(sorteggiati: any, opzioni: any, eliminatorie: any) {
+
+    let quantita = sorteggiati.length
+    let scelto = sorteggiati[0]
+
+    console.log("scelto", scelto)
+
+    this.removeElement(scelto.id, sorteggiati)
+
+    for (let i = 1; i < quantita; i++) {
+
+      let proposta = this.getProposta(scelto, i, opzioni, sorteggiati)
+
+      if (!proposta) {
+        eliminatorie = []
+        return eliminatorie
+      }
+
+      let accettata: boolean = this.isPropostaAccettata(sorteggiati, proposta, (quantita - 2) / 2, opzioni)
+
+      if (accettata) {
+        console.log("proposta accettata", proposta)
+        this.removeElement(proposta.id, sorteggiati)
+        eliminatorie.push({ casa: scelto, trasferta: proposta })
+        if (sorteggiati.length > 0) {
+          this.setTabellone(sorteggiati, opzioni, eliminatorie)
+          break
+        }
+      } else {
+        console.log("proposta rifiutata", proposta)
+        continue;
+      }
+    }
+
+
+  }
+
+
+  isPropostaAccettata(sorteggiati: any, proposta: any, quantita: number, opzioni: any) {
+
+    console.log("quantita minima", quantita)
+    let indubbio = []
+    let isDubbio: boolean = false
+
+    for (let item of sorteggiati) {
+
+      if (item.id == proposta.id) continue;
+
+      let associabili = this.getAssociabili(item, opzioni, sorteggiati)
+
+      this.removeElement(proposta.id, associabili)
+      console.log("unita", associabili.length, " per proposta: ", proposta.descrizione, "e elemento : ", item.descrizione)
+      console.log("associabili", associabili)
+
+      if (associabili.length <= quantita) {
+        for (let ele of associabili) {
+          isDubbio = true
+          if (indubbio.indexOf(ele) === -1) indubbio.push(ele)
+        }
+
+      }
+    }
+    if (isDubbio && indubbio.length <= quantita) {
+      console.log("indubbio", indubbio)
+      return false
+    }
+
+
+    return true
+  }
+
+
+  getProposta(scelto: any, indice: number, opzioni: any, sorteggiati: any) {
+    let associabili = this.getAssociabili(scelto, opzioni, sorteggiati)
+    return associabili[associabili.length - indice]
+  }
+
+
+  getAssociabili(scelto: any, opzioni: any, sorteggiati: any) {
+
+    let lista = []
+    if (opzioni.girone && !opzioni.utente) {
+      lista = sorteggiati.filter((e: { girone: string, id: string }) =>
+        e.girone != scelto.girone && e.id != scelto.id);
+    }
+    if (!opzioni.girone && opzioni.utente) {
+      lista = sorteggiati.filter((e: { id_utente: string, id: string }) =>
+        e.id_utente != scelto.id_utente && e.id != scelto.id);
+    }
+    if (opzioni.girone && opzioni.utente) {
+      lista = sorteggiati.filter((e: { id_utente: string, girone: string, id: string }) =>
+        e.id_utente != scelto.id_utente && e.girone != scelto.girone && e.id != scelto.id);
+    }
+
+    if (!opzioni.girone && !opzioni.utente) {
+      lista = sorteggiati
+    }
+
+    return lista
+  }
+
+
+  removeElement(key: number, lista: any) {
+    if (lista.length > 0) {
+      lista.forEach((value: { id: number; }, index: any) => {
+        if (value.id == key) lista.splice(index, 1);
+      });
+    }
   }
 
 }

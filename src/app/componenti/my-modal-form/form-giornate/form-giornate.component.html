@@ -43,13 +43,13 @@
         <div class="pt-16">
             <label for="select-ultima">ULTIMA GIORNATA</label>
             <input id="select-ultima" type="datetime-local" class="form-control" [(ngModel)]="data.ultima_partita"
-                name="ultima_partita" required #ultima_partita="ngModel" />
+                name="ultima_partita" readonly #ultima_partita="ngModel" />
         </div>
 
         <div class="pt-16">
             <label for="select-fine">FINE GIORNATA</label>
             <input id="select-fine" type="datetime-local" class="form-control" [(ngModel)]="data.fine_giornata"
-                name="fine_giornata" required #fine_giornata="ngModel" />
+                name="fine_giornata" readonly #fine_giornata="ngModel" />
         </div>
 
         <!-- Mercato-->

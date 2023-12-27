@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { AdminService } from 'src/app/servizi/admin.service';
@@ -12,7 +12,6 @@ import { LanguageService } from 'src/app/servizi/language.service';
 })
 export class SorteggiGironiComponent extends OnInitComp implements OnInit {
 
-  @Input() accoppiamenti: any;
   start: boolean = false
   sorteggiabili: any
   girone: string = ""

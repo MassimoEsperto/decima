@@ -44,6 +44,8 @@ export const ADMIN_SERVICE = {
   ASSOCIA_COMUNICAZIONE: "associa_comunicazione",
   GET_GENERA_COMPETIZIONE_GIRONI: "get_genera_competizione_gironi",
   SET_GENERA_COMPETIZIONE_GIRONI: "set_genera_competizione_gironi",
+  GET_GENERA_COMPETIZIONE_ELIMINATORIE: "get_genera_competizione_eliminatorie",
+  SET_GENERA_COMPETIZIONE_ELIMINATORIE: "set_genera_competizione_eliminatorie",
   UPD_PLAYER_UTENTE: "upd_player_utente",
   UPD_GIORNATA: "upd_giornata",
   SET_GIORNATA: "set_giornata",
