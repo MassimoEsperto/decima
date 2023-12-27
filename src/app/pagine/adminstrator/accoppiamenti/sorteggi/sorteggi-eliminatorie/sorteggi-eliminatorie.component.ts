@@ -207,12 +207,11 @@ export class SorteggiEliminatorieComponent extends OnInitComp implements OnInit 
     this.view = this.views.LISTA
   }
 
-  salvaGirone() {
+  salvaEliminatoria() {
 
-    let lista = this.sorteggiati.map((item: { id: any; }) => item.id);
-
-    // let payload = { squadre: lista, girone: this.fase }
-    // this.setGeneraEliminatoria(payload)
+     let payload = { squadre: this.eliminatorie, id_fase: this.opzioni.fase.id }
+     console.log("payload",payload)
+     this.setGeneraEliminatoria(payload)
 
   }
 
@@ -235,7 +234,7 @@ export class SorteggiEliminatorieComponent extends OnInitComp implements OnInit 
   }
 
 
-  setGeneraEliminatoriaNew(payload: any) {
+  setGeneraEliminatoria(payload: any) {
 
     this.loading_btn = true;
 
@@ -260,14 +259,7 @@ export class SorteggiEliminatorieComponent extends OnInitComp implements OnInit 
 
   }
 
-  setGeneraEliminatoria(payload: any) {
 
-    this.loading_btn = true;
-
-    console.log("payload", payload)
-
-
-  }
 
 
 
