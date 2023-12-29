@@ -12,7 +12,7 @@ $sql .="WHERE id_calendario = {$id_calendario} ";
 
 if(mysqli_query($con, $sql))
 {
-	http_response_code(204);
+	echo json_encode(['data'=>'ok']);
 }
 else
 {

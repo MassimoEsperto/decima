@@ -6,8 +6,8 @@ $team = [];
 $occupati = [];
 $gironi = [];
 
-//$sql1 = "SELECT id_squadra,squadra,lega,account,utente_id FROM squadre WHERE id_squadra not in ( SELECT squadra_id FROM risultati ) order by utente_id,lega";
-$sql1 = "SELECT id_squadra,squadra,lega,account,utente_id FROM squadre order by utente_id,lega";
+$sql1 = "SELECT id_squadra,squadra,lega,account,utente_id FROM squadre WHERE id_squadra not in ( SELECT squadra_id FROM risultati ) order by utente_id,lega";
+//$sql1 = "SELECT id_squadra,squadra,lega,account,utente_id FROM squadre order by utente_id,lega";
 $sql2 = "SELECT DISTINCT girone FROM calendario";
 
 
