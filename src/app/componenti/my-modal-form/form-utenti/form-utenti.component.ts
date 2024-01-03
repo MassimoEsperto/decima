@@ -60,6 +60,7 @@ export class FormUtenti {
     if (this.data.insert) {
       console.log("Insert non presente")
     } else {
+      payload.id_utente = this.data.id_utente
       this.updateUtente(payload)
     }
   }

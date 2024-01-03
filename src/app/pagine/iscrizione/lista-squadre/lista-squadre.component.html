@@ -22,8 +22,14 @@
             <p>
                 Pagamento bonifico: LT05 3250 0431 2585 4853 inserendo il o i nomi delle squadre registrate
             </p>
-            <p>Saluti.</p>
 
+            <div class="pb-16">
+                <my-button [color]="'btn-primary'" [label]="'COPIA IBAN'"
+                    (myClick)="copyMessage('LT05 3250 0431 2585 4853')"></my-button>
+            </div>
+
+
+            <p>Saluti.</p>
 
             <div *ngIf="!loading_btn" class="card">
 

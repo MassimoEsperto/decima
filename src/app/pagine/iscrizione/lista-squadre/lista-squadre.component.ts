@@ -82,5 +82,9 @@ export class ListaSquadreComponent implements OnInit {
       })
   }
 
+  copyMessage(text: string) {
+    navigator.clipboard.writeText(text).then().catch(e => console.log(e));
+  }
+
 }
 
