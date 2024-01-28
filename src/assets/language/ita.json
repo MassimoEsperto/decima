@@ -63,7 +63,8 @@
     "alert": {
         "success": "Incredibile Ha Funzionato!",
         "email": "A breve riceverai una email con le info richieste",
-        "formazione": "Non sono previste partite col tuo account"
+        "formazione": "Non sono previste partite col tuo account",
+        "schieramento": "Attenzione la squadra non è ancora salvata"
     },
     "presentazione": {
         "discorso": "LA SHIT CUP E' DIVENTATA UN ELEMENTO DI CULTO E DI STILE, CARATTERISTICA FONDAMENTALE PER TUTTI I FANTALLENATORI IN CERCA DI RISCATTO DA UNA STAGIONE FALLIMENTARE.",

@@ -63,7 +63,8 @@
     "alert": {
         "success": "Incroyable, ça a marché!",
         "email": "Bientôt, vous recevrez un e-mail avec les informations demandées",
-        "formazione": "Il n'y a pas de jeux avec votre compte"
+        "formazione": "Il n'y a pas de jeux avec votre compte",
+        "schieramento": "Attenzione la squadra non è ancora salvata"
     },
     "presentazione": {
         "discorso": "LA SHIT CUP EST DEVENUE UN ÉLÉMENT DE CULTE ET DE STYLE, UNE FONCTION FONDAMENTALE POUR TOUS LES FOOTBALLEURS À LA RECHERCHE D'UNE SAISON DE FAILLITE.",

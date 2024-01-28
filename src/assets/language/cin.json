@@ -63,7 +63,8 @@
     "alert": {
         "success": "难以置信！",
         "email": "很快您将收到一封包含所请求信息的电子邮件",
-        "formazione": "您的帐户没有游戏"
+        "formazione": "您的帐户没有游戏",
+        "schieramento": "Attenzione la squadra non è ancora salvata"
     },
     "presentazione": {
         "discorso": "粪便杯已成为一种敬畏和时尚的元素，是所有希望从破产季节中赎回的足球运动员的基本特征。",

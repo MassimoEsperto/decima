@@ -43,6 +43,10 @@ export class HttpSenderService {
     localStorage.removeItem(LABEL_STORAGE);
   }
 
+  clearLocalStorage() {
+    localStorage.clear();
+  }
+
   setLocalStorage(input: any) {
     localStorage.setItem(TOKEN_STORAGE, input);
   }

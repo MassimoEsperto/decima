@@ -32,6 +32,12 @@ export class AlertService {
         this.reset();
     }
 
+    info(message: string, keepAfterRouteChange = false) {
+        this.keepAfterRouteChange = keepAfterRouteChange;
+        this.subject.next({ type: 'info', text: message });
+        this.reset();
+    }
+
     error(message: string="Errore di sistema", keepAfterRouteChange = false) {
         this.keepAfterRouteChange = keepAfterRouteChange;
         this.subject.next({ type: 'error', text: message });

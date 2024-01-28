@@ -75,7 +75,8 @@
     "alert": {
         "success": "Incredible It Worked!",
         "email": "Soon you will receive an email with the requested info",
-        "formazione": "There are no games with your account"
+        "formazione": "There are no games with your account",
+        "schieramento": "Attenzione la squadra non è ancora salvata"
     },
     "presentazione": {
         "discorso": "THE SHIT CUP HAS BECOME AN ELEMENT OF WORSHIP AND STYLE, A FUNDAMENTAL FEATURE FOR ALL FOOTBALLERS LOOKING FOR REDEMPTION FROM A BANKRUPTCY SEASON.",

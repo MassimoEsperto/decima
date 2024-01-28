@@ -20,16 +20,19 @@ export class MyAlert implements OnInit, OnDestroy {
                 switch (message && message.type) {
 
                     case 'success':
-
                         message.cssClass = 'text-white bg-primary';
                         break;
-                    case 'error':
 
+                    case 'error':
                         message.cssClass = 'text-white bg-danger';
+                        break;
+
+                    case 'info':
+                        message.cssClass = 'text-white bg-black';
                         break;
                 }
 
-                    this.message = message;
+                this.message = message;
             });
     }
 

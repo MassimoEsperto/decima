@@ -29,6 +29,7 @@ export class LoginComponent extends OnInitComp implements OnInit {
 
   ngOnInit() {
     this.loading_page = true
+    this.authService.clearLocalStorage()
     this.verificaVersione()
     this.getUtenti()
   }

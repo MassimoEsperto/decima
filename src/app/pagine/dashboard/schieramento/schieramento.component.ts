@@ -159,6 +159,7 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
 
     this.squadra = this.selected();
     this.changeView();
+    this.alert.info(this.language.label.alert.schieramento);
   }
 
 

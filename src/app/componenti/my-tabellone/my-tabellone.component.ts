@@ -11,9 +11,7 @@ import { FasiCompetizione } from 'src/environments/enums';
 export class MyTabellone implements OnInit {
 
   @Input() tabellone: any;
- 
   format: any
-
 
   constructor(
     private util: UtilService
@@ -22,7 +20,6 @@ export class MyTabellone implements OnInit {
   ngOnInit(): void {
 
     this.format = this.util.formatTabellone(this.tabellone)
-    console.log("this.format",this.format)
 
   }
 
