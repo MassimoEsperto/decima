@@ -22,6 +22,7 @@ import { MyModalForm } from '../componenti/my-modal-form/my-modal-form.component
 import { FormGiornate } from '../componenti/my-modal-form/form-giornate/form-giornate.component';
 import { FormUtenti } from '../componenti/my-modal-form/form-utenti/form-utenti.component';
 import { FormPartite } from '../componenti/my-modal-form/form-partite/form-partite.component';
+import { MyTabellone } from '../componenti/my-tabellone/my-tabellone.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { FormPartite } from '../componenti/my-modal-form/form-partite/form-parti
     MyModalLanguage,
     MyInfoCard,
     MyModalForm,
+    MyTabellone,
     //form
     FormPartite,
     FormGiornate,
@@ -71,6 +73,7 @@ import { FormPartite } from '../componenti/my-modal-form/form-partite/form-parti
     MyModalLanguage,
     MyInfoCard,
     MyModalForm,
+    MyTabellone,
     FormPartite,
     FormGiornate,
     FormUtenti

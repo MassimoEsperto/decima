@@ -1,0 +1,187 @@
+<div class="tabellone pt-8 pr-8 pl-8 pb-24">
+
+    <div>
+
+        <!-- OTTAVI SN-->
+        <div class="turno pr-16">
+            <div class="text-bold text-centro pa-8">
+                <span>{{format.ottavi.fase}}</span>
+            </div>
+
+            <div *ngFor="let item of format.ottavi.sinistra; let i = index">
+
+                <div *ngIf="i!=0" class="divider-8"></div>
+                <div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.CASA.squadra}}
+                    </div>
+                    <div class="pt-8"></div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.TRASFERTA.squadra}}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- QUARTI SN-->
+        <div class="turno pr-16">
+            <div class="text-bold text-centro pa-8">
+                <span>{{format.quarti.fase}}</span>
+            </div>
+
+            <div *ngFor="let item of format.quarti.sinistra; let i = index">
+
+                <div *ngIf="i!=0" class="divider-4"></div>
+                <div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.CASA.squadra}}
+                    </div>
+                    <div class="pt-8"></div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.TRASFERTA.squadra}}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- SEMIFINALE SN-->
+        <div class="turno pr-16 ml--64">
+            <div class="text-bold text-centro pa-8">
+                <span>{{format.semifinale.fase}}</span>
+            </div>
+            <div *ngFor="let item of format.semifinale.sinistra; let i = index">
+
+                <div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.CASA.squadra}}
+                    </div>
+                    <div class="pt-8"></div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.TRASFERTA.squadra}}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- FINALE-->
+        <div class="turno pr-32 pl-16 pb-56">
+            <div class="text-bold text-centro pa-8">
+                <span>{{format.finale.fase}}</span>
+                <img src="assets/img/decima_logo.png" class="avatar" width="80px" />
+            </div>
+            <div *ngFor="let item of format.finale.partite; let i = index">
+
+                <div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.CASA.squadra}}
+                    </div>
+                    <div class="pt-8"></div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.TRASFERTA.squadra}}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- SEMIFINALE DS-->
+        <div class="turno pr-16 mr--64">
+            <div class="text-bold text-centro pa-8">
+                <span>{{format.semifinale.fase}}</span>
+            </div>
+            <div *ngFor="let item of format.semifinale.destra; let i = index">
+
+                <div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.CASA.squadra}}
+                    </div>
+                    <div class="pt-8"></div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.TRASFERTA.squadra}}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- QUARTI DS-->
+        <div class="turno pr-16">
+            <div class="text-bold text-centro pa-8">
+                <span>{{format.quarti.fase}}</span>
+            </div>
+
+            <div *ngFor="let item of format.quarti.destra; let i = index">
+
+                <div *ngIf="i!=0" class="divider-4"></div>
+                <div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.CASA.squadra}}
+                    </div>
+                    <div class="pt-8"></div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.TRASFERTA.squadra}}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- OTTAVI DS-->
+        <div class="turno pr-16">
+            <div class="text-bold text-centro pa-8">
+                <span>{{format.ottavi.fase}}</span>
+            </div>
+
+            <div *ngFor="let item of format.ottavi.destra; let i = index">
+
+                <div *ngIf="i!=0" class="divider-8"></div>
+                <div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.CASA.squadra}}
+                    </div>
+                    <div class="pt-8"></div>
+                    <!-- SQUADRA-->
+                    <div class="eliminatoria">
+                        {{item.TRASFERTA.squadra}}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

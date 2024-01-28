@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class SorteggiComponent {
 
+  view: number = 0;
+
+  onChangeSelect(event: any) {
+    this.view = event.target.value
+  }
 }

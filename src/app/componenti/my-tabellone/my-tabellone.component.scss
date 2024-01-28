@@ -1,0 +1,43 @@
+.tabellone {
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.tabellone .eliminatoria {
+    background-color: white !important;
+    padding: 8px;
+    border-radius: 4px;
+    width: 200px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.tabellone .accordion-body {
+    background-color: aquamarine;
+}
+
+.tabellone .divider-8 {
+    padding-bottom: 24px;
+}
+
+.tabellone .divider-4 {
+    padding-bottom: 136px;
+}
+
+.tabellone .divider-2 {
+    padding-bottom: 360px;
+}
+
+
+
+.tabellone .turno {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mr--64{
+    margin-right: -64px;
+}
+
+.ml--64{
+    margin-left: -64px;
+}

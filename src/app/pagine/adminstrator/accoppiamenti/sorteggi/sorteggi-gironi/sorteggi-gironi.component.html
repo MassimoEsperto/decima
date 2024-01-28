@@ -1,6 +1,6 @@
 <div class="pa-8" *ngIf="sorteggiati.length!=4">
     <div class="pb-16">
-        <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [label]="'NUOVO GIRONE'"
+        <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [label]="'NUOVO GIRONE'" [disabled]="start"
             (myClick)="getStartNewGrirone()"></my-button>
     </div>
     <div *ngIf="start">

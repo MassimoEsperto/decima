@@ -86,7 +86,7 @@
 
         <div class="card bg-warning text-white">
             <div class="card-body">
-                <div>COEFFICIENTE MERDA</div>
+                <div>{{language.label.page.coefficiente}}</div>
             </div>
         </div>
 
@@ -138,5 +138,41 @@
             </div>
         </div>
     </div>
+
+    <div *ngIf="classifiche.factory.length" class="pt-8 pb-8">
+
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div>{{language.label.page.eliminatorie}}</div>
+            </div>
+        </div>
+
+        <div class="pt-8 pb-8">
+
+            <div class="accordion" id="accordionTabellone">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTabellone" aria-expanded="true" aria-controls="collapseTabellone">
+                            <div style="width: 100%;" class="pr-8">
+                                <div class="my-flex-between">
+                                    <div><strong>{{language.label.page.tabellone}}</strong></div>
+                                    <img src="assets/img/decima_logo.png" class="avatar" width="24px" />
+                                </div>
+                            </div>
+                        </button>
+
+                    </h2>
+                    <div id="collapseTabellone" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionTabellone">
+                        <div class="accordion-body bg-marine">
+                            <my-tabellone [tabellone]="classifiche.tabellone"></my-tabellone>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>

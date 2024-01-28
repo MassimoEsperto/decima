@@ -1,3 +1,12 @@
-<sorteggi-gironi></sorteggi-gironi>
+<div class="pt-16 pb-32">
+    <select class="form-control custom-select" (change)="onChangeSelect($event)">
+        <option value="0">SEL TIPO</option>
+        <option value="1">GIRONI</option>
+        <option value="2">ELIMINATORIE</option>
+    </select>
+</div>
 
-<sorteggi-eliminatorie></sorteggi-eliminatorie>
+
+<sorteggi-gironi *ngIf="view==1"></sorteggi-gironi>
+
+<sorteggi-eliminatorie *ngIf="view==2"></sorteggi-eliminatorie>

@@ -186,4 +186,31 @@ export class UtilService {
     }
   }
 
+  formatTabellone(tabellone: any) {
+
+    let format: any = {
+      ottavi: {},
+      quarti: {},
+      semifinale: {},
+      finale: {}
+    }
+
+    for (let item of tabellone) {
+      let match = item.partite
+      let half_length = Math.ceil(match.length / 2);
+      let all_length = match.length;
+      let sinistra = match.slice(0, half_length);
+      let destra = match.slice(half_length, all_length);
+      item.sinistra = sinistra
+      item.destra = destra
+    }
+
+    format.ottavi = tabellone.find((i: { id_fase: FasiCompetizione; }) => i.id_fase == FasiCompetizione.OTTAVI);
+    format.quarti = tabellone.find((i: { id_fase: FasiCompetizione; }) => i.id_fase == FasiCompetizione.QUARTI);
+    format.semifinale = tabellone.find((i: { id_fase: FasiCompetizione; }) => i.id_fase == FasiCompetizione.SEMI_FINALE);
+    format.finale = tabellone.find((i: { id_fase: FasiCompetizione; }) => i.id_fase == FasiCompetizione.FINALE);
+
+    return format
+  }
+
 }

@@ -1,7 +1,7 @@
-<div class="pa-8" *ngIf="view == views.DEFAULT">
+<div class="pa-8">
     <div class="pb-16">
         <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [label]="'NUOVA ELIMINATORIA'"
-            (myClick)="getStartNewEliminatoria()"></my-button>
+            (myClick)="getStartNewEliminatoria()" [disabled]="view != views.DEFAULT"></my-button>
     </div>
 
 </div>
