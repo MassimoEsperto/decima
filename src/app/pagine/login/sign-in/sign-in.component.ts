@@ -35,11 +35,11 @@ export class SignInComponent extends OnInitComp implements OnInit {
         next: (result: any) => {
 
           let num_msg: number = Number(result.num_msg)
-       
+
           if (num_msg > 0)
-            this.router.navigate(['dashboard/comunicazioni']);
+            this.navigate("comunicazioni");
           else
-            this.router.navigate(['dashboard/home']);
+            this.navigate("home");
 
 
         },
@@ -48,6 +48,14 @@ export class SignInComponent extends OnInitComp implements OnInit {
         }
       })
 
+  }
+
+  navigate(page: string) {
+    let destination: string = "dashboard/" + page
+    this.router.navigate([destination])
+      .then(() => {
+        window.location.reload();
+      });
   }
 
 }
