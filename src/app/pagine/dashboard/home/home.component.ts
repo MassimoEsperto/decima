@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { Utente } from 'src/app/classi/utente';
@@ -12,7 +12,7 @@ import { SpinnerService } from 'src/app/servizi/spinner.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent extends OnInitComp implements OnInit {
+export class HomeComponent extends OnInitComp implements OnInit, AfterContentInit {
 
   dash: any;
   loggato: Utente = new Utente();
@@ -25,14 +25,13 @@ export class HomeComponent extends OnInitComp implements OnInit {
     super();
   }
 
-
-
-
-
   ngOnInit() {
     this.spinner.view();
-    this.loggato = this.playerService.getLoggato();
+  }
 
+  //aggiunto per il reload
+  ngAfterContentInit() {
+    this.loggato = this.playerService.getLoggato();
     this.getDashboard();
   }
 
@@ -52,5 +51,7 @@ export class HomeComponent extends OnInitComp implements OnInit {
         }
       })
   }
+
+
 
 }
