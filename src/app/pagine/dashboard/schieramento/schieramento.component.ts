@@ -140,10 +140,11 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
       .subscribe({
 
         next: (result: any) => {
-          this.alert.success(this.language.label.alert.success);
-          setTimeout(() => {
-            this.router.navigate(['dashboard/home']);
-          }, 3000);
+
+          this.router.navigate(['dashboard/home'])
+          .then(() => {
+            this.alert.success(this.language.label.alert.success);
+          });
 
         },
         error: (error: any) => {
