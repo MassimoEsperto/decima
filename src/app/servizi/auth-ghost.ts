@@ -5,7 +5,7 @@ import { AuthService } from "./auth.service";
 
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class GhostGuard implements CanActivate {
 
     /**
      * Costruttore
@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
      */
     canActivate(route: ActivatedRouteSnapshot): boolean {
 
-        if (this.auth.isPlayer()) return true
+        if (this.auth.isGhost()) return true
 
         //se non è loggato torna all login
         this.route.navigate(['/login'])

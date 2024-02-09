@@ -80,6 +80,28 @@ export class AuthService extends HttpSenderService {
     return false
   }
 
+  isPlayer(): boolean {
+
+    if (!this.isLogged()) return false
+
+    let ruolo = this.getLoggato().ruolo
+
+    if (ruolo == RuoliUtente.ADMIN || ruolo == RuoliUtente.PLAYER) return true
+
+    return false
+  }
+
+  isGhost(): boolean {
+
+    if (!this.isLogged()) return false
+
+    let ruolo = this.getLoggato().ruolo
+
+    if (ruolo == RuoliUtente.ADMIN || ruolo == RuoliUtente.GHOST) return true
+
+    return false
+  }
+
   /**
   * salva il token in sessione
   * @param tkuser 

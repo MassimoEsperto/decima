@@ -19,8 +19,6 @@ import { RegisterComponent } from '../pagine/login/register/register.component';
 import { RecPassComponent } from '../pagine/login/rec-pass/rec-pass.component';
 import { ClassificaComponent } from '../pagine/dashboard/classifica/classifica.component';
 import { HomeComponent } from '../pagine/dashboard/home/home.component';
-import { AuthGuard } from '../servizi/auth-guard';
-import { AdminGuard } from '../servizi/admin-guard';
 import { InfoUtenteComponent } from '../pagine/dashboard/info-utente/info-utente.component';
 import { PartitaIncorsoComponent } from '../pagine/dashboard/home/partita-incorso/partita-incorso.component';
 import { PrePartitaComponent } from '../pagine/dashboard/home/pre-partita/pre-partita.component';
@@ -50,6 +48,12 @@ import { DataGiornateComponent } from '../pagine/adminstrator/accoppiamenti/data
 import { SorteggiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi.component';
 import { SorteggiEliminatorieComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-eliminatorie/sorteggi-eliminatorie.component';
 import { SorteggiGironiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-gironi/sorteggi-gironi.component';
+
+import { AuthGuard } from '../servizi/auth-guard';
+import { AdminGuard } from '../servizi/admin-guard';
+import { GhostGuard } from '../servizi/auth-ghost';
+
+
 
 
 
@@ -113,7 +117,7 @@ import { SorteggiGironiComponent } from '../pagine/adminstrator/accoppiamenti/so
     SharedModule,
     ReactiveFormsModule
   ],
-  providers: [AuthGuard,AdminGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

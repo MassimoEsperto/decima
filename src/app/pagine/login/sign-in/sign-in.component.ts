@@ -35,13 +35,17 @@ export class SignInComponent extends OnInitComp implements OnInit {
         next: (result: any) => {
 
           let num_msg: number = Number(result.num_msg)
+          let ruolo: number = Number(result.ruolo)
 
-          if (num_msg > 0)
-            this.navigate("comunicazioni");
-          else
-            this.navigate("home");
+          if (ruolo == this.RUOLI_UTENTE.GHOST) {
+            this.router.navigate(['iscrizione'])
+          } else {
+            if (num_msg > 0)
+              this.navigate("comunicazioni");
+            else
+              this.navigate("home");
 
-
+          }
         },
         error: (error: any) => {
           this.alert.error(error);
