@@ -82,10 +82,12 @@
         "conferma": "CONFERMA",
         "schiera": "SCHIERA",
         "entra": "ENTRA",
-        "avatar": "Seleziona Avatar",
+        "avatar": "SELEZIONA AVATAR",
         "annulla": "ANNULLA",
         "aggiungi_squadra": "AGGIUNGI SQUADRA",
-        "cambia": "CAMBIA"
+        "cambia": "CAMBIA",
+        "carica_squadra": "CARICA SQUADRA DA FANTACALCIO",
+        "crea_squadra": "CREA SQUADRA DA ZERO"
     },
     "pannello": {
         "admin": "ADMIN",
@@ -113,7 +115,7 @@
         "rose": "ROSE",
         "classifiche": "CLASSIFICHE",
         "info": "INFO",
-        "exit":"EXIT",
+        "exit": "EXIT",
         "utenti": "UTENTI",
         "comunicazioni": "COMUNICAZIONI",
         "calciatori": "CALCIATORI",
@@ -133,7 +135,14 @@
             "lega": "Inserisci il nome della lega del tuo attuale fantacalcio",
             "squadra": "Selezione la tua attuale squadra del fantacalcio",
             "rosa": "Conferma rosa composta da 3 portieri 8 difensori 8 centrocampisti e 6 attaccanti",
-            "dati": "Inserisci i tuoi dati personali validi per questa competizione"
+            "dati": "Inserisci i tuoi dati personali validi per questa competizione",
+            "portieri": "Seleziona i portieri",
+            "difensori": "Seleziona i difensori",
+            "centrocampisti": "Seleziona i centrocampisti",
+            "attaccanti": "Seleziona gli attaccanti",
+            "crediti": "Crediti residui",
+            "riepilogo": "Riepilogo Squadra",
+            "genera_squadra": "Genera Squadra"
         }
     },
     "modali": {

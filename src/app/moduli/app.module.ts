@@ -48,11 +48,8 @@ import { DataGiornateComponent } from '../pagine/adminstrator/accoppiamenti/data
 import { SorteggiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi.component';
 import { SorteggiEliminatorieComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-eliminatorie/sorteggi-eliminatorie.component';
 import { SorteggiGironiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-gironi/sorteggi-gironi.component';
-
-import { AuthGuard } from '../servizi/auth-guard';
-import { AdminGuard } from '../servizi/admin-guard';
-import { GhostGuard } from '../servizi/auth-ghost';
-
+import { PageNotFoundComponent } from '../pagine/page-not-found/page-not-found.component';
+import { CreaSquadraComponent } from '../pagine/iscrizione/crea-squadra/crea-squadra.component';
 
 
 
@@ -71,6 +68,9 @@ import { GhostGuard } from '../servizi/auth-ghost';
     IscrizioneComponent,
     RegistraSquadraComponent,
     ListaSquadreComponent,
+    CreaSquadraComponent,
+    //not fount
+    PageNotFoundComponent,
     //dash
     DashboardComponent,
     HomeComponent,
@@ -106,7 +106,7 @@ import { GhostGuard } from '../servizi/auth-ghost';
     NotificheComponent,
     InviaNotificaComponent,
     ScriviNotificaComponent,
-  
+
   ],
   imports: [
     BrowserModule,

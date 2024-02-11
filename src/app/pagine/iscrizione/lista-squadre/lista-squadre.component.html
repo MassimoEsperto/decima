@@ -39,9 +39,15 @@
                     </h3>
                 </div>
                 <div class="card-body">
+                    <div class="pt-8 pb-8">
+                        <my-button [color]="'btn-primary'" [label]="language.label.bottoni.carica_squadra"
+                            [loading]="loading_btn" (myClick)="change.emit(VIEW_ISCRIZIONE.REGISTRA)"></my-button>
+                    </div>
 
-                    <my-button [color]="'btn-primary'" [label]="language.label.bottoni.aggiungi_squadra"
-                        [loading]="loading_btn" (myClick)="change.emit('cambio')"></my-button>
+                    <div class="pt-8">
+                        <my-button [color]="'btn-primary'" [label]="language.label.bottoni.crea_squadra"
+                            [loading]="loading_btn" (myClick)="change.emit(VIEW_ISCRIZIONE.CREA)"></my-button>
+                    </div>
 
                     <hr>
 

@@ -85,7 +85,9 @@
         "avatar": "Selectionnez Avatar",
         "annulla": "ANNULER",
         "aggiungi_squadra": "AJOUTER ÉQUIPE",
-        "cambia": "CHANGER"
+        "cambia": "CHANGER",
+        "carica_squadra": "CHARGER FANTASY TEAM",
+        "crea_squadra": "CREATE TEAM FROM SCRATCH"
     },
     "pannello": {
         "admin": "ADMIN",
@@ -113,7 +115,7 @@
         "rose": "EQUIPES",
         "classifiche": "CLASSEMENTS",
         "info": "INFO",
-        "exit":"EXIT",
+        "exit": "EXIT",
         "utenti": "UTILISATEURS",
         "comunicazioni": "COMMUNICATIONS",
         "calciatori": "FOOTBALLEURS",
@@ -133,7 +135,14 @@
             "lega": "Entrez le nom de la ligue de votre football Fantasy actuel",
             "squadra": "Selectionnez votre equipe de football Fantasy actuelle",
             "rosa": "Confirmation equipe compose de 3 gardiens 8 defenseurs 8 milieux de terrain et 6 attaquants",
-            "dati": "Saisissez vos donnes personnelles valables pour ce concours"
+            "dati": "Saisissez vos donnes personnelles valables pour ce concours",
+            "portieri": "Sélectionner les gardiens",
+            "difensori": "Sélectionner les défenseurs",
+            "centrocampisti": "Sélectionner les milieux de terrain",
+            "attaccanti": "Sélectionner les attaquants",
+            "crediti": "Crédits restants",
+            "riepilogo": "Résumé de l'équipe",
+            "genera_squadra": "Générer une équipe"
         }
     },
     "modali": {

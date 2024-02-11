@@ -85,7 +85,9 @@
         "avatar": "选择头像",
         "annulla": "取消",
         "aggiungi_squadra": "添加團隊",
-        "cambia": "更改数据"
+        "cambia": "更改数据",
+        "carica_squadra": "加載幻想足球隊",
+        "crea_squadra": "從頭開始創建球隊"
     },
     "pannello": {
         "admin": "行政",
@@ -106,7 +108,7 @@
         "classifiche": "排名",
         "comunicazioni": "通訊",
         "info": "信息",
-        "exit":"EXIT"
+        "exit": "EXIT"
     },
     "smart": {
         "admin": "行政",
@@ -134,7 +136,14 @@
             "lega": "輸入您當前夢幻足球的聯賽名稱",
             "squadra": "選擇您當前的夢幻足球隊",
             "rosa": "球隊確認由 3 名守門員 8 名後衛 8 名中場球員和 6 名前鋒組成",
-            "dati": "輸入您對本次比賽有效的個人數據"
+            "dati": "輸入您對本次比賽有效的個人數據",
+            "portieri": "選擇守門員",
+            "difensori": "選擇防守者",
+            "centrocampisti": "選擇中場球員",
+            "attaccanti": "選擇攻擊者",
+            "crediti": "剩餘學分",
+            "riepilogo": "團隊概要",
+            "genera_squadra": "生成團隊"
         }
     },
     "modali": {

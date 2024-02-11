@@ -1,3 +1,5 @@
+<my-spinner></my-spinner>
+
 <div class="dispatcher text-white">
 
     <div class="row ma-0 pa-0">
@@ -7,18 +9,22 @@
         <div class="col-12 col-sm-10 col-md-8 col-lg-8 ma-0 pa-0">
             <div class="page">
 
-                <div *ngIf="!registra">
-                    <lista-squadre (change)="revert($event)"></lista-squadre>
+                <div *ngIf="view == VIEW_ISCRIZIONE.LISTA">
+                    <lista-squadre (change)="changeView($event)"></lista-squadre>
                     <!-- Forgot login -->
-                    <div class="pt-32">
-                        <a routerLink="/login" style="color: aliceblue;">Torna all Login
+                    <div class="pt-32 text-destra">
+                        <button routerLink="/login" class="btn primary">Torna al Login
                             <i class="bi bi-reply-all-fill cursore"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
 
-                <div *ngIf="registra">
-                    <registra-squadra (change)="revert($event)"></registra-squadra>
+                <div *ngIf="view == VIEW_ISCRIZIONE.REGISTRA">
+                    <registra-squadra (change)="changeView($event)"></registra-squadra>
+                </div>
+
+                <div *ngIf="view == VIEW_ISCRIZIONE.CREA">
+                    <crea-squadra (change)="changeView($event)"></crea-squadra>
                 </div>
             </div>
         </div>

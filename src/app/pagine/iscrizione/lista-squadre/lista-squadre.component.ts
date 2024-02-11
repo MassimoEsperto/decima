@@ -1,19 +1,21 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterContentInit, Component, EventEmitter, Output } from '@angular/core';
 import { finalize } from 'rxjs';
 import { AlertService } from 'src/app/servizi/alert.service';
 import { ConfirmDialogService } from 'src/app/servizi/confirm-dialog.service';
 import { LanguageService } from 'src/app/servizi/language.service';
 import { PlayerService } from 'src/app/servizi/player.service';
 import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { ViewIscirzione } from 'src/environments/enums';
 
 @Component({
   selector: 'lista-squadre',
   templateUrl: './lista-squadre.component.html',
   styleUrls: ['./lista-squadre.component.scss']
 })
-export class ListaSquadreComponent implements OnInit {
+export class ListaSquadreComponent implements AfterContentInit {
 
   @Output() change = new EventEmitter();
+  VIEW_ISCRIZIONE = ViewIscirzione;
 
   info: any
   squadre: any = []
@@ -28,7 +30,8 @@ export class ListaSquadreComponent implements OnInit {
     private alert: AlertService) {
   }
 
-  ngOnInit() {
+  //aggiunto per il reload
+  ngAfterContentInit() {
     this.getInfoUtente();
   }
 

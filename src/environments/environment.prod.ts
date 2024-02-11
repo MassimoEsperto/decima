@@ -96,7 +96,8 @@ export const AUTH_SERVICE = {
   INFO: "info",
   REGISTRA_UTENTE: "registra_utente",
   REGISTRA_SQUADRA: "registra_squadra",
-  GET_REGISTER: "get_register"
+  GET_REGISTER: "get_register",
+  GET_CREA_SQUADRA: "get_crea_squadra"
 
 }
 

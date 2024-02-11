@@ -1,5 +1,5 @@
 import { NgModule, inject } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateFn, RouterModule, RouterStateSnapshot, Routes } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterModule, RouterStateSnapshot, Routes } from '@angular/router';
 import { CalendarioComponent } from '../pagine/dashboard/calendario/calendario.component';
 import { SquadreComponent } from '../pagine/dashboard/squadre/squadre.component';
 import { DashboardComponent } from '../pagine/dashboard/dashboard.component';
@@ -20,20 +20,30 @@ import { AccoppiamentiComponent } from '../pagine/adminstrator/accoppiamenti/acc
 import { NotificheComponent } from '../pagine/adminstrator/notifiche/notifiche.component';
 
 import { AuthService } from '../servizi/auth.service';
+import { PageNotFoundComponent } from '../pagine/page-not-found/page-not-found.component';
 
-const AdminGuard: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean => {
-  return inject(AuthService).isAdmin();
-}
 
-const PlayerGuard: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean => {
-  return inject(AuthService).isAdmin();
-}
+const AdminGuard: CanActivateFn =
+  (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+    return inject(AuthService).isAdmin()
+      ? true
+      : inject(Router).navigate(['/login']);
+  };
 
-const GhostGuard: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean => {
-  return inject(AuthService).isGhost();
-}
+const PlayerGuard: CanActivateFn =
+  (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+    return inject(AuthService).isPlayer()
+      ? true
+      : inject(Router).navigate(['/login']);
+  };
 
-rivedi il progetto condominio
+const GhostGuard: CanActivateFn =
+  (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+    return inject(AuthService).isGhost()
+      ? true
+      : inject(Router).navigate(['/login']);
+  };
+
 
 const routes: Routes = [
   {
@@ -90,6 +100,11 @@ const routes: Routes = [
       {
         path: 'upgrade-squadra',
         component: UpgradeSquadraComponent
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'prefix'
       }
 
     ]
@@ -118,8 +133,18 @@ const routes: Routes = [
       {
         path: 'comunicazioni',
         component: NotificheComponent
+      },
+      {
+        path: '',
+        redirectTo: 'utenti',
+        pathMatch: 'prefix'
       }
     ]
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    component: PageNotFoundComponent
   }
 ];
 

@@ -33,3 +33,9 @@ export enum CondizioneGirone {
     SPAREGGI = 2,
     ELIMINATA = 3
 }
+
+export enum ViewIscirzione {
+    LISTA = 1,
+    REGISTRA = 2,
+    CREA = 3
+}

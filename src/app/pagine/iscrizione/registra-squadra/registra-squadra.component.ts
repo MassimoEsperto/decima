@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/servizi/auth.service';
 import { FantaGazzettaService } from 'src/app/servizi/fanta-gazzetta.service';
 import { LanguageService } from 'src/app/servizi/language.service';
 import { PlayerService } from 'src/app/servizi/player.service';
+import { ViewIscirzione } from 'src/environments/enums';
 
 @Component({
   selector: 'registra-squadra',
@@ -113,14 +114,13 @@ export class RegistraSquadraComponent implements OnInit {
       .subscribe({
         next: (result: any) => {
           this.alert.success(this.language.label.alert.success);
-          this.change.emit('cambia')
+          this.esci()
         },
         error: (error: any) => {
           this.alert.error(error);
         },
       })
   }
-
 
 
   onRegistraSquadra() {
@@ -195,6 +195,9 @@ export class RegistraSquadraComponent implements OnInit {
 
   }
 
+  esci() {
+    this.change.emit(ViewIscirzione.LISTA)
+  }
 
 }
 

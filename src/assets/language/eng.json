@@ -70,7 +70,9 @@
         "avatar": "Select Avatar",
         "annulla": "CANCEL",
         "aggiungi_squadra": "ADD TEAM",
-        "cambia": "CHANGE"
+        "cambia": "CHANGE",
+        "carica_squadra": "LOAD FANTASY TEAM",
+        "crea_squadra": "CREATE TEAM FROM SCRATCH"
     },
     "alert": {
         "success": "Incredible It Worked!",
@@ -113,7 +115,7 @@
         "rose": "TEAMS",
         "classifiche": "RANKINGS",
         "info": "INFO",
-        "exit":"EXIT",
+        "exit": "EXIT",
         "utenti": "USERS",
         "comunicazioni": "COMMUNICATIONS",
         "calciatori": "FOOTBALLERS",
@@ -133,7 +135,14 @@
             "lega": "Enter the name of the league of your current fantasy football",
             "squadra": "Select your current fantasy football team",
             "rosa": "Squad confirmation consisting of 3 goalkeepers 8 defenders 8 midfielders and 6 forwards",
-            "dati": "Enter your personal data valid for this competition"
+            "dati": "Enter your personal data valid for this competition",
+            "portieri": "Select goalkeepers",
+            "difensori": "Select defenders",
+            "centrocampisti": "Select midfielders",
+            "attaccanti": "Select attackers",
+            "crediti": "Remaining credits",
+            "riepilogo": "Team Summary",
+            "genera_squadra": "Generate Team"
         }
     },
     "modali": {
@@ -226,7 +235,6 @@
                 "messaggio1": "Number of participants is 36",
                 "messaggio2": "Winner ????"
             }
-            
         ]
     }
 }

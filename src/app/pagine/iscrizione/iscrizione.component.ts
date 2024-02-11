@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ViewIscirzione } from 'src/environments/enums';
 
 @Component({
   selector: 'iscrizione',
@@ -12,16 +13,16 @@ export class IscrizioneComponent {
     private router: Router) {
   }
 
-  registra: boolean = false
+  VIEW_ISCRIZIONE = ViewIscirzione;
+  view: number = ViewIscirzione.LISTA
 
   goBack() {
     this.router.navigate(['login']);
   }
 
-  revert(event: any) {
-    if (event == 'cambio') {
-      this.registra = !this.registra
-    }
+  changeView(event: any) {
+    this.view = !isNaN(event) ? event : this.view
   }
+
 
 }

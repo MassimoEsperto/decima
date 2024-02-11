@@ -38,12 +38,12 @@ export class SignInComponent extends OnInitComp implements OnInit {
           let ruolo: number = Number(result.ruolo)
 
           if (ruolo == this.RUOLI_UTENTE.GHOST) {
-            this.router.navigate(['iscrizione'])
+            this.navigate('iscrizione', '')
           } else {
             if (num_msg > 0)
-              this.navigate("comunicazioni");
+              this.navigate("comunicazioni", "dashboard/");
             else
-              this.navigate("home");
+              this.navigate("home", "dashboard/");
 
           }
         },
@@ -54,8 +54,8 @@ export class SignInComponent extends OnInitComp implements OnInit {
 
   }
 
-  navigate(page: string) {
-    let destination: string = "dashboard/" + page
+  navigate(page: string, path: string) {
+    let destination: string = path + page
     this.router.navigate([destination])
       .then(() => {
         window.location.reload();

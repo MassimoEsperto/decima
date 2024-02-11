@@ -144,6 +144,10 @@ export class AuthService extends HttpSenderService {
     return this.getFree(AUTH_SERVICE.GET_REGISTER)
   }
 
+  getCreaSquadra() {
+    return this.getFree(AUTH_SERVICE.GET_CREA_SQUADRA)
+  }
+
   verificaVersioneWeb() {
     return this.http.get(`${this.buildURL("info")}`)
       .pipe(map((res: any) => {
