@@ -30,7 +30,6 @@ import { FrontespizioComponent } from '../pagine/login/frontespizio/frontespizio
 import { VotiLiveComponent } from '../pagine/dashboard/voti-live/voti-live.component';
 import { RegistraSquadraComponent } from '../pagine/iscrizione/registra-squadra/registra-squadra.component';
 import { IscrizioneComponent } from '../pagine/iscrizione/iscrizione.component';
-import { UpgradeSquadraComponent } from '../pagine/dashboard/upgrade-squadra/upgrade-squadra.component';
 import { ListaSquadreComponent } from '../pagine/iscrizione/lista-squadre/lista-squadre.component';
 import { CalcoloVotiComponent } from '../pagine/adminstrator/competizione/calcolo-voti/calcolo-voti.component';
 import { AccoppiamentiComponent } from '../pagine/adminstrator/accoppiamenti/accoppiamenti.component';
@@ -49,7 +48,9 @@ import { SorteggiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi
 import { SorteggiEliminatorieComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-eliminatorie/sorteggi-eliminatorie.component';
 import { SorteggiGironiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-gironi/sorteggi-gironi.component';
 import { PageNotFoundComponent } from '../pagine/page-not-found/page-not-found.component';
-import { CreaSquadraComponent } from '../pagine/iscrizione/crea-squadra/crea-squadra.component';
+import { UpgradeSquadraFantaComponent } from '../pagine/iscrizione/upgrade-squadra-fanta/upgrade-squadra-fanta.component';
+import { ComponiSquadraComponent } from '../pagine/iscrizione/componi-squadra/componi-squadra.component';
+import { UpgradeSquadraLocaleComponent } from '../pagine/iscrizione/upgrade-squadra-locale/upgrade-squadra-locale.component';
 
 
 
@@ -68,7 +69,9 @@ import { CreaSquadraComponent } from '../pagine/iscrizione/crea-squadra/crea-squ
     IscrizioneComponent,
     RegistraSquadraComponent,
     ListaSquadreComponent,
-    CreaSquadraComponent,
+    UpgradeSquadraFantaComponent,
+    ComponiSquadraComponent,
+    UpgradeSquadraLocaleComponent,
     //not fount
     PageNotFoundComponent,
     //dash
@@ -85,7 +88,6 @@ import { CreaSquadraComponent } from '../pagine/iscrizione/crea-squadra/crea-squ
     SchieramentoComponent,
     ComunicazioneComponent,
     VotiLiveComponent,
-    UpgradeSquadraComponent,
     //admin
     AdminstratorComponent,
     UtentiComponent,

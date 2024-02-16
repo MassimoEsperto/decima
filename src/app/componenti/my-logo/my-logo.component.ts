@@ -26,7 +26,7 @@ export class MyLogo implements OnInit {
   }
 
   upgradeTeam() {
-    this.router.navigate(['/dashboard/upgrade-squadra']);
+    this.router.navigate(['/iscrizione']);
   }
 
 }

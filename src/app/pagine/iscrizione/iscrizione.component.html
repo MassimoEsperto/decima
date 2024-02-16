@@ -10,7 +10,7 @@
             <div class="page">
 
                 <div *ngIf="view == VIEW_ISCRIZIONE.LISTA">
-                    <lista-squadre (change)="changeView($event)"></lista-squadre>
+                    <lista-squadre (change)="changeView($event)" (edit)="onEdit($event)" (mercato)="onRiEdit($event)" [is_mercato]="is_mercato"></lista-squadre>
                     <!-- Forgot login -->
                     <div class="pt-32 text-destra">
                         <button routerLink="/login" class="btn primary">Torna al Login
@@ -24,8 +24,17 @@
                 </div>
 
                 <div *ngIf="view == VIEW_ISCRIZIONE.CREA">
-                    <crea-squadra (change)="changeView($event)"></crea-squadra>
+                    <componi-squadra (change)="changeView($event)" [id_squadra]="squadra.id_squadra"></componi-squadra>
                 </div>
+
+                <div *ngIf="view == VIEW_ISCRIZIONE.UPGRADE_F">
+                    <upgrade-squadra-fanta (change)="changeView($event)" [squadra]="squadra"></upgrade-squadra-fanta>
+                </div>
+
+                <div *ngIf="view == VIEW_ISCRIZIONE.UPGRADE_L">
+                    <upgrade-squadra-locale (change)="changeView($event)" [id_squadra]="squadra.id_squadra"></upgrade-squadra-locale>
+                </div>
+
             </div>
         </div>
         <div class="col-12 col-sm-1 col-md-2 col-lg-2 ma-0 pa-0">

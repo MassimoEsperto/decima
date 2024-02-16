@@ -1,25 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
-import { Utente } from 'src/app/classi/utente';
+import { Squadra } from 'src/app/classi/squadra';
 import { AlertService } from 'src/app/servizi/alert.service';
 import { FantaGazzettaService } from 'src/app/servizi/fanta-gazzetta.service';
 import { LanguageService } from 'src/app/servizi/language.service';
 import { PlayerService } from 'src/app/servizi/player.service';
 import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { ViewIscirzione } from 'src/environments/enums';
 
 @Component({
-  selector: 'upgrade-squadra',
-  templateUrl: './upgrade-squadra.component.html',
-  styleUrls: ['./upgrade-squadra.component.scss']
+  selector: 'upgrade-squadra-fanta',
+  templateUrl: './upgrade-squadra-fanta.component.html',
+  styleUrls: ['./upgrade-squadra-fanta.component.scss']
 })
-export class UpgradeSquadraComponent extends OnInitComp implements OnInit {
+export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChanges {
 
-  loggato: Utente = new Utente();
+  @Output() change = new EventEmitter();
+  @Input() squadra: Squadra = new Squadra(0, '', '', '', '', '', 0);
+
   svincolati: any;
-  rosa_aggiornata:any = []
- 
+  rosa_aggiornata: any = []
+
 
   constructor(
     private alert: AlertService,
@@ -31,23 +34,24 @@ export class UpgradeSquadraComponent extends OnInitComp implements OnInit {
     super();
   }
 
+  ngOnChanges() {
+    if (this.squadra.id_squadra > 0) {
+      this.spinner.view();
+      this.getInfoUtente()
+    }
+
+  }
+
   selected() {
     return this.rosa_aggiornata ? this.rosa_aggiornata.filter((e: { selected: boolean; }) => e.selected === true) : [];
   }
 
   attacco() {
-    return this.rosa_aggiornata ? this.rosa_aggiornata.filter((e: { ruolo: string; }) => e.ruolo === 'A') : [];
+    return this.rosa_aggiornata ? this.rosa_aggiornata.filter((e: {
+      selected: boolean; ruolo: string; 
+}) => e.selected === true && e.ruolo === 'A') : [];
   }
 
-  ngOnInit() {
-    this.loggato = this.playerService.getLoggato();
-    this.onStart()
-  }
-
-  onStart() {
-    this.spinner.view();
-    this.getInfoUtente()
-  }
 
   getInfoUtente() {
 
@@ -60,8 +64,7 @@ export class UpgradeSquadraComponent extends OnInitComp implements OnInit {
       .subscribe({
         next: (result: any) => {
           this.svincolati = result.lista_calciatori
-          if(this.loggato.selezionata)
-          this.getLega(this.loggato.selezionata.lega)
+          this.getLega(this.squadra.lega)
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -78,12 +81,13 @@ export class UpgradeSquadraComponent extends OnInitComp implements OnInit {
         next: (result: any) => {
 
           if (result && result.length > 0) {
-            if(this.loggato.selezionata){
-            let account = this.loggato.selezionata.account
+
+            let account = this.squadra.account
             let fantalega = result.find((i: { team: string; }) => i.team == account).lista || [];
             this.onLega(fantalega)
-            }
+
           } else {
+
             this.alert.error("Lega inesistente");
             this.spinner.clear();
           }
@@ -94,21 +98,22 @@ export class UpgradeSquadraComponent extends OnInitComp implements OnInit {
       })
   }
 
-  onLega(lega:any) {
+  onLega(lega: any) {
 
     this.rosa_aggiornata = []
     for (let ele of lega) {
-      let singolo:any = this.svincolati.find((i: { nome_calciatore: any; }) => i.nome_calciatore == ele);
+      let singolo: any = this.svincolati.find((i: { nome_calciatore: any; }) => i.nome_calciatore == ele);
       if (singolo) {
         singolo['selected'] = true;
         this.rosa_aggiornata.push(singolo)
       }
     }
+ 
     this.spinner.clear();
   }
 
 
-  disabledTeam(item:any) {
+  disabledTeam(item: any) {
 
     let selected = this.selected();
 
@@ -151,7 +156,7 @@ export class UpgradeSquadraComponent extends OnInitComp implements OnInit {
 
     let payload = {
       lista: this.selected(),
-      lega: this.loggato.selezionata ? this.loggato.selezionata.lega : ""
+      lega: this.squadra.lega
     }
 
     this.upgradeRosa(payload)
@@ -172,7 +177,7 @@ export class UpgradeSquadraComponent extends OnInitComp implements OnInit {
           setTimeout(() => {
             this.router.navigate(['/dashboard/squadre']);
           }, 2000);
-          
+
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -180,6 +185,10 @@ export class UpgradeSquadraComponent extends OnInitComp implements OnInit {
         }
       })
 
+  }
+
+  esci() {
+    this.change.emit(ViewIscirzione.LISTA)
   }
 
 

@@ -66,10 +66,6 @@ export class PlayerService extends HttpSenderService {
     return this.postAuth(PLAYER_SERVICE.UPGRADE_ROSA, payload)
   }
 
-  delSquadra(payload: any): Observable<any[]> {
-    return this.postAuth(PLAYER_SERVICE.DEL_SQUADRA, payload)
-  }
-
   updateUtente(payload: Utente) {
     return this.putAuth(PLAYER_SERVICE.UPD_UTENTE, payload)
   }

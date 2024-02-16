@@ -144,8 +144,21 @@ export class AuthService extends HttpSenderService {
     return this.getFree(AUTH_SERVICE.GET_REGISTER)
   }
 
-  getCreaSquadra() {
-    return this.getFree(AUTH_SERVICE.GET_CREA_SQUADRA)
+  getComponiSquadra(id: number) {
+    const params = new HttpParams().set('id_squadra', id);
+    return this.getFree(AUTH_SERVICE.GET_COMPONI_SQUADRA,params)
+  }
+
+  setComponiSquadra(payload: any): Observable<any[]> {
+    return this.postAuth(AUTH_SERVICE.SET_COMPONI_SQUADRA, payload)
+  }
+
+  updComponiSquadra(payload: any): Observable<any[]> {
+    return this.postAuth(AUTH_SERVICE.UPD_COMPONI_SQUADRA, payload)
+  }
+
+  delSquadraRegistrata(payload: any): Observable<any[]> {
+    return this.postAuth(AUTH_SERVICE.DEL_SQUADRA_REGISTRATA, payload)
   }
 
   verificaVersioneWeb() {

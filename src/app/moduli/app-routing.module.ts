@@ -15,7 +15,6 @@ import { SchieramentoComponent } from '../pagine/dashboard/schieramento/schieram
 import { ComunicazioneComponent } from '../pagine/dashboard/comunicazione/comunicazione.component';
 import { VotiLiveComponent } from '../pagine/dashboard/voti-live/voti-live.component';
 import { IscrizioneComponent } from '../pagine/iscrizione/iscrizione.component';
-import { UpgradeSquadraComponent } from '../pagine/dashboard/upgrade-squadra/upgrade-squadra.component';
 import { AccoppiamentiComponent } from '../pagine/adminstrator/accoppiamenti/accoppiamenti.component';
 import { NotificheComponent } from '../pagine/adminstrator/notifiche/notifiche.component';
 
@@ -58,7 +57,7 @@ const routes: Routes = [
   {
     path: 'iscrizione',
     component: IscrizioneComponent,
-    canActivate: [GhostGuard],
+    //canActivate: [GhostGuard],
   },
   {
     path: 'dashboard',
@@ -96,10 +95,6 @@ const routes: Routes = [
       {
         path: 'voti-live',
         component: VotiLiveComponent
-      },
-      {
-        path: 'upgrade-squadra',
-        component: UpgradeSquadraComponent
       },
       {
         path: '',

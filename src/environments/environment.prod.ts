@@ -76,8 +76,7 @@ export const PLAYER_SERVICE = {
   GET_VIEW_MATCH: "get_view_match",
   SET_SCHIERAMENTO: "set_schieramento",
   GET_COMUNICAZIONI: "get_comunicazioni",
-  UPGRADE_ROSA: "upgrade_rosa",
-  DEL_SQUADRA: "del_squadra"
+  UPGRADE_ROSA: "upgrade_rosa"
 
 }
 
@@ -97,7 +96,10 @@ export const AUTH_SERVICE = {
   REGISTRA_UTENTE: "registra_utente",
   REGISTRA_SQUADRA: "registra_squadra",
   GET_REGISTER: "get_register",
-  GET_CREA_SQUADRA: "get_crea_squadra"
+  GET_COMPONI_SQUADRA: "get_componi_squadra",
+  SET_COMPONI_SQUADRA: "set_componi_squadra",
+  UPD_COMPONI_SQUADRA: "upd_componi_squadra",
+  DEL_SQUADRA_REGISTRATA: "del_squadra_registrata"
 
 }
 

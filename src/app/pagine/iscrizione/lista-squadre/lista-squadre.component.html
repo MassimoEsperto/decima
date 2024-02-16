@@ -1,6 +1,8 @@
 <div class="card bg-warning text-white">
     <div class="card-header">ShitCup {{date}}</div>
-    <div class="card-body">
+
+    <!-- NEL ISCRIZIONE-->
+    <div class="card-body" *ngIf="!is_mercato">
         <div>
             <h5>Benvenuto</h5>
         </div>
@@ -56,22 +58,30 @@
                         <table class="table text-center">
                             <thead>
                                 <tr>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">ACCOUNT</th>
                                     <th class="text-center">SQUADRA</th>
-                                    <th class="text-center"></th>
+                                    <th class="text-center">ACCOUNT</th>
+                                    <th class="text-center">UPD</th>
+                                    <th class="text-center">DEL</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let ele of squadre">
-                                    <td>{{ele.id_squadra}}</td>
-                                    <td>{{ele.account}}</td>
                                     <td>{{ele.squadra}}</td>
+                                    <td>{{ele.account}}</td>
                                     <td>
+                                        <div *ngIf="ele.stato == STATO_SQUADRA.REGISTRATA">
+                                            <span class="table-remove">
+                                                <i class="bi bi-pencil-fill cursore" (click)="edit.emit(ele)"></i>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="ele.stato == STATO_SQUADRA.REGISTRATA">
                                         <span class="table-remove">
                                             <i class="bi bi-trash-fill cursore" (click)="onDelete(ele.id_squadra)"
                                                 data-bs-toggle="modal" data-bs-target="#confirmModal"></i>
                                         </span>
+                                    </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -81,5 +91,58 @@
             </div>
 
         </div>
+
+    </div>
+
+
+    <!-- NEL MERCATO-->
+    <div class="card-body" *ngIf="is_mercato">
+        <div>
+            <h5>Bentornato</h5>
+        </div>
+
+        <div>
+            <p>Gestisci aggiornamento delle rose</p>
+
+            <div *ngIf="!loading_btn" class="card">
+
+                <div class="card-header">
+                    <h3 class="text-center font-weight-bold pt-8" style="color: black;">
+                        {{language.label.presentazione.gestione_squadre}}
+                    </h3>
+                </div>
+                <div class="card-body">
+
+                    <div id="table" class="table-editable">
+
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">SQUADRA</th>
+                                    <th class="text-center">ACCOUNT</th>
+                                    <th class="text-center">UPD</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let ele of squadre">
+                                    <td>{{ele.squadra}}</td>
+                                    <td>{{ele.account}}</td>
+                                    <td>
+                                        <!-- NEL MERCATO-->
+                                        <div *ngIf="ele.stato != STATO_SQUADRA.REGISTRATA">
+                                            <span class="table-remove">
+                                                <i class="bi bi-pencil-fill cursore" (click)="mercato.emit(ele)"></i>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </div>
