@@ -10,13 +10,8 @@
             <div class="page">
 
                 <div *ngIf="view == VIEW_ISCRIZIONE.LISTA">
-                    <lista-squadre (change)="changeView($event)" (edit)="onEdit($event)" (mercato)="onRiEdit($event)" [is_mercato]="is_mercato"></lista-squadre>
-                    <!-- Forgot login -->
-                    <div class="pt-32 text-destra">
-                        <button routerLink="/login" class="btn primary">Torna al Login
-                            <i class="bi bi-reply-all-fill cursore"></i>
-                        </button>
-                    </div>
+                    <lista-squadre (change)="changeView($event)" (edit)="onEdit($event)" (mercato)="onRiEdit($event)"
+                        [fase]="fase"></lista-squadre>
                 </div>
 
                 <div *ngIf="view == VIEW_ISCRIZIONE.REGISTRA">
@@ -32,7 +27,8 @@
                 </div>
 
                 <div *ngIf="view == VIEW_ISCRIZIONE.UPGRADE_L">
-                    <upgrade-squadra-locale (change)="changeView($event)" [id_squadra]="squadra.id_squadra"></upgrade-squadra-locale>
+                    <upgrade-squadra-locale (change)="changeView($event)"
+                        [id_squadra]="squadra.id_squadra"></upgrade-squadra-locale>
                 </div>
 
             </div>

@@ -6,7 +6,7 @@ import { ConfirmDialogService } from 'src/app/servizi/confirm-dialog.service';
 import { LanguageService } from 'src/app/servizi/language.service';
 import { PlayerService } from 'src/app/servizi/player.service';
 import { SpinnerService } from 'src/app/servizi/spinner.service';
-import { StatiSquadra, TipoSquadra, ViewIscirzione } from 'src/environments/enums';
+import { FasiCompetizione, StatiSquadra, TipoSquadra, ViewIscirzione } from 'src/environments/enums';
 
 @Component({
   selector: 'lista-squadre',
@@ -18,11 +18,12 @@ export class ListaSquadreComponent implements AfterContentInit {
   @Output() change = new EventEmitter();
   @Output() edit = new EventEmitter();
   @Output() mercato = new EventEmitter();
-  @Input() is_mercato:boolean = false;
+  @Input() fase:number = 0;
   
   VIEW_ISCRIZIONE = ViewIscirzione;
   TIPO_SQUADRA = TipoSquadra;
   STATO_SQUADRA = StatiSquadra;
+  FASE_COMPETIZIONE = FasiCompetizione;
 
   
   

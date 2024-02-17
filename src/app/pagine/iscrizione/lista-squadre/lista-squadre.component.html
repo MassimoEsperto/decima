@@ -1,148 +1,160 @@
-<div class="card bg-warning text-white">
-    <div class="card-header">ShitCup {{date}}</div>
+<div *ngIf="spinner.getLoading()" class="fadein">
+    <div class="card bg-warning text-white">
+        <div class="card-header">ShitCup {{date}}</div>
 
-    <!-- NEL ISCRIZIONE-->
-    <div class="card-body" *ngIf="!is_mercato">
-        <div>
-            <h5>Benvenuto</h5>
-        </div>
-        <div>
-            <p>Congratulazioni ora sei registrato.</p>
-            <p>{{language.label.presentazione.discorso}}</p>
-        </div>
-        <div>
-            <p>Se vuoi partecipare a questo fantastico torneo bisogna seguire le istruzioni riportate:</p>
-            <p>Inserisci una o più squadre facente parte del tuo attuale fantacalcio, ricordo che la quota per squadra è
-                pari a <span style="font-weight: bold;">€ 10</span> da versare presso le casse della dirigenza.
-                Per l'inserimento di una nuova squadre basta inserire i dati che vengono di volta in volta richiesti.
-                Per il pagamento sono previste due modalità:
-            </p>
-            <ul>
-                <li>Pagamento di persona ad uno degli esponenti organizzatori dell'evento.</li>
-                <li>Pagamento on line seguendo le istruzioni sotto riportate</li>
-            </ul>
-            <p>
-                Pagamento bonifico: LT05 3250 0431 2585 4853 inserendo il o i nomi delle squadre registrate
-            </p>
+        <!-- NEL ISCRIZIONE-->
+        <div class="card-body" *ngIf="fase==FASE_COMPETIZIONE.ISCRIZIONE">
+            <div>
+                <h5>Benvenuto</h5>
+            </div>
+            <div>
+                <p>Congratulazioni ora sei registrato.</p>
+                <p>{{language.label.presentazione.discorso}}</p>
+            </div>
+            <div>
+                <p>Se vuoi partecipare a questo fantastico torneo bisogna seguire le istruzioni riportate:</p>
+                <p>Inserisci una o più squadre facente parte del tuo attuale fantacalcio, ricordo che la quota per
+                    squadra è
+                    pari a <span style="font-weight: bold;">€ 10</span> da versare presso le casse della dirigenza.
+                    Per l'inserimento di una nuova squadre basta inserire i dati che vengono di volta in volta
+                    richiesti.
+                    Per il pagamento sono previste due modalità:
+                </p>
+                <ul>
+                    <li>Pagamento di persona ad uno degli esponenti organizzatori dell'evento.</li>
+                    <li>Pagamento on line seguendo le istruzioni sotto riportate</li>
+                </ul>
+                <p>
+                    Pagamento bonifico: LT05 3250 0431 2585 4853 inserendo il o i nomi delle squadre registrate
+                </p>
 
-            <div class="pb-16">
-                <my-button [color]="'btn-primary'" [label]="'COPIA IBAN'"
-                    (myClick)="copyMessage('LT05 3250 0431 2585 4853')"></my-button>
+                <div class="pb-16">
+                    <my-button [color]="'btn-primary'" [label]="'COPIA IBAN'"
+                        (myClick)="copyMessage('LT05 3250 0431 2585 4853')"></my-button>
+                </div>
+
+
+                <p>Saluti.</p>
+
+                <div *ngIf="!loading_btn" class="card">
+
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-bold pt-8" style="color: black;">
+                            {{language.label.presentazione.gestione_squadre}}
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="pt-8 pb-8">
+                            <my-button [color]="'btn-primary'" [label]="language.label.bottoni.carica_squadra"
+                                [loading]="loading_btn" (myClick)="change.emit(VIEW_ISCRIZIONE.REGISTRA)"></my-button>
+                        </div>
+
+                        <div class="pt-8">
+                            <my-button [color]="'btn-primary'" [label]="language.label.bottoni.crea_squadra"
+                                [loading]="loading_btn" (myClick)="change.emit(VIEW_ISCRIZIONE.CREA)"></my-button>
+                        </div>
+
+                        <hr>
+
+                        <div id="table" class="table-editable">
+
+                            <table class="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">SQUADRA</th>
+                                        <th class="text-center">ACCOUNT</th>
+                                        <th class="text-center">UPD</th>
+                                        <th class="text-center">DEL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ele of squadre">
+                                        <td>{{ele.squadra}}</td>
+                                        <td>{{ele.account}}</td>
+                                        <td>
+                                            <div *ngIf="ele.stato == STATO_SQUADRA.REGISTRATA">
+                                                <span class="table-remove">
+                                                    <i class="bi bi-pencil-fill cursore" (click)="edit.emit(ele)"></i>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div *ngIf="ele.stato == STATO_SQUADRA.REGISTRATA">
+                                                <span class="table-remove">
+                                                    <i class="bi bi-trash-fill cursore"
+                                                        (click)="onDelete(ele.id_squadra)" data-bs-toggle="modal"
+                                                        data-bs-target="#confirmModal"></i>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
+        </div>
 
-            <p>Saluti.</p>
 
-            <div *ngIf="!loading_btn" class="card">
+        <!-- NEL MERCATO-->
+        <div class="card-body" *ngIf="fase==FASE_COMPETIZIONE.MERCATO">
+            <div>
+                <h5>Bentornato</h5>
+            </div>
 
-                <div class="card-header">
-                    <h3 class="text-center font-weight-bold pt-8" style="color: black;">
-                        {{language.label.presentazione.gestione_squadre}}
-                    </h3>
-                </div>
-                <div class="card-body">
-                    <div class="pt-8 pb-8">
-                        <my-button [color]="'btn-primary'" [label]="language.label.bottoni.carica_squadra"
-                            [loading]="loading_btn" (myClick)="change.emit(VIEW_ISCRIZIONE.REGISTRA)"></my-button>
+            <div>
+                <p>Gestisci aggiornamento delle rose</p>
+
+                <div *ngIf="!loading_btn" class="card">
+
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-bold pt-8" style="color: black;">
+                            {{language.label.presentazione.gestione_squadre}}
+                        </h3>
                     </div>
+                    <div class="card-body">
 
-                    <div class="pt-8">
-                        <my-button [color]="'btn-primary'" [label]="language.label.bottoni.crea_squadra"
-                            [loading]="loading_btn" (myClick)="change.emit(VIEW_ISCRIZIONE.CREA)"></my-button>
-                    </div>
+                        <div id="table" class="table-editable">
 
-                    <hr>
-
-                    <div id="table" class="table-editable">
-
-                        <table class="table text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">SQUADRA</th>
-                                    <th class="text-center">ACCOUNT</th>
-                                    <th class="text-center">UPD</th>
-                                    <th class="text-center">DEL</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let ele of squadre">
-                                    <td>{{ele.squadra}}</td>
-                                    <td>{{ele.account}}</td>
-                                    <td>
-                                        <div *ngIf="ele.stato == STATO_SQUADRA.REGISTRATA">
-                                            <span class="table-remove">
-                                                <i class="bi bi-pencil-fill cursore" (click)="edit.emit(ele)"></i>
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div *ngIf="ele.stato == STATO_SQUADRA.REGISTRATA">
-                                        <span class="table-remove">
-                                            <i class="bi bi-trash-fill cursore" (click)="onDelete(ele.id_squadra)"
-                                                data-bs-toggle="modal" data-bs-target="#confirmModal"></i>
-                                        </span>
-                                    </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <table class="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">SQUADRA</th>
+                                        <th class="text-center">ACCOUNT</th>
+                                        <th class="text-center">UPD</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ele of squadre">
+                                        <td>{{ele.squadra}}</td>
+                                        <td>{{ele.account}}</td>
+                                        <td>
+                                            <!-- NEL MERCATO-->
+                                            <div *ngIf="ele.stato != STATO_SQUADRA.REGISTRATA">
+                                                <span class="table-remove">
+                                                    <i class="bi bi-pencil-fill cursore"
+                                                        (click)="mercato.emit(ele)"></i>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
-
     </div>
-
-
-    <!-- NEL MERCATO-->
-    <div class="card-body" *ngIf="is_mercato">
-        <div>
-            <h5>Bentornato</h5>
-        </div>
-
-        <div>
-            <p>Gestisci aggiornamento delle rose</p>
-
-            <div *ngIf="!loading_btn" class="card">
-
-                <div class="card-header">
-                    <h3 class="text-center font-weight-bold pt-8" style="color: black;">
-                        {{language.label.presentazione.gestione_squadre}}
-                    </h3>
-                </div>
-                <div class="card-body">
-
-                    <div id="table" class="table-editable">
-
-                        <table class="table text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">SQUADRA</th>
-                                    <th class="text-center">ACCOUNT</th>
-                                    <th class="text-center">UPD</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let ele of squadre">
-                                    <td>{{ele.squadra}}</td>
-                                    <td>{{ele.account}}</td>
-                                    <td>
-                                        <!-- NEL MERCATO-->
-                                        <div *ngIf="ele.stato != STATO_SQUADRA.REGISTRATA">
-                                            <span class="table-remove">
-                                                <i class="bi bi-pencil-fill cursore" (click)="mercato.emit(ele)"></i>
-                                            </span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+    <!-- Forgot login -->
+    <div class="pt-32 text-destra">
+        <button routerLink="/login" class="btn primary">Torna al Login
+            <i class="bi bi-reply-all-fill cursore"></i>
+        </button>
     </div>
 </div>

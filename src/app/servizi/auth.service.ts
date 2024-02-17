@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { HttpSenderService } from './http-sender-service';
 import { Observable } from 'rxjs';
 import { SERVICE_TYPE, AUTH_SERVICE, TOKEN_STORAGE, LANGUAGE_STORAGE, LABEL_STORAGE } from '../../environments/environment';
-import { RuoliUtente } from 'src/environments/enums';
+import { FasiCompetizione, RuoliUtente } from 'src/environments/enums';
 
 
 @Injectable({
@@ -29,7 +29,7 @@ export class AuthService extends HttpSenderService {
    */
   login(payload: any) {
 
-    return this.http.post(`${this.buildURL("sign-in2")}`, { data: payload })
+    return this.http.post(`${this.buildURL("sign-in")}`, { data: payload })
       .pipe(map((res: any) => {
         let token = res['token'];
 
@@ -97,10 +97,24 @@ export class AuthService extends HttpSenderService {
 
     let ruolo = this.getLoggato().ruolo
 
-    if (ruolo == RuoliUtente.ADMIN || ruolo == RuoliUtente.GHOST) return true
+    if (ruolo == RuoliUtente.GHOST) return true
 
     return false
   }
+
+
+  isMercato(): boolean {
+
+    if (!this.isLogged()) return false
+
+    let fase = this.getLoggato().fase
+
+    if (fase == FasiCompetizione.MERCATO || fase == FasiCompetizione.ISCRIZIONE) return true
+
+    return false
+  }
+
+ 
 
   /**
   * salva il token in sessione

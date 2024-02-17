@@ -14,6 +14,7 @@ export class Utente {
   squadre?: Array<Squadra> = [];
   selezionata?: Squadra;
   language?: string;
+  fase?: number;
 
   constructor(element?: any) {
 
@@ -28,7 +29,7 @@ export class Utente {
       this.squadre = element.squadre
       this.qta = element.qta
       this.ruolo = element.ruolo
-
+      this.fase = element.fase
     }
   }
 }

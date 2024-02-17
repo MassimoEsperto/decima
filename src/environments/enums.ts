@@ -1,10 +1,12 @@
 export enum FasiCompetizione {
+    ISCRIZIONE = 0,
     GIRONI = 1,
     SPAREGGI = 2,
     OTTAVI = 3,
     QUARTI = 4,
     SEMI_FINALE = 5,
-    FINALE = 6
+    FINALE = 6,
+    MERCATO = 7
 }
 
 export enum PeriodoGiornata {

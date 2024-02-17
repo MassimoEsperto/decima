@@ -35,9 +35,9 @@ export class SignInComponent extends OnInitComp implements OnInit {
         next: (result: any) => {
 
           let num_msg: number = Number(result.num_msg)
-          let ruolo: number = Number(result.ruolo)
+          let fase: number = Number(result.fase)
 
-          if (ruolo == this.RUOLI_UTENTE.GHOST) {
+          if (fase == this.FASE_COMPETIZIONE.ISCRIZIONE || fase == this.FASE_COMPETIZIONE.MERCATO) {
             this.navigate('iscrizione', '')
           } else {
             if (num_msg > 0)

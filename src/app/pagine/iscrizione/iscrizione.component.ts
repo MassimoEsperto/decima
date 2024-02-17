@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { finalize } from 'rxjs';
 import { Squadra } from 'src/app/classi/squadra';
-import { AlertService } from 'src/app/servizi/alert.service';
 import { AuthService } from 'src/app/servizi/auth.service';
-import { PlayerService } from 'src/app/servizi/player.service';
 import { SpinnerService } from 'src/app/servizi/spinner.service';
-import { TipoSquadra, ViewIscirzione } from 'src/environments/enums';
+import { FasiCompetizione, TipoSquadra, ViewIscirzione } from 'src/environments/enums';
 
 @Component({
   selector: 'iscrizione',
@@ -17,8 +14,6 @@ export class IscrizioneComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private playerService: PlayerService,
-    private alert: AlertService,
     private authService: AuthService,
     public spinner: SpinnerService) {
   }
@@ -29,39 +24,21 @@ export class IscrizioneComponent implements OnInit {
   }
 
   VIEW_ISCRIZIONE = ViewIscirzione;
+  fase: number = 0;
   view: number = 0
   squadra: Squadra = new Squadra(0, '', '', '', '', '', 0);
-  is_mercato: boolean = false
+
 
   getInfoUtente() {
 
-    this.spinner.view();
+    this.fase = this.authService.getLoggato().fase || 0;
 
-    this.playerService.getInfoUtente()
-      .pipe(finalize(() => {
-        this.spinner.clear()
-      }))
-      .subscribe({
-        next: (result: any) => {
-          console.log("getInfoUtente", result)
-
-          if (result.turno.is_upgrade == '1') {
-            this.is_mercato = true
-            this.view = ViewIscirzione.LISTA
-          } else {
-            if (this.authService.isGhost()) {
-              this.view = ViewIscirzione.LISTA
-            } else {
-              this.goBack()
-            }
-          }
-        },
-        error: (error: any) => {
-          this.alert.error(error);
-        }
-      })
+    if (this.fase == FasiCompetizione.ISCRIZIONE || this.fase == FasiCompetizione.MERCATO) {
+      this.view = ViewIscirzione.LISTA
+    } else {
+      this.goBack()
+    }
   }
-
 
   goBack() {
     this.router.navigate(['login']);

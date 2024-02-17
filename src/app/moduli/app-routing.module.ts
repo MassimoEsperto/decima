@@ -43,6 +43,13 @@ const GhostGuard: CanActivateFn =
       : inject(Router).navigate(['/login']);
   };
 
+  const MercatoGuard: CanActivateFn =
+  (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+    return inject(AuthService).isMercato()
+      ? true
+      : inject(Router).navigate(['/login']);
+  };
+
 
 const routes: Routes = [
   {
@@ -57,7 +64,7 @@ const routes: Routes = [
   {
     path: 'iscrizione',
     component: IscrizioneComponent,
-    //canActivate: [GhostGuard],
+    canActivate: [MercatoGuard],
   },
   {
     path: 'dashboard',
