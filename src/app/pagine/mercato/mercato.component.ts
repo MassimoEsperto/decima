@@ -6,11 +6,10 @@ import { SpinnerService } from 'src/app/servizi/spinner.service';
 import { FasiCompetizione, TipoSquadra, ViewIscirzione } from 'src/environments/enums';
 
 @Component({
-  selector: 'iscrizione',
-  templateUrl: './iscrizione.component.html',
-  styleUrls: ['./iscrizione.component.scss']
+  selector: 'mercato',
+  templateUrl: './mercato.component.html'
 })
-export class IscrizioneComponent implements OnInit {
+export class MercatoComponent implements OnInit {
 
   constructor(
     private router: Router,

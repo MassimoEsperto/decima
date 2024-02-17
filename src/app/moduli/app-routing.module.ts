@@ -14,7 +14,7 @@ import { InfoUtenteComponent } from '../pagine/dashboard/info-utente/info-utente
 import { SchieramentoComponent } from '../pagine/dashboard/schieramento/schieramento.component';
 import { ComunicazioneComponent } from '../pagine/dashboard/comunicazione/comunicazione.component';
 import { VotiLiveComponent } from '../pagine/dashboard/voti-live/voti-live.component';
-import { IscrizioneComponent } from '../pagine/iscrizione/iscrizione.component';
+import { MercatoComponent } from '../pagine/mercato/mercato.component';
 import { AccoppiamentiComponent } from '../pagine/adminstrator/accoppiamenti/accoppiamenti.component';
 import { NotificheComponent } from '../pagine/adminstrator/notifiche/notifiche.component';
 
@@ -62,8 +62,8 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'iscrizione',
-    component: IscrizioneComponent,
+    path: 'mercato',
+    component: MercatoComponent,
     canActivate: [MercatoGuard],
   },
   {

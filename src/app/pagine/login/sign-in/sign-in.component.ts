@@ -38,7 +38,7 @@ export class SignInComponent extends OnInitComp implements OnInit {
           let fase: number = Number(result.fase)
 
           if (fase == this.FASE_COMPETIZIONE.ISCRIZIONE || fase == this.FASE_COMPETIZIONE.MERCATO) {
-            this.navigate('iscrizione', '')
+            this.navigate('mercato', '')
           } else {
             if (num_msg > 0)
               this.navigate("comunicazioni", "dashboard/");

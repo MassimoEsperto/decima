@@ -28,9 +28,9 @@ import { SchieramentoComponent } from '../pagine/dashboard/schieramento/schieram
 import { ComunicazioneComponent } from '../pagine/dashboard/comunicazione/comunicazione.component';
 import { FrontespizioComponent } from '../pagine/login/frontespizio/frontespizio.component';
 import { VotiLiveComponent } from '../pagine/dashboard/voti-live/voti-live.component';
-import { RegistraSquadraComponent } from '../pagine/iscrizione/registra-squadra/registra-squadra.component';
-import { IscrizioneComponent } from '../pagine/iscrizione/iscrizione.component';
-import { ListaSquadreComponent } from '../pagine/iscrizione/lista-squadre/lista-squadre.component';
+import { RegistraSquadraComponent } from '../pagine/mercato/registra-squadra/registra-squadra.component';
+import { MercatoComponent } from '../pagine/mercato/mercato.component';
+import { ListaSquadreComponent } from '../pagine/mercato/lista-squadre/lista-squadre.component';
 import { CalcoloVotiComponent } from '../pagine/adminstrator/competizione/calcolo-voti/calcolo-voti.component';
 import { AccoppiamentiComponent } from '../pagine/adminstrator/accoppiamenti/accoppiamenti.component';
 import { ListaSvincolatiComponent } from '../pagine/adminstrator/calciatori/lista-svincolati/lista-svincolati.component';
@@ -48,9 +48,9 @@ import { SorteggiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi
 import { SorteggiEliminatorieComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-eliminatorie/sorteggi-eliminatorie.component';
 import { SorteggiGironiComponent } from '../pagine/adminstrator/accoppiamenti/sorteggi/sorteggi-gironi/sorteggi-gironi.component';
 import { PageNotFoundComponent } from '../pagine/page-not-found/page-not-found.component';
-import { UpgradeSquadraFantaComponent } from '../pagine/iscrizione/upgrade-squadra-fanta/upgrade-squadra-fanta.component';
-import { ComponiSquadraComponent } from '../pagine/iscrizione/componi-squadra/componi-squadra.component';
-import { UpgradeSquadraLocaleComponent } from '../pagine/iscrizione/upgrade-squadra-locale/upgrade-squadra-locale.component';
+import { UpgradeSquadraFantaComponent } from '../pagine/mercato/upgrade-squadra-fanta/upgrade-squadra-fanta.component';
+import { ComponiSquadraComponent } from '../pagine/mercato/componi-squadra/componi-squadra.component';
+import { UpgradeSquadraLocaleComponent } from '../pagine/mercato/upgrade-squadra-locale/upgrade-squadra-locale.component';
 
 
 
@@ -66,7 +66,7 @@ import { UpgradeSquadraLocaleComponent } from '../pagine/iscrizione/upgrade-squa
     RecPassComponent,
     FrontespizioComponent,
     //iscrizione
-    IscrizioneComponent,
+    MercatoComponent,
     RegistraSquadraComponent,
     ListaSquadreComponent,
     UpgradeSquadraFantaComponent,
