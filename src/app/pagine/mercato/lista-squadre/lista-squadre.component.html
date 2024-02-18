@@ -132,8 +132,7 @@
                                         <td>{{ele.squadra}}</td>
                                         <td>{{ele.account}}</td>
                                         <td>
-                                            <!-- NEL MERCATO-->
-                                            <div *ngIf="ele.stato != STATO_SQUADRA.REGISTRATA">
+                                            <div>
                                                 <span class="table-remove">
                                                     <i class="bi bi-pencil-fill cursore"
                                                         (click)="mercato.emit(ele)"></i>

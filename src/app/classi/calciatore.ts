@@ -29,9 +29,11 @@ export class Listino {
     }
 
     get selezionati() {
+        return this.svincolati.filter((e: { selected: boolean; }) => e.selected === true);
+    }
 
-        return this.svincolati.filter((e: { selected: boolean; }) => e.selected === true);//aggiungi condizione non svincolati
-
+    get attuale() {
+        return this.rosa_attuale.filter((e: { selected: boolean; }) => e.selected === true);
     }
 
     get countP() {
@@ -52,6 +54,10 @@ export class Listino {
     get countA() {
         return this.svincolati.
             filter((e: { ruolo: string; selected: boolean; }) => e.selected === true && e.ruolo == 'A').length;
+    }
+
+    get countRA() {
+        return this.attuale.length;
     }
 
 
@@ -77,70 +83,20 @@ export class Listino {
         return res
 
     }
-}
 
-export class Listone {
-    portieri: Calciatore[] = [];
-    difensori: Calciatore[] = [];
-    centrocampisti: Calciatore[] = [];
-    attaccanti: Calciatore[] = [];
-    svincolati: Calciatore[] = [];
-    residui: number = 0
+    svincola() {
 
-    constructor(
-        portieri: Calciatore[] = [],
-        difensori: Calciatore[] = [],
-        centrocampisti: Calciatore[] = [],
-        attaccanti: Calciatore[] = []
-    ) {
-        this.portieri = portieri;
-        this.difensori = difensori;
-        this.centrocampisti = centrocampisti;
-        this.attaccanti = attaccanti;
-    }
+        let tmp = this.svincolati.filter(x => this.attuale.map(y => y.id).includes(x.id));
 
-    ini(lista: any) {
-        if (lista) {
-            this.portieri = lista.P;
-            this.difensori = lista.D;
-            this.centrocampisti = lista.C;
-            this.attaccanti = lista.A;
-        }
-    }
-
-    get selezionati() {
-
-        let p = this.portieri.filter((e: { selected: boolean; }) => e.selected === true);//aggiungi condizione non svincolati
-        let d = this.difensori.filter((e: { selected: boolean; }) => e.selected === true);
-        let c = this.centrocampisti.filter((e: { selected: boolean; }) => e.selected === true);
-        let a = this.attaccanti.filter((e: { selected: boolean; }) => e.selected === true);
-
-        return [...p, ...d, ...c, ...a]
-
-    }
-
-    get crediti() {
-
-        let lista = this.selezionati
-        let crt: number = 0;
-
-        if (lista.length > 0) {
-            crt = lista.map(a => a.valore).reduce(function (a, b) {
-                return a + b;
-            });
+        for (let ele of tmp) {
+            ele.selected = false
         }
 
-        return crt
+        for (let ele of this.selezionati) {
+            ele.disabled = true
+        }
 
     }
-
-    get residuo() {
-
-        let crt = this.crediti
-        let res = this.residui - crt
-        return res
-
-    }
-
 }
+
 

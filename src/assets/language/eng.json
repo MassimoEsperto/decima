@@ -142,7 +142,9 @@
             "attaccanti": "Select attackers",
             "crediti": "Remaining credits",
             "riepilogo": "Team Summary",
-            "genera_squadra": "Generate Team"
+            "genera_squadra": "Generate Team",
+            "aggiorna_squadra": "Aggiorna Squadra",
+            "svincola_calciatori": "Svincola Calciatori"
         }
     },
     "modali": {

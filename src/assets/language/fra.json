@@ -142,7 +142,9 @@
             "attaccanti": "Sélectionner les attaquants",
             "crediti": "Crédits restants",
             "riepilogo": "Résumé de l'équipe",
-            "genera_squadra": "Générer une équipe"
+            "genera_squadra": "Générer une équipe",
+            "aggiorna_squadra": "Aggiorna Squadra",
+            "svincola_calciatori": "Svincola Calciatori"
         }
     },
     "modali": {

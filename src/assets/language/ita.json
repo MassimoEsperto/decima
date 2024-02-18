@@ -142,7 +142,9 @@
             "attaccanti": "Seleziona Attaccanti",
             "crediti": "Crediti residui",
             "riepilogo": "Riepilogo Squadra",
-            "genera_squadra": "Genera Squadra"
+            "genera_squadra": "Genera Squadra",
+            "aggiorna_squadra": "Aggiorna Squadra",
+            "svincola_calciatori": "Svincola Calciatori"
         }
     },
     "modali": {

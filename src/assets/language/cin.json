@@ -143,7 +143,9 @@
             "attaccanti": "選擇攻擊者",
             "crediti": "剩餘學分",
             "riepilogo": "團隊概要",
-            "genera_squadra": "生成團隊"
+            "genera_squadra": "生成團隊",
+            "aggiorna_squadra": "Aggiorna Squadra",
+            "svincola_calciatori": "Svincola Calciatori"
         }
     },
     "modali": {

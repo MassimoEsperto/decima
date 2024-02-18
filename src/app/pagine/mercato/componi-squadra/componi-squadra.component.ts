@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { finalize } from 'rxjs';
-import { Calciatore, Listino, Listone } from 'src/app/classi/calciatore';
+import { Listino } from 'src/app/classi/calciatore';
 import { Squadra } from 'src/app/classi/squadra';
 import { AlertService } from 'src/app/servizi/alert.service';
 import { AuthService } from 'src/app/servizi/auth.service';
 import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
 import { SpinnerService } from 'src/app/servizi/spinner.service';
 import { ViewIscirzione } from 'src/environments/enums';
 

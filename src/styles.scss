@@ -70,35 +70,35 @@
 
 
 .bg-transparent {
-   background-color: initial !important;
+    background-color: initial !important;
 }
 
 .bg-warning {
-   background-color: $colore-verde!important;
+    background-color: $colore-verde !important;
 }
 
 .bg-opaco {
     background-color: rgba(0, 0, 0, 0.03);
- }
+}
 
- .bg-black {
+.bg-black {
     background-color: black
- }
+}
 
- .bg-marine {
+.bg-marine {
     background-color: mistyrose;
 }
 
 
-.opzioni div:hover{
+.opzioni div:hover {
     background-color: $colore-verde;
 }
 
 .text-white {
-   color: #fff!important;
+    color: #fff !important;
 }
 
-.voto{
+.voto {
     width: 48px;
     height: 24px;
     padding-left: 4px;
@@ -116,12 +116,12 @@
     box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
 }
 
-.width-100{
-    width:100%;
+.width-100 {
+    width: 100%;
 }
 
 
-.login{
+.login {
     min-width: 300px;
 }
 
@@ -133,23 +133,23 @@
 }
 
 
-.sfondo_campo{
+.sfondo_campo {
     background-image: url(assets/img/campo_sfida.png);
-    background-position: center; 
-	background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 
 }
 
-.sfondo_lavagna{
+.sfondo_lavagna {
     background-image: url(assets/img/lavagna.jpg);
-    background-position: center; 
-	background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 
 }
 
-.step{
+.step {
     color: #757575 !important;
     display: flex;
     flex-direction: row;
@@ -157,11 +157,11 @@
     justify-content: space-between;
 }
 
-.table_icon{
+.table_icon {
     font-size: 24px;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     max-height: 200px;
     overflow-y: scroll;
 }
@@ -170,36 +170,41 @@
 /*SQUADRA*/
 
 .squadra-list {
-	
-	background: url('~src/assets/img/campo_formazioni.png');
-	background-repeat: no-repeat, repeat;
-	background-size: cover;
-	min-height: 240px;
-	min-width: 240px;
+
+    background: url('~src/assets/img/campo_formazioni.png');
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    min-height: 240px;
+    min-width: 240px;
     max-width: 480px;
-	padding-top: 16px;
-	padding-right: 8px;
-	padding-left: 8px;
-	padding-bottom: 16px;
-	cursor: pointer;
+    padding-top: 16px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 16px;
+    cursor: pointer;
 }
 
 .squadra-box {
-	background-color: #f1f1f1;
-	color: black;
-	font-weight: bold;
-	padding-left: 4px;
-	padding-right: 4px;
-	padding-top: 4px;
-	text-align: center;
-	height: 24px;
-	width: 128px;
-	margin:4px;
-	font-size: 12px;
-	border-radius: 4px;
-	opacity: 0.5;
+    background-color: #f1f1f1;
+    color: black;
+    font-weight: bold;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    text-align: center;
+    height: 24px;
+    width: 128px;
+    margin: 4px;
+    font-size: 12px;
+    border-radius: 4px;
+    opacity: 0.5;
 }
 
 .col-half {
     flex-basis: 50%;
-  }
+}
+
+.listone {
+    height: 200px;
+    overflow-y: scroll;
+}
