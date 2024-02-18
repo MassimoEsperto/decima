@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { finalize } from 'rxjs';
 import { Listino } from 'src/app/classi/calciatore';
-import { Squadra } from 'src/app/classi/squadra';
 import { AlertService } from 'src/app/servizi/alert.service';
 import { AuthService } from 'src/app/servizi/auth.service';
 import { LanguageService } from 'src/app/servizi/language.service';
@@ -33,7 +32,6 @@ export class UpgradeSquadraLocaleComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("id_squadra", this.id_squadra)
     this.getComponiSquadra()
   }
 
@@ -49,7 +47,6 @@ export class UpgradeSquadraLocaleComponent implements OnInit {
         next: (result: any) => {
 
           this.listino = new Listino(result)
-          console.log("listino",this.listino)
 
         },
         error: (error: any) => {
@@ -75,8 +72,6 @@ svincolaCalciatori(){
   }
 
   confermaSquadra() {
-
-   
 
       let payload: any = {
         id_squadra: this.id_squadra,
