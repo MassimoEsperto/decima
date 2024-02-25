@@ -6,7 +6,7 @@ require_once '../config/post_data.php';
 
 $id_squadra = mysqli_real_escape_string($con, trim($dati->id_squadra)); 
 
-$count ="count(*) FROM risultati r WHERE r.squadra_id = {$id_squadra} ";
+$count ="SELECT * FROM risultati r WHERE r.squadra_id = {$id_squadra} ";
 $sql =  "DELETE rose, squadre FROM rose JOIN squadre ";
 $sql .= "ON rose.squadra_id = squadre.id_squadra WHERE rose.squadra_id = {$id_squadra}";
 

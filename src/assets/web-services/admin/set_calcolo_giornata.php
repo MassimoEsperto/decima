@@ -39,9 +39,9 @@ foreach($risultati as $risultato)
     $id = mysqli_real_escape_string($con, (int)$trasferta->id_risultato);
 	$goals = mysqli_real_escape_string($con, (int)$trasferta->goals);
 	$punti = mysqli_real_escape_string($con, (int)$trasferta->punti);
-	$somma = mysqli_real_escape_string($con, (int)$trasferta->somma);
+    $somma = mysqli_real_escape_string($con, trim($trasferta->somma));
 		
-	$sql .= "UPDATE risultati SET goals={$goals},punti={$punti},somma={$somma} ";
+	$sql .= "UPDATE risultati SET goals={$goals},punti={$punti},somma='{$somma}' ";
 	$sql .="WHERE id_risultato={$id} ;";
     
     $schieramento = $trasferta->schieramento;

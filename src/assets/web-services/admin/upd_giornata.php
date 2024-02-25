@@ -16,8 +16,23 @@ $giornata = mysqli_real_escape_string($con, trim($dati->giornata));
 $precednte = (int)$giornata;
 $precednte = $precednte-1;
 
+$controllo  ="SELECT * FROM giornate WHERE id_giornata = {$giornata} ";
+$controllo .="AND now() < ultima_partita AND is_upgrade != '{$is_upgrade}'";
+
+$result = mysqli_query( $con , $controllo );
+
+if(! $result ) 
+{
+ 	errorMessage('query errata: count suadre');
+}
+
+if ($result->num_rows > 0) 
+{
+	errorMessage('Impossibile aggiornare il mercato se la giornata non è calcolata');
+}
+
 $sql  ="UPDATE giornate ";
-$sql .="SET inizio_giornata='{$inizio_giornata}',prima_partita='{$prima_partita}' ";
+$sql .="SET inizio_giornata='{$inizio_giornata}',prima_partita='{$prima_partita}',is_upgrade='{$is_upgrade}' ";
 $sql .="WHERE id_giornata = {$giornata} LIMIT 1 ;";
 
 $sql .="UPDATE giornate ";

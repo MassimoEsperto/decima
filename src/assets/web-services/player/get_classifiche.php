@@ -3,6 +3,7 @@
 require_once '../config/connect_local.php';
 //require_once '../config/validate.php';
 require_once '../common/classifica_ranking.php';
+require_once '../common/tabellone.php';
     
 //dichiarazione variabili	
 $gironi = [];
@@ -155,6 +156,7 @@ for($i=0;$i<count($gironi);$i++)
 $myObj->gironi = $gironi;
 $myObj->factory = $factory;
 $myObj->ranking = $ranking_;
+$myObj->tabellone = $tabellone_;
 
 $totObj=['data'=>$myObj];
 

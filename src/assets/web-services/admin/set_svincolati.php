@@ -16,7 +16,8 @@ foreach($dati as $item)
 	
 if ($con->multi_query($sql) === TRUE) 
 {
-	http_response_code(201);
+	echo json_encode(['data'=>'ok']);
+    
 }else{
 	errorMessage('query errata: calcola giornata');
 }

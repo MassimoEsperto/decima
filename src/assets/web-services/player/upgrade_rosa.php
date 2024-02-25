@@ -1,10 +1,17 @@
 <?php
 
 require_once '../config/connect_local.php';
+require_once '../common/turno.php';
 require_once '../config/decode.php';
 require_once '../config/post_data.php';
 
 $lega = mysqli_real_escape_string($con, trim($dati->lega)); 
+
+//aggiungi controllo se è mercato o stiamo all inizio
+if ($turno_['is_upgrade'] != 1) 
+{
+	errorMessage('Non è possibile aggiornare la rosa per questa data!');
+}
 
 //elimina rosa esistente
 $sql1 = "DELETE FROM rose WHERE squadra_id = {$id_squadra} ";

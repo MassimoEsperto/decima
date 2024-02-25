@@ -1,21 +1,15 @@
 <?php
 
 require_once '../config/connect_local.php';
-
-$user = $_GET['user'];($_GET['user'] !== null && $_GET['user'] !== '')? mysqli_real_escape_string($con, $_GET['user']) : false;
-$pass = ($_GET['pass'] !== null && $_GET['pass'] !== '')? mysqli_real_escape_string($con, $_GET['pass']) : false;
-
-
+require_once '../common/turno.php';
+require_once '../config/post_data.php';
 include_once '../config/JWT.php';
+
+$user = mysqli_real_escape_string($con, trim($dati->username)); 
+$pass = mysqli_real_escape_string($con, trim($dati->password)); 
 
 $objJWT = new JWT();//inizialize token
 
-
- // Validate.
-if(trim($user) === '' || trim($pass) === '')
-{
-   die('valori non prelevati'. mysqli_error($con));
-}
 
 
 
@@ -87,6 +81,7 @@ if ($result->num_rows > 0)
                             'num_msg' => $element['num_msg'],
                             'squadre' => $element['squadre'],
                             'selezionata' => $element['squadra'],
+                            'fase' => $turno_['fase'],
                             'qta' => $ele,
 							'login_dt' => new DateTime()]);
                             
