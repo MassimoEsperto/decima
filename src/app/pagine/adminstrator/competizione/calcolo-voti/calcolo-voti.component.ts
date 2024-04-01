@@ -1,13 +1,22 @@
 import { Component, Input } from '@angular/core';
 import { finalize } from 'rxjs';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'calcolo-voti',
+  standalone: true,
+  imports: [
+    MyButton,
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './calcolo-voti.component.html',
-  styleUrls: ['./calcolo-voti.component.scss']
+  styleUrl: './calcolo-voti.component.scss'
 })
 export class CalcoloVotiComponent {
 

@@ -1,17 +1,29 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { FantaGazzettaService } from 'src/app/servizi/fanta-gazzetta.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
+import { FantaGazzettaService } from 'src/servizi/client/fanta-gazzetta.service';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+
 
 @Component({
   selector: 'schieramento',
+  standalone: true,
+  imports: [
+    MyButton,
+    FormsModule,
+    MyTitolo,
+    CommonModule
+  ],
   templateUrl: './schieramento.component.html',
-  styleUrls: ['./schieramento.component.scss']
+  styleUrl: './schieramento.component.scss'
 })
 export class SchieramentoComponent extends OnInitComp implements OnInit {
 

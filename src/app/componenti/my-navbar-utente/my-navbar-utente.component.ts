@@ -1,23 +1,32 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { MyNavlink } from 'src/app/componenti/my-navlink/my-navlink.component';
+import { CommonModule } from '@angular/common';
+import { MyFooter } from '../my-footer/my-footer.component';
+import { PAGE } from 'src/environments/costanti';
+
 
 @Component({
   selector: 'my-navbar-utente',
   templateUrl: './my-navbar-utente.component.html',
-  styleUrls: ['./my-navbar-utente.component.scss']
+  standalone: true,
+  imports: [
+    MyNavlink,
+    CommonModule,
+    MyFooter
+  ],
+  styleUrl: './my-navbar-utente.component.scss'
 })
-export class MyNavbarUtente implements OnInit {
+export class MyNavbarUtente {
 
+  PAGE = PAGE
 
   constructor(private route: ActivatedRoute,
     private elementRef: ElementRef,
     private player: PlayerService,
     public language: LanguageService) { }
-
-  ngOnInit(): void {
-  }
 
   isCollapse: boolean = false
 

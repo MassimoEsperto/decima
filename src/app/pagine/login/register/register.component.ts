@@ -1,26 +1,35 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { AuthService } from 'src/app/servizi/auth.service';
+import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { LOGIN_PAGE } from 'src/environments/costanti';
+import { AuthService } from 'src/servizi/client/auth.service';
+import { AlertService } from 'src/servizi/local/alert.service';
 
 @Component({
   selector: 'register',
+  standalone: true,
+  imports: [
+    MyButton,
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrl: './register.component.scss'
 })
-export class RegisterComponent extends OnInitComp implements OnInit {
+export class RegisterComponent {
 
   @Output() submitto = new EventEmitter();
 
   constructor(
     private alert: AlertService,
     private auth: AuthService) {
-    super();
   }
 
-  ngOnInit(): void {
-  }
+  loading_btn: boolean = false
+  LOGIN_PAGE = LOGIN_PAGE
+
 
   onRegister(payload: any) {
 
@@ -34,7 +43,7 @@ export class RegisterComponent extends OnInitComp implements OnInit {
 
         next: (result: any) => {
           this.alert.success("ok");
-          
+
           this.goToLink(payload)
         },
         error: (error: any) => {
@@ -47,7 +56,7 @@ export class RegisterComponent extends OnInitComp implements OnInit {
 
   goToLink(payload: any) {
 
-    this.submitto.emit(this.LOGIN_PAGE.SIGN_IN)
+    this.submitto.emit(LOGIN_PAGE.SIGN_IN)
   }
 
 

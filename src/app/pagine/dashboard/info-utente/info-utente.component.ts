@@ -1,18 +1,30 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { Squadra } from 'src/app/classi/squadra';
 import { Utente } from 'src/app/classi/utente';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { AuthService } from 'src/app/servizi/auth.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
+import { AuthService } from 'src/servizi/client/auth.service';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+
 
 @Component({
   selector: 'info-utente',
+  standalone: true,
+  imports: [
+    MyButton,
+    FormsModule,
+    MyTitolo,
+    CommonModule
+  ],
   templateUrl: './info-utente.component.html',
-  styleUrls: ['./info-utente.component.scss']
+  styleUrl: './info-utente.component.scss'
 })
 export class InfoUtenteComponent extends OnInitComp implements OnInit {
 

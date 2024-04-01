@@ -1,16 +1,27 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { AuthService } from 'src/app/servizi/auth.service';
-import { FantaGazzettaService } from 'src/app/servizi/fanta-gazzetta.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { ViewIscirzione } from 'src/environments/enums';
+import { AuthService } from 'src/servizi/client/auth.service';
+import { FantaGazzettaService } from 'src/servizi/client/fanta-gazzetta.service';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+
+
 
 @Component({
   selector: 'registra-squadra',
+  standalone: true,
+  imports: [
+    MyButton,
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './registra-squadra.component.html',
-  styleUrls: ['./registra-squadra.component.scss']
+  styleUrl: './registra-squadra.component.scss'
 })
 export class RegistraSquadraComponent implements OnInit {
 

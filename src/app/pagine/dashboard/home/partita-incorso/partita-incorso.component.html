@@ -108,14 +108,14 @@
 
 <div *ngIf="!dash.match.ESISTENTE" class="pt-16">
 
-    <div class="card text-white bg-success">
+    <div class="card-green">
         <div class="card-header">
             <div>NO MATCH</div>
         </div>
         <!--Card content-->
         <div class="card-body sfondo_campo">
-            <div>
-                <my-button [submit]="false" [color]="'btn-success'" [block]="true"
+            <div class="pt-40 pb-16">
+                <my-button [submit]="false" [color]="'bg-warning text-white'" [block]="true"
                     [label]="language.label.page.vedi_live" (myClick)="visualizzaLive()"></my-button>
             </div>
         </div>

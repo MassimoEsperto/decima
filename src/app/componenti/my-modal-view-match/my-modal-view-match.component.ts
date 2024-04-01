@@ -1,13 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Match } from 'src/app/classi/match';
-import { PlayerService } from 'src/app/servizi/player.service';
-import { ViewMatchService } from 'src/app/servizi/view-match.service';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { ViewMatchService } from 'src/servizi/local/view-match.service';
+
+
 
 @Component({
   selector: 'my-modal-view-match',
   templateUrl: './my-modal-view-match.component.html',
-  styleUrls: ['./my-modal-view-match.component.scss']
+  standalone: true,
+  imports: [
+    CommonModule
+  ],
+  styleUrl: './my-modal-view-match.component.scss'
 })
 export class MyModalViewMatch implements OnInit {
   private subscription: Subscription = new Subscription;

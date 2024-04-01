@@ -1,14 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { Utente } from 'src/app/classi/utente';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'invia-notifica',
+  standalone: true,
+  imports: [
+    MyButton,
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './invia-notifica.component.html',
-  styleUrls: ['./invia-notifica.component.scss']
+  styleUrl: './invia-notifica.component.scss'
 })
 export class InviaNotificaComponent implements OnInit {
 

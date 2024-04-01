@@ -1,15 +1,21 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { finalize } from 'rxjs';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { AuthService } from 'src/app/servizi/auth.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { AuthService } from 'src/servizi/client/auth.service';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+
 
 @Component({
   selector: 'comunicazione',
+  standalone: true,
+  imports: [
+    CommonModule
+  ],
   templateUrl: './comunicazione.component.html',
-  styleUrls: ['./comunicazione.component.scss']
+  styleUrl: './comunicazione.component.scss'
 })
 export class ComunicazioneComponent {
 

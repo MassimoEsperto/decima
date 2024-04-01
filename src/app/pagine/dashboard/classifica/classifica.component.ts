@@ -1,16 +1,26 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { MyTabellone } from 'src/app/componenti/my-tabellone/my-tabellone.component';
+import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+
 
 
 @Component({
   selector: 'classifica',
+  standalone: true,
+  imports: [
+    CommonModule,
+    MyTitolo,
+    MyTabellone
+  ],
   templateUrl: './classifica.component.html',
-  styleUrls: ['./classifica.component.scss']
+  styleUrl: './classifica.component.scss'
 })
 export class ClassificaComponent extends OnInitComp implements OnInit {
 
@@ -18,7 +28,7 @@ export class ClassificaComponent extends OnInitComp implements OnInit {
 
   headElementsGironi = [this.language.label.page['squadra'], 'GOL', 'PT'];
   headElementsFactory = [this.language.label.page['squadra'], 'CM'];
-  
+
 
   constructor(
     private playerService: PlayerService,
@@ -27,7 +37,7 @@ export class ClassificaComponent extends OnInitComp implements OnInit {
     public spinner: SpinnerService) {
     super();
   }
-  
+
 
   ngOnInit(): void { this.getClassifiche() }
 

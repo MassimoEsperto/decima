@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpSenderService } from './http-sender-service';
-import { Utente } from '../classi/utente';
-import { SERVICE_TYPE, PLAYER_SERVICE } from '../../environments/environment';
+import { Utente } from 'src/app/classi/utente';
+import { SERVICE_TYPE, PLAYER_SERVICE } from 'src/environments/costanti';
+
 
 
 @Injectable({

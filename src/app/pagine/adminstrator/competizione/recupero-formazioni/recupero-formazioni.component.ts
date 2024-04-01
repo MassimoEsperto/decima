@@ -1,12 +1,21 @@
 import { Component, Input } from '@angular/core';
 import { finalize } from 'rxjs';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'recupero-formazioni',
+  standalone: true,
+  imports: [
+    MyButton,
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './recupero-formazioni.component.html',
-  styleUrls: ['./recupero-formazioni.component.scss']
+  styleUrl: './recupero-formazioni.component.scss'
 })
 export class RecuperoFormazioniComponent {
 

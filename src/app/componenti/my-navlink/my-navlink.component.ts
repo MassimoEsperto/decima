@@ -1,9 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'my-navlink',
   templateUrl: './my-navlink.component.html',
-  styleUrls: ['./my-navlink.component.scss']
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
+  styleUrl: './my-navlink.component.scss'
 })
 export class MyNavlink implements OnInit {
 

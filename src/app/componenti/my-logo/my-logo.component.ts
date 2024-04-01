@@ -1,16 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Utente } from 'src/app/classi/utente';
-import { PlayerService } from 'src/app/servizi/player.service';
+import { PlayerService } from 'src/servizi/client/player.service';
+
 
 @Component({
   selector: 'my-logo',
   templateUrl: './my-logo.component.html',
-  styleUrls: ['./my-logo.component.scss']
+  standalone: true,
+  imports: [
+    CommonModule
+  ],
+  styleUrl: './my-logo.component.scss'
 })
 export class MyLogo implements OnInit {
-
-  @Input() is_upgrade: any;
 
   constructor(
     private playerService: PlayerService,
@@ -23,10 +27,6 @@ export class MyLogo implements OnInit {
 
   visualizzaProfilo() {
     this.router.navigate(['/dashboard/info-utente']);
-  }
-
-  upgradeTeam() {
-    this.router.navigate(['/iscrizione']);
   }
 
 }

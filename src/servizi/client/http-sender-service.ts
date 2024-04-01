@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http'
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { catchError, map, throwError } from 'rxjs'
-import { Utente } from '../classi/utente';
-import { WS_BASE_URL, TOKEN_STORAGE, VERSION, LANGUAGE_STORAGE, LABEL_STORAGE } from '../../environments/environment';
+import { Utente } from 'src/app/classi/utente';
+import { WS_BASE_URL, TOKEN_STORAGE, LANGUAGE_STORAGE, LABEL_STORAGE, SHIT_VERSION } from 'src/environments/env';
 
 
 export class HttpSenderService {
@@ -96,7 +96,7 @@ export class HttpSenderService {
   }
 
   versione() {
-    return VERSION
+    return SHIT_VERSION
   }
 
   postFree(servizio: string, payload: any) {

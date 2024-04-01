@@ -1,16 +1,24 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { ConfirmDialogService } from 'src/app/servizi/confirm-dialog.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { ModalFormService } from 'src/app/servizi/modal-form.service';
-import { UtilService } from 'src/app/servizi/util.service';
-import { BOLEANO } from 'src/environments/environment';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { BOLEANO } from 'src/environments/costanti';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { ConfirmDialogService } from 'src/servizi/local/confirm-dialog.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { ModalFormService } from 'src/servizi/local/modal-form.service';
+import { UtilService } from 'src/servizi/local/util.service';
+
 
 @Component({
   selector: 'data-giornate',
+  standalone: true,
+  imports: [
+    MyButton,
+    CommonModule
+  ],
   templateUrl: './data-giornate.component.html',
-  styleUrls: ['./data-giornate.component.scss'],
+  styleUrl: './data-giornate.component.scss',
   providers: [UtilService],
 })
 export class DataGiornateComponent implements OnInit {

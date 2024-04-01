@@ -1,17 +1,25 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { ConfirmDialogService } from 'src/app/servizi/confirm-dialog.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { ModalFormService } from 'src/app/servizi/modal-form.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
-import { BOLEANO } from 'src/environments/environment';
+import { MyInfoCard } from 'src/app/componenti/my-info-card/my-info-card.component';
+import { BOLEANO } from 'src/environments/costanti';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { ConfirmDialogService } from 'src/servizi/local/confirm-dialog.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { ModalFormService } from 'src/servizi/local/modal-form.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+
 
 @Component({
   selector: 'utenti',
+  standalone: true,
+  imports: [
+    MyInfoCard,
+    CommonModule
+  ],
   templateUrl: './utenti.component.html',
-  styleUrls: ['./utenti.component.scss']
+  styleUrl: './utenti.component.scss'
 })
 export class UtentiComponent implements OnInit {
 

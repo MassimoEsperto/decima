@@ -3,22 +3,22 @@
     <div class="navigazione">
 
         <!-- UTENTI -->
-        <my-navlink [isCollapse]="isCollapse" [isAdmin]="true" [link]="'/adminstrator/utenti'"
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="true" [link]="PAGE.ADMINISTRATOR.ABSOLUTE._UTENTI"
             [icon]="'bi bi-people-fill'" [label]="language.label.smart.utenti" (myClick)="isCollapse=false">
         </my-navlink>
 
         <!-- COMPETIZIONE -->
-        <my-navlink [isCollapse]="isCollapse" [isAdmin]="true" [link]="'/adminstrator/competizione'"
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="true" [link]="PAGE.ADMINISTRATOR.ABSOLUTE._COMPETIZIONE"
             [icon]="'bi bi-wrench-adjustable'" [label]="language.label.smart.competizione" (myClick)="isCollapse=false">
         </my-navlink>
 
         <!-- DATE -->
-        <my-navlink [isCollapse]="isCollapse" [isAdmin]="true" [link]="'/adminstrator/date'" [icon]="'bi bi-alarm-fill'"
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="true" [link]="PAGE.ADMINISTRATOR.ABSOLUTE._DATE" [icon]="'bi bi-alarm-fill'"
             [label]="language.label.smart.date" (myClick)="isCollapse=false">
         </my-navlink>
 
         <!-- CALCIATORI -->
-        <my-navlink [isCollapse]="isCollapse" [isAdmin]="true" [link]="'/adminstrator/calciatori'"
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="true" [link]="PAGE.ADMINISTRATOR.ABSOLUTE._CALCIATORI"
             [icon]="'bi bi-person-walking'" [label]="language.label.smart.calciatori" (myClick)="isCollapse=false">
         </my-navlink>
 
@@ -27,7 +27,7 @@
         <div class="colonna" data-bs-toggle="collapse" data-bs-target="#impostazioni_admin" aria-expanded="false"
             aria-controls="impostazioni_admin" (click)="isCollapse=!isCollapse">
             <div>
-                <i class="bi bi-chat-dots-fill navbar-font-icon"></i>
+                <i class="bi bi-gear-fill navbar-font-icon"></i>
             </div>
             <div>
                 <span class="navbar-font-label">{{language.label.smart.info}}</span>

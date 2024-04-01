@@ -1,7 +1,7 @@
 <div class="gradient-body">
     <div class="page-login">
         <div *ngIf="!loading_page&&!errore" class="display-center">
-            <div>
+            <div class="pt-8">
 
                 <sign-in *ngIf="view==LOGIN_PAGE.SIGN_IN" (submitto)="changeView($event)"></sign-in>
                 <register *ngIf="view==LOGIN_PAGE.REGISTER" (submitto)="changeView($event)"></register>

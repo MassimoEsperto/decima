@@ -3,7 +3,8 @@ import language_ita from 'src/assets/language/ita.json';
 import language_eng from 'src/assets/language/eng.json';
 import language_fra from 'src/assets/language/fra.json';
 import language_cin from 'src/assets/language/cin.json';
-import { LABEL_STORAGE, LANGUAGE_STORAGE } from '../../environments/environment';
+import { LANGUAGE_STORAGE, LABEL_STORAGE } from 'src/environments/env';
+
 
 @Injectable({
   providedIn: 'root'

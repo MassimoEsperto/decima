@@ -1,17 +1,27 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { Listino } from 'src/app/classi/calciatore';
 import { Squadra } from 'src/app/classi/squadra';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { AuthService } from 'src/app/servizi/auth.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { ViewIscirzione } from 'src/environments/enums';
+import { AuthService } from 'src/servizi/client/auth.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+
 
 @Component({
   selector: 'componi-squadra',
+  standalone: true,
+  imports: [
+    MyButton,
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './componi-squadra.component.html',
-  styleUrls: ['./componi-squadra.component.scss']
+  styleUrl: './componi-squadra.component.scss'
 })
 export class ComponiSquadraComponent implements OnInit {
 

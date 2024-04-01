@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { UtilService } from 'src/app/servizi/util.service';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { UtilService } from 'src/servizi/local/util.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'sorteggi-eliminatorie',
+  standalone: true,
+  imports: [
+    MyButton,
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './sorteggi-eliminatorie.component.html',
-  styleUrls: ['./sorteggi-eliminatorie.component.scss'],
+  styleUrl: './sorteggi-eliminatorie.component.scss',
   providers: [UtilService],
 })
 export class SorteggiEliminatorieComponent extends OnInitComp implements OnInit {

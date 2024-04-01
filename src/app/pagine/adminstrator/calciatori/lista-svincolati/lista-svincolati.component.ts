@@ -1,14 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { Rosa } from 'src/app/classi/rosa';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 
 @Component({
   selector: 'lista-svincolati',
+  standalone: true,
+  imports: [MyButton],
   templateUrl: './lista-svincolati.component.html',
-  styleUrls: ['./lista-svincolati.component.scss']
+  styleUrl: './lista-svincolati.component.scss'
 })
 export class ListaSvincolatiComponent implements OnInit {
 

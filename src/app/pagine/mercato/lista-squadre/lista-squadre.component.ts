@@ -1,17 +1,28 @@
+import { CommonModule } from '@angular/common';
 import { AfterContentInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { finalize } from 'rxjs';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { AuthService } from 'src/app/servizi/auth.service';
-import { ConfirmDialogService } from 'src/app/servizi/confirm-dialog.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
-import { FasiCompetizione, StatiSquadra, TipoSquadra, ViewIscirzione } from 'src/environments/enums';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { ViewIscirzione, TipoSquadra, StatiSquadra, FasiCompetizione } from 'src/environments/enums';
+import { AuthService } from 'src/servizi/client/auth.service';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { ConfirmDialogService } from 'src/servizi/local/confirm-dialog.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+
+
 
 @Component({
   selector: 'lista-squadre',
+  standalone: true,
+  imports: [
+    MyButton,
+    CommonModule,
+    RouterModule
+  ],
   templateUrl: './lista-squadre.component.html',
-  styleUrls: ['./lista-squadre.component.scss']
+  styleUrl: './lista-squadre.component.scss'
 })
 export class ListaSquadreComponent implements AfterContentInit {
 

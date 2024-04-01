@@ -1,12 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ModalFormService } from 'src/app/servizi/modal-form.service';
+import { ModalFormService } from 'src/servizi/local/modal-form.service';
+import { FormUtenti } from './form-utenti/form-utenti.component';
+import { FormPartite } from './form-partite/form-partite.component';
+import { FormGiornate } from './form-giornate/form-giornate.component';
 
 
 @Component({
   selector: 'my-modal-form',
   templateUrl: './my-modal-form.component.html',
-  styleUrls: ['./my-modal-form.component.scss']
+  standalone: true,
+  imports: [
+    FormUtenti,
+    FormPartite,
+    FormGiornate
+  ],
+  styleUrl: './my-modal-form.component.scss'
 })
 export class MyModalForm implements OnInit {
 

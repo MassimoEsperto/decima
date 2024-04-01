@@ -1,7 +1,8 @@
 import { ElementRef, Injectable, Renderer2 } from '@angular/core';
 import { LanguageService } from './language.service';
 import { FasiCompetizione } from 'src/environments/enums';
-import { BOLEANO } from 'src/environments/environment';
+import { BOLEANO } from 'src/environments/costanti';
+
 
 @Injectable({
   providedIn: 'root'

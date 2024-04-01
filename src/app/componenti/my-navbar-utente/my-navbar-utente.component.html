@@ -3,22 +3,22 @@
     <div class="navigazione">
 
         <!-- HOME -->
-        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="'/dashboard/home'" [icon]="'bi bi-house-gear-fill'"
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="PAGE.DASHBOARD.ABSOLUTE._HOME" [icon]="'bi bi-house-fill'"
             [label]="language.label.smart.home" (myClick)="isCollapse=false">
         </my-navlink>
 
         <!-- CALENDARIO -->
-        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="'/dashboard/calendario'" [icon]="'bi bi-calendar3'"
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="PAGE.DASHBOARD.ABSOLUTE._CALENDARIO" [icon]="'bi bi-calendar3'"
             [label]="language.label.smart.calendario" (myClick)="isCollapse=false">
         </my-navlink>
 
         <!-- SQUADRE -->
-        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="'/dashboard/squadre'" [icon]="'bi bi-binoculars-fill'"
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="PAGE.DASHBOARD.ABSOLUTE._SQUADRE" [icon]="'bi bi-people-fill'"
             [label]="language.label.smart.rose" (myClick)="isCollapse=false">
         </my-navlink>
 
         <!-- CLASSIFICA -->
-        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="'/dashboard/classifica'" [icon]="'bi bi-graph-up-arrow'"
+        <my-navlink [isCollapse]="isCollapse" [isAdmin]="false" [link]="PAGE.DASHBOARD.ABSOLUTE._CLASSIFICA" [icon]="'bi bi-list-ol'"
             [label]="language.label.smart.classifiche" (myClick)="isCollapse=false">
         </my-navlink>
 
@@ -26,7 +26,7 @@
         <div class="colonna" data-bs-toggle="collapse" data-bs-target="#impostazioni_utente" aria-expanded="false"
             aria-controls="impostazioni_utente" (click)="isCollapse=!isCollapse">
             <div>
-                <i class="bi bi-chat-dots-fill navbar-font-icon"></i>
+                <i class="bi bi-gear-fill navbar-font-icon"></i>
             </div>
             <div>
                 <span class="navbar-font-label">{{language.label.smart.info}}</span>

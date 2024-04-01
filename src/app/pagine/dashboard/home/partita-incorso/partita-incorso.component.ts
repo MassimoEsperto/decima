@@ -1,12 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { FantaGazzettaService } from 'src/app/servizi/fanta-gazzetta.service';
-import { LanguageService } from 'src/app/servizi/language.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { FantaGazzettaService } from 'src/servizi/client/fanta-gazzetta.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+
 
 @Component({
   selector: 'partita-incorso',
+  standalone: true,
+  imports: [
+    MyButton,
+    CommonModule
+  ],
   templateUrl: './partita-incorso.component.html',
-  styleUrls: ['./partita-incorso.component.scss']
+  styleUrl: './partita-incorso.component.scss'
 })
 export class PartitaIncorsoComponent {
 

@@ -1,4 +1,5 @@
-import { ALERT_MSG, LOGIN_PAGE } from '../../environments/environment';
+
+import { ALERT_MSG, LOGIN_PAGE, PAGE } from 'src/environments/costanti';
 import { CondizioneGirone, FasiCompetizione, PeriodoGiornata, RuoliUtente, StatiSquadra } from 'src/environments/enums';
 
 export abstract class OnInitComp {
@@ -8,7 +9,7 @@ export abstract class OnInitComp {
     loading_table: boolean = false;
 
     LOGIN_PAGE = LOGIN_PAGE;
-    
+
     ALERT_MSG = ALERT_MSG;
 
     //enums
@@ -17,6 +18,5 @@ export abstract class OnInitComp {
     RUOLI_UTENTE = RuoliUtente;
     CONDIZIONE_GIRONE = CondizioneGirone;
     FASE_COMPETIZIONE = FasiCompetizione;
-
 
 }

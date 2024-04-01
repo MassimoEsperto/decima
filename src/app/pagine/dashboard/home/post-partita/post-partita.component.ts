@@ -1,10 +1,16 @@
 import { Component, Input } from '@angular/core';
-import { LanguageService } from 'src/app/servizi/language.service';
+import { MyRisultati } from 'src/app/componenti/my-risultati/my-risultati.component';
+import { LanguageService } from 'src/servizi/local/language.service';
+
 
 @Component({
   selector: 'post-partita',
+  standalone: true,
+  imports: [
+    MyRisultati
+  ],
   templateUrl: './post-partita.component.html',
-  styleUrls: ['./post-partita.component.scss']
+  styleUrl: './post-partita.component.scss'
 })
 export class PostPartitaComponent {
 

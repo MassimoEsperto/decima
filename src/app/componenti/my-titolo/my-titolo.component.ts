@@ -3,7 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'my-titolo',
   templateUrl: './my-titolo.component.html',
-  styleUrls: ['./my-titolo.component.scss']
+  standalone: true,
+  imports: [],
+  styleUrl: './my-titolo.component.scss'
 })
 export class MyTitolo implements OnInit {
 

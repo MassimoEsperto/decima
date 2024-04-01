@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "shit-cup-decima": {
+    "angular-bootstrap-examples": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,10 +21,6 @@
         "@schematics/angular:guard": {
           "skipTests": true
         },
-        "@schematics/angular:module": {
-          "skipImport": true,
-          "skipTests": true
-        },
         "@schematics/angular:pipe": {
           "skipImport": true,
           "skipTests": true
@@ -38,11 +34,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/configurazioni/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -57,24 +53,25 @@
               "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "20kb",
+                  "maximumError": "40kb"
                 }
               ],
               "outputHashing": "all",
-              "buildOptimizer": true,
               "optimization": {
                 "scripts": true,
                 "styles": {
@@ -82,19 +79,12 @@
                   "inlineCritical": false
                 },
                 "fonts": true
-              },
-              "vendorChunk": false,
-              "extractLicenses": false,
-              "sourceMap": false,
-              "namedChunks": false
+              }
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -103,10 +93,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "shit-cup-decima:build:production"
+              "buildTarget": "angular-bootstrap-examples:build:production"
             },
             "development": {
-              "browserTarget": "shit-cup-decima:build:development"
+              "buildTarget": "angular-bootstrap-examples:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -114,7 +104,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shit-cup-decima:build"
+            "buildTarget": "angular-bootstrap-examples:build"
           }
         }
       }

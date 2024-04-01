@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SERVICE_TYPE, FANTA_SERVICE } from '../../environments/environment';
 import { HttpSenderService } from './http-sender-service';
+import { FANTA_SERVICE, SERVICE_TYPE } from 'src/environments/costanti';
 
 @Injectable({
   providedIn: 'root'

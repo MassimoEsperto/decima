@@ -1,10 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { LanguageService } from 'src/app/servizi/language.service';
+import { LanguageService } from 'src/servizi/local/language.service';
 
 @Component({
   selector: 'my-modal-language',
   templateUrl: './my-modal-language.component.html',
-  styleUrls: ['./my-modal-language.component.scss']
+  standalone: true,
+  imports: [
+    CommonModule
+  ],
+  styleUrl: './my-modal-language.component.scss'
 })
 export class MyModalLanguage implements OnInit {
 

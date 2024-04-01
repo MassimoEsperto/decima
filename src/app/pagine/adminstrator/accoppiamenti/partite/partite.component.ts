@@ -1,14 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { ConfirmDialogService } from 'src/app/servizi/confirm-dialog.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { ModalFormService } from 'src/app/servizi/modal-form.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { ConfirmDialogService } from 'src/servizi/local/confirm-dialog.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { ModalFormService } from 'src/servizi/local/modal-form.service';
+
 
 @Component({
   selector: 'partite',
+  standalone: true,
+  imports: [
+    MyButton,
+    CommonModule
+  ],
   templateUrl: './partite.component.html',
-  styleUrls: ['./partite.component.scss']
+  styleUrl: './partite.component.scss'
 })
 export class PartiteComponent implements OnInit {
 

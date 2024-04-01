@@ -4,8 +4,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { HttpSenderService } from './http-sender-service';
 import { Observable } from 'rxjs';
-import { SERVICE_TYPE, AUTH_SERVICE, TOKEN_STORAGE, LANGUAGE_STORAGE, LABEL_STORAGE } from '../../environments/environment';
+
 import { FasiCompetizione, RuoliUtente } from 'src/environments/enums';
+import { AUTH_SERVICE, SERVICE_TYPE } from 'src/environments/costanti';
 
 
 @Injectable({
@@ -29,7 +30,7 @@ export class AuthService extends HttpSenderService {
    */
   login(payload: any) {
 
-    return this.http.post(`${this.buildURL("sign-in")}`, { data: payload })
+    return this.http.post(`${this.buildURL(AUTH_SERVICE.SIGNI_IN)}`, { data: payload })
       .pipe(map((res: any) => {
         let token = res['token'];
 

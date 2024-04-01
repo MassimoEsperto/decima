@@ -1,11 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
 
 @Component({
   selector: 'my-spinner',
   templateUrl: './my-spinner.component.html',
-  styleUrls: ['./my-spinner.component.scss']
+  standalone: true,
+  imports: [
+    CommonModule
+  ],
+  styleUrl: './my-spinner.component.scss'
 })
 export class MySpinner implements OnInit, OnDestroy {
   

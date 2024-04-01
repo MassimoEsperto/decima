@@ -1,24 +1,35 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { AuthService } from 'src/app/servizi/auth.service';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { LOGIN_PAGE } from 'src/environments/costanti';
+import { AuthService } from 'src/servizi/client/auth.service';
+import { AlertService } from 'src/servizi/local/alert.service';
 
 
 @Component({
   selector: 'rec-pass',
+  standalone: true,
+  imports: [
+    MyButton,
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './rec-pass.component.html',
-  styleUrls: ['./rec-pass.component.scss']
+  styleUrl: './rec-pass.component.scss'
 })
-export class RecPassComponent extends OnInitComp implements OnInit {
+export class RecPassComponent implements OnInit {
 
   @Output() submitto = new EventEmitter();
   @Input() combo: any;
+  loading_btn: boolean = false
+  LOGIN_PAGE = LOGIN_PAGE
+
 
   constructor(
     private alert: AlertService,
     private auth: AuthService) {
-    super();
   }
 
   ngOnInit(): void { }
@@ -35,7 +46,7 @@ export class RecPassComponent extends OnInitComp implements OnInit {
 
         next: (result: any) => {
           this.alert.success("A breve riceverai una email con la tua password");
-          this.submitto.emit(this.LOGIN_PAGE.SIGN_IN)
+          this.submitto.emit(LOGIN_PAGE.SIGN_IN)
 
         },
         error: (error: any) => {

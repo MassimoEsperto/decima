@@ -1,14 +1,23 @@
 import { Component, Input } from '@angular/core';
 import { finalize } from 'rxjs';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'sostituisci-calciatore',
+  standalone: true,
+  imports: [
+    MyButton,
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './sostituisci-calciatore.component.html',
-  styleUrls: ['./sostituisci-calciatore.component.scss']
+  styleUrl: './sostituisci-calciatore.component.scss'
 })
 export class SostituisciCalciatoreComponent {
 

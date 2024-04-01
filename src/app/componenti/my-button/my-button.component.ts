@@ -1,10 +1,13 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { ConfirmDialogService } from 'src/app/servizi/confirm-dialog.service';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ConfirmDialogService } from 'src/servizi/local/confirm-dialog.service';
 
 @Component({
   selector: 'my-button',
   templateUrl: './my-button.component.html',
-  styleUrls: ['./my-button.component.scss']
+  standalone: true,
+  imports: [CommonModule],
+  styleUrl: './my-button.component.scss'
 })
 export class MyButton implements OnInit {
 

@@ -2,15 +2,33 @@ import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { Utente } from 'src/app/classi/utente';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
+import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+import { StatisticheComponent } from './statistiche/statistiche.component';
+import { PrePartitaComponent } from './pre-partita/pre-partita.component';
+import { PostPartitaComponent } from './post-partita/post-partita.component';
+import { PartitaIncorsoComponent } from './partita-incorso/partita-incorso.component';
+import { CommonModule } from '@angular/common';
+import { MyLogo } from 'src/app/componenti/my-logo/my-logo.component';
+
 
 @Component({
   selector: 'home',
+  standalone: true,
+  imports: [
+    MyTitolo,
+    StatisticheComponent,
+    PrePartitaComponent,
+    PostPartitaComponent,
+    PartitaIncorsoComponent,
+    CommonModule,
+    MyLogo
+  ],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrl: './home.component.scss'
 })
 export class HomeComponent extends OnInitComp implements OnInit, AfterContentInit {
 

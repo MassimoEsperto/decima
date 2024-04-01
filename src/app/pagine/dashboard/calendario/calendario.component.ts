@@ -1,16 +1,26 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import { finalize } from 'rxjs';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
-import { UtilService } from 'src/app/servizi/util.service';
+import { MyRisultati } from 'src/app/componenti/my-risultati/my-risultati.component';
+import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+import { UtilService } from 'src/servizi/local/util.service';
+
 
 
 @Component({
   selector: 'calendario',
+  standalone: true,
+  imports: [
+    CommonModule,
+    MyTitolo,
+    MyRisultati
+  ],
   templateUrl: './calendario.component.html',
-  styleUrls: ['./calendario.component.scss'],
+  styleUrl: './calendario.component.scss',
   providers: [ UtilService ],
 })
 export class CalendarioComponent implements AfterViewInit {

@@ -1,14 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
-import { SUB_PAGE_ADMIN } from 'src/environments/environment';
+import { MyInfoCard } from 'src/app/componenti/my-info-card/my-info-card.component';
+import { SUB_PAGE_ADMIN } from 'src/environments/costanti';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+import { SorteggiComponent } from './sorteggi/sorteggi.component';
+import { DataGiornateComponent } from './data-giornate/data-giornate.component';
+import { PartiteComponent } from './partite/partite.component';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'accoppiamenti',
+  standalone: true,
+  imports: [
+    MyInfoCard,
+    SorteggiComponent,
+    DataGiornateComponent,
+    PartiteComponent,
+    CommonModule
+  ],
   templateUrl: './accoppiamenti.component.html',
-  styleUrls: ['./accoppiamenti.component.scss']
+  styleUrl: './accoppiamenti.component.scss'
 })
 export class AccoppiamentiComponent implements OnInit {
 

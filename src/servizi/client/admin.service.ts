@@ -1,11 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Utente } from '../classi/utente';
 import { HttpSenderService } from './http-sender-service';
-import { SERVICE_TYPE, ADMIN_SERVICE } from '../../environments/environment';
-import { Rosa } from '../classi/rosa';
 import * as XLSX from 'xlsx';
+import { Rosa } from 'src/app/classi/rosa';
+import { Utente } from 'src/app/classi/utente';
+import { SERVICE_TYPE, ADMIN_SERVICE } from 'src/environments/costanti';
 
 @Injectable({
   providedIn: 'root'

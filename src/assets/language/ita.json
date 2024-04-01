@@ -49,10 +49,10 @@
             "0": "ISCRITTO ALLA COMPETIZIONE",
             "1": "INSERITO NEI GIRONI",
             "2": "ACCESSO SPAREGGI",
-            "3": "QUALIFICATA OTTAVI",
-            "4": "QUALIFICATA QUARTI",
-            "5": "QUALIFICATA SEMIFINALE",
-            "6": "QUALIFICATA FINALE"
+            "3": "QUALIFICATO OTTAVI",
+            "4": "QUALIFICATO QUARTI",
+            "5": "QUALIFICATO SEMIFINALE",
+            "6": "QUALIFICATO FINALE"
         },
         "stati": {
             "in_corsa": "ANCORA IN CORSA",

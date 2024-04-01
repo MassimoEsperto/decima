@@ -1,11 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
-import { LanguageService } from 'src/app/servizi/language.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+
 
 @Component({
   selector: 'statistiche',
+  standalone: true,
+  imports: [
+    CommonModule
+  ],
   templateUrl: './statistiche.component.html',
-  styleUrls: ['./statistiche.component.scss']
+  styleUrl: './statistiche.component.scss'
 })
 export class StatisticheComponent extends OnInitComp {
 

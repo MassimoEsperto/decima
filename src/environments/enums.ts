@@ -10,9 +10,9 @@ export enum FasiCompetizione {
 }
 
 export enum PeriodoGiornata {
-    PRE_PARTITA = 1,
-    PARTITA_LIVE = 2,
-    POST_PARTITA = 3
+    PRE_PARTITA = "1",
+    PARTITA_LIVE = "2",
+    POST_PARTITA = "3"
 }
 
 

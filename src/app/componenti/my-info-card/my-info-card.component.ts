@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'my-info-card',
   templateUrl: './my-info-card.component.html',
-  styleUrls: ['./my-info-card.component.scss']
+  standalone: true,
+  imports: [CommonModule],
+  styleUrl: './my-info-card.component.scss'
 })
 
 

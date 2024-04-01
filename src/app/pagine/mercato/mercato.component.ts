@@ -1,12 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Squadra } from 'src/app/classi/squadra';
-import { AuthService } from 'src/app/servizi/auth.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
-import { FasiCompetizione, TipoSquadra, ViewIscirzione } from 'src/environments/enums';
+import { ViewIscirzione, FasiCompetizione, TipoSquadra } from 'src/environments/enums';
+import { AuthService } from 'src/servizi/client/auth.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+import { UpgradeSquadraFantaComponent } from './upgrade-squadra-fanta/upgrade-squadra-fanta.component';
+import { UpgradeSquadraLocaleComponent } from './upgrade-squadra-locale/upgrade-squadra-locale.component';
+import { RegistraSquadraComponent } from './registra-squadra/registra-squadra.component';
+import { ListaSquadreComponent } from './lista-squadre/lista-squadre.component';
+import { ComponiSquadraComponent } from './componi-squadra/componi-squadra.component';
+import { CommonModule } from '@angular/common';
+import { MySpinner } from 'src/app/componenti/my-spinner/my-spinner.component';
+
+
 
 @Component({
   selector: 'mercato',
+  standalone: true,
+  imports: [
+    UpgradeSquadraFantaComponent,
+    UpgradeSquadraLocaleComponent,
+    RegistraSquadraComponent,
+    ListaSquadreComponent,
+    ComponiSquadraComponent,
+    CommonModule,
+    MySpinner
+  ],
   templateUrl: './mercato.component.html'
 })
 export class MercatoComponent implements OnInit {

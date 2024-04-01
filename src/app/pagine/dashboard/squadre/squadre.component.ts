@@ -1,16 +1,23 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { PlayerService } from 'src/app/servizi/player.service';
-import { SpinnerService } from 'src/app/servizi/spinner.service';
-import { ALERT_MSG } from 'src/environments/environment';
+import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
+import { PlayerService } from 'src/servizi/client/player.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SpinnerService } from 'src/servizi/local/spinner.service';
+
 
 @Component({
   selector: 'squadre',
+  standalone: true,
+  imports: [
+    MyTitolo,
+    CommonModule
+  ],
   templateUrl: './squadre.component.html',
-  styleUrls: ['./squadre.component.scss']
+  styleUrl: './squadre.component.scss'
 })
 export class SquadreComponent extends OnInitComp implements OnInit {
 

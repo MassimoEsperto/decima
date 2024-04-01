@@ -1,25 +1,5 @@
-export const env = {
-  production: false
-};
-
-// Versione applicazione
-export const VERSION = "7.0.1"
-
-export const WS_BASE_URL = `https://fantashitcup.altervista.org/WorldWideFantashit/web-services`
-
-export const ASSETS_BASE_URL = `https://fantashitcup.altervista.org/WorldWideFantashit/ShitCup/assets`
-
-export const WHATSAPP_URL = `https://chat.whatsapp.com/JICQWVbYoqCKh9gek92EIW`
-
-// Timeout richieste POST
-export const REQUEST_TIMEOUT = 2 * 60 * 1000 // 2 minuti
-
-// Tentativi richieste POST
-export const REQUEST_RETRIES = 3
 
 export const INIBITO = "1"
-
-export const MAX_IMG = 40000
 
 export const SERVICE_TYPE = {
   ADMIN: "/admin/",
@@ -28,16 +8,11 @@ export const SERVICE_TYPE = {
   FANTA: "/fantagazzetta/"
 }
 
-//STORAGE
-export const TOKEN_STORAGE = "tk-user-shit-cup";
-export const LANGUAGE_STORAGE = "shit-cup-language";
-export const LABEL_STORAGE = "shit-cup-label";
 
 export const ADMIN_SERVICE = {
 
   GET_ADMINISTRATOR: "get_administrator",
   UPD_DETAIL_UTENTE: "upd_detail_utente",
-  DEL_UTENTE: "del_utente",
   DEL_SQUADRA: "del_squadra",
   DEL_ROSA_UTENTE: "del_rosa_utente",
   SET_CALCOLO_GIORNATA: "set_calcolo_giornata",
@@ -49,6 +24,8 @@ export const ADMIN_SERVICE = {
   ASSOCIA_COMUNICAZIONE: "associa_comunicazione",
   GET_GENERA_COMPETIZIONE_GIRONI: "get_genera_competizione_gironi",
   SET_GENERA_COMPETIZIONE_GIRONI: "set_genera_competizione_gironi",
+  GET_GENERA_COMPETIZIONE_ELIMINATORIE: "get_genera_competizione_eliminatorie",
+  SET_GENERA_COMPETIZIONE_ELIMINATORIE: "set_genera_competizione_eliminatorie",
   UPD_PLAYER_UTENTE: "upd_player_utente",
   UPD_GIORNATA: "upd_giornata",
   SET_GIORNATA: "set_giornata",
@@ -90,6 +67,7 @@ export const FANTA_SERVICE = {
 
 export const AUTH_SERVICE = {
 
+  SIGNI_IN: "sign-in-new",
   RECUPERA_PASSWORD: "recupera_password",
   REGISTER_MAIL: "register_mail",
   INFO: "info",
@@ -170,3 +148,66 @@ export const BOLEANO = [
     descrizione: "NO"
   }
 ]
+
+
+export const PAGE = {
+  EMPTY: "",
+  DEFAULT: "/login",
+  LOGIN: "login",
+  MERCATO: "mercato",
+  DOWLOAD_PDF: "/download/regolamento_schitcup.pdf",
+  DASHBOARD: {
+    PATH: "dashboard",
+    ABSOLUTE: {
+      HOME: "dashboard/home",
+      CALENDARIO: "dashboard/calendario",
+      CLASSIFICA: "dashboard/classifica",
+      SQUADRE: "dashboard/squadre",
+      INFO_UTENTE: "dashboard/info-utente",
+      SCHIERAMENTO: "dashboard/schieramento",
+      COMUNICAZIONI: "dashboard/comunicazioni",
+      VOTI_LIVE: "dashboard/voti-live",
+      _HOME: "/dashboard/home",
+      _CALENDARIO: "/dashboard/calendario",
+      _CLASSIFICA: "/dashboard/classifica",
+      _SQUADRE: "/dashboard/squadre",
+      _INFO_UTENTE: "/dashboard/info-utente",
+      _SCHIERAMENTO: "/dashboard/schieramento",
+      _COMUNICAZIONI: "/dashboard/comunicazioni",
+      _VOTI_LIVE: "/dashboard/voti-live"
+    },
+    RELATIVE: {
+      HOME: "home",
+      CALENDARIO: "calendario",
+      CLASSIFICA: "classifica",
+      SQUADRE: "squadre",
+      INFO_UTENTE: "info-utente",
+      SCHIERAMENTO: "schieramento",
+      COMUNICAZIONI: "comunicazioni",
+      VOTI_LIVE: "voti-live"
+    }
+  },
+  ADMINISTRATOR: {
+    PATH: "adminstrator",
+    ABSOLUTE: {
+      UTENTI: "adminstrator/utenti",
+      COMPETIZIONE: "adminstrator/competizione",
+      DATE: "adminstrator/date",
+      CALCIATORI: "adminstrator/calciatori",
+      COMUNICAZIONI: "adminstrator/comunicazioni",
+      _UTENTI: "/adminstrator/utenti",
+      _COMPETIZIONE: "/adminstrator/competizione",
+      _DATE: "/adminstrator/date",
+      _CALCIATORI: "/adminstrator/calciatori",
+      _COMUNICAZIONI: "/adminstrator/comunicazioni"
+    },
+    RELATIVE: {
+      UTENTI: "utenti",
+      COMPETIZIONE: "competizione",
+      DATE: "date",
+      CALCIATORI: "calciatori",
+      COMUNICAZIONI: "comunicazioni"
+    }
+  }
+
+}

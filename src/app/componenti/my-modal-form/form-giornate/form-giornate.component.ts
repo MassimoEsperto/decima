@@ -1,14 +1,24 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { finalize } from 'rxjs';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { LanguageService } from 'src/app/servizi/language.service';
-import { UtilService } from 'src/app/servizi/util.service';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AlertService } from 'src/servizi/local/alert.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { UtilService } from 'src/servizi/local/util.service';
+import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+
 
 @Component({
   selector: 'form-giornate',
   templateUrl: './form-giornate.component.html',
-  styleUrls: ['./form-giornate.component.scss'],
+  standalone: true,
+  imports: [
+    MyButton,
+    FormsModule,
+    CommonModule],
+  styleUrl: './form-giornate.component.scss',
   providers: [UtilService],
 })
 export class FormGiornate {

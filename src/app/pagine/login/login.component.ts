@@ -1,17 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from 'src/app/servizi/admin.service';
-import { AlertService } from 'src/app/servizi/alert.service';
-import { AuthService } from 'src/app/servizi/auth.service';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
-import { LanguageService } from 'src/app/servizi/language.service';
+import { AdminService } from 'src/servizi/client/admin.service';
+import { AuthService } from 'src/servizi/client/auth.service';
+import { LanguageService } from 'src/servizi/local/language.service';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { RegisterComponent } from './register/register.component';
+import { RecPassComponent } from './rec-pass/rec-pass.component';
+import { FrontespizioComponent } from './frontespizio/frontespizio.component';
+import { CommonModule } from '@angular/common';
+
 
 
 
 @Component({
   selector: 'login',
+  standalone: true,
+  imports: [
+    SignInComponent,
+    RegisterComponent,
+    RecPassComponent,
+    FrontespizioComponent,
+    CommonModule
+  ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent extends OnInitComp implements OnInit {
 
