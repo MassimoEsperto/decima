@@ -1,5 +1,5 @@
 // Versione applicazione
-export const SHIT_VERSION = "7.0.1"
+export const SHIT_VERSION = "7.0.3"
 
 export const WS_BASE_URL = `https://fantashitcup.altervista.org/WorldWideFantashit/web-services`
 
