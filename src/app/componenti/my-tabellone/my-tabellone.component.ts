@@ -25,6 +25,7 @@ export class MyTabellone implements OnInit {
   ngOnInit(): void {
 
     this.format = this.util.formatTabellone(this.tabellone)
+    console.log(this.format)
 
   }
 
