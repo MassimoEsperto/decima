@@ -9,29 +9,37 @@
                     <br>
                     <span class="cursore pb-8" (click)="goToLink(url_whatsapp)">Whatsapp</span>
                     <span class="cursore pb-8" (click)="logOut()">{{language.label.pannello.log_out}}</span>
-                    <span class="cursore pb-8"
-                        routerLink="{{PAGE.DASHBOARD.ABSOLUTE._INFO_UTENTE}}">{{language.label.footer.profilo}}</span>
-                    <span *ngIf="!amministrazione" class="cursore pb-8" (click)="azzeraMessaggi()"
-                        routerLink="{{PAGE.ADMINISTRATOR.ABSOLUTE._COMUNICAZIONI}}">{{language.label.footer.comunicazioni}}</span>
+                    <span class="cursore pb-8" routerLink="{{PAGE.DASHBOARD.ABSOLUTE._INFO_UTENTE}}">
+                        {{language.label.footer.profilo}}
+                    </span>
+                    <span *ngIf="!amministrazione" class="cursore pb-8"
+                        routerLink="{{PAGE.DASHBOARD.ABSOLUTE._COMUNICAZIONI}}">
+                        {{language.label.footer.comunicazioni}}
+                    </span>
                     <span *ngIf="amministrazione" class="cursore pb-8"
-                        routerLink="{{PAGE.ADMINISTRATOR.ABSOLUTE._COMUNICAZIONI}}">{{language.label.footer.comunicazioni}}</span>
+                        routerLink="{{PAGE.ADMINISTRATOR.ABSOLUTE._NOTIFICHE}}">
+                        {{language.label.footer.comunicazioni}}
+                    </span>
                 </div>
                 <div class="flex-colonna">
                     <strong>{{language.label.footer.competizione}}</strong>
                     <br>
-                    <span class="cursore pb-8" data-bs-toggle="modal"
-                        data-bs-target="#albodoroModal">{{language.label.footer.albo}}</span>
+                    <span class="cursore pb-8" data-bs-toggle="modal" data-bs-target="#albodoroModal">
+                        {{language.label.footer.albo}}
+                    </span>
 
-                    <span class="cursore pb-8"
-                        (click)="goToLink(url_pdf)">{{language.label.footer.regolamento}}</span>
+                    <span class="cursore pb-8" (click)="goToLink(url_pdf)">{{language.label.footer.regolamento}}</span>
 
                     <span class="cursore pb-8" data-bs-toggle="modal"
                         data-bs-target="#languageModal">{{language.label.footer.cambio_lingua}}</span>
 
-                    <span *ngIf="loggato.ruolo==RUOLI_UTENTE.ADMIN&&amministrazione" class="cursore pb-8"
-                        routerLink="{{PAGE.DASHBOARD.ABSOLUTE._HOME}}">{{language.label.smart.exit}}</span>
-                    <span *ngIf="loggato.ruolo==RUOLI_UTENTE.ADMIN&&!amministrazione" class="cursore pb-8"
-                        routerLink="{{PAGE.ADMINISTRATOR.ABSOLUTE._UTENTI}}">{{language.label.smart.admin}}</span>
+                    <span *ngIf="amministrazione" class="cursore pb-8" routerLink="{{PAGE.DASHBOARD.ABSOLUTE._HOME}}">
+                        {{language.label.smart.exit}}
+                    </span>
+                    <span *ngIf="!amministrazione" class="cursore pb-8"
+                        routerLink="{{PAGE.ADMINISTRATOR.ABSOLUTE._UTENTI}}">
+                        {{language.label.smart.admin}}
+                    </span>
                 </div>
             </div>
         </div>

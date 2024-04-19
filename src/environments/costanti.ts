@@ -194,19 +194,19 @@ export const PAGE = {
       COMPETIZIONE: "adminstrator/competizione",
       DATE: "adminstrator/date",
       CALCIATORI: "adminstrator/calciatori",
-      COMUNICAZIONI: "adminstrator/comunicazioni",
+      NOTIFICHE: "adminstrator/notifiche",
       _UTENTI: "/adminstrator/utenti",
       _COMPETIZIONE: "/adminstrator/competizione",
       _DATE: "/adminstrator/date",
       _CALCIATORI: "/adminstrator/calciatori",
-      _COMUNICAZIONI: "/adminstrator/comunicazioni"
+      _NOTIFICHE: "/adminstrator/notifiche"
     },
     RELATIVE: {
       UTENTI: "utenti",
       COMPETIZIONE: "competizione",
       DATE: "date",
       CALCIATORI: "calciatori",
-      COMUNICAZIONI: "comunicazioni"
+      NOTIFICHE: "notifiche"
     }
   }
 

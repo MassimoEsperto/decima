@@ -20,27 +20,18 @@ import { LanguageService } from 'src/servizi/local/language.service';
   ],
   styleUrl: './my-footer.component.scss'
 })
-export class MyFooter extends OnInitComp implements OnInit {
+export class MyFooter  {
 
   versione = VERSION;
   url_pdf = ASSETS_BASE_URL + PAGE.DOWLOAD_PDF;
   url_whatsapp = WHATSAPP_URL;
   PAGE = PAGE
-  
 
-  loggato: Utente = new Utente();
   @Input() amministrazione = false;
 
   constructor(
     private authService: AuthService,
     public language: LanguageService) {
-    super();
-  }
-
-  ngOnInit() {
-    this.loggato = this.authService.getLoggato();
-    PAGE.DASHBOARD.ABSOLUTE._INFO_UTENTE
-    
   }
 
 
@@ -51,7 +42,5 @@ export class MyFooter extends OnInitComp implements OnInit {
   goToLink(url: string) {
     window.open(url, "_blank");
   }
-
-  azzeraMessaggi() { }
 
 }

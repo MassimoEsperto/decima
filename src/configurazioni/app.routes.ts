@@ -134,7 +134,7 @@ const GhostGuard: CanActivateFn =
         component: CalciatoriComponent
       },
       {
-        path: PAGE.ADMINISTRATOR.RELATIVE.COMUNICAZIONI,
+        path: PAGE.ADMINISTRATOR.RELATIVE.NOTIFICHE,
         component: NotificheComponent
       },
       {

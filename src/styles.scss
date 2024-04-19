@@ -14,8 +14,12 @@
 @import 'assets/css/refactoring.scss';
 
 
+body {
+    overflow-y: scroll;
+}
+
 .dispatcher {
-    min-height: 100vh;
+
     background-image: $sfondo-shit;
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,6 +48,7 @@
     z-index: 10;
     padding: 16px;
 }
+
 
 .nome_squadra {
     display: inline-block;
@@ -208,5 +213,3 @@
     height: 300px;
     overflow-y: scroll;
 }
-
-
