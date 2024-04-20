@@ -3,10 +3,10 @@ import { finalize } from 'rxjs';
 import { AdminService } from 'src/servizi/client/admin.service';
 import { AlertService } from 'src/servizi/local/alert.service';
 import { LanguageService } from 'src/servizi/local/language.service';
-import { UtilService } from 'src/servizi/local/util.service';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ModalService } from 'src/servizi/local/modal.service';
 
 @Component({
   selector: 'form-partite',
@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   styleUrl: './form-partite.component.scss',
-  providers: [UtilService],
+  providers: [ModalService],
 })
 export class FormPartite {
 
@@ -31,13 +31,13 @@ export class FormPartite {
     private adminService: AdminService,
     public language: LanguageService,
     private alert: AlertService,
-    private util: UtilService
+    private modale: ModalService
   ) { }
 
   successo() {
     this.alert.success(this.language.label.alert.success);
     this.mySubmit.emit(true)
-    this.util.clodeModal()
+    this.modale.clodeModal()
   }
 
   updateAccoppiamento(payload: any) {

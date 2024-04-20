@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, VERSION } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
-import { Utente } from 'src/app/classi/utente';
 import { PAGE } from 'src/environments/costanti';
 import { ASSETS_BASE_URL, WHATSAPP_URL } from 'src/environments/env';
 import { AuthService } from 'src/servizi/client/auth.service';

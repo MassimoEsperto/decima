@@ -43,3 +43,39 @@
    background-color: rgba(0, 0, 0, .03);
    border-bottom: 1px solid rgba(0, 0, 0, .125);
 }
+
+
+
+
+.card-tricolore {
+   border: 0;
+   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+   font-weight: 400;
+   background-color: white;
+   color: white;
+   border-radius: 0.25rem;
+}
+
+.card-tricolore .card-header {
+   padding: 0.5rem 1rem;
+   margin-bottom: 0;
+   background-color: $colore-base;
+   border-bottom: 1px solid rgba(0, 0, 0, .125);
+   border-top-left-radius: 0.25rem;
+   border-top-right-radius: 0.25rem;
+}
+
+.card-tricolore .card-footer {
+   padding: 0.5rem 1rem;
+   margin-bottom: 0;
+   background-color: $colore-verde;
+   border-top: 1px solid rgba(0, 0, 0, .125);
+  
+   border-bottom-left-radius: 0.25rem;
+   border-bottom-right-radius: 0.25rem;
+}
+
+.card-tricolore .card-footer a{
+  color: white;
+}
+

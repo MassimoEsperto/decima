@@ -10,6 +10,7 @@ import { AlertService } from 'src/servizi/local/alert.service';
 import { ConfirmDialogService } from 'src/servizi/local/confirm-dialog.service';
 import { LanguageService } from 'src/servizi/local/language.service';
 import { SpinnerService } from 'src/servizi/local/spinner.service';
+import { UtilService } from 'src/servizi/local/util.service';
 
 
 
@@ -29,26 +30,27 @@ export class ListaSquadreComponent implements AfterContentInit {
   @Output() change = new EventEmitter();
   @Output() edit = new EventEmitter();
   @Output() mercato = new EventEmitter();
-  @Input() fase:number = 0;
-  
+  @Input() fase: number = 0;
+
   VIEW_ISCRIZIONE = ViewIscirzione;
   TIPO_SQUADRA = TipoSquadra;
   STATO_SQUADRA = StatiSquadra;
   FASE_COMPETIZIONE = FasiCompetizione;
 
-  
-  
+
+
 
   info: any
   squadre: any = []
   loading_btn: boolean = false;
-  date: string = new Date().getFullYear() + "/" + new Date(new Date().setFullYear(new Date().getFullYear() + 1)).getFullYear()
+  date: string = this.utilService.getAnnata()
 
   constructor(
     private playerService: PlayerService,
     private authService: AuthService,
     public language: LanguageService,
     public spinner: SpinnerService,
+    private utilService: UtilService,
     private confirmDialogService: ConfirmDialogService,
     private alert: AlertService) {
   }

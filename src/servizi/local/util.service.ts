@@ -1,4 +1,4 @@
-import { ElementRef, Injectable, Renderer2 } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { LanguageService } from './language.service';
 import { FasiCompetizione } from 'src/environments/enums';
 import { BOLEANO } from 'src/environments/costanti';
@@ -11,23 +11,10 @@ export class UtilService {
 
 
   constructor(
-    private renderer: Renderer2,
-    private el: ElementRef,
     private language: LanguageService) { }
 
   FASE_COMPETIZIONE = FasiCompetizione;
 
-
-  clodeModal() {
-
-    let div = this.renderer.createElement('div');
-    div.setAttribute('data-bs-dismiss', 'modal');
-    div.setAttribute('hidden', 'true');
-    this.renderer.appendChild(this.el.nativeElement, div);
-    div.click();
-    this.renderer.removeChild(this.el.nativeElement, div);
-
-  }
 
   getFasi(input: number) {
 
@@ -212,6 +199,10 @@ export class UtilService {
     format.finale = tabellone.find((i: { id_fase: FasiCompetizione; }) => i.id_fase == FasiCompetizione.FINALE);
 
     return format
+  }
+
+  getAnnata() {
+    return new Date().getFullYear() + "/" + new Date(new Date().setFullYear(new Date().getFullYear() + 1)).getFullYear()
   }
 
 }
