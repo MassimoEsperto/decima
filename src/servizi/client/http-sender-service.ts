@@ -64,7 +64,7 @@ export class HttpSenderService {
   refreshHeaders() {
     if (!this.myheaders) {
       let utente: Utente = this.getLoggato()
-      if (Utente)
+      if (utente)
         this.myheaders = { headers: new HttpHeaders().set('Authorization', `Bearer ${utente.token}`) }
     }
   }
@@ -81,7 +81,7 @@ export class HttpSenderService {
   handleError(response: HttpErrorResponse) {
     console.log("response", response)
     let message = response.error ? response.error.message : response
-    return throwError(message);
+    return throwError(() => new Error(message))
   }
 
   tokenError(res: any) {

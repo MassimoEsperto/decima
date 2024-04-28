@@ -5,6 +5,7 @@ import { AdminService } from 'src/servizi/client/admin.service';
 import { AlertService } from 'src/servizi/local/alert.service';
 import { LanguageService } from 'src/servizi/local/language.service';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
+import { ExcelService } from 'src/servizi/local/excel.service';
 
 @Component({
   selector: 'lista-svincolati',
@@ -22,6 +23,7 @@ export class ListaSvincolatiComponent implements OnInit {
   constructor(
     private adminService: AdminService,
     public language: LanguageService,
+    private excelService: ExcelService,
     private alert: AlertService) {
   }
 
@@ -33,7 +35,7 @@ export class ListaSvincolatiComponent implements OnInit {
     let file: File
     file = event.target.files[0];
 
-    this.rose = await this.adminService.getSvincolatiFromFile(file, this.lista_attuale)
+    this.rose = await this.excelService.getSvincolatiFromFile(file, this.lista_attuale)
 
   }
 

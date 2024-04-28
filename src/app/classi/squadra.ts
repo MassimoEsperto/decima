@@ -9,13 +9,13 @@ export class Squadra {
     tipo: string = 'FANTA'
 
     constructor(
-        id_squadra: number,
-        squadra: string,
-        avatar: string,
-        id_avatar: string,
-        account: string,
-        lega: string,
-        stato: number
+        id_squadra: number = 0,
+        squadra: string = '',
+        avatar: string = '',
+        id_avatar: string = '',
+        account: string = '',
+        lega: string = '',
+        stato: number = 0
     ) {
         this.id_squadra = id_squadra;
         this.squadra = squadra;

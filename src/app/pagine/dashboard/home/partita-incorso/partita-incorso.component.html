@@ -1,67 +1,51 @@
 <div *ngIf="dash.match.ESISTENTE" class="pt-16">
 
-    <div class="row ma-0">
-
+    <div class="live-score ma-0 pa-0">
         <!-- Match-->
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 pa-0 row ma-0">
+        <div class="meta-pezzo">
+            <div class="card-green">
+                <div class="card-header">
+                    <div>MATCH</div>
+                </div>
+                <!--Card content-->
+                <div class="card-body sfondo_campo">
+                    <div class="pa-8">
 
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-11 pa-0">
-
-                <div class="pb-16">
-
-                    <div class="card-green">
-                        <div class="card-header">
-                            <div>MATCH</div>
-                        </div>
-                        <!--Card content-->
-                        <div class="card-body sfondo_campo">
-                            <div class="pt-8 pb-8">
-                                <div class="display-center-n">
-                                    <div class="col-4 col-sm-4 col-md-5 col-lg-5">
-                                        <div class="display-center">
-                                            <img src="assets/avatar/{{dash.match.CASA.avatar}}.png" class="avatar"
-                                                width="24px" />
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-10 col-lg-10  display-center">
-                                            <label class="nome_squadra text-bold">
-                                                {{dash.match.CASA.squadra}}
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="display-center col-4 col-sm-4 col-md-2 col-lg-2"></div>
-                                    <div class="col-4 col-sm-4 col-md-5 col-lg-5">
-                                        <div class="display-center">
-                                            <img src="assets/avatar/{{dash.match.TRASFERTA.avatar}}.png" class="avatar"
-                                                width="24px" />
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-10 col-lg-10 display-center">
-                                            <label class="nome_squadra text-bold">
-                                                {{dash.match.TRASFERTA.squadra}}
-                                            </label>
-                                        </div>
-                                    </div>
+                        <div class="live-score-content">
+                            <div class="live-score-item">
+                                <div>
+                                    <img src="assets/avatar/{{dash.match.CASA.avatar}}.png" class="avatar"
+                                        width="24px" />
+                                </div>
+                                <div>
+                                    <label class="nome_squadra text-bold">
+                                        {{dash.match.CASA.squadra}}
+                                    </label>
                                 </div>
                             </div>
-
-                            <div class="pt-16 pb-24 pr-8 pl-8">
-                                <my-button [submit]="false" [color]="'bg-warning text-white'" [block]="true"
-                                    [label]="language.label.page.vedi_live" (myClick)="visualizzaLive()"></my-button>
+                            <div class="live-score-item">
+                                <div>
+                                    <img src="assets/avatar/{{dash.match.TRASFERTA.avatar}}.png" class="avatar"
+                                        width="24px" />
+                                </div>
+                                <div>
+                                    <label class="nome_squadra text-bold">
+                                        {{dash.match.TRASFERTA.squadra}}
+                                    </label>
+                                </div>
                             </div>
                         </div>
-
                     </div>
 
+                    <div class="pt-16 pb-24 pr-8 pl-8">
+                        <my-button [submit]="false" [color]="'bg-warning text-white'" [block]="true"
+                            [label]="language.label.page.vedi_live" (myClick)="visualizzaLive()"></my-button>
+                    </div>
                 </div>
-            </div>
-            <!-- space-->
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-1 pa-0">
 
             </div>
         </div>
-
-        <!-- lavagna-->
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 pa-0">
-
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 pa-0 ma-0">
             <div *ngIf="votilive" class="card-green">
                 <div class="card-body">
 
@@ -103,6 +87,7 @@
             </div>
         </div>
     </div>
+
 
 </div>
 

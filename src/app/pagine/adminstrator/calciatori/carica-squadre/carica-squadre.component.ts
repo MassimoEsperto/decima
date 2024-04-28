@@ -7,6 +7,7 @@ import { LanguageService } from 'src/servizi/local/language.service';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ExcelService } from 'src/servizi/local/excel.service';
 
 @Component({
   selector: 'carica-squadre',
@@ -26,6 +27,7 @@ export class CaricaSquadreComponent {
 
   constructor(
     private adminService: AdminService,
+    private excelService: ExcelService,
     public language: LanguageService,
     private alert: AlertService) {
   }
@@ -79,7 +81,7 @@ export class CaricaSquadreComponent {
     let file: File
     file = event.target.files[0];
 
-    let filelist = await this.adminService.getSquadreFromFile(file, this.listaRose);
+    let filelist = await this.excelService.getSquadreFromFile(file, this.listaRose);
 
     if (filelist.inesistente) {
       this.alert.error(filelist.inesistente);

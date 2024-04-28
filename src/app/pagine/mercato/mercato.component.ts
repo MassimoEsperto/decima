@@ -43,14 +43,14 @@ export class MercatoComponent implements OnInit {
   VIEW_ISCRIZIONE = ViewIscirzione;
   fase: number = 0;
   view: number = 0;
-  squadra: Squadra = new Squadra(0, '', '', '', '', '', 0);
+  squadra: Squadra = new Squadra();
 
 
   changeView(event: any) {
 
     if (!isNaN(event)) {
       this.view = event
-      this.squadra = new Squadra(0, '', '', '', '', '', 0);
+      this.squadra = new Squadra();
     }
 
   }

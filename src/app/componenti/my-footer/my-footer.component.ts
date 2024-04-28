@@ -21,7 +21,7 @@ import { LanguageService } from 'src/servizi/local/language.service';
 export class MyFooter  {
 
   versione = VERSION;
-  url_pdf = ASSETS_BASE_URL + PAGE.DOWLOAD_PDF;
+  url_pdf = ASSETS_BASE_URL + PAGE.DOWNLOAD_PDF;
   url_whatsapp = WHATSAPP_URL;
   PAGE = PAGE
 

@@ -6,6 +6,7 @@ import { LanguageService } from 'src/servizi/local/language.service';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ExcelService } from 'src/servizi/local/excel.service';
 
 @Component({
   selector: 'calcolo-voti',
@@ -33,6 +34,7 @@ export class CalcoloVotiComponent {
   constructor(
     private alert: AlertService,
     public language: LanguageService,
+    private excelService: ExcelService,
     private adminService: AdminService) {
   }
 
@@ -48,7 +50,7 @@ export class CalcoloVotiComponent {
     let filelist: any = [];
 
     file = event.target.files[0];
-    filelist = await this.adminService.getVotiFromFile(file)
+    filelist = await this.excelService.getVotiFromFile(file)
 
 
     for (let partite of this.formazioni_inserite) {

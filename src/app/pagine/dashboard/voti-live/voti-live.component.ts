@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
 import { FantaGazzettaService } from 'src/servizi/client/fanta-gazzetta.service';
 import { PlayerService } from 'src/servizi/client/player.service';
@@ -20,7 +19,7 @@ import { SpinnerService } from 'src/servizi/local/spinner.service';
   templateUrl: './voti-live.component.html',
   styleUrl: './voti-live.component.scss'
 })
-export class VotiLiveComponent extends OnInitComp implements OnInit {
+export class VotiLiveComponent implements OnInit {
 
   rose: any;
 
@@ -30,7 +29,6 @@ export class VotiLiveComponent extends OnInitComp implements OnInit {
     public language: LanguageService,
     private fantaService: FantaGazzettaService,
     public spinner: SpinnerService) {
-    super();
   }
 
   formazioni: any

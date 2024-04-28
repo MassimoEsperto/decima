@@ -155,7 +155,7 @@ export const PAGE = {
   DEFAULT: "/login",
   LOGIN: "login",
   MERCATO: "mercato",
-  DOWLOAD_PDF: "/download/regolamento_schitcup.pdf",
+  DOWNLOAD_PDF: "/download/regolamento_schitcup.pdf",
   DASHBOARD: {
     PATH: "dashboard",
     ABSOLUTE: {
