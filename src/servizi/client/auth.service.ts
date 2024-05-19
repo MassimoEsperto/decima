@@ -40,8 +40,8 @@ export class AuthService extends HttpSenderService {
         this.setToken(decoded);
 
         return decoded;
-      }),
-        catchError(this.handleError));
+      })
+      );
   }
 
 
@@ -115,7 +115,7 @@ export class AuthService extends HttpSenderService {
     return false
   }
 
- 
+
 
   /**
   * salva il token in sessione
@@ -161,7 +161,7 @@ export class AuthService extends HttpSenderService {
 
   getComponiSquadra(id: number) {
     const params = new HttpParams().set('id_squadra', id);
-    return this.getFree(AUTH_SERVICE.GET_COMPONI_SQUADRA,params)
+    return this.getFree(AUTH_SERVICE.GET_COMPONI_SQUADRA, params)
   }
 
   setComponiSquadra(payload: any): Observable<any[]> {
@@ -185,8 +185,7 @@ export class AuthService extends HttpSenderService {
           error: res['data']['info']['VERSIONE'] != this.versione()
         }
         return verifica;
-      }),
-        catchError(this.handleError));
+      }));
   }
 
 }

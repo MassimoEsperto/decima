@@ -42,7 +42,7 @@ export class MercatoComponent implements OnInit {
 
   VIEW_ISCRIZIONE = ViewIscirzione;
   fase: number = 0;
-  view: number = 0;
+  view: number = 1;
   squadra: Squadra = new Squadra();
 
 

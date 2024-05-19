@@ -1,7 +1,8 @@
 import { ApplicationConfig } from '@angular/core';
 import { InMemoryScrollingFeature, InMemoryScrollingOptions, provideRouter, withHashLocation, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { serviziInterceptor } from 'src/servizi/servizi.interceptor';
 
 const scrollConfig: InMemoryScrollingOptions = {
   scrollPositionRestoration: 'enabled',
@@ -14,6 +15,6 @@ const inMemoryScrollingFeature: InMemoryScrollingFeature =
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, inMemoryScrollingFeature,withHashLocation()),
-    provideHttpClient()
+    provideHttpClient(withInterceptors([serviziInterceptor])),
   ]
 };

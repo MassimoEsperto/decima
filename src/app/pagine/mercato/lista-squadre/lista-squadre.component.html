@@ -29,7 +29,7 @@
                 </p>
 
                 <div class="pb-16">
-                    <my-button [color]="'btn-primary'" [label]="'COPIA IBAN'"
+                    <my-button [color]="'btn-secondary'" [label]="'COPIA IBAN'" [block]="true"
                         (myClick)="copyMessage('LT05 3250 0431 2585 4853')"></my-button>
                 </div>
 
@@ -45,12 +45,12 @@
                     </div>
                     <div class="card-body">
                         <div class="pt-8 pb-8">
-                            <my-button [color]="'btn-primary'" [label]="language.label.bottoni.carica_squadra"
+                            <my-button [color]="'btn-primary'" [block]="true" [label]="language.label.bottoni.carica_squadra"
                                 [loading]="loading_btn" (myClick)="change.emit(VIEW_ISCRIZIONE.REGISTRA)"></my-button>
                         </div>
 
                         <div class="pt-8">
-                            <my-button [color]="'btn-primary'" [label]="language.label.bottoni.crea_squadra"
+                            <my-button [color]="'btn-dark'" [block]="true" [label]="language.label.bottoni.crea_squadra"
                                 [loading]="loading_btn" (myClick)="change.emit(VIEW_ISCRIZIONE.CREA)"></my-button>
                         </div>
 

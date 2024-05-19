@@ -42,7 +42,7 @@ export class ExcelService {
 
     for (let element of arraylist) {
       if (element.__EMPTY) {
-        let nome: string = element['__EMPTY'].toLocaleUpperCase().replace("'", "").replace(".", "").trim()
+        let nome: string = element['__EMPTY'].toLocaleUpperCase().replace("'", "").trim()
         let voto: number = element['__EMPTY_3'] != '-' ? Number(element['__EMPTY_3'].toString().trim()) : 4
         let ruolo: string = element[_EMPTY_0].toString().trim()
 
@@ -55,7 +55,7 @@ export class ExcelService {
       }
 
       if (element.__EMPTY_6) {
-        let nome: string = element['__EMPTY_6'].toLocaleUpperCase().replace("'", "").replace(".", "").trim()
+        let nome: string = element['__EMPTY_6'].toLocaleUpperCase().replace("'", "").trim()
         let voto: number = element['__EMPTY_9'] != '-' ? Number(element['__EMPTY_9'].toString().trim()) : 4
         let ruolo: string = element['__EMPTY_5'].toString().trim()
 
@@ -135,7 +135,7 @@ export class ExcelService {
       if (ruolo_S && ruolo_S.length < 2) {
         team_S = team_S ? team_S : arraylist[i - 2][_EMPTY_0].toLocaleUpperCase().replace("'", "").replace(".", "").trim()
 
-        let nome_calciatore = element['__EMPTY'].toLocaleUpperCase().replace("'", "").replace(".", "").trim()
+        let nome_calciatore = element['__EMPTY'].toLocaleUpperCase().replace("'", "").trim()
         try {
 
           let ele = {
@@ -164,7 +164,7 @@ export class ExcelService {
       if (ruolo_D && ruolo_D.length < 2) {
         team_D = team_D ? team_D : arraylist[i - 2]['__EMPTY_4'].toLocaleUpperCase().replace("'", "").replace(".", "").trim()
 
-        let nome_calciatore = element['__EMPTY_5'].toLocaleUpperCase().replace("'", "").replace(".", "").trim()
+        let nome_calciatore = element['__EMPTY_5'].toLocaleUpperCase().replace("'", "").trim()
         try {
 
           let ele = {

@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http'
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { catchError, map, throwError } from 'rxjs'
+import { map } from 'rxjs'
 import { Utente } from 'src/app/classi/utente';
 import { WS_BASE_URL, TOKEN_STORAGE, LANGUAGE_STORAGE, LABEL_STORAGE, SHIT_VERSION } from 'src/environments/env';
 
@@ -15,8 +15,7 @@ export class HttpSenderService {
 
 
   helper = new JwtHelperService();
-  
-  myheaders: any
+
 
   buildURL(operation: string = ""): string {
 
@@ -61,15 +60,6 @@ export class HttpSenderService {
 
   }
 
-  refreshHeaders() {
-    if (!this.myheaders) {
-      let utente: Utente = this.getLoggato()
-      if (utente)
-        this.myheaders = { headers: new HttpHeaders().set('Authorization', `Bearer ${utente.token}`) }
-    }
-  }
-
-
   scadenza() {
     let primaDate = new Date();
     primaDate.setHours(primaDate.getHours() + 2);
@@ -77,12 +67,6 @@ export class HttpSenderService {
     return primaDate;
   }
 
-
-  handleError(response: HttpErrorResponse) {
-    console.log("response", response)
-    let message = response.error ? response.error.message : response
-    return throwError(() => new Error(message))
-  }
 
   tokenError(res: any) {
     let errorToken = res['errorToken'];
@@ -104,8 +88,7 @@ export class HttpSenderService {
     return this.httpClient.post(`${this.buildURL(servizio)}`, { data: payload })
       .pipe(map((res: any) => {
         return res['data'];
-      }),
-        catchError(this.handleError));
+      }));
   }
 
   putFree(servizio: string, payload: any) {
@@ -113,8 +96,7 @@ export class HttpSenderService {
     return this.httpClient.put(`${this.buildURL(servizio)}`, { data: payload })
       .pipe(map((res: any) => {
         return res['data'];
-      }),
-        catchError(this.handleError));
+      }));
   }
 
   getFree(servizio: string, params?: HttpParams) {
@@ -122,49 +104,40 @@ export class HttpSenderService {
     return this.httpClient.get(`${this.buildURL(servizio)}`, { params: params }).pipe(
       map((res: any) => {
         return res['data'];
-      }),
-      catchError(this.handleError));
+      }));
   }
 
 
   getAuth(servizio: string, params?: HttpParams) {
 
-    this.refreshHeaders()
-
     return this.httpClient.get<any>(`${this.buildURL(servizio)}`,
-      { params: params, headers: this.myheaders.headers })
+      { params: params })
       .pipe(map((res: any) => {
         this.tokenError(res);//controllo token
         return res['data']
-      }),
-        catchError(this.handleError));
+      }));
   }
 
 
   postAuth(servizio: string, payload: any) {
 
-    this.refreshHeaders()
-
     return this.httpClient.post(`${this.buildURL(servizio)}`,
-      { data: payload }, this.myheaders)
+      { data: payload })
       .pipe(map((res: any) => {
         this.tokenError(res);//controllo token
         return res['data'];
-      }),
-        catchError(this.handleError));
+      }));
   }
 
   putAuth(servizio: string, payload: any) {
 
-    this.refreshHeaders()
-
     return this.httpClient.put(`${this.buildURL(servizio)}`,
-      { data: payload }, this.myheaders)
+      { data: payload })
       .pipe(map((res: any) => {
         this.tokenError(res);//controllo token
         return res['data'];
-      }),
-        catchError(this.handleError));
+      })
+      );
   }
 
 
