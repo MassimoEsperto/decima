@@ -87,6 +87,10 @@ export class AuthService extends HttpSenderService {
 
     let ruolo = this.getLoggato().ruolo
 
+    let fase = this.getLoggato().fase
+
+    if (fase == FasiCompetizione.MERCATO || fase == FasiCompetizione.ISCRIZIONE) return false
+
     if (ruolo == RuoliUtente.ADMIN || ruolo == RuoliUtente.PLAYER) return true
 
     return false

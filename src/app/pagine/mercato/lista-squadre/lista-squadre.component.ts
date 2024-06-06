@@ -3,7 +3,7 @@ import { AfterContentInit, Component, EventEmitter, Input, Output } from '@angul
 import { RouterModule } from '@angular/router';
 import { finalize } from 'rxjs';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
-import { ViewIscirzione, TipoSquadra, StatiSquadra, FasiCompetizione } from 'src/environments/enums';
+import { ViewIscirzione, TipoSquadra, StatiSquadra, FasiCompetizione, RuoliUtente } from 'src/environments/enums';
 import { AuthService } from 'src/servizi/client/auth.service';
 import { PlayerService } from 'src/servizi/client/player.service';
 import { AlertService } from 'src/servizi/local/alert.service';
@@ -36,14 +36,15 @@ export class ListaSquadreComponent implements AfterContentInit {
   TIPO_SQUADRA = TipoSquadra;
   STATO_SQUADRA = StatiSquadra;
   FASE_COMPETIZIONE = FasiCompetizione;
-
-
+  RUOLO_UTENTE = RuoliUtente;
+  
 
 
   info: any
   squadre: any = []
   loading_btn: boolean = false;
   date: string = this.utilService.getAnnata()
+  ruolo:number =0
 
   constructor(
     private playerService: PlayerService,
@@ -57,11 +58,12 @@ export class ListaSquadreComponent implements AfterContentInit {
 
   //aggiunto per il reload
   ngAfterContentInit() {
+    this.ruolo = this.authService.getLoggato().ruolo || 0;
     this.getInfoUtente();
   }
 
   getInfoUtente() {
-
+    
     this.spinner.view();
 
     this.playerService.getInfoUtente()
