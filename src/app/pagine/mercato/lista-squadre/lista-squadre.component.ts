@@ -37,7 +37,7 @@ export class ListaSquadreComponent implements AfterContentInit {
   STATO_SQUADRA = StatiSquadra;
   FASE_COMPETIZIONE = FasiCompetizione;
   RUOLO_UTENTE = RuoliUtente;
-  
+
 
 
   info: any

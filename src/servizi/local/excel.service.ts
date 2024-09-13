@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Rosa } from 'src/app/classi/rosa';
+import { Calciatore, Roster } from 'src/app/classi/calciatore';
 import * as XLSX from 'xlsx';
 
 @Injectable({
@@ -74,7 +74,7 @@ export class ExcelService {
 
   async getSvincolatiFromFile(file: File, lista_attuale: any) {
 
-    let filelist: any = [];
+    let filelist: Roster = new Roster();
 
     var workbook = await this.getWorkbookFromFile(file);
 
@@ -83,18 +83,19 @@ export class ExcelService {
 
     var arraylist: any = XLSX.utils.sheet_to_json(worksheet, { raw: true, defval: null });
 
-    for (let i = 2; i < arraylist.length; i++) {
+    for (let i = 1; i < arraylist.length; i++) {
       let element = arraylist[i]
 
-      let ruolo: string = element['__EMPTY'].toLocaleUpperCase().replace("'", "").trim()
-      let nome: string = element['__EMPTY_1'].toLocaleUpperCase().replace("'", "").trim()
+      let ruolo: string = element['__EMPTY'].toLocaleUpperCase().replace("'", "").trim();
+      let nome: string = element['__EMPTY_2'].replace("'", "").trim();
+      let valore: number = element['__EMPTY_10'];
+
 
       if (!nome.includes("*")) {
         let esiste = lista_attuale.some((i: { nome_calciatore: string; }) => i.nome_calciatore == nome);
-        if (!esiste) {
-          let ele: Rosa = new Rosa(ruolo, nome);
-          filelist.push(ele);
-        }
+        let ele: Calciatore = new Calciatore(ruolo, nome, valore);
+        esiste ? filelist.vincolati.push(ele) : filelist.svincolati.push(ele)
+
       }
 
     }
@@ -121,7 +122,7 @@ export class ExcelService {
     var arraylist: any = XLSX.utils.sheet_to_json(worksheet, { raw: true, defval: null });
 
 
-    filelist.lega = arraylist[0][_EMPTY_0].replace("https://leghe.fantacalcio.it/", "").replace("'", "").replace(".", "").trim()
+    filelist.lega = arraylist[0][_EMPTY_0].replace("https://leghe.fantacalcio.it/", "").replace("'", "").trim()
 
     let team_S: string = "";
     let team_D: string = "";
@@ -133,9 +134,9 @@ export class ExcelService {
       let ruolo_D: string = element['__EMPTY_4'] ? element['__EMPTY_4'].toString().trim() : "";
 
       if (ruolo_S && ruolo_S.length < 2) {
-        team_S = team_S ? team_S : arraylist[i - 2][_EMPTY_0].toLocaleUpperCase().replace("'", "").replace(".", "").trim()
+        team_S = team_S ? team_S : arraylist[i - 2][_EMPTY_0].replace("'", "").trim()
 
-        let nome_calciatore = element['__EMPTY'].toLocaleUpperCase().replace("'", "").trim()
+        let nome_calciatore = element['__EMPTY'].replace("'", "").trim()
         try {
 
           let ele = {
@@ -162,9 +163,9 @@ export class ExcelService {
       }
 
       if (ruolo_D && ruolo_D.length < 2) {
-        team_D = team_D ? team_D : arraylist[i - 2]['__EMPTY_4'].toLocaleUpperCase().replace("'", "").replace(".", "").trim()
+        team_D = team_D ? team_D : arraylist[i - 2]['__EMPTY_4'].replace("'", "").trim()
 
-        let nome_calciatore = element['__EMPTY_5'].toLocaleUpperCase().replace("'", "").trim()
+        let nome_calciatore = element['__EMPTY_5'].replace("'", "").trim()
         try {
 
           let ele = {

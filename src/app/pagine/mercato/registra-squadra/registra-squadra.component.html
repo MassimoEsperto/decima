@@ -25,8 +25,10 @@
                         <br>
                         <span>{{language.label.login.step.lega}}</span>
                         <!-- Lega -->
-                        <input type="text" id="lega" class="form-control mb-4 mt-4" placeholder="Lega fantacalcio"
-                            [(ngModel)]="payload.lega" name="lega" required />
+                       
+                            <select class="form-select" [(ngModel)]="payload.lega" name="lega" required>
+                                <option *ngFor="let u of leghe" [ngValue]="u">{{u.nome}}</option>
+                            </select>
 
                         <div class="pt-32 pb-16">
                             <my-button [submit]="false" [color]="'btn-primary'" [block]="true"
@@ -45,15 +47,15 @@
                         <br>
                         <span>{{language.label.login.step.squadra}}</span>
 
-                        <select class="form-select" [(ngModel)]="payload.account" name="utente" required>
-                            <option *ngFor="let u of fantalega" [ngValue]="u">{{u.team}}</option>
+                        <select class="form-select" [(ngModel)]="payload.account" name="account" required>
+                            <option *ngFor="let u of fantalega" [ngValue]="u">{{u.account}}</option>
                         </select>
 
                         <div class="pt-32 pb-16">
                             <my-button [submit]="false" [color]="'btn-primary'" [block]="true"
                                 [disabled]="lega.form.invalid" [loading]="loading_btn"
                                 [label]="language.label.login.step.successivo"
-                                (myClick)="onLega(payload.account)">></my-button>
+                                (myClick)="onRosa(payload.account)">></my-button>
                         </div>
                     </div>
 
@@ -76,7 +78,7 @@
                             [(ngModel)]="rosa_aggiornata[i].selected"
                             [disabled]="disabledTeam(player) && !player.selected">
                         <label class="form-check-label" for="{{'check'+player.id}}">
-                            {{player.ruolo}} {{player.nome_calciatore}}
+                            {{player.ruolo}} {{player.nome}}
                         </label>
                     </div>
                 </div>
@@ -116,7 +118,7 @@
 
             <div class="pt-16 pb-16">
                 <my-button [color]="'btn-danger'" [block]="true" (myClick)="esci()"
-                    [label]="language.label.bottoni.annulla" [loading]="loading_btn"></my-button>
+                    [label]="language.label.bottoni.annulla" [disabled]="loading_btn"></my-button>
             </div>
 
 

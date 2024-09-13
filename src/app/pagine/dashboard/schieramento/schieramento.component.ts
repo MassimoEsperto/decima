@@ -10,6 +10,7 @@ import { FantaGazzettaService } from 'src/servizi/client/fanta-gazzetta.service'
 import { PlayerService } from 'src/servizi/client/player.service';
 import { AlertService } from 'src/servizi/local/alert.service';
 import { LanguageService } from 'src/servizi/local/language.service';
+import { ModalFormService } from 'src/servizi/local/modal-form.service';
 import { SpinnerService } from 'src/servizi/local/spinner.service';
 
 
@@ -34,6 +35,7 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
     private router: Router,
     private playerService: PlayerService,
     private fantaService: FantaGazzettaService,
+    private forms: ModalFormService,
     private ref: ChangeDetectorRef) {
     super();
   }
@@ -63,6 +65,7 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
   schieramento: boolean = true;
   moduli: any = [];
   modulo: any;
+
 
   rosa: any;
 
@@ -121,6 +124,7 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
           this.aggiornaModulo()
 
           this.rosa = result.rosa
+          this.onChangeSwitchs(this.rosa)
 
         },
         error: (error: any) => {
@@ -138,7 +142,8 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
     let payload: any = {
       lista: [],
       id_risultato: this.formazione.id_risultato,
-      id_modulo: this.modulo.id
+      id_modulo: this.modulo.id,
+      switchs: this.rosa
     }
 
     for (let membro of this.squadra) {
@@ -154,9 +159,9 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
         next: (result: any) => {
 
           this.router.navigate(['dashboard/home'])
-          .then(() => {
-            this.alert.success(this.language.label.alert.success);
-          });
+            .then(() => {
+              this.alert.success(this.language.label.alert.success);
+            });
 
         },
         error: (error: any) => {
@@ -219,5 +224,15 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
     }
 
   }
+
+
+  onChangeSwitchs(record: any) {
+
+    this.forms.setData(record, () => {
+      //console.log("record", record)
+    })
+
+  }
+
 
 }

@@ -1,6 +1,8 @@
 <div *ngIf="spinner.getLoading()" class="fadein">
     <div class="card bg-warning text-white">
-        <div class="card-header">ShitCup {{date}}</div>
+        <div class="card-header">
+           <h3 class="text-center pt-8">ShitCup {{date}}</h3>
+        </div>
 
         <!-- NEL ISCRIZIONE-->
         <div class="card-body" *ngIf="fase==FASE_COMPETIZIONE.ISCRIZIONE">
@@ -34,7 +36,7 @@
                 </div>
 
 
-                <p>Saluti.</p>
+                <p class="pb-16">Saluti.</p>
 
                 <div *ngIf="!loading_btn" class="card">
 
@@ -74,7 +76,7 @@
                                         <td>
                                             <div *ngIf="ele.stato == STATO_SQUADRA.REGISTRATA">
                                                 <span class="table-remove">
-                                                    <i class="bi bi-pencil-fill cursore" (click)="edit.emit(ele)"></i>
+                                                    <i class="bi bi-pencil-fill cursore" (click)="mercato.emit(ele)"></i>
                                                 </span>
                                             </div>
                                         </td>
@@ -154,12 +156,12 @@
     </div>
     <!-- Forgot login -->
     <div class="pt-32 text-destra">
-        <button routerLink="/login" class="btn primary">Torna al Login
+        <button routerLink="/login" class="btn btn-primary">Torna al Login
             <i class="bi bi-reply-all-fill cursore"></i>
         </button>
     </div>
     <div class="pt-32 text-destra">
-        <button *ngIf="ruolo==RUOLO_UTENTE.ADMIN" routerLink="/adminstrator" class="btn primary">Sezione Admin
+        <button *ngIf="ruolo==RUOLO_UTENTE.ADMIN" routerLink="/adminstrator" class="btn btn-primary">Sezione Admin
             <i class="bi bi-geo-fill cursore"></i>
         </button>
     </div>

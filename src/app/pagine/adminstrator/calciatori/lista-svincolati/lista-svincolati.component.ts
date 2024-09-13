@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
-import { Rosa } from 'src/app/classi/rosa';
 import { AdminService } from 'src/servizi/client/admin.service';
 import { AlertService } from 'src/servizi/local/alert.service';
 import { LanguageService } from 'src/servizi/local/language.service';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { ExcelService } from 'src/servizi/local/excel.service';
+import { Calciatore, Roster } from 'src/app/classi/calciatore';
 
 @Component({
   selector: 'lista-svincolati',
@@ -17,7 +17,7 @@ import { ExcelService } from 'src/servizi/local/excel.service';
 export class ListaSvincolatiComponent implements OnInit {
 
   @Input() lista_attuale: any;
-  rose: Rosa[] = [];
+  roster!: Roster;
   loading_btn: boolean = false
 
   constructor(
@@ -35,13 +35,13 @@ export class ListaSvincolatiComponent implements OnInit {
     let file: File
     file = event.target.files[0];
 
-    this.rose = await this.excelService.getSvincolatiFromFile(file, this.lista_attuale)
+    this.roster = await this.excelService.getSvincolatiFromFile(file, this.lista_attuale)
 
   }
 
 
   onAggiungiCalciatori() {
-    this.aggiungiCalciatori(this.rose)
+    this.aggiungiCalciatori(this.roster)
   }
 
 
@@ -57,6 +57,7 @@ export class ListaSvincolatiComponent implements OnInit {
       .subscribe({
         next: (result: any) => {
           this.alert.success(this.language.label.alert.success);
+          this.adminService.refreshPage()
         },
         error: (error: any) => {
           this.alert.error(error);

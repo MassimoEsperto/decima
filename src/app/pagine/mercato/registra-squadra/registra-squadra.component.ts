@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs';
+import { Calciatore } from 'src/app/classi/calciatore';
+import { Lega, Rosa } from 'src/app/classi/lega';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { ViewIscirzione } from 'src/environments/enums';
 import { AuthService } from 'src/servizi/client/auth.service';
@@ -27,11 +29,14 @@ export class RegistraSquadraComponent implements OnInit {
 
   @Output() change = new EventEmitter();
 
-  fantalega: any;
-  calciatori: any;
+  leghe: Lega[] = [];
+
+  fantalega: Rosa[] = [];
+
   loading_btn: boolean = false;
-  rosa_aggiornata: any = []
+  rosa_aggiornata: Calciatore[] = [];
   stepform = 1
+  min_partecipanti = 2;
 
   payload: any = {
     squadra: "",
@@ -54,7 +59,9 @@ export class RegistraSquadraComponent implements OnInit {
 
   ngOnInit() {
     this.payload.id_utente = this.playerService.getLoggato().id;
-    this.getInfoUtente();
+    // this.getInfoUtente();
+    // this.fantaService.gettestread();
+    this.getLeghe();
   }
 
   selected() {
@@ -64,18 +71,36 @@ export class RegistraSquadraComponent implements OnInit {
   attacco() {
     return this.rosa_aggiornata ? this.rosa_aggiornata.filter((e: { ruolo: string; }) => e.ruolo === 'A') : [];
   }
+  /*
+    getInfoUtente() {
+  
+      this.loading_btn = true
+  
+      this.playerService.getInfoUtente()
+        .pipe(finalize(() => {
+          this.loading_btn = false
+        }))
+        .subscribe({
+          next: (result: any) => {
+            this.calciatori = result.lista_calciatori
+          },
+          error: (error: any) => {
+            this.alert.error(error);
+          }
+        })
+  }*/
 
-  getInfoUtente() {
+  getLeghe() {
 
     this.loading_btn = true
 
-    this.playerService.getInfoUtente()
+    this.playerService.getLeghe()
       .pipe(finalize(() => {
         this.loading_btn = false
       }))
       .subscribe({
         next: (result: any) => {
-          this.calciatori = result.lista_calciatori
+          this.leghe = result
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -83,8 +108,22 @@ export class RegistraSquadraComponent implements OnInit {
       })
   }
 
+  getLega(lega: Lega) {
+    this.fantalega = lega.rose;
 
-  getLega(lega: string) {
+    if (this.fantalega && this.fantalega.length > 0) {
+      if (this.fantalega.length >= this.min_partecipanti) {
+        this.payload.lega = lega.nome
+        this.stepform += 1
+      } else {
+        this.alert.error("La lega deve avere un minimo di 8 partecipanti");
+      }
+    } else {
+      this.alert.error("Lega inesistente");
+    }
+  }
+
+  getLegaOLD(lega: string) {
 
     this.loading_btn = true
     let re = /\ /gi;
@@ -139,14 +178,14 @@ export class RegistraSquadraComponent implements OnInit {
   }
 
 
-  onLega(lega: any) {
+  onRosa(lega: Rosa) {
 
-    //this.fantalega['account'] = lega.team
-    this.payload.account = lega.team
+    this.payload.account = lega.account
+    let calciatori = lega.calciatori
     this.loading_btn = true
     this.rosa_aggiornata = []
-    for (let ele of lega.lista) {
-      let singolo = this.calciatori.find((i: { nome_calciatore: any; }) => i.nome_calciatore == ele);
+    for (let ele of lega.calciatori) {
+      let singolo = calciatori.find((i: { nome: any; }) => i.nome == ele.nome);
       if (singolo) {
         singolo['selected'] = true;
         this.rosa_aggiornata.push(singolo)
@@ -159,6 +198,27 @@ export class RegistraSquadraComponent implements OnInit {
     }, 1000);
 
   }
+  /*
+    onLegaOLD(lega: any) {
+  
+      //this.fantalega['account'] = lega.team
+      this.payload.account = lega.team
+      this.loading_btn = true
+      this.rosa_aggiornata = []
+      for (let ele of lega.lista) {
+        let singolo = this.calciatori.find((i: { nome_calciatore: any; }) => i.nome_calciatore == ele);
+        if (singolo) {
+          singolo['selected'] = true;
+          this.rosa_aggiornata.push(singolo)
+        }
+      }
+  
+      setTimeout(() => {
+        this.loading_btn = false
+        this.stepform += 1
+      }, 1000);
+  
+    }*/
 
   disabledTeam(item: any) {
 

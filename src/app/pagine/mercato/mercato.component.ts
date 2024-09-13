@@ -51,6 +51,7 @@ export class MercatoComponent implements OnInit {
     if (!isNaN(event)) {
       this.view = event
       this.squadra = new Squadra();
+      console.log("changeView",event)
     }
 
   }
@@ -61,6 +62,7 @@ export class MercatoComponent implements OnInit {
   }
 
   onRiEdit(squadra: Squadra) {
+    console.log("squadra",squadra)
     this.squadra = squadra
     if (squadra.tipo == TipoSquadra.FANTA)
       this.view = ViewIscirzione.UPGRADE_F

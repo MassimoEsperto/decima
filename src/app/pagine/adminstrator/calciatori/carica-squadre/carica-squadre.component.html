@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        ASSOCIA MANUALMENTE UNA SQUADRA CARICATA DA EXCEL AD UN UTENTE
+        CARICA MANUALMENTE DA EXCEL INTERA LEGA (ROSE COMPLETE)
     </div>
     <div class="card-body">
         <div class="pt-16 pb-8">
@@ -14,6 +14,11 @@
         <div *ngIf="formazioni.length" class="pt-16">
             <p>LEGA {{lega}}</p>
 
+            <div class="pt-16 pb-16">
+                <my-button [submit]="false" [color]="'btn-primary'" [block]="false"  [label]="'INVIA'"
+                    [confirm]="true" [loading]="loading_btn" (myClick)="onCaricaLega()"></my-button>
+            </div>
+<!--
             <form class="text-center" #carica="ngForm" (submit)="onAssocia(carica.form.value); carica.resetForm()">
 
                 <div class="pt-16 pb-16">
@@ -59,6 +64,7 @@
                         [label]="'INVIA'" [loading]="loading_btn"></my-button>
                 </div>
             </form>
+        -->
         </div>
     </div>
 </div>

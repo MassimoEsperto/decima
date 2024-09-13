@@ -1,0 +1,19 @@
+<p>Ordina la lista dei sostituti nel caso un tuo giocatore sia già schierato dalla squadra di casa</p>
+
+
+<ul class="list-group">
+    <li *ngFor="let item of data;let i = index" class="list-group-item d-flex justify-content-between align-items-start">
+
+        <div (click)="goDown(i)">
+            <span class="badge text-bg-dark pa-8 cursore"><i class="bi bi-arrow-down"></i></span>
+        </div>
+        <div>
+            <span class="badge bg-primary rounded-pill">{{item.ordine}} </span>
+            <span> {{item.tipo}} {{item.nickname}}</span>
+        </div>
+        <div (click)="goUp(i)">
+            <span class="badge text-bg-dark pa-8 cursore"><i class="bi bi-arrow-up"></i></span>
+        </div>
+
+    </li>
+</ul>

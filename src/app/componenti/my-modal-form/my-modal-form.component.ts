@@ -4,6 +4,7 @@ import { ModalFormService } from 'src/servizi/local/modal-form.service';
 import { FormUtenti } from './form-utenti/form-utenti.component';
 import { FormPartite } from './form-partite/form-partite.component';
 import { FormGiornate } from './form-giornate/form-giornate.component';
+import { FormSwitchs } from './form-switchs/form-switchs.component';
 
 
 @Component({
@@ -13,7 +14,8 @@ import { FormGiornate } from './form-giornate/form-giornate.component';
   imports: [
     FormUtenti,
     FormPartite,
-    FormGiornate
+    FormGiornate,
+    FormSwitchs
   ],
   styleUrl: './my-modal-form.component.scss'
 })

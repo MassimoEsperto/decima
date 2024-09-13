@@ -9,6 +9,11 @@ export const serviziInterceptor: HttpInterceptorFn = (req, next) => {
   let parse = storage ? JSON.parse(storage) : ""
   let utente: Utente = new Utente(parse)
   let token = utente.token
+console.log("req.headers",req)
+  if (req.headers.get('No-Auth') == 'True') {
+    console.log("no autttttt")
+    return next(req);
+  }
 
   // Clone the request and add the authorization header
   const authReq = req.clone({

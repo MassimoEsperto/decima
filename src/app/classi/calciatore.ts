@@ -8,8 +8,24 @@ export class Calciatore {
     selected: boolean = false;
     disabled: boolean = false;
 
+    constructor(
+        ruolo: string,
+        nome: string,
+        valore?: number
+    ) {
+        this.ruolo = ruolo;
+        this.nome = nome;
+        this.nickname = nome.toLocaleUpperCase().replaceAll(".", "").trim();
+        this.icona = nome.toLocaleUpperCase().replaceAll(".", "").replaceAll(" ", "-").trim();
+        this.valore = valore ? valore : 0;
+    }
+
 }
 
+export class Roster {
+    svincolati: Calciatore[] = [];
+    vincolati: Calciatore[] = [];
+}
 
 export class Listino {
     svincolati: Calciatore[] = [];

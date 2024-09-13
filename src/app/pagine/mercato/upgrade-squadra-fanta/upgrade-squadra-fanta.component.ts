@@ -34,6 +34,7 @@ export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChange
 
   svincolati: any;
   rosa_aggiornata: any = []
+  leghe: any;
 
 
   constructor(
@@ -60,8 +61,8 @@ export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChange
 
   attacco() {
     return this.rosa_aggiornata ? this.rosa_aggiornata.filter((e: {
-      selected: boolean; ruolo: string; 
-}) => e.selected === true && e.ruolo === 'A') : [];
+      selected: boolean; ruolo: string;
+    }) => e.selected === true && e.ruolo === 'A') : [];
   }
 
 
@@ -76,6 +77,7 @@ export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChange
       .subscribe({
         next: (result: any) => {
           this.svincolati = result.lista_calciatori
+          this.leghe = result.fanta
           this.getLega(this.squadra.lega)
         },
         error: (error: any) => {
@@ -84,9 +86,16 @@ export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChange
       })
   }
 
-
-
   getLega(lega: string) {
+
+    let account = this.squadra.account
+    let fantalega = this.leghe.filter((i: { account: string; }) => i.account == account) || [];
+    this.onLega(fantalega)
+
+  }
+
+
+  getLegaOLD(lega: string) {
 
     this.fanta.getLega(lega)
       .subscribe({
@@ -114,13 +123,13 @@ export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChange
 
     this.rosa_aggiornata = []
     for (let ele of lega) {
-      let singolo: any = this.svincolati.find((i: { nome_calciatore: any; }) => i.nome_calciatore == ele);
+      let singolo: any = this.svincolati.find((i: { nome_calciatore: any; }) => i.nome_calciatore == ele.nome_calciatore);
       if (singolo) {
         singolo['selected'] = true;
         this.rosa_aggiornata.push(singolo)
       }
     }
- 
+
     this.spinner.clear();
   }
 
@@ -186,10 +195,7 @@ export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChange
 
         next: (result: any) => {
           this.alert.success(this.language.label.alert.success);
-          setTimeout(() => {
-            this.router.navigate(['/dashboard/squadre']);
-          }, 2000);
-
+          this.esci();
         },
         error: (error: any) => {
           this.alert.error(error);

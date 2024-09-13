@@ -55,6 +55,37 @@ export class CaricaSquadreComponent {
       })
   }
 
+  onCaricaLega() {
+
+    let payload = {
+      formazioni: this.formazioni,
+      lega: this.lega
+    }
+
+    this.caricaLega(payload)
+  }
+
+  caricaLega(payload: any) {
+
+    this.adminService.caricaLega(payload)
+      .pipe(finalize(() => {
+        this.loading_btn = false;
+      }
+      ))
+      .subscribe({
+
+        next: (result: any) => {
+          this.alert.success(this.language.label.alert.success);
+          this.adminService.refreshPage();
+        },
+        error: (error: any) => {
+          this.alert.error(error);
+
+        }
+      })
+
+  }
+
   associaCalciatori(payload: any) {
 
     this.adminService.insertRosaUtente(payload)
@@ -82,6 +113,7 @@ export class CaricaSquadreComponent {
     file = event.target.files[0];
 
     let filelist = await this.excelService.getSquadreFromFile(file, this.listaRose);
+    console.log("filelist", filelist)
 
     if (filelist.inesistente) {
       this.alert.error(filelist.inesistente);
@@ -93,7 +125,7 @@ export class CaricaSquadreComponent {
 
   }
 
-  onAssocia(element:any) {
+  onAssocia(element: any) {
 
     let payload = {
       id_utente: element.utente.id,
@@ -102,7 +134,7 @@ export class CaricaSquadreComponent {
     }
 
     this.clean(payload);
-    
+
   }
 
 }

@@ -2,10 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpSenderService } from './http-sender-service';
-
-import { Rosa } from 'src/app/classi/rosa';
 import { Utente } from 'src/app/classi/utente';
 import { SERVICE_TYPE, ADMIN_SERVICE } from 'src/environments/costanti';
+import { Calciatore } from 'src/app/classi/calciatore';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +46,7 @@ export class AdminService extends HttpSenderService {
     return this.postFree(ADMIN_SERVICE.SET_CALCOLO_GIORNATA, payload)
   }
 
-  insertSvincolati(payload: Rosa[]) {
+  insertSvincolati(payload: Calciatore[]) {
     return this.postFree(ADMIN_SERVICE.SET_SVINCOLATI, payload)
   }
 
@@ -122,7 +121,9 @@ export class AdminService extends HttpSenderService {
     return this.putFree(ADMIN_SERVICE.UPD_CALCIATORE, payload)
   }
 
-
+  caricaLega(payload: any) { 
+    return this.postFree(ADMIN_SERVICE.SET_LEGA, payload)
+  }
 
 
 }

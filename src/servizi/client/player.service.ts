@@ -54,6 +54,10 @@ export class PlayerService extends HttpSenderService {
     return this.getAuth(PLAYER_SERVICE.GET_COMUNICAZIONI)
   }
 
+  getLeghe() {
+    return this.getAuth(PLAYER_SERVICE.GET_LEGHE)
+  }
+
   viewMatch(match: any) { //match_live
     const params = new HttpParams().set('match', match.id_calendario);
     return this.getAuth(PLAYER_SERVICE.GET_VIEW_MATCH, params)
@@ -70,6 +74,7 @@ export class PlayerService extends HttpSenderService {
   updateUtente(payload: Utente) {
     return this.putAuth(PLAYER_SERVICE.UPD_UTENTE, payload)
   }
+
 
 
 

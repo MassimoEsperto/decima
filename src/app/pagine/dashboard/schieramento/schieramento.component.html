@@ -106,10 +106,19 @@
                 </div>
 
                 <div class="pt-16 pb-16">
+
+                    <my-button [color]="'btn-secondary'" [block]="true" data-bs-toggle="modal"
+                        data-bs-target="#updSwitchsModal" [label]="'SWITCHS'"></my-button>
+                </div>
+
+                <div class="pt-16 pb-16">
                     <my-button [color]="'btn-primary'" [block]="true" [disabled]="squadra.length!=5"
                         [label]="language.label.bottoni.salva" [loading]="loading_btn"
                         (myClick)="setFormazione()"></my-button>
+
+
                 </div>
+
 
             </div>
         </div>

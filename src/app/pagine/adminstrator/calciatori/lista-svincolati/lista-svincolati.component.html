@@ -1,5 +1,5 @@
 <div>
-    <span>PUOI INSERIRE O AGGIORNARE L'INTERA LISTA DI CALCIATORI PARTENDO DAL FILE EXCEL</span>
+    <span>PUOI INSERIRE O AGGIORNARE L'INTERA LISTA DI CALCIATORI PARTENDO DAL FILE EXCEL (www.fantacalcio.it/quotazioni-fantacalcio)</span>
 </div>
 <div class="my-flex-between">
 
@@ -9,7 +9,7 @@
             accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
     </label>
     <div class="pt-16 pb-16">
-        <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [disabled]="!rose.length" [label]="'INVIA'"
+        <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [disabled]="!roster" [label]="'INVIA'"
             [confirm]="true" [loading]="loading_btn" (myClick)="onAggiungiCalciatori()"></my-button>
     </div>
 
