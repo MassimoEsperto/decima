@@ -18,14 +18,14 @@ $precednte = $precednte-1;
 $sql  = "INSERT INTO giornate(id_giornata, inizio_giornata,prima_partita ,serie_a,fase_id,is_upgrade) ";
 $sql .= "VALUES ({$giornata},'{$inizio_giornata}','{$prima_partita}',{$serie_a},{$fase},{$is_upgrade});";
 
-$sql  ="UPDATE giornate ";
+$sql .="UPDATE giornate ";
 $sql .="SET ultima_partita='{$inizio_giornata}',fine_giornata='{$inizio_giornata}' ";
 $sql .="WHERE id_giornata = {$precednte} LIMIT 1";
 
 
-if(mysqli_query($con, $sql))
+if ($con->multi_query($sql) === TRUE) 
 {
-     http_response_code(204);
+     echo json_encode(['data'=>'ok']);
 }
 else
 {

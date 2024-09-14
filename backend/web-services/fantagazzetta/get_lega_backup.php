@@ -2,14 +2,14 @@
 
 require_once '../config/connect_local.php';
 
-$lega = $_GET['lega'];
+$lega = 'fittiziainfinita';
 
 if(trim($lega) === '')
 {
     die('valori non prelevati'. mysqli_error($con));
 }
 
-$url_fanta = 'https://leghe.fantacalcio.it/'.$lega.'/area-gioco/rose/index.html' ;
+$url_fanta = 'https://leghe.fantacalcio.it/'.$lega.'/rose/index.html' ;
 
 require_once 'read_sito.php';
 
@@ -18,6 +18,8 @@ if(trim($sito_fanta) === '')
 {
     die('sito irrangiungibile'. mysqli_error($con));
 }
+
+echo json_encode(['sito'=>$sito_fanta]);
 
 
 $partecipanti = 0;
@@ -51,7 +53,7 @@ for($i=2;$i<$arr_length;$i++)
          
          $player = str_replace('">','',$singolo[0]);
          $player = str_replace('&#39;','',$player);
-         $player = str_replace('.','',$player);
+         //$player = str_replace('.','',$player);
          $player = strtoupper($player);
          
          $formazioni[$indice]['lista'][$j-1]=$player;
@@ -62,6 +64,6 @@ for($i=2;$i<$arr_length;$i++)
     }
 }
 
-echo json_encode(['data'=>$formazioni]);
+//echo json_encode(['data'=>$formazioni]);
 
 ?>

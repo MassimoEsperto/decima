@@ -9,7 +9,8 @@ if(trim($lega) === '')
     die('valori non prelevati'. mysqli_error($con));
 }
 
-$url_fanta = 'https://leghe.fantacalcio.it/'.$lega.'/area-gioco/rose/index.html' ;
+//$url_fanta = 'https://leghe.fantacalcio.it/'.$lega.'/area-gioco/rose/index.html' ;
+$url_fanta = 'https://leghe.fantacalcio.it/fittiziainfinita/rose/index.html' ;
 
 require_once 'read_sito.php';
 

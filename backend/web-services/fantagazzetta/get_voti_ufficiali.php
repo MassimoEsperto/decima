@@ -51,7 +51,7 @@ for($i=2;$i<$arr_length;$i++)
          
          $player = str_replace('">','',$singolo[0]);
          $player = str_replace('&#39;','',$player);
-         $player = str_replace('.','',$player);
+         //$player = str_replace('.','',$player);
          $player = strtoupper($player);
          
          $formazioni[$indice]['lista'][$j-1]=$player;

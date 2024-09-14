@@ -57,7 +57,7 @@ else
 foreach($players as $item) 
 {
 
-	$id_calciatore = mysqli_real_escape_string($con, trim($item->id_calciatore));
+	$id_calciatore = mysqli_real_escape_string($con, trim($item->id));
 
 	$sql2 .= "INSERT INTO rose (squadra_id,calciatore_id) VALUES ('{$last_id}','{$id_calciatore}');";
 

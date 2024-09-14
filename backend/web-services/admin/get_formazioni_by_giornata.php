@@ -6,7 +6,7 @@ $giornata = $_GET['giornata'];($_GET['giornata'] !== null && $_GET['giornata'] !
 
 $formazioni_ = [];
 
-$sql_formazioni = "SELECT c.id_calendario,r.luogo,r.squadra_id,l.id_calciatore,l.nickname,l.nome_calciatore,  ";
+$sql_formazioni = "SELECT c.id_calendario,r.luogo,r.squadra_id,l.id_calciatore,l.nickname,l.nome_calciatore,l.ruolo,  ";
 $sql_formazioni .="m.descrizione,m.bonus,s.squadra,f.schieramento,r.id_risultato,r.somma,r.goals,f.voto,u.id_utente  "; 
 $sql_formazioni .="FROM calendario c  ";
 $sql_formazioni .="INNER JOIN risultati r  ON c.id_calendario = r.calendario_id ";
@@ -54,6 +54,7 @@ if($result = mysqli_query($con,$sql_formazioni))
         $formazioni_[$count_c][$row['luogo']]['schieramento'][$ele]['nickname'] = $row['nickname'];
 		$formazioni_[$count_c][$row['luogo']]['schieramento'][$ele]['calciatore'] = $row['nome_calciatore'];
         $formazioni_[$count_c][$row['luogo']]['schieramento'][$ele]['id'] = $row['id_calciatore'];
+        $formazioni_[$count_c][$row['luogo']]['schieramento'][$ele]['ruolo'] = $row['ruolo'];
         $formazioni_[$count_c][$row['luogo']]['schieramento'][$ele]['voto'] = "-";
        /*
        	$formazioni_['lista'][$l]['id_calciatore']=$row['id_calciatore'];

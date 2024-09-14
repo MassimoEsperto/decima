@@ -1,6 +1,7 @@
 <?php
 
 require_once '../config/connect_local.php';
+require_once '../common/turno.php';
 require_once '../config/post_data.php';
 include_once '../config/JWT.php';
 
@@ -80,6 +81,7 @@ if ($result->num_rows > 0)
                             'num_msg' => $element['num_msg'],
                             'squadre' => $element['squadre'],
                             'selezionata' => $element['squadra'],
+                            'fase' => $turno_['fase'],
                             'qta' => $ele,
 							'login_dt' => new DateTime()]);
                             

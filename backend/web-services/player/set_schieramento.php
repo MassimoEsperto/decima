@@ -6,6 +6,7 @@ require_once '../config/post_data.php';
 
 
 $lista = $dati->lista;
+$switchs = $dati->switchs;
 $ele = 1;
     
 $id_risultato = mysqli_real_escape_string($con, (int)$dati->id_risultato);
@@ -24,6 +25,18 @@ foreach($lista as $item)
 $sql .= "UPDATE risultati SET modulo_id = {$id_modulo},is_inserita = 1 ";
 $sql .= "WHERE id_risultato = {$id_risultato} LIMIT 1 ; ";
 
+ //modifica switchs   
+foreach($switchs as $item) 
+{
+	$id_calciatore = mysqli_real_escape_string($con, (int)($item->id));
+    $ordine = mysqli_real_escape_string($con, (int)($item->ordine));
+    
+    $sql .= "UPDATE rose SET ordine = {$ordine} ";
+	$sql .= "WHERE squadra_id = {$id_squadra} AND calciatore_id = {$id_calciatore} ; ";
+    
+}
+
+
 //controllo
 if ($turno_['periodo'] != 1) 
 {
@@ -37,7 +50,7 @@ else
 					 'stato' => $con->affected_rows,
                      'risposta' =>  $sql
 					];
-		echo json_encode(['data'=>$ritono]);
+		echo json_encode(['data'=>'OK']);
 	} 
 	else 
 	{

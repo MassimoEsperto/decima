@@ -32,7 +32,7 @@ if ($result->num_rows > 0)
 }
 
 $sql  ="UPDATE giornate ";
-$sql .="SET inizio_giornata='{$inizio_giornata}',prima_partita='{$prima_partita}',is_upgrade='{$is_upgrade}' ";
+$sql .="SET inizio_giornata='{$inizio_giornata}',prima_partita='{$prima_partita}',is_upgrade='{$is_upgrade}',fase_id='{$fase}' ";
 $sql .="WHERE id_giornata = {$giornata} LIMIT 1 ;";
 
 $sql .="UPDATE giornate ";

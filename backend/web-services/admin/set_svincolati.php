@@ -3,14 +3,33 @@
 require_once '../config/connect_local.php';
 require_once '../config/post_data.php';
 
+$sql="";
+$svincolati = $dati->svincolati;
+$vincolati = $dati->vincolati;
 
-foreach($dati as $item) 
+//inserisce i nuovi
+foreach($svincolati as $item) 
 {
-	$ruolo = mysqli_real_escape_string($con, trim($item->tipo)); 
-    $nome_calciatore = mysqli_real_escape_string($con, trim($item->nome));
+	$ruolo = mysqli_real_escape_string($con, trim($item->ruolo)); 
+    $nome = mysqli_real_escape_string($con, trim($item->nome));
+    $nickname = mysqli_real_escape_string($con, trim($item->nickname));
+    $ico = mysqli_real_escape_string($con, trim($item->icona));
+    $valore = $item->valore;
+    	
+	$sql .= "INSERT INTO `lista_calciatori`(`nome_calciatore`,`nickname`,`ruolo`,`icona`,`valore`) VALUES ";
+	$sql .= "('{$nome}','{$nickname}','{$ruolo}','{$ico}',{$valore}) ; ";
 		
-	$sql .= "INSERT INTO `lista_calciatori`(`nome_calciatore`,`nickname`,`ruolo`) VALUES ('{$nome_calciatore}','{$nome_calciatore}','{$ruolo}');";
-		
+}
+
+//aggiorna esistenti
+foreach($vincolati as $item) 
+{
+	$ruolo = mysqli_real_escape_string($con, trim($item->ruolo)); 
+    $nome = mysqli_real_escape_string($con, trim($item->nome));
+    $valore = $item->valore;
+    	
+    $sql .="UPDATE lista_calciatori SET valore={$valore},ruolo='{$ruolo}'";
+	$sql .="WHERE nome_calciatore='{$nome}' ;";
 }
     
 	

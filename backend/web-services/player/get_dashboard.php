@@ -9,6 +9,7 @@ $match_in_corso;
 $statistiche = [];
 $schieramento = [];
 $percorso = [];
+$switchs = [];
 
 for ($i = 0; $i <= 4; $i++)
 {
@@ -170,6 +171,7 @@ if($turno_['periodo'] != 3)
         $schieramento[$row['luogo']]['squadra'] = $row['squadra'];
         $schieramento[$row['luogo']]['modulo'] = $row['descrizione'];
 		if($row['nickname']!= ''){
+          $schieramento[$row['luogo']]['formazione'][$count]['id_calciatore'] = $row['id_calciatore'];
           $schieramento[$row['luogo']]['formazione'][$count]['nome'] = $row['nickname'];
           $schieramento[$row['luogo']]['formazione'][$count]['calciatore'] = $row['nome_calciatore'];
           $schieramento[$row['luogo']]['formazione'][$count]['ruolo'] = $row['ruolo'];
@@ -187,6 +189,58 @@ if($turno_['periodo'] != 3)
 
   //}
   
+   if($turno_['periodo'] == 1)
+ 	{
+   
+    //switchs questa serve da un altra parte.. in questa parte servesolo tutta la rosa
+    $sql6 = "SELECT l.id_calciatore,l.nome_calciatore,l.nickname,l.ruolo,l.icona ";
+    $sql6 .="FROM rose my ";
+    $sql6 .="INNER JOIN lista_calciatori l on l.id_calciatore = my.calciatore_id  ";
+    $sql6 .="WHERE my.squadra_id={$id_squadra} AND  my.calciatore_id not in  ";
+    $sql6 .="(SELECT f.calciatore_id FROM formazioni f  ";
+    $sql6 .="INNER JOIN risultati r  ON f.risultato_id = r.id_risultato  ";
+    $sql6 .="INNER JOIN calendario c ON c.id_calendario = r.calendario_id AND c.giornata_id = {$turno_['giornata']} ";
+    $sql6 .="AND c.id_calendario IN (SELECT r.calendario_id FROM risultati r WHERE r.squadra_id = {$id_squadra})) ";
+    $sql6 .="ORDER BY l.ruolo DESC ";
+
+    if($result = mysqli_query($con,$sql6))
+    {
+        $ele = 0;
+        while($row = mysqli_fetch_assoc($result))
+        {
+               $switchs[$ele]['id'] = $row['id_calciatore'];
+               $switchs[$ele]['nome'] = $row['nome_calciatore'];
+               $switchs[$ele]['nickname'] = $row['nickname'];
+               $switchs[$ele]['icona'] = $row['icona'];
+               $switchs[$ele]['ruolo'] = $row['ruolo'];  
+               $ele++;
+        }
+        
+        $lent=count($match_in_corso['TRASFERTA']['schieramento']);
+        $lenc=count($match_in_corso['CASA']['schieramento']);
+        $lens=count($switchs);
+        //effettua il cambio
+        for($i=0;$i<$lens;$i++){
+        	$matchs=$switchs[$i];
+        	 for($j=0;$j<$lent;$j++){
+             	$matcht=$match_in_corso['TRASFERTA']['schieramento'][$j];
+                if($matcht['ruolo']==$matchs['ruolo']){
+                  for($x=0;$x<$lenc;$x++){
+                      $matchc=$match_in_corso['CASA']['schieramento'][$x];
+                          if($matchc['id_calciatore']==$matcht['id_calciatore']){
+                              $match_in_corso['TRASFERTA']['schieramento'][$j] = $matchs;
+                          }
+                   }
+                 }
+        	 }
+        }
+        
+    }
+    else
+    {
+        errorMessage('query errata: switchs ');
+    }
+  }
 }
 
 

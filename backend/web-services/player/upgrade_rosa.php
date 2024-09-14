@@ -8,7 +8,7 @@ require_once '../config/post_data.php';
 $lega = mysqli_real_escape_string($con, trim($dati->lega)); 
 
 //aggiungi controllo se è mercato o stiamo all inizio
-if ($turno_['is_upgrade'] != 1) 
+if ($turno_['fase'] > 1) 
 {
 	errorMessage('Non è possibile aggiornare la rosa per questa data!');
 }
@@ -43,7 +43,7 @@ if ($con->multi_query($sql2) === TRUE)
 }
 else
 {
-     errorMessage('query update errata');
+     errorMessage('query update errata' . $sql2);
 }
 		
 ?>
