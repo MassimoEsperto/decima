@@ -46,7 +46,7 @@ export class RecuperoFormazioniComponent {
       in_casa: 1
     }
 
-    this.setFormazione(payload);
+    this.recuperoFormazione(payload);
   }
 
   recuperaFormazioneTrasferta(item: any) {
@@ -59,7 +59,7 @@ export class RecuperoFormazioniComponent {
       in_casa: 0
     }
 
-    this.setFormazione(payload);
+    this.recuperoFormazione(payload);
   }
 
 
@@ -85,11 +85,41 @@ export class RecuperoFormazioniComponent {
   }
 
 
-  setFormazione(payload: any) {
+  recuperoFormazione(payload: any) {
 
     this.loading_btn = true;
 
     this.adminService.recuperoFormazione(payload)
+      .pipe(finalize(() =>
+        this.loading_btn = false
+      ))
+      .subscribe({
+
+        next: (result: any) => {
+          this.formazioniInserite();
+        },
+        error: (error: any) => {
+          this.alert.error(error);
+
+        }
+      })
+
+  }
+
+  isSwitchs(item: any) {
+    let casa = item.CASA.schieramento;
+    let trasf = item.TRASFERTA.schieramento;
+
+    return casa.some((a1: { id: any; }) =>
+      trasf.some((a2: { id: any; }) => a1.id === a2.id));
+  }
+
+
+  updSwitchs(payload: any) {
+
+    this.loading_btn = true;
+
+    this.adminService.setSwitchs(payload)
       .pipe(finalize(() =>
         this.loading_btn = false
       ))

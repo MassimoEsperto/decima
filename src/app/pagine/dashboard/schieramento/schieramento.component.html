@@ -14,7 +14,7 @@
                         <input class="form-check-input" type="checkbox" id="{{'check'+player.id}}" name="{{player}}"
                             [(ngModel)]="rosa[i].selected" [disabled]="!disabledTeam(player) && !player.selected">
                         <label class="form-check-label" for="{{'check'+player.id}}">
-                            {{player.tipo}} {{player.nome}} {{percentuale[player.nome]?percentuale[player.nome]:'0%'}}
+                            {{player.tipo}} {{player.nickname}} {{percentuale[player.nome]?percentuale[player.nome]:'0%'}}
                         </label>
                     </div>
                 </div>
@@ -29,16 +29,9 @@
         <div class="pt-16 pb-16">
             <div class="card">
                 <div class="card-header">
-                    <div style="color: red">{{language.label.page.indisponibili}} :</div>
+                    <span>* A rischio sostituzione</span>
                 </div>
-                <div class="card-body">
-                    <div class="form-check" *ngFor="let item of formazione.indisponibili">
-                        <input class="form-check-input" type="checkbox" value="" [id]="item.nome" disabled>
-                        <label class="form-check-label" [for]="item.nome">
-                            {{item.tipo}} {{item.nome}}
-                        </label>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>

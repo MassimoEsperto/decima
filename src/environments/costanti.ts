@@ -36,7 +36,8 @@ export const ADMIN_SERVICE = {
   DEL_ACCOPPIAMENTO: "del_accoppiamento",
   DEL_OBJECT_BY_ID: "del_object_by_id",
   GET_ALL_OBJECTS: "get_all_objects",
-  UPD_CALCIATORE: "upd_calciatore"
+  UPD_CALCIATORE: "upd_calciatore",
+  SET_SWITCHS: "set_switchs",
 
 }
 

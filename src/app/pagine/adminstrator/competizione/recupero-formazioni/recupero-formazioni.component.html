@@ -59,6 +59,12 @@
                                 <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [label]="'RECUPERA'"
                                     [loading]="loading_btn" (myClick)="recuperaFormazioneTrasferta(item)"
                                     [disabled]="item.TRASFERTA.schieramento.length==5"></my-button>
+
+                            </div>
+                            <div class="pt-8">
+                                <my-button [submit]="false" [color]="'btn-primary'" [block]="false" [label]="'SWITCHS'"
+                                    [loading]="loading_btn" (myClick)="updSwitchs(item)"
+                                    [disabled]="!isSwitchs(item)"></my-button>
                             </div>
                         </div>
                     </div>
