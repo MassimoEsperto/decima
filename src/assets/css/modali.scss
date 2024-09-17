@@ -13,7 +13,9 @@
 }
 
 .modal-fullscreen .modal-content {
-    background: #912dd2;
+    background-image: $sfondo-shit;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: gainsboro;
 }
 
