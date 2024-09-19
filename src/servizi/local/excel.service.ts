@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Calciatore, Roster } from 'src/app/classi/calciatore';
 import * as XLSX from 'xlsx';
 
+const ruoli_consentiti: Array<string> = ["P", "C", "D", "A", "C", "D", "Por", "Ds", "Dc", "Dd", "B", "E", "M", "C", "W", "T", "A", "Pc"];
+
 @Injectable({
   providedIn: 'root'
 })
 export class ExcelService {
 
   constructor() { }
-
 
   //recupero valori da xls
   async getWorkbookFromFile(excelFile: File) {
@@ -121,7 +122,6 @@ export class ExcelService {
 
     var arraylist: any = XLSX.utils.sheet_to_json(worksheet, { raw: true, defval: null });
 
-
     filelist.lega = arraylist[0][_EMPTY_0].replace("https://leghe.fantacalcio.it/", "").replace("'", "").trim()
 
     let team_S: string = "";
@@ -133,7 +133,7 @@ export class ExcelService {
       let ruolo_S: string = element[_EMPTY_0] ? element[_EMPTY_0].toString().trim() : "";
       let ruolo_D: string = element['__EMPTY_4'] ? element['__EMPTY_4'].toString().trim() : "";
 
-      if (ruolo_S && ruolo_S.length < 2) {
+      if (this.isRuolo(ruolo_S)) {
         team_S = team_S ? team_S : arraylist[i - 2][_EMPTY_0].replace("'", "").trim()
 
         let nome_calciatore = element['__EMPTY'].replace("'", "").trim()
@@ -162,7 +162,7 @@ export class ExcelService {
         }
       }
 
-      if (ruolo_D && ruolo_D.length < 2) {
+      if (this.isRuolo(ruolo_D)) {
         team_D = team_D ? team_D : arraylist[i - 2]['__EMPTY_4'].replace("'", "").trim()
 
         let nome_calciatore = element['__EMPTY_5'].replace("'", "").trim()
@@ -195,5 +195,12 @@ export class ExcelService {
     return filelist;
   }
 
+  isRuolo(item: string): boolean {
+
+    let ele = item.split(";")[0]
+
+    return ruoli_consentiti.some(x => x == ele)
+
+  }
 
 }
