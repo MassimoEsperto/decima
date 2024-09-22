@@ -34,11 +34,11 @@ export class RecPassComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onRecPass(utente: any) {
+  onRecPass(item: any) {
 
     this.loading_btn = true
 
-    this.auth.recuperaPassword(utente.id)
+    this.auth.recuperaPassword(item.utente)
       .pipe(finalize(() =>
         this.loading_btn = false
       ))

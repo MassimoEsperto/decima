@@ -5,58 +5,23 @@
   <div class="card">
 
     <div class="card-body">
-
-      <div class="display-center pt-16">
-        <!-- table -->
-        <div class="table-responsive">
-
-          <table class="table table-striped">
-            <thead class="table-dark">
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">USERNAME</th>
-                <th scope="col">RUOLO</th>
-                <th scope="col">SQUADRA</th>
-                <th scope="col">STATO</th>
-                <th scope="col">UPD</th>
-                <th scope="col">DEL</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let ele of administrator.squadre; let id = index">
-                <th scope="row">
-                  <span>{{ele.id_utente}}</span>
-                </th>
-                <td>
-                  <span>{{ele.username}}</span>
-                </td>
-                <td>
-                  <span>{{ele.ruolo}}</span>
-                </td>
-                <td>
-                  <span>{{ele.squadra}}</span>
-                </td>
-                <td>
-                  <span>{{ele.stato}}</span>
-                </td>
-                <td>
-                  <div (click)="onUpdate(ele)" class="text-center cursore" data-bs-toggle="modal"
-                    data-bs-target="#updUtenteModal">
-                    <i class="bi bi-pencil-fill table_icon"></i>
-                  </div>
-                </td>
-                <td>
-                  <span>
-                    <i class="bi bi-trash-fill cursore table_icon" (click)="onDelete(ele)" data-bs-toggle="modal"
-                      data-bs-target="#confirmModal"></i>
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
+      <nav>
+        <div class="nav nav-tabs" role="tablist">
+          <button *ngFor="let ele of PAGE.UTENTI.VIEW_POSSIBILI" (click)="PAGE.VIEW=ele.id"
+            class="nav-link">{{ele.descrizione}}</button>
         </div>
+      </nav>
 
+      <div class="tab-content">
+        <div class="pt-16 pb-16">
+
+          <lista-registro *ngIf="PAGE.VIEW == PAGE.UTENTI.SQUADRE" [squadre]="administrator.squadre"
+            (update)="onUpdate($event)" (delete)="onDelete($event)"></lista-registro>
+          <lista-account *ngIf="PAGE.VIEW == PAGE.UTENTI.ACCOUNT" [utenti]="administrator.utenti"></lista-account>
+          <div *ngIf="PAGE.VIEW == PAGE.UTENTI.RESOCONTO">RESOCONTO</div>
+        </div>
       </div>
     </div>
+
   </div>
+</div>

@@ -137,7 +137,17 @@ export const SUB_PAGE_ADMIN = {
       { id: 1, descrizione: "SCRIVI" },
       { id: 2, descrizione: "INVIA" }
     ]
-  }
+  },
+  UTENTI: {
+    SQUADRE: 1,
+    ACCOUNT: 2,
+    RESOCONTO: 3,
+    VIEW_POSSIBILI: [
+      { id: 1, descrizione: "SQUADRE" },
+      { id: 2, descrizione: "ACCOUNT" },
+      { id: 3, descrizione: "RESOCONTO" }
+    ]
+  },
 
 }
 
