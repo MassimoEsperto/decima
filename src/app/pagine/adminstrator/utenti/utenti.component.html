@@ -18,7 +18,23 @@
           <lista-registro *ngIf="PAGE.VIEW == PAGE.UTENTI.SQUADRE" [squadre]="administrator.squadre"
             (update)="onUpdate($event)" (delete)="onDelete($event)"></lista-registro>
           <lista-account *ngIf="PAGE.VIEW == PAGE.UTENTI.ACCOUNT" [utenti]="administrator.utenti"></lista-account>
-          <div *ngIf="PAGE.VIEW == PAGE.UTENTI.RESOCONTO">RESOCONTO</div>
+          <div *ngIf="PAGE.VIEW == PAGE.UTENTI.RESOCONTO">
+
+            <div class="card">
+              <div class="card-header">RESOCONTO UTENTI</div>
+              <div class="card-body">
+
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">TOTALE ISCRITTI: {{resoconto.iscritti}}</li>
+                  <li *ngFor="let item of resoconto.quantita" class="list-group-item">
+                    {{item.utenti}} UTENTI CON {{item.squadre}} SQUADRE
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

@@ -28,6 +28,7 @@ import { ListaAccountComponent } from './lista-account/lista-account.component';
 export class UtentiComponent implements OnInit {
 
   administrator: any;
+  resoconto: any;
 
   info = {
     titolo: "GESTIONE UTENTI",
@@ -83,6 +84,8 @@ export class UtentiComponent implements OnInit {
 
         next: (result: any) => {
           this.administrator = result
+          this.resoconto = result.resoconto
+          console.log("resoconto",this.resoconto)
           this.OnSetCombo()
         },
         error: (error: any) => {
