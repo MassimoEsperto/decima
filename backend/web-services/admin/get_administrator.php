@@ -8,6 +8,7 @@ require_once '../common/giornate.php';
 require_once '../common/rose.php';
 require_once '../common/formazioni.php';
 require_once '../common/squadre.php';
+require_once '../common/resoconto.php';
     
 //dichiarazione variabili	
 $calcolato=[];
@@ -48,11 +49,8 @@ else
 
 
 
-
-
-
 //risultato
-
+$resoconto_['compilate'] = count($squadre_);
 $myObj->comunicazioni = $oggetti_['comunicazioni ORDER BY id_comunicazione DESC'];
 $myObj->utenti = $utenti_;
 $myObj->lista_calciatori = $oggetti_['lista_calciatori order by nome_calciatore'];
@@ -63,6 +61,7 @@ $myObj->giornate = $giornate_;
 $myObj->ruoli = $oggetti_['ruoli'];
 $myObj->stati_squadre = $oggetti_['stati_squadre'];
 $myObj->squadre = $squadre_;
+$myObj->resoconto = $resoconto_;
 
 
 $totObj=['data'=>$myObj];

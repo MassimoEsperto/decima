@@ -11,7 +11,7 @@ import { RuoliUtente } from 'src/environments/enums';
 })
 export class ListaAccountComponent {
 
-  @Input() utenti: any;
+  @Input() utenti: any[]=[];
 
 
   RUOLI_UTENTE = RuoliUtente;

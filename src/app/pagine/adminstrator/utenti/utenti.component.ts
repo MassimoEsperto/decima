@@ -85,7 +85,6 @@ export class UtentiComponent implements OnInit {
         next: (result: any) => {
           this.administrator = result
           this.resoconto = result.resoconto
-          console.log("resoconto",this.resoconto)
           this.OnSetCombo()
         },
         error: (error: any) => {
@@ -102,8 +101,7 @@ export class UtentiComponent implements OnInit {
 
     this.confirmDialog.confirmThis("Sei sicuro di voler eliminare la squadra " + ele.squadra + " ?", () => {
 
-      console.log("delete ", payload)
-      //this.deleteSquadra(payload)
+     this.deleteSquadra(payload)
     })
   }
 

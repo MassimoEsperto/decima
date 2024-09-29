@@ -1,53 +1,51 @@
 <div class="display-center pt-16">
-    <!-- table -->
-    <div class="table-responsive">
+  <!-- table -->
+  <div class="table-responsive">
 
-      <table class="table table-striped">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">ID</th>
-            <th scope="col">USERNAME</th>
-            <th scope="col">RUOLO</th>
-            <th scope="col">TEAMS</th>
-            <th scope="col">UPD</th>
-            <th scope="col">DEL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let ele of utenti; let id = index">
-            <th scope="row">
-              <span>{{id+1}}</span>
-            </th>
-            <td>
-              <span>{{ele.id}}</span>
-            </td>
-            <td>
-                <span>{{ele.username}}</span>
-              </td>
-            <td>
-              <span>{{viewRuolo(ele.ruolo)}}</span>
-            </td>
-            <td>
-              <span>{{ele.qta}}</span>
-            </td>
-          
-            <td>
-              <div  class="text-center cursore" data-bs-toggle="modal"
-                data-bs-target="#updUtenteModal">
-                <i class="bi bi-pencil-fill table_icon"></i>
-              </div>
-            </td>
-            <td>
-              <span>
-                <i class="bi bi-trash-fill cursore table_icon"  data-bs-toggle="modal"
-                  data-bs-target="#confirmModal"></i>
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <table class="table table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">ID</th>
+          <th scope="col">USERNAME</th>
+          <th scope="col">RUOLO</th>
+          <th scope="col">TEAMS</th>
+          <th scope="col">UPD</th>
+          <th scope="col">DEL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ele of utenti; let id = index">
+          <th scope="row">
+            <span>{{id+1}}</span>
+          </th>
+          <td>
+            <span>{{ele.id}}</span>
+          </td>
+          <td>
+            <span>{{ele.username}}</span>
+          </td>
+          <td>
+            <span>{{viewRuolo(ele.ruolo)}}</span>
+          </td>
+          <td>
+            <span>{{ele.qta}}</span>
+          </td>
 
-    </div>
+          <td>
+            <div class="text-center cursore" data-bs-toggle="modal">
+              <i class="bi bi-pencil-fill table_icon"></i>
+            </div>
+          </td>
+          <td>
+            <span>
+              <i class="bi bi-trash-fill cursore table_icon" data-bs-toggle="modal"></i>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
+
+</div>

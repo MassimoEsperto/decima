@@ -25,7 +25,7 @@ for($i=1;$i<$arr_length;$i++)
     	$player = ltrim($player, ' ');
         $player = str_replace('</span>','',$player);
     	$player = str_replace('<span>','',$player);
-        $player = strtoupper($player);
+        //$player = strtoupper($player);
         
        	$valore= explode("aria-valuemin", $singolo_tmp[1]);
         $percentuale = trim($valore[0]);

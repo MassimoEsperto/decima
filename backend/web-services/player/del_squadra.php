@@ -6,7 +6,7 @@ require_once '../config/post_data.php';
 
 $id_squadra_del = mysqli_real_escape_string($con, trim($dati->id)); 
 
-$count ="count(*) FROM risultati r WHERE r.squadra_id = {$id_squadra_del} ";
+$count ="SELECT count(*) FROM risultati r WHERE r.squadra_id = {$id_squadra_del} ";
 
 $result = mysqli_query( $con , $count );
 

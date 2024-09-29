@@ -8,7 +8,7 @@ $leghe = [];
 $sql  ="SELECT l.nome,l.account,l.calciatore_id,c.nome_calciatore,c.ruolo ";
 $sql .="FROM leghe l ";
 $sql .="LEFT JOIN lista_calciatori c on c.id_calciatore = l.calciatore_id ";
-$sql .="ORDER BY l.nome,l.account ";
+$sql .="ORDER BY l.nome,l.account,c.ruolo desc  ";
 
 
 

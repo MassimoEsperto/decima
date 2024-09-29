@@ -8,15 +8,15 @@ require_once '../common/all_objects.php';
 //variabili
 $squadre_utente = [];
 $squadre_fanta = [];
-$sel_l = "(";
-$sel_a = "(";
+$sel_l = "(''";
+$sel_a = "(''";
 
 $sql1 = "SELECT id_squadra,squadra,account,lega,stato_id,tipo FROM squadre WHERE utente_id = {$id_utente} ";
 
 if($result = mysqli_query($con,$sql1))
 {
 	$ele = 0;		
-    $sep = "";
+    $sep = ",";
 	while($row = mysqli_fetch_assoc($result))
 	{
 		
@@ -32,12 +32,12 @@ if($result = mysqli_query($con,$sql1))
           
           $sel_a .=$sep . "'" . $row['account'] . "'";
           $sel_l .=$sep . "'" . $row['lega'] . "'";
-          $sep = ",";
+          //$sep = ",";
 	}
 }
 else
 {
-    errorMessage('query errata: squadre ');
+    errorMessage('query errata: squadre ' . $sql1);
 }
 
 $sel_a .=")";
@@ -47,7 +47,7 @@ $sql2  ="SELECT l.nome,l.account,l.calciatore_id,c.nome_calciatore,c.ruolo ";
 $sql2 .="FROM leghe l ";
 $sql2 .="LEFT JOIN lista_calciatori c on c.id_calciatore = l.calciatore_id ";
 $sql2 .="WHERE l.nome in {$sel_l} AND l.account in {$sel_a} ";
-$sql2 .="ORDER BY l.nome,l.account ";
+$sql2 .="ORDER BY l.nome,l.account,c.ruolo desc ";
 
 if($result = mysqli_query($con,$sql2))
 {
@@ -67,7 +67,7 @@ if($result = mysqli_query($con,$sql2))
 }
 else
 {
-    errorMessage('query errata: squadre ');
+    errorMessage('query errata: calciatori attuali');
 }
 
 

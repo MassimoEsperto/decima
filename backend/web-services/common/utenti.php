@@ -7,7 +7,7 @@ $utenti_ = [];
 //all utenti
 $sql_utenti = "SELECT id_utente,username,email,language,ruolo_id, ";
 $sql_utenti .="(SELECT COUNT(*) FROM squadre WHERE utente_id=id_utente) AS qta ";
-$sql_utenti .="FROM utenti ";
+$sql_utenti .="FROM utenti ORDER BY ruolo_id DESC,qta DESC";
 
 
 if($result = mysqli_query($con,$sql_utenti))

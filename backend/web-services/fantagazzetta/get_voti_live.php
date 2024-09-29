@@ -7,14 +7,16 @@ $player='';
 $voto=4;
 
 $response =  file_get_contents('https://www.fantacalcio.it/voti-fantacalcio-serie-a');
-$page = explode('target="_self">', $response);
- 
+//$page = explode('target="_self">', $response);
+ //$html = explode('player-name player-link', $response);
+ $page = explode('player-name player-link', $response);
 $arr_length = count($page);
 
 
 for($i=1;$i<$arr_length;$i++)
 {
-  	$player_tmp = explode("</a>", $page[$i]);
+  	$section = explode('target="_self">', $page[$i]);
+    $player_tmp = explode("</a>", $section[1]);
    
     $player = preg_replace('/\n+/', '', $player_tmp[0]);
      //$player = preg_replace('/\s+/', '', $player);
@@ -25,7 +27,7 @@ for($i=1;$i<$arr_length;$i++)
     $player = ltrim($player, ' ');
     $player = str_replace('</span>','',$player);
     $player = str_replace('<span>','',$player);
-    $player = strtoupper($player);
+    //$player = strtoupper($player);
     
  // echo $player;
    

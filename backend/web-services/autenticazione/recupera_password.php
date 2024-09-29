@@ -2,15 +2,15 @@
 
 require_once '../config/connect_local.php';
 
-$id_utente = $_GET['id_utente'];($_GET['id_utente'] !== null && $_GET['id_utente'] !== '')? mysqli_real_escape_string($con, $_GET['id_utente']) : false;
+$id_utente = $_GET['id_utente'];
 
 $email='';
 $pass='';
 
  // Validate.
-if(trim($id_utente) === '')
+if(trim($id_utente) === '' || $id_utente === 'undefined')
 {
-    die('valori non prelevati'. mysqli_error($con));
+    errorMessage('Valori non prelevati!');
 }
   
   
@@ -28,7 +28,7 @@ $result = mysqli_query( $con , $sql );
 
 if(!$result) 
 {
-        die('query failed'. mysqli_error($con));
+         errorMessage('Utente inesistente!');
 }
 else
 {
@@ -64,16 +64,13 @@ else
 	{
     	try {  			
                 mail($email,$subject,$message,$headers);
+                echo json_encode(['data'=>'ok']);
 		} catch (Exception $e) {
-                header("HTTP/1.1 500 Internal Server Error");
-                header('Content-Type: application/json; charset=UTF-8');
-                die(json_encode(array('message' => $e->getMessage(), 'code' => 400)));
+                errorMessage($e->getMessage());
 		}
     	       
 	}else{
-    			header("HTTP/1.1 500 Internal Server Error");
-                header('Content-Type: application/json; charset=UTF-8');
-                die(json_encode(array('message' => 'Query errata!', 'code' => 400)));
+                errorMessage('Utente inesistente!');
     }
 	
 	

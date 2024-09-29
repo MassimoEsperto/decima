@@ -26,6 +26,8 @@
 
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">TOTALE ISCRITTI: {{resoconto.iscritti}}</li>
+                  <li class="list-group-item">TOTALE SQUADRE: {{resoconto.compilate}}</li>
+                  <li class="list-group-item">PAGANTI: {{resoconto.paganti}}</li>
                   <li *ngFor="let item of resoconto.quantita" class="list-group-item">
                     {{item.utenti}} UTENTI CON {{item.squadre}} SQUADRE
                   </li>
