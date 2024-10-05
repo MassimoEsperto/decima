@@ -39,6 +39,7 @@
         "sfoglia_risultati": "PARCOURIR RESULTATS",
         "fasi": {
             "gironi": "GROUPES",
+            "iscizione": "ISCRIZIONE",
             "spareggi": "TIRAGES",
             "ottavi": "HUITIEME",
             "quarti": "TRIMESTRE",
@@ -87,7 +88,7 @@
         "aggiungi_squadra": "AJOUTER ÉQUIPE",
         "cambia": "CHANGER",
         "carica_squadra": "CHARGER FANTASY TEAM",
-        "crea_squadra": "CREATE TEAM FROM SCRATCH"
+        "crea_squadra": "CREATE TEAM FROM PLANK"
     },
     "pannello": {
         "admin": "ADMIN",

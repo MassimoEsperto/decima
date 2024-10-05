@@ -19,7 +19,9 @@ export class UtilService {
   getFasi(input: number) {
 
     switch (Number(input)) {
-      case this.FASE_COMPETIZIONE.GIRONI:
+      case this.FASE_COMPETIZIONE.ISCRIZIONE:
+        return this.language.label.page.fasi.iscizione
+        case this.FASE_COMPETIZIONE.GIRONI:
         return this.language.label.page.fasi.gironi
       case this.FASE_COMPETIZIONE.SPAREGGI:
         return this.language.label.page.fasi.spareggi

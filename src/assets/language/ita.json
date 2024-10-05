@@ -39,6 +39,7 @@
         "sfoglia_risultati": "SFOGLIA RISULTATI",
         "fasi": {
             "gironi": "GIRONI",
+            "iscizione": "ISCRIZIONE",
             "spareggi": "SPAREGGI",
             "ottavi": "OTTAVI",
             "quarti": "QUARTI",
@@ -87,7 +88,7 @@
         "aggiungi_squadra": "AGGIUNGI SQUADRA",
         "cambia": "CAMBIA",
         "carica_squadra": "CARICA SQUADRA DA FANTACALCIO",
-        "crea_squadra": "CREA SQUADRA DA ZERO"
+        "crea_squadra": "CREA SQUADRA DA LISTONE"
     },
     "pannello": {
         "admin": "ADMIN",

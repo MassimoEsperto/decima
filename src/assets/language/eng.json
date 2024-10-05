@@ -39,6 +39,7 @@
         "sfoglia_risultati": "BROWSE RESULTS",
         "fasi": {
             "gironi": "GROUPS",
+            "iscizione": "ISCRIZIONE",
             "spareggi": "SHOOTS",
             "ottavi": "EIGHTH",
             "quarti": "QUARTER",
@@ -72,7 +73,7 @@
         "aggiungi_squadra": "ADD TEAM",
         "cambia": "CHANGE",
         "carica_squadra": "LOAD FANTASY TEAM",
-        "crea_squadra": "CREATE TEAM FROM SCRATCH"
+        "crea_squadra": "CREATE TEAM FROM PLANK"
     },
     "alert": {
         "success": "Incredible It Worked!",
