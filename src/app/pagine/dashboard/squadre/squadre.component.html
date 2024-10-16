@@ -36,7 +36,9 @@
                     <br>
 
                     <div *ngFor="let ele of item.lista;let i = index">
-                        {{i+1}} {{ele.ruolo}} {{ele.calciatore}}
+                        <label class="numero">{{i+1}}</label>
+                        <img src="assets/caricature/{{ele.icona}}.png" class="avatar" width="20px" />
+                         {{ele.ruolo}} {{ele.calciatore}}
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
 import { PlayerService } from 'src/servizi/client/player.service';
@@ -18,7 +18,7 @@ import { SpinnerService } from 'src/servizi/local/spinner.service';
   templateUrl: './squadre.component.html',
   styleUrl: './squadre.component.scss'
 })
-export class SquadreComponent implements OnInit {
+export class SquadreComponent implements AfterViewInit,OnInit {
 
   rose: any;
 
@@ -28,13 +28,16 @@ export class SquadreComponent implements OnInit {
     public language: LanguageService,
     public spinner: SpinnerService) {
   }
+  ngOnInit(): void {
+    this.spinner.view();
+  }
+  ngAfterViewInit(): void {
+    this.getSquadre();
+  }
 
-  ngOnInit(): void { this.getSquadre() }
-
+  
 
   getSquadre() {
-
-    this.spinner.view();
 
     this.playerService.getListaRose()
       .pipe(finalize(() =>

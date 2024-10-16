@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { finalize } from 'rxjs';
 import { AdminService } from 'src/servizi/client/admin.service';
 import { PlayerService } from 'src/servizi/client/player.service';
 import { AlertService } from 'src/servizi/local/alert.service';
@@ -45,6 +44,7 @@ export class SostituisciCalciatoreComponent {
 
         next: (result: any) => {
           this.listaRoseUtenti = result;
+          this.loading_btn = false;
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -57,10 +57,6 @@ export class SostituisciCalciatoreComponent {
   sostituisciCalciatore(payload: any) {
 
     this.adminService.sostituisciCalciatore(payload)
-      .pipe(finalize(() => {
-        this.loading_btn = false;
-      }
-      ))
       .subscribe({
 
         next: (result: any) => {
@@ -77,6 +73,8 @@ export class SostituisciCalciatoreComponent {
 
 
   onSostituisci(element: any) {
+
+    this.loading_btn = true;
 
     let payload = {
       id_squadra: element.utente.id_squadra,
