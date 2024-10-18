@@ -43,31 +43,45 @@ export class FormSwitchs {
 
     if (index === 0) {
       console.log('do nothing')
+      return
     }
-    else {
-      let temp = this.data[index - 1];
-      this.data[index - 1] = this.data[index];
-      this.data[index] = temp;
 
-      this.data[index - 1].ordine = index;
-      this.data[index].ordine = index + 1;
+    if (this.data[index].tipo != this.data[index - 1].tipo) {
+      console.log('ruoli differenti')
+      return
     }
+
+
+    let temp = this.data[index - 1];
+    this.data[index - 1] = this.data[index];
+    this.data[index] = temp;
+
+    this.data[index - 1].ordine = index;
+    this.data[index].ordine = index + 1;
+
 
   }
 
   goDown(index: number) {
 
-    if (index == this.data.length) {
+    if (index + 1 == this.data.length) {
       console.log('do nothing')
+      return
     }
-    else {
-      const temp = this.data[index + 1];
-      this.data[index + 1] = this.data[index];
-      this.data[index] = temp;
 
-      this.data[index + 1].ordine = index + 2;
-      this.data[index].ordine = index + 1;
+    if (this.data[index].tipo != this.data[index + 1].tipo) {
+      console.log('ruoli differenti')
+      return
     }
+
+
+    const temp = this.data[index + 1];
+    this.data[index + 1] = this.data[index];
+    this.data[index] = temp;
+
+    this.data[index + 1].ordine = index + 2;
+    this.data[index].ordine = index + 1;
+
 
   }
 
