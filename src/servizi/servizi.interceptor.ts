@@ -11,7 +11,7 @@ export const serviziInterceptor: HttpInterceptorFn = (req, next) => {
   let token = utente.token
   //console.log("req.headers",req)
   if (req.headers.get('No-Auth') == 'True') {
-    console.log("no autttttt")
+    console.log("no auth")
     return next(req);
   }
 

@@ -63,6 +63,7 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
   percentuale: any;
   squadra: any = [];
   schieramento: boolean = true;
+  is_casa: boolean = true;
   moduli: any = [];
   modulo: any;
 
@@ -119,6 +120,7 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
         next: (result: any) => {
 
           this.formazione = result
+          this.is_casa = result.luogo == "CASA"
           this.squadra = result.schierata
           this.moduli = result.moduli
           this.aggiornaModulo()

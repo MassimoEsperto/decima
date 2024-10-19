@@ -98,7 +98,7 @@
                     <p style="color: white;margin-bottom:0">{{language.label.page.punti_bonus}} : {{modulo.bonus}}</p>
                 </div>
 
-                <div class="pt-16 pb-16">
+                <div *ngIf="!is_casa" class="pt-16 pb-16">
 
                     <my-button [color]="'btn-secondary'" [block]="true" data-bs-toggle="modal"
                         data-bs-target="#updSwitchsModal" [label]="'SWITCHS'"></my-button>
