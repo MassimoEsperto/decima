@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { Squadra } from 'src/app/classi/squadra';
 import { Utente } from 'src/app/classi/utente';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
+import { PAGE } from 'src/environments/costanti';
 import { AuthService } from 'src/servizi/client/auth.service';
 import { PlayerService } from 'src/servizi/client/player.service';
 import { AlertService } from 'src/servizi/local/alert.service';
@@ -32,6 +34,7 @@ export class InfoUtenteComponent extends OnInitComp implements OnInit {
     private playerService: PlayerService,
     private authService: AuthService,
     private alert: AlertService,
+    private router: Router,
     public language: LanguageService,
     public spinner: SpinnerService) {
     super();
@@ -50,7 +53,7 @@ export class InfoUtenteComponent extends OnInitComp implements OnInit {
   ngOnInit() {
 
     this.loggato = this.playerService.getLoggato();
-  
+
     this.id_selected = this.loggato.selezionata ? this.loggato.selezionata.id_squadra : 0
 
     this.getAvatars()
@@ -93,9 +96,9 @@ export class InfoUtenteComponent extends OnInitComp implements OnInit {
 
   onChangeTeam(id_element: number) {
 
-    if (this.loggato.squadre && this.loggato.squadre.length>0) {
- 
-      let selezionata:any = this.loggato.squadre.find(x => x.id_squadra == id_element)
+    if (this.loggato.squadre && this.loggato.squadre.length > 0) {
+
+      let selezionata: any = this.loggato.squadre.find(x => x.id_squadra == id_element)
       this.changeTeam(selezionata)
 
     }
@@ -113,7 +116,8 @@ export class InfoUtenteComponent extends OnInitComp implements OnInit {
 
           this.authService.setTokenDecoded(result);
           this.alert.success(this.language.label.alert.success);
-          this.authService.refreshPage();
+          //this.authService.refreshPage();
+          this.authService.refreshAndNav(this.router, PAGE.DASHBOARD.ABSOLUTE.HOME);
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -128,18 +132,18 @@ export class InfoUtenteComponent extends OnInitComp implements OnInit {
 
     this.loading_btn = true;
     let utente: Utente = this.playerService.getLoggato();
-    if(utente.selezionata && this.loggato.selezionata)
-    utente.selezionata.id_avatar = this.loggato.selezionata.id_avatar
+    if (utente.selezionata && this.loggato.selezionata)
+      utente.selezionata.id_avatar = this.loggato.selezionata.id_avatar
     this.playerService.updateUtente(utente)
       .pipe(finalize(() => this.loading_btn = false))
       .subscribe({
         next: (result: any) => {
 
-          let token:any = this.playerService.getLocalStorageParse();
+          let token: any = this.playerService.getLocalStorageParse();
           token.selezionata = this.loggato.selezionata
           this.authService.setToken(token);
           this.alert.success(this.language.label.alert.success);
-          this.authService.refreshPage();
+          //this.authService.refreshPage();
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -158,7 +162,7 @@ export class InfoUtenteComponent extends OnInitComp implements OnInit {
       .subscribe({
         next: (result: any) => {
 
-          let token:any = this.playerService.getLocalStorageParse();
+          let token: any = this.playerService.getLocalStorageParse();
           token.username = element.username;
           token.email = element.email;
           token.cellulare = element.cellulare;

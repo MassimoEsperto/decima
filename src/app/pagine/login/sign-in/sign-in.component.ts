@@ -51,9 +51,11 @@ export class SignInComponent implements OnInit {
 
           } else {
             if (num_msg > 0)
-              this.navigate(PAGE.DASHBOARD.ABSOLUTE.COMUNICAZIONI);
+              this.router.navigate([PAGE.DASHBOARD.ABSOLUTE.COMUNICAZIONI]);
+
             else
-              this.navigate(PAGE.DASHBOARD.ABSOLUTE.HOME);
+              this.router.navigate([PAGE.DASHBOARD.ABSOLUTE.HOME]);
+
 
           }
         },
@@ -63,6 +65,8 @@ export class SignInComponent implements OnInit {
       })
 
   }
+
+
 
   navigate(path: string) {
     this.router.navigate([path])

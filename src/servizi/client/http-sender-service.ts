@@ -1,4 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http'
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { map } from 'rxjs'
 import { Utente } from 'src/app/classi/utente';
@@ -78,6 +79,16 @@ export class HttpSenderService {
   refreshPage() {
     window.location.reload();
   }
+
+
+  refreshAndNav(router: Router, path: string) {
+
+    window.location.replace("#/" + path);
+    window.location.reload();
+
+  }
+
+
 
   versione() {
     return SHIT_VERSION
