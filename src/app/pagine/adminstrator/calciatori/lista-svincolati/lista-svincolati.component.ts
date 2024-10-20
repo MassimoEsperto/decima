@@ -36,7 +36,7 @@ export class ListaSvincolatiComponent implements OnInit {
     file = event.target.files[0];
 
     this.roster = await this.excelService.getSvincolatiFromFile(file, this.lista_attuale)
-console.log("this.roster",this.roster)
+
   }
 
 
