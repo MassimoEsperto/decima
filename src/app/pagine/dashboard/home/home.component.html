@@ -5,6 +5,17 @@
       <my-titolo [title]="dash.turno.giornata+'° '+ language.label.page.giornata"></my-titolo>
     </div>
 
+    <div *ngIf="isDebitore">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <h4 class="alert-heading">Attenzione!</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <p>Analizzando il tuo profilo non ci risulta ancora versata la tua modestissima quota di iscrizione.</p>
+        <p>Ti ricordiamo di saldare il debito prima possibile.</p>
+        <hr>
+        <p class="mb-0">Lo Staff ShitCup</p>
+      </div>
+    </div>
+
     <my-logo></my-logo>
 
     <div [ngSwitch]="this.dash.turno.periodo">

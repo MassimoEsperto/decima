@@ -43,7 +43,7 @@ export class ExcelService {
 
     for (let element of arraylist) {
       if (element.__EMPTY) {
-        let nome: string = element['__EMPTY'].toLocaleUpperCase().replace("'", "").trim()
+        let nome: string = element['__EMPTY'].replace("'", "").trim()
         let voto: number = element['__EMPTY_3'] != '-' ? Number(element['__EMPTY_3'].toString().trim()) : 4
         let ruolo: string = element[_EMPTY_0].toString().trim()
 
@@ -56,7 +56,7 @@ export class ExcelService {
       }
 
       if (element.__EMPTY_6) {
-        let nome: string = element['__EMPTY_6'].toLocaleUpperCase().replace("'", "").trim()
+        let nome: string = element['__EMPTY_6'].replace("'", "").trim()
         let voto: number = element['__EMPTY_9'] != '-' ? Number(element['__EMPTY_9'].toString().trim()) : 4
         let ruolo: string = element['__EMPTY_5'].toString().trim()
 

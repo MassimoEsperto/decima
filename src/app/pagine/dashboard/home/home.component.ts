@@ -30,10 +30,11 @@ import { MyLogo } from 'src/app/componenti/my-logo/my-logo.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent extends OnInitComp implements OnInit, AfterContentInit {
+export class HomeComponent extends OnInitComp implements OnInit {
 
   dash: any;
   loggato: Utente = new Utente();
+  isDebitore: boolean = false
 
   constructor(
     private playerService: PlayerService,
@@ -45,11 +46,8 @@ export class HomeComponent extends OnInitComp implements OnInit, AfterContentIni
 
   ngOnInit() {
     this.spinner.view();
-  }
-
-  //aggiunto per il reload
-  ngAfterContentInit() {
     this.loggato = this.playerService.getLoggato();
+    this.isDebitore = this.loggato.selezionata && this.loggato.selezionata?.stato < 3 ? true : false
     this.getDashboard();
   }
 
@@ -63,6 +61,7 @@ export class HomeComponent extends OnInitComp implements OnInit, AfterContentIni
           this.spinner.clear()
           this.dash = result
           this.dash.statistiche.loggato = this.loggato
+
         },
         error: (error: any) => {
           this.alert.error(error);
