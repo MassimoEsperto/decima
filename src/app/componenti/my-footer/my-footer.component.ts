@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, VERSION } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PAGE } from 'src/environments/costanti';
-import { ASSETS_BASE_URL, WHATSAPP_URL } from 'src/environments/env';
+import { ASSETS_BASE_URL, SHIT_VERSION, WHATSAPP_URL } from 'src/environments/env';
 import { AuthService } from 'src/servizi/client/auth.service';
 import { LanguageService } from 'src/servizi/local/language.service';
 
@@ -20,7 +20,7 @@ import { LanguageService } from 'src/servizi/local/language.service';
 })
 export class MyFooter  {
 
-  versione = VERSION;
+  versione = SHIT_VERSION;
   url_pdf = ASSETS_BASE_URL + PAGE.DOWNLOAD_PDF;
   url_whatsapp = WHATSAPP_URL;
   PAGE = PAGE

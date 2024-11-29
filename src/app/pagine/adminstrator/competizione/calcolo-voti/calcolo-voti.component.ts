@@ -23,7 +23,7 @@ export class CalcoloVotiComponent {
 
   @Input() calcolato: any;
 
-  giornata_selezionata: string="";
+  giornata_selezionata: string = "";
   formazioni_inserite: any;
   risultati = [];
   voti_file: boolean = false
@@ -62,42 +62,44 @@ export class CalcoloVotiComponent {
         partite.CASA.somma += casa.voto;
       }
 
-
-
       for (let trasferta of partite.TRASFERTA.schieramento) {
         trasferta.voto = Number(filelist[trasferta.calciatore]) || 4
         partite.TRASFERTA.somma += trasferta.voto;
       }
 
-      partite.CASA.goals = this.gol(partite.CASA.somma)
-      partite.TRASFERTA.goals = this.gol(partite.TRASFERTA.somma)
+      partite.CASA.goals = this.goals(partite.CASA.somma)
+      partite.TRASFERTA.goals = this.goals(partite.TRASFERTA.somma)
 
-      partite.CASA.punti = this.classifica(partite.CASA.goals, partite.TRASFERTA.goals)
-      partite.TRASFERTA.punti = this.classifica(partite.TRASFERTA.goals, partite.CASA.goals)
+      partite.CASA.punti = this.punti(partite.CASA.goals, partite.TRASFERTA.goals)
+      partite.TRASFERTA.punti = this.punti(partite.TRASFERTA.goals, partite.CASA.goals)
+
+      partite.CASA.rank = this.rank(partite.CASA.goals, partite.CASA.punti)
+      partite.TRASFERTA.rank = this.rank(partite.TRASFERTA.goals, partite.TRASFERTA.punti)
     }
 
     this.voti_file = true
   }
 
 
-  classifica(a: number, b: number) {
+  punti(a: number, b: number) {
     if (a == b) return 1
     if (a > b) return 3
     else return 0
   }
 
+  goals(somma: number) {
 
-
-  gol(punti: number) {
-
-    if (punti < 30) {
+    if (somma < 30) {
       return 0
     } else {
-      let tmp: any = (punti - 27) / 3;
+      let tmp: any = (somma - 27) / 3;
       return parseInt(tmp).toFixed(0);
     }
   }
 
+  rank(goals: number, punti: number): number {
+    return (goals * 2 * this.calcolato.FASE) + punti
+  }
 
   /* CHIAMATA AI SERVIZI */
   formazioniByGionata() {
@@ -129,7 +131,7 @@ export class CalcoloVotiComponent {
       giornata: this.giornata_selezionata,
       risultati: this.formazioni_inserite
     }
-   
+
     this.calcolaGiornata(payload)
 
   }
