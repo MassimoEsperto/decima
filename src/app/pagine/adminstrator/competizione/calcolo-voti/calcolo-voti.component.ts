@@ -7,6 +7,8 @@ import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ExcelService } from 'src/servizi/local/excel.service';
+import { UtilService } from 'src/servizi/local/util.service';
+import { PayloadCalcolo, Risultato } from 'src/app/classi/entity/risultato.entity';
 
 @Component({
   selector: 'calcolo-voti',
@@ -23,10 +25,11 @@ export class CalcoloVotiComponent {
 
   @Input() calcolato: any;
 
-  giornata_selezionata: string = "";
-  formazioni_inserite: any;
+  giornata_selezionata!: string;
+  formazioni_inserite: Risultato[] = [];
   risultati = [];
   voti_file: boolean = false
+  calcolo!: PayloadCalcolo;
 
   loading_btn: boolean = false
   loading_page: boolean = false
@@ -35,7 +38,9 @@ export class CalcoloVotiComponent {
     private alert: AlertService,
     public language: LanguageService,
     private excelService: ExcelService,
-    private adminService: AdminService) {
+    private adminService: AdminService,
+    private utilService: UtilService
+  ) {
   }
 
 
@@ -52,54 +57,15 @@ export class CalcoloVotiComponent {
     file = event.target.files[0];
     filelist = await this.excelService.getVotiFromFile(file)
 
-
-    for (let partite of this.formazioni_inserite) {
-      partite.CASA.somma = Number(partite.CASA.bonus)
-      partite.TRASFERTA.somma = Number(partite.TRASFERTA.bonus)
-
-      for (let casa of partite.CASA.schieramento) {
-        casa.voto = Number(filelist[casa.calciatore]) || 4
-        partite.CASA.somma += casa.voto;
-      }
-
-      for (let trasferta of partite.TRASFERTA.schieramento) {
-        trasferta.voto = Number(filelist[trasferta.calciatore]) || 4
-        partite.TRASFERTA.somma += trasferta.voto;
-      }
-
-      partite.CASA.goals = this.goals(partite.CASA.somma)
-      partite.TRASFERTA.goals = this.goals(partite.TRASFERTA.somma)
-
-      partite.CASA.punti = this.punti(partite.CASA.goals, partite.TRASFERTA.goals)
-      partite.TRASFERTA.punti = this.punti(partite.TRASFERTA.goals, partite.CASA.goals)
-
-      partite.CASA.rank = this.rank(partite.CASA.goals, partite.CASA.punti)
-      partite.TRASFERTA.rank = this.rank(partite.TRASFERTA.goals, partite.TRASFERTA.punti)
-    }
+    this.calcolo = this.utilService.getCalcolo(
+      this.formazioni_inserite, filelist,
+      this.calcolato.FASE,
+      Number(this.giornata_selezionata)
+    );
 
     this.voti_file = true
   }
 
-
-  punti(a: number, b: number) {
-    if (a == b) return 1
-    if (a > b) return 3
-    else return 0
-  }
-
-  goals(somma: number) {
-
-    if (somma < 30) {
-      return 0
-    } else {
-      let tmp: any = (somma - 27) / 3;
-      return parseInt(tmp).toFixed(0);
-    }
-  }
-
-  rank(goals: number, punti: number): number {
-    return (goals * 2 * this.calcolato.FASE) + punti
-  }
 
   /* CHIAMATA AI SERVIZI */
   formazioniByGionata() {
@@ -126,14 +92,9 @@ export class CalcoloVotiComponent {
   }
 
   onCalcolaGiornata() {
-
-    let payload = {
-      giornata: this.giornata_selezionata,
-      risultati: this.formazioni_inserite
-    }
-
+    this.loading_btn = true;
+    let payload = this.calcolo
     this.calcolaGiornata(payload)
-
   }
 
 
@@ -148,6 +109,7 @@ export class CalcoloVotiComponent {
 
         next: (result: any) => {
           this.alert.success(this.language.label.alert.success);
+          this.adminService.refreshPage();
         },
         error: (error: any) => {
           this.alert.error(error);

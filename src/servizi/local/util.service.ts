@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LanguageService } from './language.service';
 import { FasiCompetizione } from 'src/environments/enums';
 import { BOLEANO } from 'src/environments/costanti';
+import { PayloadCalcolo, Risultato } from 'src/app/classi/entity/risultato.entity';
 
 
 @Injectable({
@@ -21,7 +22,7 @@ export class UtilService {
     switch (Number(input)) {
       case this.FASE_COMPETIZIONE.ISCRIZIONE:
         return this.language.label.page.fasi.iscizione
-        case this.FASE_COMPETIZIONE.GIRONI:
+      case this.FASE_COMPETIZIONE.GIRONI:
         return this.language.label.page.fasi.gironi
       case this.FASE_COMPETIZIONE.SPAREGGI:
         return this.language.label.page.fasi.spareggi
@@ -205,6 +206,62 @@ export class UtilService {
 
   getAnnata() {
     return new Date().getFullYear() + "/" + new Date(new Date().setFullYear(new Date().getFullYear() + 1)).getFullYear()
+  }
+
+  getCalcolo(palinsesto: Risultato[], filelist: any = [], fase: number, giornata: number): PayloadCalcolo {
+
+    let payload: PayloadCalcolo
+
+    for (let partite of palinsesto) {
+      partite.CASA.somma = Number(partite.CASA.bonus)
+      partite.TRASFERTA.somma = Number(partite.TRASFERTA.bonus)
+
+      for (let casa of partite.CASA.schieramento) {
+        casa.voto = Number(filelist[casa.calciatore]) || 4
+        partite.CASA.somma += casa.voto;
+      }
+
+      for (let trasferta of partite.TRASFERTA.schieramento) {
+        trasferta.voto = Number(filelist[trasferta.calciatore]) || 4
+        partite.TRASFERTA.somma += trasferta.voto;
+      }
+
+      partite.CASA.goals = this.getGoals(partite.CASA.somma)
+      partite.TRASFERTA.goals = this.getGoals(partite.TRASFERTA.somma)
+
+      partite.CASA.punti = this.getPunti(partite.CASA.goals, partite.TRASFERTA.goals)
+      partite.TRASFERTA.punti = this.getPunti(partite.TRASFERTA.goals, partite.CASA.goals)
+
+      partite.CASA.rank = this.getRank(partite.CASA.goals, partite.CASA.punti, fase)
+      partite.TRASFERTA.rank = this.getRank(partite.TRASFERTA.goals, partite.TRASFERTA.punti, fase)
+    }
+
+    payload = {
+      giornata: giornata,
+      risultati: palinsesto
+    }
+
+    return payload
+  }
+
+  private getPunti(a: number, b: number) {
+    if (a == b) return 1
+    if (a > b) return 3
+    else return 0
+  }
+
+  private getGoals(somma: number): number {
+
+    if (somma < 30) {
+      return 0
+    } else {
+      let tmp: any = (somma - 27) / 3;
+      return Number(parseInt(tmp).toFixed(0));
+    }
+  }
+
+  private getRank(goals: number, punti: number, fase: number): number {
+    return (goals * 2 * fase) + punti
   }
 
 }

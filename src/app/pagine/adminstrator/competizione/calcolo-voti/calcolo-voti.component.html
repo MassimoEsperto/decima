@@ -22,7 +22,7 @@
 
 
 
-<div *ngIf="formazioni_inserite">
+<div *ngIf="formazioni_inserite.length" class="pt-8">
     <label class="btn btn-dark">
         <span class="pr-8">UPLOAD</span><i class="bi bi-cloud-arrow-up-fill"></i>
         <input type="file" style="display: none;" (change)="importVoti($event)"
