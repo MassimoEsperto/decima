@@ -192,4 +192,8 @@ export class AuthService extends HttpSenderService {
       }));
   }
 
+  getInfo() {
+    return this.getFree(AUTH_SERVICE.INFO)
+  }
+
 }

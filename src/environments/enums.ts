@@ -48,3 +48,9 @@ export enum TipoSquadra {
     FANTA = 'FANTA',
     LOCALE = 'LOCALE'
 }
+
+export enum TipoSorteggi {
+    GIORNATE = 1,
+    GIRONI = 2,
+    ELIMINATORIE = 3
+}

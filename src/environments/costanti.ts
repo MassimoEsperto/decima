@@ -27,6 +27,7 @@ export const ADMIN_SERVICE = {
   SET_GENERA_COMPETIZIONE_GIRONI: "set_genera_competizione_gironi",
   GET_GENERA_COMPETIZIONE_ELIMINATORIE: "get_genera_competizione_eliminatorie",
   SET_GENERA_COMPETIZIONE_ELIMINATORIE: "set_genera_competizione_eliminatorie",
+  SET_GENERA_GIORNATE: "set_genera_giornate",
   UPD_PLAYER_UTENTE: "upd_player_utente",
   UPD_GIORNATA: "upd_giornata",
   SET_GIORNATA: "set_giornata",

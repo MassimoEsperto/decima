@@ -1,0 +1,81 @@
+<div class="card">
+    <div class="card-header" style="background-color: white;">SELEZIONA VALORI</div>
+
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="min">Seleziona Min:</label>
+                <select class="form-control custom-select" id="min" formControlName="min">
+                    <option value="" disabled>Seleziona un numero</option>
+                    <option *ngFor="let number of numbers" [value]="number">{{ number }}</option>
+                </select>
+                <div *ngIf="form.get('min')?.invalid && form.get('min')?.touched" class="error">
+                    Il campo "Min" è obbligatorio.
+                </div>
+            </div>
+
+            <div>
+                <label for="max">Seleziona Max:</label>
+                <select class="form-control custom-select" id="max" formControlName="max">
+                    <option value="" disabled>Seleziona un numero</option>
+                    <option *ngFor="let number of numbers" [value]="number">{{ number }}</option>
+                </select>
+                <div *ngIf="form.get('max')?.invalid && form.get('max')?.touched" class="error">
+                    Il campo "Max" è obbligatorio.
+                </div>
+            </div>
+
+            <div>
+                <label for="fase">Seleziona Fase:</label>
+                <select class="form-control custom-select" id="fase" formControlName="fase">
+                    <option value="" disabled>Seleziona una fase</option>
+                    <option *ngFor="let number of numbers" [value]="number">{{ number }}</option>
+                </select>
+                <div *ngIf="form.get('fase')?.invalid && form.get('fase')?.touched" class="error">
+                    Il campo "Fase" è obbligatorio.
+                </div>
+            </div>
+
+            <div class="pb-16 pt-16 my-flex-between">
+                <my-button [submit]="true" [color]="'btn-primary'" [block]="false" [label]="'GENERA'"
+                    [disabled]="form.invalid"></my-button>
+                <my-button [submit]="false" [color]="'btn-dark'" [block]="false" [label]="'RESET'"
+                    (myClick)="onReset()"></my-button>
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+
+<br>
+
+<div *ngIf="lookups && giornate.length > 0" class="card" >
+    <div class="card-header" style="background-color: white;">GENERA GIORNATE </div>
+
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="red white-text rounded-lg">
+                <tr>
+                    <th scope="col">GIORNATA</th>
+                    <th scope="col">FASE</th>
+                    <th scope="col">SERIE A</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let el of giornate">
+                    <td>{{el.id_giornata}}</td>
+                    <td>{{lookups.getFaseById(el.id_fase)}}</td>
+                    <td>{{el.serie_a}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div *ngIf="giornate.length > 0" class="pb-16 pt-16">
+    <my-button [submit]="false" [color]="'btn-secondary'" [block]="true" [label]="'CONFERMA'"
+        (myClick)="onConferma()" [loading]="loading_btn" ></my-button>
+</div>

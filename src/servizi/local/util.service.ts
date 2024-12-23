@@ -3,6 +3,7 @@ import { LanguageService } from './language.service';
 import { FasiCompetizione } from 'src/environments/enums';
 import { BOLEANO } from 'src/environments/costanti';
 import { PayloadCalcolo, Risultato } from 'src/app/classi/entity/risultato.entity';
+import { Giornata } from 'src/app/classi/dto/giornata.dto';
 
 
 @Injectable({
@@ -263,5 +264,70 @@ export class UtilService {
   private getRank(goals: number, punti: number, fase: number): number {
     return (goals * 2 * fase) + punti
   }
+
+  // Funzione per generare numeri casuali unici
+  private getRandomInt(min: number, max: number) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+  }
+
+
+  // Metodo che genera il calendario con gironi, eliminatorie e spareggio
+  generaGiornate(min: number, max: number, fasi: number): Giornata[] {
+
+    // Calcola il numero di numeri da generare
+    let num_giornate = fasi * 2 + 4;
+    let maxHalved = Math.floor(max / 2); // Calcola la metà di max
+
+    if (fasi < 3 || min >= (max - 8) || num_giornate >= (max - min)) {
+      throw new Error('Valori non validi per le fasi o il range');
+    }
+
+    const numeriUnici: Set<number> = new Set();
+    numeriUnici.add(min); //prima di default
+
+    // Prima fase: aggiungi 8 numeri fra min e metà di max
+    while (numeriUnici.size < 8) {
+      numeriUnici.add(this.getRandomInt(min, maxHalved));
+    }
+
+    // Fasi successive: aggiungi numeri fra metà di max e max
+    while (numeriUnici.size < num_giornate) {
+      numeriUnici.add(this.getRandomInt(maxHalved+2, max));
+    }
+
+    // Ordina i numeri e crea l'array di oggetti con indice e fase
+    const numeriOrdinati = Array.from(numeriUnici).sort((a, b) => a - b);
+
+    // Array finale con oggetti { indice, fase, numero }
+    let faseCounter = 1; // La fase inizia da 1
+    let faseLimite = 5; // I primi 6 numeri sono fase 1
+    let faseStep = 2; // Ogni gruppo di 2 numeri successivi deve incrementare la fase di 1
+
+    return numeriOrdinati.map((numero, index) => {
+      let fase = faseCounter;
+
+      // Aumento della fase ogni volta che i numeri superano il limite della fase corrente
+      if (index >= faseLimite) {
+        faseCounter++; // Incrementa la fase
+        faseLimite += faseStep; // Dopo 6 numeri, ogni fase aumenta ogni 2 numeri
+      }
+
+      return {
+        id_giornata: index + 1, // Indice che parte da 1
+        id_fase: fase,
+        serie_a: numero
+      };
+    });
+
+  }
+
+
+
+
+
+
+
 
 }

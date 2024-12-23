@@ -129,5 +129,9 @@ export class AdminService extends HttpSenderService {
     return this.postFree(ADMIN_SERVICE.SET_SWITCHS, payload)
   }
 
+  setGeneraGiornate(payload: any): Observable<any[]> {
+    return this.postFree(ADMIN_SERVICE.SET_GENERA_GIORNATE, payload)
+  }
+
 }
 

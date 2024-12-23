@@ -1,12 +1,15 @@
 <div class="pt-16 pb-32">
     <select class="form-control custom-select" (change)="onChangeSelect($event)">
         <option value="0">SEL TIPO</option>
-        <option value="1">GIRONI</option>
-        <option value="2">ELIMINATORIE</option>
+        <option [value]="TIPO.GIORNATE">GIORNATE</option>
+        <option [value]="TIPO.GIRONI">GIRONI</option>
+        <option [value]="TIPO.ELIMINATORIE">ELIMINATORIE</option>
     </select>
 </div>
 
 
-<sorteggi-gironi *ngIf="view==1"></sorteggi-gironi>
+<sorteggi-giornate *ngIf="view==TIPO.GIORNATE"></sorteggi-giornate>
 
-<sorteggi-eliminatorie *ngIf="view==2"></sorteggi-eliminatorie>
+<sorteggi-gironi *ngIf="view==TIPO.GIRONI"></sorteggi-gironi>
+
+<sorteggi-eliminatorie *ngIf="view==TIPO.ELIMINATORIE"></sorteggi-eliminatorie>
