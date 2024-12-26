@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { finalize, map, startWith } from 'rxjs';
 import { Giornata } from 'src/app/classi/dto/giornata.dto';
 import { Lookup } from 'src/app/classi/dto/lookup.dto';
+import { ShitCup } from 'src/app/classi/dto/shitcup.dto';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { AdminService } from 'src/servizi/client/admin.service';
@@ -87,12 +88,13 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
 
     this.authService.getInfo()
       .pipe(
-        map(data => data['lookup']),
+        map(data => new ShitCup(data)),
       ).subscribe({
 
-        next: (result: any) => {
-          this.lookups = new Lookup(result)
-
+        next: (result: ShitCup) => {
+          console.log("getInfo",result)
+          this.lookups = result.lookup
+          console.log("this.lookups",this.lookups)
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -101,6 +103,8 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
       })
 
   }
+
+
 
 
   onConferma() {

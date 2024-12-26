@@ -16,14 +16,14 @@ export const serviziInterceptor: HttpInterceptorFn = (req, next) => {
   }
 
   // Clone the request and add the authorization header
-  const authReq = req.clone({
+  req = req.clone({
     setHeaders: {
       Authorization: `Bearer ${token}`
     }
   });
 
   // Pass the cloned request with the updated header to the next handler
-  return next(authReq).pipe(
+  return next(req).pipe(
     catchError((err: any) => {
       if (err instanceof HttpErrorResponse) {
         // Handle HTTP errors
@@ -46,3 +46,62 @@ export const serviziInterceptor: HttpInterceptorFn = (req, next) => {
     })
   );;
 };
+
+
+/**
+
+import { inject } from '@angular/core';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptorFn } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+import { AlertService } from './alert.service'; // Importa il tuo AlertService
+
+export const serviziInterceptor: HttpInterceptorFn = (req, next) => {
+  // Inietta i servizi necessari
+  const router = inject(Router);
+  const alertService = inject(AlertService); // Inietta AlertService
+
+  // Recupera il token dal localStorage
+  const token = localStorage.getItem('authToken');
+
+  // Aggiungi il token all'header, se presente
+  if (token) {
+    req = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+  }
+
+  // Gestisci la richiesta e la risposta
+  return next(req).pipe(
+    map((event: HttpEvent<any>) => {
+      // Se la risposta è di tipo HttpResponse e contiene un corpo con la proprietà 'data'
+      if (event instanceof HttpResponse && event.body && event.body.data) {
+        return event.body.data; // Restituisce solo la proprietà 'data'
+      }
+      return event.body; // Se non c'è 'data', restituisce l'intero corpo
+    }),
+    catchError((error) => {
+      // Gestione degli errori, per esempio 401 (Token scaduto)
+      if (error.status === 401) {
+        console.error('Token scaduto o non valido. Redirigendo al login...');
+        localStorage.removeItem('authToken');
+        router.navigate(['/login']);
+      } else if (error.status >= 400 && error.status < 500) {
+        // Errore del client (400-499)
+        alertService.showError('Errore client: ' + error.message);
+      } else if (error.status >= 500) {
+        // Errore del server (500-599)
+        alertService.showError('Errore server: ' + error.message);
+      }
+      // Rilancia l'errore per permettere al chiamante di gestirlo
+      return throwError(error);
+    })
+  );
+};
+
+
+
+ */

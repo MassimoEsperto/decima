@@ -8,6 +8,15 @@ export const SERVICE_TYPE = {
   FANTA: "/fantagazzetta/"
 }
 
+export const SERVICE_CRUD = {
+  DETAILS: "/details",
+  LIST: "/list",
+  FILTER: "/filter",
+  CREATE: "/create",
+  UPDATE: "/update",
+  DELETE: "/delete"
+}
+
 
 export const ADMIN_SERVICE = {
 
@@ -202,18 +211,18 @@ export const PAGE = {
     }
   },
   ADMINISTRATOR: {
-    PATH: "adminstrator",
+    PATH: "administrator",
     ABSOLUTE: {
-      UTENTI: "adminstrator/utenti",
-      COMPETIZIONE: "adminstrator/competizione",
-      DATE: "adminstrator/date",
-      CALCIATORI: "adminstrator/calciatori",
-      NOTIFICHE: "adminstrator/notifiche",
-      _UTENTI: "/adminstrator/utenti",
-      _COMPETIZIONE: "/adminstrator/competizione",
-      _DATE: "/adminstrator/date",
-      _CALCIATORI: "/adminstrator/calciatori",
-      _NOTIFICHE: "/adminstrator/notifiche"
+      UTENTI: "administrator/utenti",
+      COMPETIZIONE: "administrator/competizione",
+      DATE: "administrator/date",
+      CALCIATORI: "administrator/calciatori",
+      NOTIFICHE: "administrator/notifiche",
+      _UTENTI: "/administrator/utenti",
+      _COMPETIZIONE: "/administrator/competizione",
+      _DATE: "/administrator/date",
+      _CALCIATORI: "/administrator/calciatori",
+      _NOTIFICHE: "/administrator/notifiche"
     },
     RELATIVE: {
       UTENTI: "utenti",

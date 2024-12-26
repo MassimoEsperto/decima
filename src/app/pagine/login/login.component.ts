@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { finalize } from 'rxjs';
+import { finalize, map } from 'rxjs';
 import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { AdminService } from 'src/servizi/client/admin.service';
 import { AuthService } from 'src/servizi/client/auth.service';
@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { RecPassComponent } from './rec-pass/rec-pass.component';
 import { FrontespizioComponent } from './frontespizio/frontespizio.component';
 import { CommonModule } from '@angular/common';
+import { ShitCup } from 'src/app/classi/dto/shitcup.dto';
+import { SHIT_VERSION } from 'src/environments/env';
 
 
 
@@ -43,8 +45,8 @@ export class LoginComponent extends OnInitComp implements OnInit {
   ngOnInit() {
     this.loading_page = true
     this.authService.clearLocalStorage()
-    this.verificaVersione()
     this.getUtenti()
+    this.getInfo()
   }
 
   changeView(item: number) {
@@ -61,24 +63,37 @@ export class LoginComponent extends OnInitComp implements OnInit {
       })
   }
 
-  verificaVersione() {
 
-    this.authService.verificaVersioneWeb()
-      .pipe(finalize(() => {
-        setTimeout(() => {
-          this.loading_page = false
-        }, 3000)
-      }
-      ))
-      .subscribe({
 
-        next: (result: any) => {
-          this.verifica = result;
-          this.errore = result.error
+  getInfo() {
+
+    this.authService.getInfo()
+      .pipe(
+        map(data => new ShitCup(data)),
+        finalize(() => {
+          setTimeout(() => {
+            this.loading_page = false
+          }, 3000)
+        })
+      ).subscribe({
+
+        next: (result: ShitCup) => {
+          console.log("getInfo", result)
+
+          let verifica = {
+            applicazione: result.info.versione,
+            locale: SHIT_VERSION,
+            error: result.info.versione != SHIT_VERSION
+          }
+
+          this.verifica = verifica;
+          this.errore = verifica.error
+
         },
         error: (error: any) => {
           this.errore = true
-        }
+        },
+
       })
 
   }

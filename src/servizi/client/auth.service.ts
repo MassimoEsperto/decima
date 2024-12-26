@@ -180,17 +180,7 @@ export class AuthService extends HttpSenderService {
     return this.postAuth(AUTH_SERVICE.DEL_SQUADRA_REGISTRATA, payload)
   }
 
-  verificaVersioneWeb() {
-    return this.http.get(`${this.buildURL("info")}`)
-      .pipe(map((res: any) => {
-        let verifica = {
-          applicazione: res['data']['info']['VERSIONE'],
-          locale: this.versione(),
-          error: res['data']['info']['VERSIONE'] != this.versione()
-        }
-        return verifica;
-      }));
-  }
+
 
   getInfo() {
     return this.getFree(AUTH_SERVICE.INFO)

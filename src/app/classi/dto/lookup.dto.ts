@@ -5,6 +5,7 @@ export class Lookup {
     moduli: RepModuli[] = [];
     ruoli: RepBase[] = [];
     stati: RepBase[] = [];
+    condizione_girone: RepBase[] = [];
 
     constructor(obj: Lookup) {
         this.attivita = obj.attivita;
@@ -13,6 +14,7 @@ export class Lookup {
         this.moduli = obj.moduli;
         this.ruoli = obj.ruoli;
         this.stati = obj.stati;
+        this.condizione_girone = obj.condizione_girone;
     }
 
     getFaseById(id: number) {
