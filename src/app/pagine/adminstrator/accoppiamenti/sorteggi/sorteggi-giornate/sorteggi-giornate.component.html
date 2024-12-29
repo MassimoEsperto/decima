@@ -1,38 +1,37 @@
-<div class="card">
+<div *ngIf="lookups" class="card">
     <div class="card-header" style="background-color: white;">SELEZIONA VALORI</div>
 
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div>
-                <label for="min">Seleziona Min:</label>
+                <label for="min">Giornata Partenza serie a</label>
                 <select class="form-control custom-select" id="min" formControlName="min">
                     <option value="" disabled>Seleziona un numero</option>
                     <option *ngFor="let number of numbers" [value]="number">{{ number }}</option>
                 </select>
                 <div *ngIf="form.get('min')?.invalid && form.get('min')?.touched" class="error">
-                    Il campo "Min" è obbligatorio.
+                    Il campo è obbligatorio.
                 </div>
             </div>
 
             <div>
-                <label for="max">Seleziona Max:</label>
+                <label for="max">Giornata fine serie a:</label>
                 <select class="form-control custom-select" id="max" formControlName="max">
                     <option value="" disabled>Seleziona un numero</option>
                     <option *ngFor="let number of numbers" [value]="number">{{ number }}</option>
                 </select>
                 <div *ngIf="form.get('max')?.invalid && form.get('max')?.touched" class="error">
-                    Il campo "Max" è obbligatorio.
+                    Il campo è obbligatorio.
                 </div>
             </div>
 
             <div>
-                <label for="fase">Seleziona Fase:</label>
-                <select class="form-control custom-select" id="fase" formControlName="fase">
-                    <option value="" disabled>Seleziona una fase</option>
-                    <option *ngFor="let number of numbers" [value]="number">{{ number }}</option>
+                <label for="fase">Seleziona turni:</label>
+                <select class="form-control custom-select" multiple id="fasi" formControlName="fasi">
+                    <option *ngFor="let item of lookups.fasi" [value]="item">{{ item.valore }}</option>
                 </select>
-                <div *ngIf="form.get('fase')?.invalid && form.get('fase')?.touched" class="error">
-                    Il campo "Fase" è obbligatorio.
+                <div *ngIf="form.get('fasi')?.invalid && form.get('fasi')?.touched" class="error">
+                    Il campo è obbligatorio.
                 </div>
             </div>
 
@@ -59,7 +58,7 @@
             <thead class="red white-text rounded-lg">
                 <tr>
                     <th scope="col">GIORNATA</th>
-                    <th scope="col">FASE</th>
+                    <th scope="col">TURNO</th>
                     <th scope="col">SERIE A</th>
                 </tr>
             </thead>

@@ -55,15 +55,17 @@ class RepModuli {
     }
 }
 
-class RepFasi {
+export class RepFasi {
     code: number;
     valore: string;
     partecipanti: number;
+    indice: string;
 
     constructor(obj: RepFasi) {
         this.code = obj.code;
         this.valore = obj.valore;
         this.partecipanti = obj.partecipanti;
+        this.indice = obj.indice;
     }
 }
 

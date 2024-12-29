@@ -4,6 +4,7 @@ import { FasiCompetizione } from 'src/environments/enums';
 import { BOLEANO } from 'src/environments/costanti';
 import { PayloadCalcolo, Risultato } from 'src/app/classi/entity/risultato.entity';
 import { Giornata } from 'src/app/classi/dto/giornata.dto';
+import { RepFasi } from 'src/app/classi/dto/lookup.dto';
 
 
 @Injectable({
@@ -262,7 +263,7 @@ export class UtilService {
   }
 
   private getRank(goals: number, punti: number, fase: number): number {
-    return (goals * 2 * fase) + punti
+    return (goals * fase) + punti
   }
 
   // Funzione per generare numeri casuali unici
@@ -274,48 +275,41 @@ export class UtilService {
 
 
   // Metodo che genera il calendario con gironi, eliminatorie e spareggio
-  generaGiornate(min: number, max: number, fasi: number): Giornata[] {
+  generaGiornate(min: number, max: number, fasi: RepFasi[]): Giornata[] {
 
-    // Calcola il numero di numeri da generare
-    let num_giornate = fasi * 2 + 4;
-    let maxHalved = Math.floor(max / 2); // Calcola la metà di max
+    const numeriGiornate: Set<number> = new Set();
+    const giornateDisponibili = max - min;
+    const media = Math.floor((giornateDisponibili - 10) / (fasi.length - 1));
 
-    if (fasi < 3 || min >= (max - 8) || num_giornate >= (max - min)) {
+    if (20 >= giornateDisponibili) {
       throw new Error('Valori non validi per le fasi o il range');
     }
 
-    const numeriUnici: Set<number> = new Set();
-    numeriUnici.add(min); //prima di default
+    numeriGiornate.add(min); //aggiungo la prima giornata
 
-    // Prima fase: aggiungi 8 numeri fra min e metà di max
-    while (numeriUnici.size < 8) {
-      numeriUnici.add(this.getRandomInt(min, maxHalved));
-    }
+    let minimo: number = min;
+    let quantitaTotale: number = 0;
 
-    // Fasi successive: aggiungi numeri fra metà di max e max
-    while (numeriUnici.size < num_giornate) {
-      numeriUnici.add(this.getRandomInt(maxHalved+2, max));
-    }
+    for (let fase of fasi) {
 
-    // Ordina i numeri e crea l'array di oggetti con indice e fase
-    const numeriOrdinati = Array.from(numeriUnici).sort((a, b) => a - b);
+      let quantitaSingola: number = Number(fase.indice);
+      let massimo = quantitaSingola < 4 ? media : 10
+      quantitaTotale += quantitaSingola
 
-    // Array finale con oggetti { indice, fase, numero }
-    let faseCounter = 1; // La fase inizia da 1
-    let faseLimite = 5; // I primi 6 numeri sono fase 1
-    let faseStep = 2; // Ogni gruppo di 2 numeri successivi deve incrementare la fase di 1
-
-    return numeriOrdinati.map((numero, index) => {
-      let fase = faseCounter;
-
-      // Aumento della fase ogni volta che i numeri superano il limite della fase corrente
-      if (index >= faseLimite) {
-        faseCounter++; // Incrementa la fase
-        faseLimite += faseStep; // Dopo 6 numeri, ogni fase aumenta ogni 2 numeri
+      while (numeriGiornate.size < quantitaTotale) {
+        numeriGiornate.add(this.getRandomInt(minimo, minimo + massimo));
       }
+      minimo += massimo
+    }
+
+    const giornateOrdinate = Array.from(numeriGiornate).sort((a, b) => a - b);
+
+    return giornateOrdinate.map((numero, index) => {
+      let giornata = index + 1 // Indice che parte da 1
+      let fase = this.findFaseByGiornata(giornata, fasi);
 
       return {
-        id_giornata: index + 1, // Indice che parte da 1
+        id_giornata: giornata,
         id_fase: fase,
         serie_a: numero
       };
@@ -323,7 +317,19 @@ export class UtilService {
 
   }
 
+  findFaseByGiornata(gio: number, fasi: RepFasi[]): number {
+    let quantita: number = 0;
+    for (let fase of fasi) {
+      quantita += Number(fase.indice);
 
+      if (gio <= quantita) {
+        return fase.code
+      }
+
+    }
+
+    return 0
+  }
 
 
 

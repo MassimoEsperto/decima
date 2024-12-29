@@ -49,7 +49,7 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
     this.form = this.fb.group({
       min: [null, [Validators.required]],
       max: [null, [Validators.required]],
-      fase: [null, [Validators.required]]
+      fasi: [null, [Validators.required]]
     });
   }
 
@@ -75,12 +75,17 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
 
   generaGiornate(scelta: any) {
 
-    let numeroMin = Number(scelta.min);
-    const numeroMax = Number(scelta.max);
-    const numeroFase = Number(scelta.fase);
+    try {
 
-    // Chiamata al servizio per generare il calendario
-    this.giornate = this.util.generaGiornate(numeroMin, numeroMax, numeroFase);
+      let numeroMin = Number(scelta.min);
+      let numeroMax = Number(scelta.max);
+      // Chiamata al servizio per generare il calendario
+      this.giornate = this.util.generaGiornate(numeroMin, numeroMax, scelta.fasi);
+
+    } catch (error: any) {
+      this.alert.error(error.message);
+    }
+
 
   }
 
@@ -92,9 +97,7 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
       ).subscribe({
 
         next: (result: ShitCup) => {
-          console.log("getInfo",result)
           this.lookups = result.lookup
-          console.log("this.lookups",this.lookups)
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -109,7 +112,7 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
 
   onConferma() {
     console.log("this.giornate", this.giornate);
-    this.setGeneraGiornate(this.giornate)
+    //this.setGeneraGiornate(this.giornate)
   }
 
   setGeneraGiornate(payload: any) {
