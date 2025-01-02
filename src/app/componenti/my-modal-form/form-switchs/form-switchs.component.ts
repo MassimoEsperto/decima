@@ -21,7 +21,7 @@ import { LanguageService } from 'src/servizi/local/language.service';
 export class FormSwitchs {
 
   @Output() mySubmit = new EventEmitter();
-  @Input() data: any;
+  @Input() data: any[] = [];
   loading_btn: boolean = false
 
   constructor(

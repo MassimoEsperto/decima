@@ -121,12 +121,25 @@ export class AdminService extends HttpSenderService {
     return this.putFree(ADMIN_SERVICE.UPD_CALCIATORE, payload)
   }
 
-  caricaLega(payload: any) { 
+  caricaLega(payload: any) {
     return this.postFree(ADMIN_SERVICE.SET_LEGA, payload)
   }
 
   setSwitchs(payload: any): Observable<any[]> {
     return this.postFree(ADMIN_SERVICE.SET_SWITCHS, payload)
+  }
+
+  setSwitchsItem(payload: any): Promise<any[]> {
+    return this.postPromise(ADMIN_SERVICE.SET_SWITCHS, payload)
+  }
+
+  getFormazioniItem(giornata: string) {
+    const params = new HttpParams().set('giornata', giornata);
+    return this.getPromise(ADMIN_SERVICE.GET_FORMAZIONI_BY_GIORNATA, params)
+  }
+
+  recuperoFormazioneItem(payload: any): Promise<any[]> {
+    return this.postPromise(ADMIN_SERVICE.RECUPERA_SCHIERAMENTO, payload)
   }
 
   setGeneraGiornate(payload: any): Observable<any[]> {

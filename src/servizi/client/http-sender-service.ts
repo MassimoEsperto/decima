@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { map } from 'rxjs'
+import { firstValueFrom, map } from 'rxjs'
 import { Utente } from 'src/app/classi/utente';
 import { WS_BASE_URL, TOKEN_STORAGE, LANGUAGE_STORAGE, LABEL_STORAGE, SHIT_VERSION } from 'src/environments/env';
 
@@ -100,6 +100,32 @@ export class HttpSenderService {
       .pipe(map((res: any) => {
         return res['data'];
       }));
+  }
+
+  async postPromise(servizio: string, payload: any): Promise<any> {
+
+    try {
+      const response = await firstValueFrom(
+        this.httpClient.post(`${this.buildURL(servizio)}`, { data: payload })
+          .pipe(map((res: any) => {
+            return res['data'];
+          }))
+      );
+      return response;
+    } catch (error) {
+      console.error('Errore nella richiesta:', error);
+      throw error;  // Rilancia l'errore per la gestione nel componente
+    }
+  }
+
+  async getPromise(servizio: string, params?: HttpParams): Promise<any> {
+    const response = await firstValueFrom(
+      this.httpClient.get(`${this.buildURL(servizio)}`, { params: params }).pipe(
+        map((res: any) => {
+          return res['data'];
+        })));
+
+    return response;
   }
 
   putFree(servizio: string, payload: any) {

@@ -4,7 +4,7 @@ import { FasiCompetizione } from 'src/environments/enums';
 import { BOLEANO } from 'src/environments/costanti';
 import { PayloadCalcolo, Risultato } from 'src/app/classi/entity/risultato.entity';
 import { Giornata } from 'src/app/classi/dto/giornata.dto';
-import { RepFasi } from 'src/app/classi/dto/lookup.dto';
+import { RepTurni } from 'src/app/classi/dto/lookup.dto';
 
 
 @Injectable({
@@ -275,11 +275,11 @@ export class UtilService {
 
 
   // Metodo che genera il calendario con gironi, eliminatorie e spareggio
-  generaGiornate(min: number, max: number, fasi: RepFasi[]): Giornata[] {
+  generaGiornate(min: number, max: number, turni: RepTurni[]): Giornata[] {
 
     const numeriGiornate: Set<number> = new Set();
     const giornateDisponibili = max - min;
-    const media = Math.floor((giornateDisponibili - 10) / (fasi.length - 1));
+    const media = Math.floor((giornateDisponibili - 10) / (turni.length - 1));
 
     if (20 >= giornateDisponibili) {
       throw new Error('Valori non validi per le fasi o il range');
@@ -290,9 +290,9 @@ export class UtilService {
     let minimo: number = min;
     let quantitaTotale: number = 0;
 
-    for (let fase of fasi) {
+    for (let turno of turni) {
 
-      let quantitaSingola: number = Number(fase.indice);
+      let quantitaSingola: number = turno.bonus;
       let massimo = quantitaSingola < 4 ? media : 10
       quantitaTotale += quantitaSingola
 
@@ -306,24 +306,24 @@ export class UtilService {
 
     return giornateOrdinate.map((numero, index) => {
       let giornata = index + 1 // Indice che parte da 1
-      let fase = this.findFaseByGiornata(giornata, fasi);
+      let turno = this.findFaseByGiornata(giornata, turni);
 
       return {
         id_giornata: giornata,
-        id_fase: fase,
+        id_turno: turno,
         serie_a: numero
       };
     });
 
   }
 
-  findFaseByGiornata(gio: number, fasi: RepFasi[]): number {
+  findFaseByGiornata(gio: number, turni: RepTurni[]): number {
     let quantita: number = 0;
-    for (let fase of fasi) {
-      quantita += Number(fase.indice);
+    for (let turno of turni) {
+      quantita += turno.bonus;
 
       if (gio <= quantita) {
-        return fase.code
+        return turno.code
       }
 
     }

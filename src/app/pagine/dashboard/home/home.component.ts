@@ -13,6 +13,7 @@ import { PostPartitaComponent } from './post-partita/post-partita.component';
 import { PartitaIncorsoComponent } from './partita-incorso/partita-incorso.component';
 import { CommonModule } from '@angular/common';
 import { MyLogo } from 'src/app/componenti/my-logo/my-logo.component';
+import { EnumService } from 'src/servizi/local/enum.service';
 
 
 @Component({
@@ -40,6 +41,7 @@ export class HomeComponent extends OnInitComp implements OnInit {
     private playerService: PlayerService,
     private alert: AlertService,
     public language: LanguageService,
+    public ENUMS: EnumService,
     public spinner: SpinnerService) {
     super();
   }

@@ -49,7 +49,7 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
     this.form = this.fb.group({
       min: [null, [Validators.required]],
       max: [null, [Validators.required]],
-      fasi: [null, [Validators.required]]
+      turni: [null, [Validators.required]]
     });
   }
 
@@ -80,7 +80,7 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
       let numeroMin = Number(scelta.min);
       let numeroMax = Number(scelta.max);
       // Chiamata al servizio per generare il calendario
-      this.giornate = this.util.generaGiornate(numeroMin, numeroMax, scelta.fasi);
+      this.giornate = this.util.generaGiornate(numeroMin, numeroMax, scelta.turni);
 
     } catch (error: any) {
       this.alert.error(error.message);

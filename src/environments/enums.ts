@@ -9,6 +9,8 @@ export enum FasiCompetizione {
     MERCATO = 7
 }
 
+
+
 export enum PeriodoGiornata {
     PRE_PARTITA = "1",
     PARTITA_LIVE = "2",
@@ -53,4 +55,37 @@ export enum TipoSorteggi {
     GIORNATE = 1,
     GIRONI = 2,
     ELIMINATORIE = 3
+}
+
+
+
+
+
+
+
+export enum TurniCompetizione {
+    GIRONI = 1,
+    SPAREGGI = 2,
+    OTTAVI = 3,
+    QUARTI = 4,
+    SEMI_FINALE = 5,
+    FINALE = 6
+}
+
+export enum FrazioneGiornata {
+    PRE_PARTITA = 1,
+    IN_CORSO = 2,
+    POST_PARTITA = 3
+}
+
+export enum StatiSquadra_ {
+    REGISTRATA = 1,
+    ISCRITTA = 2,
+    ELIMINATA = 3,
+    VINCITRICE = 4
+}
+
+export enum DebitoSquadra {
+    DEBITO = 1,
+    PAGANTE = 2
 }

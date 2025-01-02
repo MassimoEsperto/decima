@@ -27,10 +27,10 @@
 
             <div>
                 <label for="fase">Seleziona turni:</label>
-                <select class="form-control custom-select" multiple id="fasi" formControlName="fasi">
-                    <option *ngFor="let item of lookups.fasi" [value]="item">{{ item.valore }}</option>
+                <select class="form-control custom-select" multiple id="turni" formControlName="turni">
+                    <option *ngFor="let item of lookups.turni" [value]="item">{{ item.valore }}</option>
                 </select>
-                <div *ngIf="form.get('fasi')?.invalid && form.get('fasi')?.touched" class="error">
+                <div *ngIf="form.get('turni')?.invalid && form.get('turni')?.touched" class="error">
                     Il campo è obbligatorio.
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <tbody>
                 <tr *ngFor="let el of giornate">
                     <td>{{el.id_giornata}}</td>
-                    <td>{{lookups.getFaseById(el.id_fase)}}</td>
+                    <td>{{lookups.getTurniById(el.id_turno)}}</td>
                     <td>{{el.serie_a}}</td>
                 </tr>
             </tbody>

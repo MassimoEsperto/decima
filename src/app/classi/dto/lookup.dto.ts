@@ -1,24 +1,26 @@
 export class Lookup {
-    attivita: RepBase[] = [];
-    fasi: RepFasi[] = [];
+    fasi: RepBase[] = [];
+    turni: RepTurni[] = [];
     frazioni: RepBase[] = [];
     moduli: RepModuli[] = [];
     ruoli: RepBase[] = [];
     stati: RepBase[] = [];
     condizione_girone: RepBase[] = [];
+    debiti: RepBase[] = [];
 
     constructor(obj: Lookup) {
-        this.attivita = obj.attivita;
+        this.turni = obj.turni;
         this.fasi = obj.fasi;
         this.frazioni = obj.frazioni;
         this.moduli = obj.moduli;
         this.ruoli = obj.ruoli;
         this.stati = obj.stati;
         this.condizione_girone = obj.condizione_girone;
+        this.debiti = obj.debiti;
     }
 
-    getFaseById(id: number) {
-        return this.fasi.find(el => el.code == id)?.valore
+    getTurniById(id: number) {
+        return this.turni.find(el => el.code == id)?.valore
     }
 }
 
@@ -55,17 +57,17 @@ class RepModuli {
     }
 }
 
-export class RepFasi {
+export class RepTurni {
     code: number;
     valore: string;
     partecipanti: number;
-    indice: string;
+    bonus: number;
 
-    constructor(obj: RepFasi) {
+    constructor(obj: RepTurni) {
         this.code = obj.code;
         this.valore = obj.valore;
         this.partecipanti = obj.partecipanti;
-        this.indice = obj.indice;
+        this.bonus = obj.bonus;
     }
 }
 

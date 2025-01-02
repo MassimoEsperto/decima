@@ -15,11 +15,12 @@ export class ModalFormService {
 
 
   setData(data: any, sottomesso: () => void): any {
-    const that = this;
+ 
     this.subject.next({
       data: data,
       sottomesso(): any {
-        that.subject.next("");
+        if(this.subject)
+        this.subject.next("");
         sottomesso();
       }
     });

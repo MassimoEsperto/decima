@@ -136,5 +136,61 @@ export class RecuperoFormazioniComponent {
 
   }
 
+
+  async recuperaTotaleFormazioni() {
+
+    this.loading_btn = true;
+
+    for (let item of this.formazioni_inserite) {
+
+      if (item.CASA.schieramento.length != 5) {
+        await this.recuperaFormazioneCasaItem(item)
+      }
+
+      if (item.TRASFERTA.schieramento.length != 5) {
+        await this.recuperaFormazioneTrasfertaItem(item)
+      }
+    }
+
+    await this.adminService.getFormazioniItem(this.giornata_selezionata)
+
+    for (let item of this.formazioni_inserite) {
+
+      if (this.isSwitchs(item)) {
+        await this.adminService.setSwitchsItem(item)
+      }
+    }
+
+    this.formazioniInserite();
+  }
+
+
+  async recuperaFormazioneCasaItem(item: any) {
+
+    let payload = {
+      id_squadra: item.CASA.id_squadra,
+      id_avversario: item.TRASFERTA.id_squadra,
+      id_risultato: item.CASA.id_risultato,
+      id_calendario: item.id_calendario,
+      in_casa: 1
+    }
+
+    await this.adminService.recuperoFormazioneItem(payload)
+  }
+
+  async recuperaFormazioneTrasfertaItem(item: any) {
+
+    let payload = {
+      id_squadra: item.TRASFERTA.id_squadra,
+      id_avversario: item.CASA.id_squadra,
+      id_risultato: item.TRASFERTA.id_risultato,
+      id_calendario: item.id_calendario,
+      in_casa: 0
+    }
+
+    await this.adminService.recuperoFormazioneItem(payload)
+  }
+
+
 }
 

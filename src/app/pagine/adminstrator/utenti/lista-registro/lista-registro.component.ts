@@ -11,7 +11,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ListaRegistroComponent {
 
   @Input() squadre: any;
-  @Output() update = new EventEmitter();
+  @Output() update:EventEmitter<any> = new EventEmitter<any>();
   @Output() delete = new EventEmitter();
 
 

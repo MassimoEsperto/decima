@@ -25,6 +25,12 @@
     </div>
 
     <div class="pt-16">
+
+        <div class="pt-16 pb-16">
+            <my-button [submit]="false" [color]="'btn-primary'" [block]="false"  [disabled]="!formazioni_inserite" [label]="'RECUPERA TUTTO'"
+                [confirm]="true" [loading]="loading_btn" (myClick)="recuperaTotaleFormazioni()"></my-button>
+        </div>
+
         <div *ngFor="let item of formazioni_inserite" class="pt-8">
 
             <div class="card bg-warning text-white">
