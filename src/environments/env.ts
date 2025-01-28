@@ -1,12 +1,12 @@
 // Versione applicazione
 export const SHIT_VERSION = "10.1.1"
 
-export const WS_BASE_URL = `https://fantashitcup.altervista.org/WorldWideFantashit/web-services`
-
+export const WS_BASE_URL = `https://miagenda.altervista.org/WorldWideFantashit/web-services`
+//export const WS_BASE_URL = `https://fantashitcup.altervista.org/WorldWideFantashit/web-services`
 export const WS_EXTENSION = `.php`
 
-export const ASSETS_BASE_URL = `https://fantashitcup.altervista.org/WorldWideFantashit/ShitCup/assets`
-
+export const ASSETS_BASE_URL = `https://miagenda.altervista.org/WorldWideFantashit/ShitCup/assets`
+//export const ASSETS_BASE_URL = `https://fantashitcup.altervista.org/WorldWideFantashit/ShitCup/assets`
 export const WHATSAPP_URL = `https://chat.whatsapp.com/JICQWVbYoqCKh9gek92EIW`
 
 // Timeout richieste POST
@@ -21,4 +21,5 @@ export const MAX_IMG = 40000
 export const TOKEN_STORAGE = "tk-user-shit-cup";
 export const LANGUAGE_STORAGE = "shit-cup-language";
 export const LABEL_STORAGE = "shit-cup-label";
+export const INFO_STORAGE = "shit-cup-info";
 

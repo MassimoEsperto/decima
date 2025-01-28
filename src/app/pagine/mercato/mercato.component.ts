@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Squadra } from 'src/app/classi/squadra';
-import { ViewIscirzione, TipoSquadra } from 'src/environments/enums';
+import { ViewIscirzione } from 'src/environments/enums';
 import { SpinnerService } from 'src/servizi/local/spinner.service';
 import { UpgradeSquadraFantaComponent } from './upgrade-squadra-fanta/upgrade-squadra-fanta.component';
 import { UpgradeSquadraLocaleComponent } from './upgrade-squadra-locale/upgrade-squadra-locale.component';
@@ -10,6 +10,7 @@ import { ComponiSquadraComponent } from './componi-squadra/componi-squadra.compo
 import { CommonModule } from '@angular/common';
 import { MySpinner } from 'src/app/componenti/my-spinner/my-spinner.component';
 import { AuthService } from 'src/servizi/client/auth.service';
+import { LOOKUPS } from 'src/app/classi/dto/lookup.dto';
 
 
 
@@ -37,7 +38,7 @@ export class MercatoComponent implements OnInit {
 
 
   ngOnInit() {
-    this.fase = this.authService.getLoggato().fase || 0;
+    this.fase = this.authService.getInfoCompetizione().fase_competizione || 0;
   }
 
   VIEW_ISCRIZIONE = ViewIscirzione;
@@ -64,10 +65,10 @@ export class MercatoComponent implements OnInit {
   onRiEdit(squadra: Squadra) {
     console.log("squadra",squadra)
     this.squadra = squadra
-    if (squadra.tipo == TipoSquadra.FANTA)
+    if (squadra.tipo == LOOKUPS.PROVENIENZA.FANTA)
       this.view = ViewIscirzione.UPGRADE_F
 
-    if (squadra.tipo == TipoSquadra.LOCALE)
+    if (squadra.tipo == LOOKUPS.PROVENIENZA.LISTONE)
       this.view = ViewIscirzione.UPGRADE_L
   }
 

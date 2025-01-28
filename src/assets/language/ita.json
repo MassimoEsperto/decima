@@ -24,6 +24,7 @@
         "calcolo": "IN CALCOLO...",
         "serie": "SERIE A",
         "fase": "FASE",
+        "turno": "TURNO",
         "data": "DATA",
         "voti_live": "VOTI LIVE",
         "statistiche": "STATISTICHE",
@@ -37,14 +38,18 @@
         "modulo": "MODULO",
         "punti_bonus": "PUNTI BONUS",
         "sfoglia_risultati": "SFOGLIA RISULTATI",
-        "fasi": {
+        "turni": {
             "gironi": "GIRONI",
-            "iscizione": "ISCRIZIONE",
             "spareggi": "SPAREGGI",
             "ottavi": "OTTAVI",
             "quarti": "QUARTI",
             "semi_finale": "SEMIFINALE",
             "finale": "FINALE"
+        },
+        "fasi": {
+            "iscizione": "ISCRIZIONE",
+            "mercato": "MERCATO",
+            "competizione": "COMPETIZIONE"
         },
         "percorso": {
             "0": "ISCRITTO ALLA COMPETIZIONE",

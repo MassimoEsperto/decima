@@ -1,6 +1,5 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { Utente } from 'src/app/classi/utente';
 import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
 import { PlayerService } from 'src/servizi/client/player.service';
@@ -13,7 +12,7 @@ import { PostPartitaComponent } from './post-partita/post-partita.component';
 import { PartitaIncorsoComponent } from './partita-incorso/partita-incorso.component';
 import { CommonModule } from '@angular/common';
 import { MyLogo } from 'src/app/componenti/my-logo/my-logo.component';
-import { EnumService } from 'src/servizi/local/enum.service';
+import { LOOKUPS } from 'src/app/classi/dto/lookup.dto';
 
 
 @Component({
@@ -31,19 +30,21 @@ import { EnumService } from 'src/servizi/local/enum.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent extends OnInitComp implements OnInit {
+export class HomeComponent implements OnInit {
 
   dash: any;
   loggato: Utente = new Utente();
   isDebitore: boolean = false
+  LOOKUP = LOOKUPS
+  loading_btn: boolean = false;
+  loading_page: boolean = false;
+  loading_table: boolean = false;
 
   constructor(
     private playerService: PlayerService,
     private alert: AlertService,
     public language: LanguageService,
-    public ENUMS: EnumService,
     public spinner: SpinnerService) {
-    super();
   }
 
   ngOnInit() {

@@ -48,7 +48,8 @@ export const ADMIN_SERVICE = {
   GET_ALL_OBJECTS: "get_all_objects",
   UPD_CALCIATORE: "upd_calciatore",
   SET_SWITCHS: "set_switchs",
-
+  GET_INFO_GENERALI: "get_info_generali",
+  SET_INFO_GENERALI: "upd_info_generali"
 }
 
 export const PLAYER_SERVICE = {
@@ -113,9 +114,11 @@ export const SUB_PAGE_ADMIN = {
   COMPETIZIONE: {
     RECUPERO: 1,
     CALCOLO: 2,
+    GENERALI: 3,
     VIEW_POSSIBILI: [
       { id: 1, descrizione: "RECUPERO" },
-      { id: 2, descrizione: "CALCOLO" }
+      { id: 2, descrizione: "CALCOLO" },
+      { id: 3, descrizione: "GENERALI" }
     ]
   },
   ACCOPPIAMENTI: {
@@ -234,3 +237,6 @@ export const PAGE = {
   }
 
 }
+
+
+

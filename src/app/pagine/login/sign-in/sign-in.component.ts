@@ -2,11 +2,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
+import { InfoGenerali } from 'src/app/classi/dto/info.generali.dto';
+import { LOOKUPS } from 'src/app/classi/dto/lookup.dto';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { LOGIN_PAGE, PAGE } from 'src/environments/costanti';
-import { FasiCompetizione } from 'src/environments/enums';
 import { AuthService } from 'src/servizi/client/auth.service';
 import { AlertService } from 'src/servizi/local/alert.service';
+
 
 
 @Component({
@@ -43,20 +45,18 @@ export class SignInComponent implements OnInit {
 
         next: (result: any) => {
 
+          let info: InfoGenerali = this.auth.getInfoCompetizione()
           let num_msg: number = Number(result.num_msg)
-          let fase: number = Number(result.fase)
 
-          if (fase == FasiCompetizione.ISCRIZIONE || fase == FasiCompetizione.MERCATO) {
+          if (info.fase_competizione == LOOKUPS.FASI.ISCRIZIONE || info.fase_competizione == LOOKUPS.FASI.MERCATO) {
             this.navigate(PAGE.MERCATO)
-
           } else {
-            if (num_msg > 0)
+            if (num_msg > 0){
               this.router.navigate([PAGE.DASHBOARD.ABSOLUTE.COMUNICAZIONI]);
-
-            else
+            }
+            else{
               this.router.navigate([PAGE.DASHBOARD.ABSOLUTE.HOME]);
-
-
+          }
           }
         },
         error: (error: any) => {

@@ -1,9 +1,10 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { firstValueFrom, map } from 'rxjs'
+import { InfoGenerali } from 'src/app/classi/dto/info.generali.dto';
 import { Utente } from 'src/app/classi/utente';
-import { WS_BASE_URL, TOKEN_STORAGE, LANGUAGE_STORAGE, LABEL_STORAGE, SHIT_VERSION } from 'src/environments/env';
+import { WS_BASE_URL, TOKEN_STORAGE, LANGUAGE_STORAGE, LABEL_STORAGE, SHIT_VERSION, INFO_STORAGE } from 'src/environments/env';
 
 
 export class HttpSenderService {
@@ -45,12 +46,34 @@ export class HttpSenderService {
 
   clearLocalStorage() {
     localStorage.clear();
+    sessionStorage.clear();
   }
 
   setLocalStorage(input: any) {
     localStorage.setItem(TOKEN_STORAGE, input);
   }
 
+  setLocalStorageObject(obj: any, storage: string) {
+    let input = JSON.stringify(obj)
+    sessionStorage.setItem(storage, input);
+  }
+
+  getLocalStorageObject(storage: string) {
+    let output = sessionStorage.getItem(storage)
+    return output ? JSON.parse(output) : false
+  }
+
+
+
+  getInfoCompetizione() {
+    let element: any = this.getLocalStorageObject(INFO_STORAGE)
+    let obj: InfoGenerali = new InfoGenerali(element)
+    return obj
+  }
+
+  setInfoCompetizione(obj: InfoGenerali) {
+    let element = this.setLocalStorageObject(obj, INFO_STORAGE)
+  }
 
   getLoggato() {
 

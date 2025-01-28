@@ -1,6 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { AdminService } from 'src/servizi/client/admin.service';
 import { AlertService } from 'src/servizi/local/alert.service';
 import { LanguageService } from 'src/servizi/local/language.service';
@@ -19,19 +18,21 @@ import { CommonModule } from '@angular/common';
   templateUrl: './sorteggi-gironi.component.html',
   styleUrl: './sorteggi-gironi.component.scss'
 })
-export class SorteggiGironiComponent extends OnInitComp implements OnInit {
+export class SorteggiGironiComponent implements OnInit {
 
   start: boolean = false
   sorteggiabili: any
   girone: string = ""
   sorteggiati: any = []
+  loading_btn: boolean = false;
+  loading_page: boolean = false;
+  loading_table: boolean = false;
 
   constructor(
     public language: LanguageService,
     private alert: AlertService,
     private adminService: AdminService,
     private ref: ChangeDetectorRef) {
-    super();
   }
 
 

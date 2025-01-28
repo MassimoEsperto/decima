@@ -20,19 +20,19 @@
 
     <div [ngSwitch]="this.dash.turno.periodo">
 
-      <div *ngSwitchCase="PERIODO_GIORNATA.PRE_PARTITA">
+      <div *ngSwitchCase="LOOKUP.FRAZIONI.PREPARTITA">
 
         <pre-partita [dash]="dash"></pre-partita>
 
       </div>
 
-      <div *ngSwitchCase="PERIODO_GIORNATA.PARTITA_LIVE">
+      <div *ngSwitchCase="LOOKUP.FRAZIONI.INCORSO">
 
         <partita-incorso [dash]="dash"></partita-incorso>
 
       </div>
 
-      <div *ngSwitchCase="PERIODO_GIORNATA.POST_PARTITA">
+      <div *ngSwitchCase="LOOKUP.FRAZIONI.POSTPARTITA">
 
         <post-partita [dash]="dash"></post-partita>
 

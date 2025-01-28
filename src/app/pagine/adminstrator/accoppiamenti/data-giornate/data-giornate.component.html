@@ -30,7 +30,7 @@
                         <tr *ngFor="let item of accoppiamenti.giornate">
                             <td>{{item.giornata}}</td>
                             <td>{{item.serie_a}}</td>
-                            <td>{{util.getFasi(item.fase)}}</td>
+                            <td>{{util.getTurni(item.turno)}}</td>
                             <td>{{item.inizio_giornata}}</td>
                             <td>{{item.prima_partita}}</td>
                             <td>{{item.ultima_partita}}</td>

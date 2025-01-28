@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { LanguageService } from './language.service';
-import { FasiCompetizione } from 'src/environments/enums';
-import { BOLEANO } from 'src/environments/costanti';
 import { PayloadCalcolo, Risultato } from 'src/app/classi/entity/risultato.entity';
 import { Giornata } from 'src/app/classi/dto/giornata.dto';
-import { RepTurni } from 'src/app/classi/dto/lookup.dto';
+import { LOOKUPS, RepTurni } from 'src/app/classi/dto/lookup.dto';
+import { BOLEANO } from 'src/environments/costanti';
 
 
 @Injectable({
@@ -16,26 +15,25 @@ export class UtilService {
   constructor(
     private language: LanguageService) { }
 
-  FASE_COMPETIZIONE = FasiCompetizione;
+  FASE_COMPETIZIONE = LOOKUPS.FASI;
+  TURNI_COMPETIZIONE = LOOKUPS.TURNI;
 
 
-  getFasi(input: number) {
+  getTurni(input: number) {
 
     switch (Number(input)) {
-      case this.FASE_COMPETIZIONE.ISCRIZIONE:
-        return this.language.label.page.fasi.iscizione
-      case this.FASE_COMPETIZIONE.GIRONI:
-        return this.language.label.page.fasi.gironi
-      case this.FASE_COMPETIZIONE.SPAREGGI:
-        return this.language.label.page.fasi.spareggi
-      case this.FASE_COMPETIZIONE.OTTAVI:
-        return this.language.label.page.fasi.ottavi
-      case this.FASE_COMPETIZIONE.QUARTI:
-        return this.language.label.page.fasi.quarti
-      case this.FASE_COMPETIZIONE.SEMI_FINALE:
-        return this.language.label.page.fasi.semi_finale
-      case this.FASE_COMPETIZIONE.FINALE:
-        return this.language.label.page.fasi.finale
+      case this.TURNI_COMPETIZIONE.GIRONI:
+        return this.language.label.page.turni.gironi
+      case this.TURNI_COMPETIZIONE.SPAREGGI:
+        return this.language.label.page.turni.spareggi
+      case this.TURNI_COMPETIZIONE.OTTAVI:
+        return this.language.label.page.turni.ottavi
+      case this.TURNI_COMPETIZIONE.QUARTI:
+        return this.language.label.page.turni.quarti
+      case this.TURNI_COMPETIZIONE.SEMIFINALE:
+        return this.language.label.page.turni.semi_finale
+      case this.TURNI_COMPETIZIONE.FINALE:
+        return this.language.label.page.turni.finale
       default: return ""
     }
 
@@ -198,10 +196,10 @@ export class UtilService {
       item.destra = destra
     }
 
-    format.ottavi = tabellone.find((i: { id_fase: FasiCompetizione; }) => i.id_fase == FasiCompetizione.OTTAVI);
-    format.quarti = tabellone.find((i: { id_fase: FasiCompetizione; }) => i.id_fase == FasiCompetizione.QUARTI);
-    format.semifinale = tabellone.find((i: { id_fase: FasiCompetizione; }) => i.id_fase == FasiCompetizione.SEMI_FINALE);
-    format.finale = tabellone.find((i: { id_fase: FasiCompetizione; }) => i.id_fase == FasiCompetizione.FINALE);
+    format.ottavi = tabellone.find((i: { id_fase: number; }) => i.id_fase == LOOKUPS.TURNI.OTTAVI);
+    format.quarti = tabellone.find((i: { id_fase: number; }) => i.id_fase == LOOKUPS.TURNI.QUARTI);
+    format.semifinale = tabellone.find((i: { id_fase: number; }) => i.id_fase == LOOKUPS.TURNI.SEMIFINALE);
+    format.finale = tabellone.find((i: { id_fase: number; }) => i.id_fase == LOOKUPS.TURNI.FINALE);
 
     return format
   }
@@ -292,7 +290,7 @@ export class UtilService {
 
     for (let turno of turni) {
 
-      let quantitaSingola: number = turno.bonus;
+      let quantitaSingola: number = turno.quantita;
       let massimo = quantitaSingola < 4 ? media : 10
       quantitaTotale += quantitaSingola
 
@@ -320,7 +318,7 @@ export class UtilService {
   findFaseByGiornata(gio: number, turni: RepTurni[]): number {
     let quantita: number = 0;
     for (let turno of turni) {
-      quantita += turno.bonus;
+      quantita += turno.quantita;
 
       if (gio <= quantita) {
         return turno.code

@@ -1,12 +1,12 @@
-import { Info } from "./info.dto";
+import { InfoGenerali } from "./info.generali.dto";
 import { Lookup } from "./lookup.dto";
 
 export class ShitCup {
-    info: Info
+    info: InfoGenerali
     lookup: Lookup
 
     constructor(obj: ShitCup) {
-        this.info = new Info(obj.info);
+        this.info = new InfoGenerali(obj.info);
         this.lookup = new Lookup(obj.lookup);
     }
 }

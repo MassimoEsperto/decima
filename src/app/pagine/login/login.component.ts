@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize, map } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { AdminService } from 'src/servizi/client/admin.service';
 import { AuthService } from 'src/servizi/client/auth.service';
 import { LanguageService } from 'src/servizi/local/language.service';
@@ -11,6 +10,8 @@ import { FrontespizioComponent } from './frontespizio/frontespizio.component';
 import { CommonModule } from '@angular/common';
 import { ShitCup } from 'src/app/classi/dto/shitcup.dto';
 import { SHIT_VERSION } from 'src/environments/env';
+import { InfoGenerali } from 'src/app/classi/dto/info.generali.dto';
+import { ALERT_MSG, LOGIN_PAGE } from 'src/environments/costanti';
 
 
 
@@ -28,17 +29,23 @@ import { SHIT_VERSION } from 'src/environments/env';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent extends OnInitComp implements OnInit {
+export class LoginComponent implements OnInit {
 
+  loading_btn: boolean = false;
+  loading_page: boolean = false;
+  loading_table: boolean = false;
+
+  LOGIN_PAGE = LOGIN_PAGE;
+
+  ALERT_MSG = ALERT_MSG;
   view: number = this.LOGIN_PAGE.SIGN_IN;
   utenti: any = []
   errore: boolean = false;
-  verifica: any;
+  info!: InfoGenerali;
 
   constructor(private adminService: AdminService,
     private authService: AuthService,
     public language: LanguageService) {
-    super();
   }
 
 
@@ -78,16 +85,10 @@ export class LoginComponent extends OnInitComp implements OnInit {
       ).subscribe({
 
         next: (result: ShitCup) => {
-          console.log("getInfo", result)
-
-          let verifica = {
-            applicazione: result.info.versione,
-            locale: SHIT_VERSION,
-            error: result.info.versione != SHIT_VERSION
-          }
-
-          this.verifica = verifica;
-          this.errore = verifica.error
+          result.info.versione_fe = SHIT_VERSION
+          this.info = result.info
+          this.adminService.setInfoCompetizione(result.info)
+          this.errore = this.info.erroreVersione()
 
         },
         error: (error: any) => {

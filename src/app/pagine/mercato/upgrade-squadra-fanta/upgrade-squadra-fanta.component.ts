@@ -3,7 +3,6 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { Squadra } from 'src/app/classi/squadra';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
@@ -27,7 +26,7 @@ import { SpinnerService } from 'src/servizi/local/spinner.service';
   templateUrl: './upgrade-squadra-fanta.component.html',
   styleUrl: './upgrade-squadra-fanta.component.scss'
 })
-export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChanges {
+export class UpgradeSquadraFantaComponent implements OnChanges {
 
   @Output() change = new EventEmitter();
   @Input() squadra: Squadra = new Squadra(0, '', '', '', '', '', 0);
@@ -35,6 +34,10 @@ export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChange
   svincolati: any;
   rosa_aggiornata: any = []
   leghe: any;
+
+  loading_btn: boolean = false;
+  loading_page: boolean = false;
+  loading_table: boolean = false;
 
 
   constructor(
@@ -44,7 +47,6 @@ export class UpgradeSquadraFantaComponent extends OnInitComp implements OnChange
     public language: LanguageService,
     private router: Router,
     private playerService: PlayerService) {
-    super();
   }
 
   ngOnChanges() {

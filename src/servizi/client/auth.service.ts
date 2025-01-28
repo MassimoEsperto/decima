@@ -4,9 +4,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { HttpSenderService } from './http-sender-service';
 import { Observable } from 'rxjs';
-
-import { FasiCompetizione, RuoliUtente } from 'src/environments/enums';
 import { AUTH_SERVICE, SERVICE_TYPE } from 'src/environments/costanti';
+import { LOOKUPS } from 'src/app/classi/dto/lookup.dto';
 
 
 @Injectable({
@@ -76,7 +75,7 @@ export class AuthService extends HttpSenderService {
 
     let ruolo = this.getLoggato().ruolo
 
-    if (ruolo == RuoliUtente.ADMIN) return true
+    if (ruolo == LOOKUPS.RUOLI.ADMIN) return true
 
     return false
   }
@@ -87,11 +86,11 @@ export class AuthService extends HttpSenderService {
 
     let ruolo = this.getLoggato().ruolo
 
-    let fase = this.getLoggato().fase
+    let fase = this.getInfoCompetizione().fase_competizione
 
-    if (fase == FasiCompetizione.MERCATO || fase == FasiCompetizione.ISCRIZIONE) return false
+    if (fase == LOOKUPS.FASI.MERCATO || fase == LOOKUPS.FASI.ISCRIZIONE) return false
 
-    if (ruolo == RuoliUtente.ADMIN || ruolo == RuoliUtente.PLAYER) return true
+    if (ruolo == LOOKUPS.RUOLI.ADMIN || ruolo == LOOKUPS.RUOLI.PLAYER) return true
 
     return false
   }
@@ -102,7 +101,7 @@ export class AuthService extends HttpSenderService {
 
     let ruolo = this.getLoggato().ruolo
 
-    if (ruolo == RuoliUtente.GHOST) return true
+    if (ruolo == LOOKUPS.RUOLI.GHOST) return true
 
     return false
   }
@@ -112,9 +111,9 @@ export class AuthService extends HttpSenderService {
 
     if (!this.isLogged()) return false
 
-    let fase = this.getLoggato().fase
+    let fase = this.getInfoCompetizione().fase_competizione
 
-    if (fase == FasiCompetizione.MERCATO || fase == FasiCompetizione.ISCRIZIONE) return true
+    if (fase == LOOKUPS.FASI.MERCATO || fase == LOOKUPS.FASI.ISCRIZIONE) return true
 
     return false
   }

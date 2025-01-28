@@ -27,9 +27,9 @@
         <div *ngIf="errore&&!loading_page" class="fadein pa-8">
             <div class="text-white">
                 <h5>{{language.label.presentazione.aggiorna_versione}}</h5>
-                <div *ngIf="verifica">
-                    <p>{{language.label.presentazione.versione_locale}}: {{verifica.locale}}</p>
-                    <p>{{language.label.presentazione.versione_applicazione}}: {{verifica.applicazione}}</p>
+                <div>
+                    <p>{{language.label.presentazione.versione_locale}}: {{info.versione_fe}}</p>
+                    <p>{{language.label.presentazione.versione_applicazione}}: {{info.versione}}</p>
                 </div>
                 <hr>
                 <p>{{language.label.presentazione.soluzione}}:</p>

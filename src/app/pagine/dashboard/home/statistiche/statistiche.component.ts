@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
+import { LOOKUPS } from 'src/app/classi/dto/lookup.dto';
 import { LanguageService } from 'src/servizi/local/language.service';
 
 
@@ -13,13 +13,15 @@ import { LanguageService } from 'src/servizi/local/language.service';
   templateUrl: './statistiche.component.html',
   styleUrl: './statistiche.component.scss'
 })
-export class StatisticheComponent extends OnInitComp {
+export class StatisticheComponent {
 
   @Input() statistiche: any;
   @Input() percorso: any;
+  loading_btn: boolean = false;
+  loading_page: boolean = false;
+  loading_table: boolean = false;
 
   constructor(public language: LanguageService) {
-    super();
   }
 
   ngOnInit() { }
@@ -28,9 +30,9 @@ export class StatisticheComponent extends OnInitComp {
   getStato(num: string) {
 
     switch (Number(num)) {
-      case this.STATI_SQUADRA.ELIMINATO:
+      case LOOKUPS.STATI.ELIMINATA:
         return this.language.label.page.stati.eliminato
-      case this.STATI_SQUADRA.VINCITORE:
+      case LOOKUPS.STATI.VINCITRICE:
         return this.language.label.page.stati.vincitore
       default:
         return this.language.label.page.stati.in_corsa

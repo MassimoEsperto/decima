@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RuoliUtente } from 'src/environments/enums';
+import { LOOKUPS } from 'src/app/classi/dto/lookup.dto';
+
 
 @Component({
   selector: 'lista-account',
@@ -14,7 +15,7 @@ export class ListaAccountComponent {
   @Input() utenti: any[]=[];
 
 
-  RUOLI_UTENTE = RuoliUtente;
+  RUOLI_UTENTE = LOOKUPS.RUOLI;
 
 
   viewRuolo(input: number) {

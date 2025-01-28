@@ -8,6 +8,7 @@ import { RecuperoFormazioniComponent } from './recupero-formazioni/recupero-form
 import { CalcoloVotiComponent } from './calcolo-voti/calcolo-voti.component';
 import { MyInfoCard } from 'src/app/componenti/my-info-card/my-info-card.component';
 import { CommonModule } from '@angular/common';
+import { InfoGeneraliComponent } from './info-generali/info-generali.component';
 
 
 @Component({
@@ -17,7 +18,8 @@ import { CommonModule } from '@angular/common';
     RecuperoFormazioniComponent,
     CalcoloVotiComponent,
     MyInfoCard,
-    CommonModule
+    CommonModule,
+    InfoGeneraliComponent
   ],
   templateUrl: './competizione.component.html',
   styleUrl: './competizione.component.scss'

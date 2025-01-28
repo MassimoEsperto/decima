@@ -3,7 +3,6 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { MyTitolo } from 'src/app/componenti/my-titolo/my-titolo.component';
 import { FantaGazzettaService } from 'src/servizi/client/fanta-gazzetta.service';
@@ -26,7 +25,7 @@ import { SpinnerService } from 'src/servizi/local/spinner.service';
   templateUrl: './schieramento.component.html',
   styleUrl: './schieramento.component.scss'
 })
-export class SchieramentoComponent extends OnInitComp implements OnInit {
+export class SchieramentoComponent implements OnInit {
 
   constructor(
     public spinner: SpinnerService,
@@ -37,7 +36,6 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
     private fantaService: FantaGazzettaService,
     private forms: ModalFormService,
     private ref: ChangeDetectorRef) {
-    super();
   }
 
   ngOnInit() {
@@ -66,7 +64,9 @@ export class SchieramentoComponent extends OnInitComp implements OnInit {
   is_casa: boolean = true;
   moduli: any = [];
   modulo: any;
-
+  loading_btn: boolean = false;
+  loading_page: boolean = false;
+  loading_table: boolean = false;
 
   rosa: any;
 

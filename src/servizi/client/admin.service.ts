@@ -146,5 +146,13 @@ export class AdminService extends HttpSenderService {
     return this.postFree(ADMIN_SERVICE.SET_GENERA_GIORNATE, payload)
   }
 
+  getInfoGenerali(): Observable<any> {
+    return this.getFree(ADMIN_SERVICE.GET_INFO_GENERALI)
+  }
+
+  setInfoGenerali(payload: any) {
+    return this.postFree(ADMIN_SERVICE.SET_INFO_GENERALI, payload)
+  }
+
 }
 

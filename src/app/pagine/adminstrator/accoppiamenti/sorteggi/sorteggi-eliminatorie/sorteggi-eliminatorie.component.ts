@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { AdminService } from 'src/servizi/client/admin.service';
 import { AlertService } from 'src/servizi/local/alert.service';
 import { LanguageService } from 'src/servizi/local/language.service';
@@ -21,11 +20,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './sorteggi-eliminatorie.component.scss',
   providers: [UtilService],
 })
-export class SorteggiEliminatorieComponent extends OnInitComp implements OnInit {
+export class SorteggiEliminatorieComponent implements OnInit {
 
   views = { DEFAULT: 0, LISTA: 1, CARD: 2 }
   view: number = 0
 
+  loading_btn: boolean = false;
+  loading_page: boolean = false;
+  loading_table: boolean = false;
 
   sorteggiabili: any
   sorteggiati: any = []
@@ -39,7 +41,6 @@ export class SorteggiEliminatorieComponent extends OnInitComp implements OnInit 
     private alert: AlertService,
     private adminService: AdminService,
     private util: UtilService) {
-    super();
   }
 
 

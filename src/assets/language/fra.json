@@ -24,6 +24,7 @@
         "calcolo": "EN CALCUL...",
         "serie": "SERIE A",
         "fase": "PHASE",
+        "turno": "TURN",
         "data": "DATE",
         "voti_live": "VOTES EN DIRECT",
         "statistiche": "STATISTIQUES",
@@ -37,14 +38,18 @@
         "modulo": "MODULE",
         "punti_bonus": "POINTS BONUS",
         "sfoglia_risultati": "PARCOURIR RESULTATS",
-        "fasi": {
+        "turni": {
             "gironi": "GROUPES",
-            "iscizione": "ISCRIZIONE",
             "spareggi": "TIRAGES",
             "ottavi": "HUITIEME",
             "quarti": "TRIMESTRE",
             "semi_finale": "DEMIFINALE",
             "finale": "FINAL"
+        },
+        "fasi": {
+            "iscizione": "ISCRIZIONE",
+            "mercato": "MERCATO",
+            "competizione": "COMPETIZIONE"
         },
         "percorso": {
             "0": "PARTICIPANT AU CONCOURS",

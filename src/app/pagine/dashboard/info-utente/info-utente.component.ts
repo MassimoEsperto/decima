@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { Squadra } from 'src/app/classi/squadra';
 import { Utente } from 'src/app/classi/utente';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
@@ -28,7 +27,7 @@ import { SpinnerService } from 'src/servizi/local/spinner.service';
   templateUrl: './info-utente.component.html',
   styleUrl: './info-utente.component.scss'
 })
-export class InfoUtenteComponent extends OnInitComp implements OnInit {
+export class InfoUtenteComponent implements OnInit {
 
   constructor(
     private playerService: PlayerService,
@@ -37,7 +36,6 @@ export class InfoUtenteComponent extends OnInitComp implements OnInit {
     private router: Router,
     public language: LanguageService,
     public spinner: SpinnerService) {
-    super();
   }
 
   avatars: any = [];
@@ -48,7 +46,9 @@ export class InfoUtenteComponent extends OnInitComp implements OnInit {
 
   id_selected: number = 0;
   squadre: Array<Squadra> = [];
-
+  loading_btn: boolean = false;
+  loading_page: boolean = false;
+  loading_table: boolean = false;
 
   ngOnInit() {
 

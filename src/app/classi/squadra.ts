@@ -6,7 +6,7 @@ export class Squadra {
     account: string;
     lega: string;
     stato: number;
-    tipo: string = 'FANTA'
+    tipo: number = 1
 
     constructor(
         id_squadra: number = 0,

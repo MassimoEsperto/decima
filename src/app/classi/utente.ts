@@ -14,7 +14,7 @@ export class Utente {
   squadre?: Array<Squadra> = [];
   selezionata?: Squadra;
   language?: string;
-  fase?: number;
+  turno?: number;
 
   constructor(element?: any) {
 
@@ -25,11 +25,11 @@ export class Utente {
       this.cellulare = element.cellulare
       this.selezionata = element.selezionata
       this.token = element.token
-      this.num_msg = element.num_msg
+      this.num_msg = Number(element.num_msg)
       this.squadre = element.squadre
       this.qta = element.qta
-      this.ruolo = element.ruolo
-      this.fase = element.fase
+      this.ruolo = Number(element.ruolo)
+      this.turno = Number(element.turno)
     }
   }
 }

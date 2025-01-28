@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { AfterContentInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { finalize } from 'rxjs';
+import { LOOKUPS } from 'src/app/classi/dto/lookup.dto';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
-import { ViewIscirzione, TipoSquadra, StatiSquadra, FasiCompetizione, RuoliUtente } from 'src/environments/enums';
+import { ViewIscirzione} from 'src/environments/enums';
 import { AuthService } from 'src/servizi/client/auth.service';
 import { PlayerService } from 'src/servizi/client/player.service';
 import { AlertService } from 'src/servizi/local/alert.service';
@@ -33,10 +34,11 @@ export class ListaSquadreComponent implements AfterContentInit {
   @Input() fase: number = 0;
 
   VIEW_ISCRIZIONE = ViewIscirzione;
-  TIPO_SQUADRA = TipoSquadra;
-  STATO_SQUADRA = StatiSquadra;
-  FASE_COMPETIZIONE = FasiCompetizione;
-  RUOLO_UTENTE = RuoliUtente;
+  LOOKUP = LOOKUPS;
+  TIPO_SQUADRA = LOOKUPS.PROVENIENZA;
+  STATO_SQUADRA = LOOKUPS.STATI;
+  FASE_COMPETIZIONE = LOOKUPS.FASI;
+  RUOLO_UTENTE = LOOKUPS.RUOLI;
 
 
 

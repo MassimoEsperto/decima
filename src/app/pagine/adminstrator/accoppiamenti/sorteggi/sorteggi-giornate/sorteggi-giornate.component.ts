@@ -5,7 +5,6 @@ import { finalize, map, startWith } from 'rxjs';
 import { Giornata } from 'src/app/classi/dto/giornata.dto';
 import { Lookup } from 'src/app/classi/dto/lookup.dto';
 import { ShitCup } from 'src/app/classi/dto/shitcup.dto';
-import { OnInitComp } from 'src/app/classi/OnInitComp';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
 import { AdminService } from 'src/servizi/client/admin.service';
 import { AuthService } from 'src/servizi/client/auth.service';
@@ -26,7 +25,7 @@ import { UtilService } from 'src/servizi/local/util.service';
   styleUrl: './sorteggi-giornate.component.scss',
   providers: [UtilService],
 })
-export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
+export class SorteggiGiornateComponent implements OnInit {
 
   giornate: Giornata[] = [];
   lookups!: Lookup;
@@ -37,6 +36,10 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
   // FormGroup per il form reattivo
   form!: FormGroup;
 
+  loading_btn: boolean = false;
+  loading_page: boolean = false;
+  loading_table: boolean = false;
+
   constructor(
     public language: LanguageService,
     private alert: AlertService,
@@ -44,7 +47,6 @@ export class SorteggiGiornateComponent extends OnInitComp implements OnInit {
     private authService: AuthService,
     private util: UtilService,
     private fb: FormBuilder) {
-    super();
     // Crea il form con 3 controlli: min, max, fase
     this.form = this.fb.group({
       min: [null, [Validators.required]],

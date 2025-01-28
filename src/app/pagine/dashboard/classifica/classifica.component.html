@@ -31,16 +31,16 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let el of classifica.teams"
-                                    [ngClass]="{'table-qualificato': el.condizione === CONDIZIONE_GIRONE.QAULIFICATO }">
-                                    <td [ngClass]="{'spareggi' : el.condizione === CONDIZIONE_GIRONE.SPAREGGI }">
+                                    [ngClass]="{'table-qualificato': el.condizione === LOOKUP.CONDIZIONE_GIRONE.QUALIFICATA }">
+                                    <td [ngClass]="{'spareggi' : el.condizione === LOOKUP.CONDIZIONE_GIRONE.SPAREGGIO }">
                                         <div class="flex-start">
                                             <img src="assets/avatar/{{el.avatar}}.png" class="avatar" width="24px" />
                                             <div class="pl-8">{{el.squadra}}</div>
                                         </div>
                                     </td>
-                                    <td [ngClass]="{'spareggi' : el.condizione === CONDIZIONE_GIRONE.SPAREGGI }">
+                                    <td [ngClass]="{'spareggi' : el.condizione === LOOKUP.CONDIZIONE_GIRONE.SPAREGGIO }">
                                         {{el.gol}}</td>
-                                    <td [ngClass]="{'spareggi' : el.condizione === CONDIZIONE_GIRONE.SPAREGGI }">
+                                    <td [ngClass]="{'spareggi' : el.condizione === LOOKUP.CONDIZIONE_GIRONE.SPAREGGIO }">
                                         {{el.punti}}</td>
                                 </tr>
                             </tbody>

@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { SorteggiGironiComponent } from './sorteggi-gironi/sorteggi-gironi.component';
 import { SorteggiEliminatorieComponent } from './sorteggi-eliminatorie/sorteggi-eliminatorie.component';
-import { TipoSorteggi } from 'src/environments/enums';
 import { SorteggiGiornateComponent } from './sorteggi-giornate/sorteggi-giornate.component';
+import { LOOKUPS } from 'src/app/classi/dto/lookup.dto';
 
 @Component({
   selector: 'sorteggi',
@@ -20,7 +20,7 @@ import { SorteggiGiornateComponent } from './sorteggi-giornate/sorteggi-giornate
 export class SorteggiComponent {
 
   view: number = 0;
-  TIPO = TipoSorteggi;
+  TIPO = LOOKUPS.SORTEGGI;
 
   onChangeSelect(event: any) {
     this.view = event.target.value

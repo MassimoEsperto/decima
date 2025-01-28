@@ -24,6 +24,7 @@
         "calcolo": "計算中...",
         "serie": "一個聯賽",
         "fase": "階段",
+        "turno": "階段",
         "data": "日期",
         "voti_live": "現場投票",
         "statistiche": "統計數據",
@@ -37,14 +38,18 @@
         "modulo": "MODULO",
         "punti_bonus": "PUNTI BONUS",
         "sfoglia_risultati": "瀏覽結果",
-        "fasi": {
+        "turni": {
             "gironi": "團體",
-            "iscizione": "ISCRIZIONE",
             "spareggi": "射擊",
             "ottavi": "名合格",
             "quarti": "四分之一",
             "semi_finale": "半-決賽",
             "finale": "決賽"
+        },
+        "fasi": {
+            "iscizione": "ISCRIZIONE",
+            "mercato": "MERCATO",
+            "competizione": "COMPETIZIONE"
         },
         "percorso": {
             "0": "參賽者",
