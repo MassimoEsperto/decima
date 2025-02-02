@@ -64,7 +64,6 @@ export class HomeComponent implements OnInit {
           this.spinner.clear()
           this.dash = result
           this.dash.statistiche.loggato = this.loggato
-
         },
         error: (error: any) => {
           this.alert.error(error);

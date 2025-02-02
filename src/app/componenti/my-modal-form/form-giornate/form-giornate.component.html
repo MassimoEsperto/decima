@@ -18,12 +18,12 @@
                 name="serie_a" required #serie_a="ngModel" />
         </div>
 
-        <!-- Fasi-->
+        <!-- Turni-->
         <div class="pt-16">
-            <label for="select-fase">FASE</label>
-            <select id="select-fase" class="form-control custom-select" [(ngModel)]="data.fase" name="fase" required
-                #fase="ngModel">
-                <option *ngFor="let item of combo.fasi" [ngValue]="item.id">{{item.descrizione}}</option>
+            <label for="select-turno">TURNO</label>
+            <select id="select-turno" class="form-control custom-select" [(ngModel)]="data.turno" name="turno" required
+                #turno="ngModel">
+                <option *ngFor="let item of combo.turni" [ngValue]="item.code">{{item.valore}}</option>
             </select>
         </div>
 

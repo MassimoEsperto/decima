@@ -21,11 +21,11 @@ export class ListaAccountComponent {
   viewRuolo(input: number) {
 
     switch (Number(input)) {
-      case this.RUOLI_UTENTE.PLAYER:
+      case LOOKUPS.RUOLI.PLAYER:
         return "PLAYER"
-      case this.RUOLI_UTENTE.GHOST:
+      case LOOKUPS.RUOLI.GHOST:
         return "GHOST"
-      case this.RUOLI_UTENTE.ADMIN:
+      case LOOKUPS.RUOLI.ADMIN:
         return "ADMIN"
 
       default: return ""

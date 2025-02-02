@@ -9,20 +9,19 @@ import { CommonModule } from '@angular/common';
 import { ModalService } from 'src/servizi/local/modal.service';
 import { Lookup } from 'src/app/classi/dto/lookup.dto';
 
-
 @Component({
-  selector: 'form-utenti',
-  templateUrl: './form-utenti.component.html',
+  selector: 'form-squadre',
   standalone: true,
   imports: [
     MyButton,
     FormsModule,
     CommonModule
   ],
-  styleUrl: './form-utenti.component.scss',
-  providers: [ModalService],
+  templateUrl: './form-squadre.component.html',
+  styleUrl: './form-squadre.component.scss',
+  providers: [ModalService]
 })
-export class FormUtenti {
+export class FormSquadre {
 
   @Output() mySubmit = new EventEmitter();
   @Input() data: any;

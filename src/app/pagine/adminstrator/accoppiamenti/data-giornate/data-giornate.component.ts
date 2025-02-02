@@ -40,7 +40,7 @@ export class DataGiornateComponent implements OnInit {
 
   ngOnInit() {
 
-    let lista = { fasi: this.accoppiamenti.fasi, boleano: BOLEANO }
+    let lista = { turni: this.accoppiamenti.lookup.turni, boleano: BOLEANO }
     this.forms.setCombo({ lista })
 
   }

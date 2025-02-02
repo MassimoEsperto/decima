@@ -90,7 +90,7 @@ export class FormGiornate {
       //ultima_partita: input.ultima_partita.replace("T", " "),
       //fine_giornata: input.fine_giornata.replace("T", " "),
       is_upgrade: input.is_upgrade,
-      fase: input.fase
+      turno: input.turno
     }
 
     if (this.data.insert) {

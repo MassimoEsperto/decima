@@ -17,11 +17,11 @@
     </div>
 
     <my-logo></my-logo>
-
-    <div [ngSwitch]="this.dash.turno.periodo">
+   
+    <div [ngSwitch]="dash.turno.frazione">
 
       <div *ngSwitchCase="LOOKUP.FRAZIONI.PREPARTITA">
-
+     
         <pre-partita [dash]="dash"></pre-partita>
 
       </div>

@@ -196,10 +196,10 @@ export class UtilService {
       item.destra = destra
     }
 
-    format.ottavi = tabellone.find((i: { id_fase: number; }) => i.id_fase == LOOKUPS.TURNI.OTTAVI);
-    format.quarti = tabellone.find((i: { id_fase: number; }) => i.id_fase == LOOKUPS.TURNI.QUARTI);
-    format.semifinale = tabellone.find((i: { id_fase: number; }) => i.id_fase == LOOKUPS.TURNI.SEMIFINALE);
-    format.finale = tabellone.find((i: { id_fase: number; }) => i.id_fase == LOOKUPS.TURNI.FINALE);
+    format.ottavi = tabellone.find((i: { id_turno: number; }) => i.id_turno == LOOKUPS.TURNI.OTTAVI);
+    format.quarti = tabellone.find((i: { id_turno: number; }) => i.id_turno == LOOKUPS.TURNI.QUARTI);
+    format.semifinale = tabellone.find((i: { id_turno: number; }) => i.id_turno == LOOKUPS.TURNI.SEMIFINALE);
+    format.finale = tabellone.find((i: { id_turno: number; }) => i.id_turno == LOOKUPS.TURNI.FINALE);
 
     return format
   }

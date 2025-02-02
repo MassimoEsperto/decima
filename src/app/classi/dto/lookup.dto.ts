@@ -32,7 +32,7 @@ export class Lookup {
     }
 }
 
-class RepBase {
+export class RepBase {
     code: number
     valore: string
 
@@ -42,7 +42,7 @@ class RepBase {
     }
 }
 
-class RepModuli {
+export class RepModuli {
     code: number;
     valore: string;
     indice: string;
