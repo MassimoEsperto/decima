@@ -9,7 +9,8 @@ export class InfoGenerali {
     posizione_girone: PosizioneGirone;
     numero_ripescate: number;
     crediti_disponibili: number;
-    fase_competizione: number;
+    fase: number;
+    turno: number;
 
     constructor(obj: InfoGenerali) {
         this.versione = obj.versione;
@@ -20,7 +21,8 @@ export class InfoGenerali {
         this.posizione_girone = obj.posizione_girone;
         this.numero_ripescate = obj.numero_ripescate;
         this.crediti_disponibili = obj.crediti_disponibili;
-        this.fase_competizione = obj.fase_competizione;
+        this.fase = obj.fase;
+        this.turno = obj.turno;
     }
 
     erroreVersione():boolean{

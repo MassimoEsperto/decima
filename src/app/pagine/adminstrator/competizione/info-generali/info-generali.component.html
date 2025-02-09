@@ -11,8 +11,8 @@
     </div>
   
     <div class="pt-8">
-      <label for="fase_competizione">Fase Competizione</label>
-      <select class="form-control custom-select"  id="fase_competizione" name="fase_competizione" [(ngModel)]="competizione.fase_competizione" required>
+      <label for="fase">Fase Competizione</label>
+      <select class="form-control custom-select"  id="fase" name="fase" [(ngModel)]="competizione.fase" required>
         <option *ngFor="let fase of lookup.fasi" [value]="fase.code">{{ fase.valore }}</option>
       </select>
     </div>

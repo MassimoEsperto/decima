@@ -25,7 +25,7 @@ export class CalcoloVotiComponent {
 
   @Input() calcolato: any;
 
-  giornata_selezionata!: string;
+  giornata_selezionata!: number;
   formazioni_inserite: Risultato[] = [];
   risultati = [];
   voti_file: boolean = false
@@ -59,8 +59,8 @@ export class CalcoloVotiComponent {
 
     this.calcolo = this.utilService.getCalcolo(
       this.formazioni_inserite, filelist,
-      this.calcolato.FASE,
-      Number(this.giornata_selezionata)
+      this.calcolato.TURNO,
+      this.giornata_selezionata
     );
 
     this.voti_file = true
@@ -109,7 +109,7 @@ export class CalcoloVotiComponent {
 
         next: (result: any) => {
           this.alert.success(this.language.label.alert.success);
-          this.adminService.refreshPage();
+         // this.adminService.refreshPage();
         },
         error: (error: any) => {
           this.alert.error(error);

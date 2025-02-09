@@ -5,7 +5,7 @@
         </div>
 
         <!-- NEL ISCRIZIONE-->
-        <div class="card-body" *ngIf="fase==FASE_COMPETIZIONE.ISCRIZIONE">
+        <div class="card-body" *ngIf="fase==fasi.ISCRIZIONE">
             <div>
                 <h5>Benvenuto</h5>
             </div>
@@ -104,7 +104,7 @@
 
 
         <!-- NEL MERCATO-->
-        <div class="card-body" *ngIf="fase==FASE_COMPETIZIONE.MERCATO">
+        <div class="card-body" *ngIf="fase==fasi.MERCATO">
             <div>
                 <h5>Bentornato</h5>
             </div>
@@ -161,7 +161,7 @@
         </button>
     </div>
     <div class="pt-32 text-destra">
-        <button *ngIf="ruolo==RUOLO_UTENTE.ADMIN" routerLink="/adminstrator" class="btn btn-primary">Sezione Admin
+        <button *ngIf="ruolo==RUOLO_UTENTE.ADMIN" routerLink="{{PAGE.ADMINISTRATOR.ABSOLUTE._UTENTI}}" class="btn btn-primary">Sezione Admin
             <i class="bi bi-geo-fill cursore"></i>
         </button>
     </div>

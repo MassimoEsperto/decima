@@ -82,7 +82,7 @@
 
 
 
-    <div *ngIf="classifiche.factory.length" class="pt-8 pb-8">
+    <div *ngIf="classifiche.ranking.length" class="pt-8 pb-8">
 
         <div class="card bg-warning text-white">
             <div class="card-body">
@@ -114,12 +114,12 @@
                                 <table class="table table-borderless ma-0" style="border-radius: 8px;">
                                     <thead class="table-red">
                                         <tr>
-                                            <th *ngFor="let head of headElementsFactory;let i=index" scope="col"
+                                            <th *ngFor="let head of headElementsRanking;let i=index" scope="col"
                                                 [ngClass]="i > 0 ? 'numeri' : 'niente'">{{head}} </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let el of classifiche.factory">
+                                        <tr *ngFor="let el of classifiche.ranking">
                                             <td>
                                                 <div class="flex-start">
                                                     <img src="assets/avatar/{{el.avatar}}.png" class="avatar"
@@ -127,7 +127,7 @@
                                                     <div class="pl-8">{{el.squadra}}</div>
                                                 </div>
                                             </td>
-                                            <td style="font-weight: bold;">{{el.factory}}</td>
+                                            <td style="font-weight: bold;">{{el.ranking}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -139,7 +139,7 @@
         </div>
     </div>
 
-    <div *ngIf="classifiche.factory.length" class="pt-8 pb-8">
+    <div *ngIf="classifiche.ranking.length" class="pt-8 pb-8">
 
         <div class="card bg-warning text-white">
             <div class="card-body">
@@ -166,7 +166,10 @@
                     <div id="collapseTabellone" class="accordion-collapse collapse"
                         data-bs-parent="#accordionTabellone">
                         <div class="accordion-body bg-marine">
-                            <my-tabellone [tabellone]="classifiche.tabellone"></my-tabellone>
+                            <div class="pa-8">
+                                <my-tabellone [tabellone]="classifiche.tabellone"></my-tabellone>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>

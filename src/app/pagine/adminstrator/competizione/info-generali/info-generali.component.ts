@@ -47,6 +47,8 @@ export class InfoGeneraliComponent implements OnInit {
         next: (result: ShitCup) => {
           this.competizione = new InfoGenerali(result.info)
           this.lookup = new Lookup(result.lookup)
+          console.log("this.competizione",this.competizione)
+          console.log("this.this.lookup",this.lookup)
         },
         error: (error: any) => {
           this.alert.error(error);

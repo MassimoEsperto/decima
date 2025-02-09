@@ -34,6 +34,7 @@ export class AuthService extends HttpSenderService {
         let token = res['token'];
 
         const decoded = this.helper.decodeToken(token);
+        console.log("decoded",decoded)
         decoded.token = token;
 
         this.setToken(decoded);
@@ -86,7 +87,7 @@ export class AuthService extends HttpSenderService {
 
     let ruolo = this.getLoggato().ruolo
 
-    let fase = this.getInfoCompetizione().fase_competizione
+    let fase = this.getInfoCompetizione().fase
 
     if (fase == LOOKUPS.FASI.MERCATO || fase == LOOKUPS.FASI.ISCRIZIONE) return false
 
@@ -111,7 +112,7 @@ export class AuthService extends HttpSenderService {
 
     if (!this.isLogged()) return false
 
-    let fase = this.getInfoCompetizione().fase_competizione
+    let fase = this.getInfoCompetizione().fase
 
     if (fase == LOOKUPS.FASI.MERCATO || fase == LOOKUPS.FASI.ISCRIZIONE) return true
 

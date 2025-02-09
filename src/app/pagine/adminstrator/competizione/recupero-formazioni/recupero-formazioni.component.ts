@@ -22,7 +22,7 @@ export class RecuperoFormazioniComponent {
   @Input() administrator: any;
 
   loading_btn: boolean = false
-  giornata_selezionata: string = "";
+  giornata_selezionata: number = 0;
   formazioni_inserite: any;
 
   constructor(

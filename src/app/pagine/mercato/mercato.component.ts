@@ -38,7 +38,7 @@ export class MercatoComponent implements OnInit {
 
 
   ngOnInit() {
-    this.fase = this.authService.getInfoCompetizione().fase_competizione || 0;
+    this.fase = this.authService.getInfoCompetizione().fase || 0;
   }
 
   VIEW_ISCRIZIONE = ViewIscirzione;
@@ -64,6 +64,7 @@ export class MercatoComponent implements OnInit {
 
   onRiEdit(squadra: Squadra) {
     console.log("squadra",squadra)
+    this.view = ViewIscirzione.UPGRADE_L
     this.squadra = squadra
     if (squadra.tipo == LOOKUPS.PROVENIENZA.FANTA)
       this.view = ViewIscirzione.UPGRADE_F

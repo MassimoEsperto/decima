@@ -4,7 +4,8 @@ import { RouterModule } from '@angular/router';
 import { finalize } from 'rxjs';
 import { LOOKUPS } from 'src/app/classi/dto/lookup.dto';
 import { MyButton } from 'src/app/componenti/my-button/my-button.component';
-import { ViewIscirzione} from 'src/environments/enums';
+import { PAGE } from 'src/environments/costanti';
+import { ViewIscirzione } from 'src/environments/enums';
 import { AuthService } from 'src/servizi/client/auth.service';
 import { PlayerService } from 'src/servizi/client/player.service';
 import { AlertService } from 'src/servizi/local/alert.service';
@@ -37,16 +38,16 @@ export class ListaSquadreComponent implements AfterContentInit {
   LOOKUP = LOOKUPS;
   TIPO_SQUADRA = LOOKUPS.PROVENIENZA;
   STATO_SQUADRA = LOOKUPS.STATI;
-  FASE_COMPETIZIONE = LOOKUPS.FASI;
+  fasi = LOOKUPS.FASI;
   RUOLO_UTENTE = LOOKUPS.RUOLI;
-
+  PAGE = PAGE
 
 
   info: any
   squadre: any = []
   loading_btn: boolean = false;
   date: string = this.utilService.getAnnata()
-  ruolo:number =0
+  ruolo: number = 0
 
   constructor(
     private playerService: PlayerService,
@@ -65,7 +66,7 @@ export class ListaSquadreComponent implements AfterContentInit {
   }
 
   getInfoUtente() {
-    
+
     this.spinner.view();
 
     this.playerService.getInfoUtente()

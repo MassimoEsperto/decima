@@ -58,6 +58,7 @@ export class UpgradeSquadraLocaleComponent implements OnInit {
         next: (result: any) => {
 
           this.listino = new Listino(result)
+          console.log("listino",this.listino)
 
         },
         error: (error: any) => {

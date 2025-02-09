@@ -15,7 +15,7 @@ export class UtilService {
   constructor(
     private language: LanguageService) { }
 
-  FASE_COMPETIZIONE = LOOKUPS.FASI;
+  fase = LOOKUPS.FASI;
   TURNI_COMPETIZIONE = LOOKUPS.TURNI;
 
 
@@ -208,7 +208,7 @@ export class UtilService {
     return new Date().getFullYear() + "/" + new Date(new Date().setFullYear(new Date().getFullYear() + 1)).getFullYear()
   }
 
-  getCalcolo(palinsesto: Risultato[], filelist: any = [], fase: number, giornata: number): PayloadCalcolo {
+  getCalcolo(palinsesto: Risultato[], filelist: any = [], turno: number, giornata: number): PayloadCalcolo {
 
     let payload: PayloadCalcolo
 
@@ -232,8 +232,8 @@ export class UtilService {
       partite.CASA.punti = this.getPunti(partite.CASA.goals, partite.TRASFERTA.goals)
       partite.TRASFERTA.punti = this.getPunti(partite.TRASFERTA.goals, partite.CASA.goals)
 
-      partite.CASA.rank = this.getRank(partite.CASA.goals, partite.CASA.punti, fase)
-      partite.TRASFERTA.rank = this.getRank(partite.TRASFERTA.goals, partite.TRASFERTA.punti, fase)
+      partite.CASA.rank = this.getRank(partite.CASA.goals, partite.CASA.punti, turno)
+      partite.TRASFERTA.rank = this.getRank(partite.TRASFERTA.goals, partite.TRASFERTA.punti, turno)
     }
 
     payload = {
@@ -260,8 +260,8 @@ export class UtilService {
     }
   }
 
-  private getRank(goals: number, punti: number, fase: number): number {
-    return (goals * fase) + punti
+  private getRank(goals: number, punti: number, turno: number): number {
+    return (goals * turno) + punti
   }
 
   // Funzione per generare numeri casuali unici

@@ -20,7 +20,7 @@ export class AdminService extends HttpSenderService {
     return this.getFree(ADMIN_SERVICE.GET_ADMINISTRATOR)
   }
 
-  getFormazioniByGionata(giornata: string) {
+  getFormazioniByGionata(giornata: number) {
     const params = new HttpParams().set('giornata', giornata);
     return this.getFree(ADMIN_SERVICE.GET_FORMAZIONI_BY_GIORNATA, params)
   }
@@ -133,7 +133,7 @@ export class AdminService extends HttpSenderService {
     return this.postPromise(ADMIN_SERVICE.SET_SWITCHS, payload)
   }
 
-  getFormazioniItem(giornata: string) {
+  getFormazioniItem(giornata: number) {
     const params = new HttpParams().set('giornata', giornata);
     return this.getPromise(ADMIN_SERVICE.GET_FORMAZIONI_BY_GIORNATA, params)
   }

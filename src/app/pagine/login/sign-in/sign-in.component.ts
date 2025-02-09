@@ -48,7 +48,7 @@ export class SignInComponent implements OnInit {
           let info: InfoGenerali = this.auth.getInfoCompetizione()
           let num_msg: number = Number(result.num_msg)
 
-          if (info.fase_competizione == LOOKUPS.FASI.ISCRIZIONE || info.fase_competizione == LOOKUPS.FASI.MERCATO) {
+          if (info.fase == LOOKUPS.FASI.ISCRIZIONE || info.fase == LOOKUPS.FASI.MERCATO) {
             this.navigate(PAGE.MERCATO)
           } else {
             if (num_msg > 0){

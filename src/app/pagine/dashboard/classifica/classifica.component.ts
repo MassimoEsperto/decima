@@ -27,7 +27,7 @@ export class ClassificaComponent implements OnInit {
   classifiche: any;
 
   headElementsGironi = [this.language.label.page['squadra'], 'GOL', 'PT'];
-  headElementsFactory = [this.language.label.page['squadra'], 'CM'];
+  headElementsRanking = [this.language.label.page['squadra'], 'CM'];
   LOOKUP = LOOKUPS
   loading_btn: boolean = false;
   loading_page: boolean = false;
