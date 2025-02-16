@@ -26,13 +26,13 @@ if($result = mysqli_query($con,$sql_rose))
 		}
 		
 		$rose_[$ele]['squadra'] = str_replace(' ', '', $row['squadra']);
-        $rose_[$ele]['id_squadra'] = $row['id_squadra'];
-        $rose_[$ele]['id_utente'] = $row['id_utente'];
+        $rose_[$ele]['id_squadra'] = (int)$row['id_squadra'];
+        $rose_[$ele]['id_utente'] = (int)$row['id_utente'];
         $rose_[$ele]['avatar'] = $row['avatar'];
 		$rose_[$ele]['username'] = $row['username'];	
         $rose_[$ele]['lega'] = $row['lega'];
 		
-        $rose_[$ele]['lista'][$list]['id_calciatore'] = $row['id_calciatore'];
+        $rose_[$ele]['lista'][$list]['id_calciatore'] = (int)$row['id_calciatore'];
 		$rose_[$ele]['lista'][$list]['calciatore'] = $row['nome'];
 		$rose_[$ele]['lista'][$list]['ruolo'] = $row['ruolo'];
 		

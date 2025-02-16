@@ -136,7 +136,7 @@ export class ExcelService {
       if (this.isRuolo(ruolo_S)) {
         team_S = team_S ? team_S : arraylist[i - 2][_EMPTY_0].replace("'", "").trim()
 
-        let nome_calciatore = element['__EMPTY'].replace("'", "").trim()
+        let nome_calciatore = element['__EMPTY'].replace("'", "").replace("*", "").trim()
         try {
 
           let ele = {
@@ -165,7 +165,7 @@ export class ExcelService {
       if (this.isRuolo(ruolo_D)) {
         team_D = team_D ? team_D : arraylist[i - 2]['__EMPTY_4'].replace("'", "").trim()
 
-        let nome_calciatore = element['__EMPTY_5'].replace("'", "").trim()
+        let nome_calciatore = element['__EMPTY_5'].replace("'", "").replace("*", "").trim()
         try {
 
           let ele = {

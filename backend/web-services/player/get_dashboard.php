@@ -33,7 +33,7 @@ if($turno_['periodo'] == 3)
 {
 
   //risultati
-  $sql1 = "SELECT g.id_giornata,DATE_FORMAT(g.prima_partita,'%d/%m/%Y') AS data_giornata,g.serie_a,g.fase_id, ";
+  $sql1 = "SELECT g.id_giornata,DATE_FORMAT(g.prima_partita,'%d/%m/%Y') AS data_giornata,g.serie_a,g.turno_id, ";
   $sql1 .="c.girone,c.id_calendario,r.luogo,r.somma,r.goals,s.squadra,a.nome as avatar,g.is_calcolata "; 
   $sql1 .="FROM giornate g  ";
   $sql1 .="INNER JOIN calendario c  ON c.giornata_id = g.id_giornata ";
@@ -56,7 +56,7 @@ if($turno_['periodo'] == 3)
      	$risultati['giornata'] = $row['id_giornata'];
         $risultati['data'] = $row['data_giornata'];
         $risultati['serie_a'] = $row['serie_a'];
-        $risultati['fase'] = $row['fase_id'];
+        $risultati['turno'] = $row['turno_id'];
         $risultati['calcolato'] = $row['is_calcolata'];
 
         if($tmp_calendario != $row['id_calendario']){
@@ -81,7 +81,7 @@ if($turno_['periodo'] == 3)
 }
 
 
-if($turno_['periodo'] != 3)
+if($turno_['frazione'] != 3)
 {
 
   //match in corso
@@ -146,7 +146,7 @@ if($turno_['periodo'] != 3)
     $sql3 .="INNER JOIN risultati r  ON c.id_calendario = r.calendario_id  ";
     $sql3 .="LEFT JOIN formazioni f ON f.risultato_id = r.id_risultato ";
     $sql3 .="LEFT JOIN lista_calciatori l on l.id_calciatore = f.calciatore_id "; 
-    $sql3 .="LEFT JOIN moduli m on m.id_modulo = r.modulo_id ";
+    $sql3 .="LEFT JOIN _moduli m on m.id_modulo = r.modulo_id ";
     $sql3 .="LEFT JOIN squadre s on s.id_squadra = r.squadra_id ";
     $sql3 .="LEFT JOIN utenti u on u.id_utente = s.utente_id ";
     $sql3 .="WHERE id_calendario = {$match} ORDER BY r.luogo,f.schieramento ";
@@ -189,7 +189,7 @@ if($turno_['periodo'] != 3)
 
   //}
   
-   if($turno_['periodo'] == 1)
+   if($turno_['frazione'] == 1)
  	{
    
     //switchs questa serve da un altra parte.. in questa parte servesolo tutta la rosa
@@ -201,7 +201,7 @@ if($turno_['periodo'] != 3)
     $sql6 .="INNER JOIN risultati r  ON f.risultato_id = r.id_risultato  ";
     $sql6 .="INNER JOIN calendario c ON c.id_calendario = r.calendario_id AND c.giornata_id = {$turno_['giornata']} ";
     $sql6 .="AND c.id_calendario IN (SELECT r.calendario_id FROM risultati r WHERE r.squadra_id = {$id_squadra})) ";
-    $sql6 .="ORDER BY l.ruolo DESC ";
+    $sql6 .="ORDER BY l.ruolo DESC,my.ordine ";
 
     if($result = mysqli_query($con,$sql6))
     {
@@ -265,13 +265,13 @@ if($result = mysqli_query($con,$sql4))
 	{
     	if($row['total'] != 0)
         {
-          $statistiche['total'] 	= $row['total'];
-          $statistiche['stato'] 	= $row['stato_id'];
-          $statistiche['win'] 		= $row['win'];
-          $statistiche['par'] 		= $row['par'];
-          $statistiche['lose'] 		= $row['lose'];
-          $statistiche['goals'] 	= $row['goals'];
-          $statistiche['ranking'] 	= $row['ranking']>10?str_replace(".","",substr($row['ranking'],0,3)):1;
+          $statistiche['total'] 	= (int)$row['total'];
+          $statistiche['stato'] 	= (int)$row['stato_id'];
+          $statistiche['win'] 		= (int)$row['win'];
+          $statistiche['par'] 		= (int)$row['par'];
+          $statistiche['lose'] 		= (int)$row['lose'];
+          $statistiche['goals'] 	= (int)$row['goals'];
+          $statistiche['ranking'] 	= (int)$row['ranking']>10?str_replace(".","",substr($row['ranking'],0,3)):1;
 		}else
         {
           $statistiche['total'] 	= 0;
@@ -293,7 +293,7 @@ else
 
 
 //percorso
-$sql5 = "SELECT g.id_giornata,g.fase_id, ";
+$sql5 = "SELECT g.id_giornata,g.turno_id, ";
 $sql5 .="c.id_calendario,r2.luogo,r2.somma,r2.goals,s.squadra,s.id_squadra,a.nome as avatar,u.id_utente "; 
 $sql5 .="FROM giornate g  ";
 $sql5 .="INNER JOIN calendario c  ON c.giornata_id = g.id_giornata ";
@@ -302,22 +302,22 @@ $sql5 .="INNER JOIN risultati r2  ON c.id_calendario = r2.calendario_id AND r2.c
 $sql5 .="INNER JOIN squadre s on s.id_squadra = r2.squadra_id ";
 $sql5 .="INNER JOIN utenti u on u.id_utente = s.utente_id ";
 $sql5 .="INNER JOIN avatar a on a.id_avatar = s.avatar_id ";
-$sql5 .="WHERE g.is_calcolata = 1 ORDER BY g.fase_id,g.id_giornata,c.id_calendario,r.luogo ";
+$sql5 .="WHERE g.is_calcolata = 1 ORDER BY g.turno_id,g.id_giornata,c.id_calendario,r.luogo ";
 
 
 if($result = mysqli_query($con,$sql5))
 {
 	$ele = -1;
-    $tmp_fase = 0; 
+    $tmp_turno = 0; 
     $tmp_calendario = 0;
     $count_g = -1;
     
 	while($row = mysqli_fetch_assoc($result))
 	{
-    	if($tmp_fase != $row['fase_id']){
+    	if($tmp_turno != $row['turno_id']){
         	$count_g++;
-            $tmp_fase = $row['fase_id'];
-        	$percorso[$count_g]['fase'] = $row['fase_id'];
+            $tmp_turno = $row['turno_id'];
+        	$percorso[$count_g]['turno'] = $row['turno_id'];
             $ele = -1;
         }
  		

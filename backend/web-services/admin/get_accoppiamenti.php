@@ -7,6 +7,7 @@ require_once '../common/utenti.php';
 require_once '../common/calendario.php';
 require_once '../common/squadre.php';
 require_once '../common/turno.php';
+require_once '../common/lookup.php';
 
 
 
@@ -16,7 +17,7 @@ $myObj->giornate = $giornate_;
 $myObj->calendario = $calendario_;
 $myObj->squadre = $squadre_;
 $myObj->turno = $turno_;
-
+$myObj->lookup = $lookup_;
 
 
 $totObj=['data'=>$myObj];

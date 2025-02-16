@@ -28,12 +28,12 @@ for ($i = 0; $i <= 4; $i++)
 
 
 $sql5 = "SELECT c.girone,r.luogo,r.squadra_id,r.somma,r.goals,l.id_calciatore,l.nickname,l.ruolo, ";
-$sql5 .="m.descrizione,m.bonus,s.squadra,f.schieramento,f.voto,u.id_utente ";
+$sql5 .="m.descrizione,m.bonus,m.indice,s.squadra,f.schieramento,f.voto,u.id_utente ";
 $sql5 .="FROM calendario c "; 
 $sql5 .="INNER JOIN risultati r  ON c.id_calendario = r.calendario_id  ";
 $sql5 .="LEFT JOIN formazioni f ON f.risultato_id = r.id_risultato ";
 $sql5 .="LEFT JOIN lista_calciatori l on l.id_calciatore = f.calciatore_id "; 
-$sql5 .="LEFT JOIN moduli m on m.id_modulo = r.modulo_id ";
+$sql5 .="LEFT JOIN _moduli m on m.id_modulo = r.modulo_id ";
 $sql5 .="LEFT JOIN squadre s on s.id_squadra = r.squadra_id ";
 $sql5 .="LEFT JOIN utenti u on u.id_utente = s.utente_id ";
 $sql5 .="WHERE id_calendario = {$match} ORDER BY r.luogo,f.schieramento ";
@@ -56,7 +56,7 @@ if($result = mysqli_query($con,$sql5))
 	$schieramento[$row['luogo']]['somma'] = $row['somma'];
     $schieramento[$row['luogo']]['goals'] = $row['goals'];
    	$schieramento[$row['luogo']]['squadra'] = $row['squadra'];
-    $schieramento[$row['luogo']]['modulo'] = $row['descrizione'];
+    $schieramento[$row['luogo']]['modulo'] = $row['indice'];
     $schieramento[$row['luogo']]['bonus'] = $row['bonus'];
    if($row['nickname']!= ''){
    	$schieramento[$row['luogo']]['formazione'][$count]['nome'] = $row['nickname'];

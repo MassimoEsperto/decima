@@ -14,7 +14,7 @@ $sql .="WHERE squadra_id = {$id_squadra} AND calciatore_id = {$player_out} LIMIT
 	
 if(mysqli_query($con, $sql))
 {
-    http_response_code(204);
+    echo json_encode(['data'=>'ok']);
 }
 else
 {

@@ -1,12 +1,12 @@
 <?php
 
 require_once '../config/connect_local.php';
-require '../config/validate.php';
+//require '../config/validate.php';
 
 $element = [];
 
 $sql = "SELECT s.squadra,s.lega,s.id_squadra,s.account, "; 
-$sql .="l.nome_calciatore as nome,l.ruolo,l.id_calciatore, ";
+$sql .="l.nome_calciatore as nome,l.ruolo,l.id_calciatore,l.icona,l.valore, ";
 $sql .="a.nome as avatar,u.id_utente,u.username ";
 $sql .="FROM lista_calciatori l,rose r,utenti u ,avatar a ,squadre s ";
 $sql .="WHERE r.squadra_id=s.id_squadra AND s.utente_id = u.id_utente ";
@@ -34,12 +34,15 @@ if($result = mysqli_query($con,$sql))
 		$element[$ele]['username'] = $row['username'];	
         $element[$ele]['lega'] = $row['lega'];
         $element[$ele]['account'] = $row['account'];
+        $element[$ele]['valore'] += $row['valore'];
 		
         $element[$ele]['lista'][$list]['id_calciatore'] = $row['id_calciatore'];
 		$element[$ele]['lista'][$list]['calciatore'] = $row['nome'];
 		$element[$ele]['lista'][$list]['ruolo'] = $row['ruolo'];
+        $element[$ele]['lista'][$list]['icona'] = $row['icona'];
         $element[$ele]['lista'][$list]['id_utente'] = $row['id_utente'];
         $element[$ele]['lista'][$list]['id_squadra'] = $row['id_squadra'];
+        $element[$ele]['lista'][$list]['valore'] = $row['valore'];
 		
 		$squadrone = $row['id_squadra'];
 		$list++;

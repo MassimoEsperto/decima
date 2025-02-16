@@ -3,6 +3,8 @@
 require_once '../config/connect_local.php';
 require_once '../common/fasi.php';
 require_once '../common/classifica_ranking.php';
+require_once '../common/lookup.php';
+
     
 $sorteggiabili = [];
 
@@ -25,6 +27,7 @@ foreach($ranking_ as $row)
 
 
 $myObj->fasi = $fasi_;
+$myObj->lookup = $lookup_;
 $myObj->sorteggiabili = $sorteggiabili;
 $totObj=['data'=>$myObj];
 

@@ -17,8 +17,8 @@ foreach($svincolati as $item)
     $ico = mysqli_real_escape_string($con, trim($item->icona));
     $valore = $ruolo != 'P' && $item->valore < $val_min ? $val_min : $item->valore;
     	
-	$sql .= "INSERT INTO `lista_calciatori`(`nome_calciatore`,`nickname`,`ruolo`,`icona`,`valore`) VALUES ";
-	$sql .= "('{$nome}','{$nickname}','{$ruolo}','{$ico}',{$valore}) ; ";
+	$sql .= "INSERT INTO `lista_calciatori`(`nome_calciatore`,`nickname`,`ruolo`,`icona`,`acquisto`,`valore`) VALUES ";
+	$sql .= "('{$nome}','{$nickname}','{$ruolo}','{$ico}',{$valore},{$valore}) ; ";
 		
 }
 

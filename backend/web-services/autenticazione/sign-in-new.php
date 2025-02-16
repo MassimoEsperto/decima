@@ -2,6 +2,8 @@
 
 require_once '../config/connect_local.php';
 require_once '../common/turno.php';
+require_once '../common/info_competizione.php';
+require_once '../common/lookup.php';
 require_once '../config/post_data.php';
 include_once '../config/JWT.php';
 
@@ -45,33 +47,33 @@ if ($result->num_rows > 0)
 	
     while($row = mysqli_fetch_assoc($result)) {
    	
-		$element['id_utente'] = $row['id_utente'];
+		$element['id_utente'] = (int)$row['id_utente'];
         $element['username'] = $row['username'];
         $element['email'] = $row['email'];
         $element['cellulare'] = $row['cellulare'];
-        $element['ruolo'] = $row['ruolo_id'];
+        $element['ruolo'] = (int)$row['ruolo_id'];
 		$element['language'] = $row['language'];
-		$element['num_msg'] = $row['num_msg'];
+		$element['num_msg'] = (int)$row['num_msg'];
 		
         if($row['id_squadra'] != null){
-          $element['squadre'][$ele]['id_squadra'] = $row['id_squadra'];
+          $element['squadre'][$ele]['id_squadra'] = (int)$row['id_squadra'];
           $element['squadre'][$ele]['squadra'] = $row['squadra'];
           $element['squadre'][$ele]['lega'] = $row['lega'];
           $element['squadre'][$ele]['account'] = $row['account'];
-          $element['squadre'][$ele]['stato'] = $row['stato_id'];
-          $element['squadre'][$ele]['id_avatar'] = $row['id_avatar'];
+          $element['squadre'][$ele]['stato'] = (int)$row['stato_id'];
+          $element['squadre'][$ele]['id_avatar'] = (int)$row['id_avatar'];
           $element['squadre'][$ele]['avatar'] = $row['avatar'];
 
           $ele++;
         }
         
         
-         $element['squadra']['id_squadra'] = $row['id_squadra'];
+         $element['squadra']['id_squadra'] = (int)$row['id_squadra'];
          $element['squadra']['squadra'] = $row['squadra'];
          $element['squadra']['lega'] = $row['lega'];
          $element['squadra']['account'] = $row['account'];
-         $element['squadra']['stato'] = $row['stato_id'];
-         $element['squadra']['id_avatar'] = $row['id_avatar'];
+         $element['squadra']['stato'] = (int)$row['stato_id'];
+         $element['squadra']['id_avatar'] = (int)$row['id_avatar'];
          $element['squadra']['avatar'] = $row['avatar'];
 	}
 
@@ -81,15 +83,16 @@ if ($result->num_rows > 0)
 							'email' => $element['email'],
                             'cellulare' => $element['cellulare'],
                             'language' => $element['language'],  
-                            'ruolo' => $element['ruolo'],  
-                            'num_msg' => $element['num_msg'],
+                            'ruolo' => (int)$element['ruolo'],  
+                            'num_msg' => (int)$element['num_msg'],
                             'squadre' => $element['squadre'],
                             'selezionata' => $element['squadra'],
-                            'fase' => $turno_['fase'],
+                            'turno' => (int)$turno_['turno'],
+                            'info' => $info_,
+                            'lookup' => $lookup_,
                             'qta' => $ele,
 							'login_dt' => new DateTime()]);
                             
-
  	echo json_encode(['token'=>$jwt]);
 
 } 

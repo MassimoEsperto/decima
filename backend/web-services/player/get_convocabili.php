@@ -9,21 +9,22 @@ $convovabili = [];
 $indisponibili = [];
 $switchs = [];
 $id_risultato = 0;
+$luogo = "";
 $schierata = [];
 
 
 
-$sql1 = "SELECT m.id_modulo,m.descrizione,m.bonus,m.indice ";
-$sql1 .="FROM moduli m ";
+$sql1 = "SELECT m.id_modulo,m.valore,m.bonus,m.indice ";
+$sql1 .="FROM _moduli m ";
 
 if($result = mysqli_query($con,$sql1))
 {
 	while($row = mysqli_fetch_assoc($result))
 	{
 		
-         $moduli[$row['indice']]['id'] = $row['id_modulo'];
-         $moduli[$row['indice']]['bonus'] = $row['bonus'];
-		 $moduli[$row['indice']]['descrizione'] = $row['descrizione'];
+         $moduli[$row['valore']]['id'] = $row['id_modulo'];
+         $moduli[$row['valore']]['bonus'] = $row['bonus'];
+		 $moduli[$row['valore']]['descrizione'] = $row['indice'];
 	}
 }
 else
@@ -90,7 +91,8 @@ else
 */
 
 $sql2 = "SELECT l.id_calciatore,l.nome_calciatore,l.nickname,l.ruolo,l.icona, ";
-$sql2 .="r.modulo_id,r.luogo,f.schieramento,a.calciatore_id as doppione,r.id_risultato,my.ordine ";
+$sql2 .="r.modulo_id,r.luogo,f.schieramento,a.calciatore_id as doppione, ";
+$sql2 .="r.id_risultato,my.ordine,r.luogo ";
 $sql2 .="FROM rose my ";
 $sql2 .="INNER JOIN lista_calciatori l on l.id_calciatore = my.calciatore_id ";
 $sql2 .="INNER JOIN calendario c ON c.giornata_id = {$turno_['giornata']} ";
@@ -133,6 +135,7 @@ if($result = mysqli_query($con,$sql2))
            $ele++;
            
          $id_risultato = $row['id_risultato'];
+         $luogo = $row['luogo'];
 	}
 }
 else
@@ -148,6 +151,8 @@ $myObj->moduli = $moduli;
 $myObj->rosa = $rosa;
 $myObj->schierata = $schierata;
 $myObj->id_risultato = $id_risultato;
+$myObj->luogo = $luogo;
+
 
 $totObj=['data'=>$myObj];
 

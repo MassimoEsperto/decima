@@ -25,7 +25,7 @@ $sql1 .="WHERE my.squadra_id={$id_squadra_t} AND  my.calciatore_id not in  ";
 $sql1 .="(SELECT f.calciatore_id FROM formazioni f  ";
 $sql1 .="INNER JOIN risultati r  ON f.risultato_id = r.id_risultato  ";
 $sql1 .="INNER JOIN calendario c ON c.id_calendario = r.calendario_id AND c.id_calendario = {$id_calendario} ) ";
-$sql1 .="ORDER BY l.ruolo DESC ";
+$sql1 .="ORDER BY l.ruolo DESC,my.ordine ";
 
 if($result = mysqli_query($con,$sql1))
 {

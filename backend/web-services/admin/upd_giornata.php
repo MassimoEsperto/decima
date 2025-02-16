@@ -8,7 +8,7 @@ $prima_partita = mysqli_real_escape_string($con, trim($dati->prima_partita));
 //$ultima_partita = mysqli_real_escape_string($con, trim($dati->ultima_partita)); 
 //$fine_giornata = mysqli_real_escape_string($con, trim($dati->fine_giornata)); 
 $serie_a= mysqli_real_escape_string($con, trim($dati->serie_a)); 
-$fase = mysqli_real_escape_string($con, trim($dati->fase)); 
+$turno = mysqli_real_escape_string($con, trim($dati->turno)); 
 $is_upgrade = mysqli_real_escape_string($con, trim($dati->is_upgrade));
 
 $giornata = mysqli_real_escape_string($con, trim($dati->giornata)); 
@@ -32,7 +32,8 @@ if ($result->num_rows > 0)
 }
 
 $sql  ="UPDATE giornate ";
-$sql .="SET inizio_giornata='{$inizio_giornata}',prima_partita='{$prima_partita}',is_upgrade='{$is_upgrade}',fase_id='{$fase}' ";
+$sql .="SET inizio_giornata='{$inizio_giornata}',prima_partita='{$prima_partita}', ";
+$sql .="is_upgrade={$is_upgrade}, turno_id={$turno},serie_a={$serie_a} ";
 $sql .="WHERE id_giornata = {$giornata} LIMIT 1 ;";
 
 $sql .="UPDATE giornate ";

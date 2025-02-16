@@ -6,11 +6,12 @@ require_once '../common/squadre.php';
 $id_squadra = $_GET['id_squadra'];
 
 //listone
-$sql = "SELECT c.id_calciatore,c.nome_calciatore,c.nickname,c.ruolo,c.valore,r.calciatore_id,s.stato_id,s.squadra ";
+$sql = "SELECT c.id_calciatore,c.nome_calciatore,c.nickname,c.ruolo,c.valore,c.acquisto, ";
+$sql .="r.calciatore_id,s.stato_id,s.squadra "; 
 $sql .="FROM lista_calciatori c  "; 
 $sql .="LEFT JOIN rose r ON r.calciatore_id = c.id_calciatore AND r.squadra_id = {$id_squadra} ";
 $sql .="LEFT JOIN squadre s ON s.id_squadra = r.squadra_id ";
-$sql .="WHERE (c.valore > 1 OR c.ruolo = 'P') AND c.ruolo IN ('A','C','D','P') ORDER BY ruolo DESC,c.nickname ASC";
+$sql .="WHERE c.ruolo IN ('A','C','D','P') ORDER BY ruolo DESC,c.nickname ASC";
 
 $listone = [];
 $svincolati = [];
@@ -29,7 +30,7 @@ if($result = mysqli_query($con,$sql))
         $svincolati[$i]['nickname'] = $row['nickname'];
         $svincolati[$i]['ruolo'] = $row['ruolo'];
         $svincolati[$i]['valore'] = (int)$row['valore'];
-        $svincolati[$i]['selected'] = $row['id_calciatore'] == $row['calciatore_id'];
+        //$svincolati[$i]['selected'] = $row['id_calciatore'] == $row['calciatore_id'];
         $svincolati[$i]['disabled'] = $row['stato_id'] > 1 ;
         
         if($row['id_calciatore'] == $row['calciatore_id']){
@@ -37,9 +38,12 @@ if($result = mysqli_query($con,$sql))
           	$rosa_attuale[$s]['nome'] = $row['nome_calciatore'];
           	$rosa_attuale[$s]['nickname'] = $row['nickname'];
           	$rosa_attuale[$s]['ruolo'] = $row['ruolo'];
-          	$rosa_attuale[$s]['valore'] = (int)$row['valore'];
+          	$rosa_attuale[$s]['valore'] = (int)$row['acquisto'];
           	$rosa_attuale[$s]['selected'] = false;
-          	$rosa_attuale[$s]['disabled'] = $row['stato_id'] > 1 ;
+          	$rosa_attuale[$s]['disabled'] = false;//$row['stato_id'] > 1 ;
+            
+            $svincolati[$i]['valore'] = (int)$row['acquisto'];
+            $svincolati[$i]['selected'] = true;
             
           	if($row['squadra'] != null){
           		$squadra = $row['squadra'];
@@ -59,7 +63,7 @@ else
 }
 
 //crediti
-$crediti = (int)$info_['CREDITI_DISPONIBILI'];
+$crediti = 800;//(int)$info_['CREDITI_DISPONIBILI'];
 
 
 

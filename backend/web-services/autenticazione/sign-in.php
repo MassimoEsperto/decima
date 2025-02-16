@@ -49,29 +49,29 @@ if ($result->num_rows > 0)
         $element['username'] = $row['username'];
         $element['email'] = $row['email'];
         $element['cellulare'] = $row['cellulare'];
-        $element['ruolo'] = $row['ruolo_id'];
+        $element['ruolo'] = (int)$row['ruolo_id'];
 		$element['language'] = $row['language'];
-		$element['num_msg'] = $row['num_msg'];
+		$element['num_msg'] = (int)$row['num_msg'];
 		
         if($row['id_squadra'] != null){
-          $element['squadre'][$ele]['id_squadra'] = $row['id_squadra'];
+          $element['squadre'][$ele]['id_squadra'] = (int)$row['id_squadra'];
           $element['squadre'][$ele]['squadra'] = $row['squadra'];
           $element['squadre'][$ele]['lega'] = $row['lega'];
           $element['squadre'][$ele]['account'] = $row['account'];
-          $element['squadre'][$ele]['stato'] = $row['stato_id'];
-          $element['squadre'][$ele]['id_avatar'] = $row['id_avatar'];
+          $element['squadre'][$ele]['stato'] = (int)$row['stato_id'];
+          $element['squadre'][$ele]['id_avatar'] = (int)$row['id_avatar'];
           $element['squadre'][$ele]['avatar'] = $row['avatar'];
 
           $ele++;
         }
         
         
-         $element['squadra']['id_squadra'] = $row['id_squadra'];
+         $element['squadra']['id_squadra'] = (int)$row['id_squadra'];
          $element['squadra']['squadra'] = $row['squadra'];
          $element['squadra']['lega'] = $row['lega'];
          $element['squadra']['account'] = $row['account'];
-         $element['squadra']['stato'] = $row['stato_id'];
-         $element['squadra']['id_avatar'] = $row['id_avatar'];
+         $element['squadra']['stato'] = (int)$row['stato_id'];
+         $element['squadra']['id_avatar'] = (int)$row['id_avatar'];
          $element['squadra']['avatar'] = $row['avatar'];
 	}
 
@@ -81,11 +81,11 @@ if ($result->num_rows > 0)
 							'email' => $element['email'],
                             'cellulare' => $element['cellulare'],
                             'language' => $element['language'],  
-                            'ruolo' => $element['ruolo'],  
-                            'num_msg' => $element['num_msg'],
+                            'ruolo' => (int)$element['ruolo'],  
+                            'num_msg' => (int)$element['num_msg'],
                             'squadre' => $element['squadre'],
                             'selezionata' => $element['squadra'],
-                            'fase' => $turno_['fase'],
+                            'turno' => (int)$turno_['turno'],
                             'qta' => $ele,
 							'login_dt' => new DateTime()]);
                             

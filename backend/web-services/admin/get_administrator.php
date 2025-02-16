@@ -1,7 +1,7 @@
 <?php
 
 require_once '../config/connect_local.php';
-$tabelle = "lista_calciatori order by nome_calciatore,comunicazioni ORDER BY id_comunicazione DESC,ruoli,stati_squadre"; 
+$tabelle = "lista_calciatori order by nome_calciatore,comunicazioni ORDER BY id_comunicazione DESC,ruoli,_stati_squadre"; 
 require_once '../common/all_objects.php';
 require_once '../common/utenti.php';
 require_once '../common/giornate.php';
@@ -18,34 +18,37 @@ $recuperate=[];
 //Query ed elaborazioni
 
 //giornate calcolate
-$sql4 = "SELECT is_calcolata,id_giornata FROM giornate GROUP BY id_giornata ";
+$sql4 = "SELECT turno_id,is_calcolata,id_giornata FROM giornate GROUP BY id_giornata ORDER BY id_giornata";
 
 if($result = mysqli_query($con,$sql4))
 {
 	$incalcolate=[];
 	$calcolate=[];
+    $turno=[];
 	$ele_c = 0;
     $ele_i = 0;
     $incalcolate[$ele_i] = 0;
+    $turno[$ele_i] = 1;
 	while($row = mysqli_fetch_assoc($result))
 	{
     	if($row['is_calcolata']==1){
-          $calcolate[$ele_c] = $row['id_giornata'];
+          $calcolate[$ele_c] = (int)$row['id_giornata'];
           $ele_c++;
         }else{
-          $incalcolate[$ele_i] = $row['id_giornata'];
+          $incalcolate[$ele_i] = (int)$row['id_giornata'];
+          $turno[$ele_i] = (int)$row['turno_id'];
           $ele_i++;
         }
 	}
 	$calcolato['SI'] = $calcolate;
 	$calcolato['NO'] = $incalcolate;
+    $calcolato['TURNO'] = $turno[0];
     
 }
 else
 {
 	errorMessage('query errata: ultime formazioni inserite');
 }
-
 
 
 
@@ -59,10 +62,9 @@ $myObj->formazioni = $formazioni_;
 $myObj->rose = $rose_;
 $myObj->giornate = $giornate_;
 $myObj->ruoli = $oggetti_['ruoli'];
-$myObj->stati_squadre = $oggetti_['stati_squadre'];
+$myObj->stati_squadre = $oggetti_['_stati_squadre'];
 $myObj->squadre = $squadre_;
 $myObj->resoconto = $resoconto_;
-
 
 $totObj=['data'=>$myObj];
 

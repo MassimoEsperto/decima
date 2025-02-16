@@ -38,11 +38,11 @@ if($result = mysqli_query($con,$sql_formazioni))
         }
         
 		$ele++;
-		$formazioni_[$count_c]['id_calendario'] = $tmp_calendario;
-		$formazioni_[$count_c][$row['luogo']]['bonus'] = $row['bonus'];
+		$formazioni_[$count_c]['id_calendario'] = (int)$tmp_calendario;
+		$formazioni_[$count_c][$row['luogo']]['bonus'] = (int)$row['bonus'];
         $formazioni_[$count_c][$row['luogo']]['squadra'] = $row['squadra'];
-     	$formazioni_[$count_c][$row['luogo']]['id_utente'] = $row['id_utente'];
-        $formazioni_[$count_c][$row['luogo']]['id_squadra'] = $row['id_squadra'];
+     	$formazioni_[$count_c][$row['luogo']]['id_utente'] = (int)$row['id_utente'];
+        $formazioni_[$count_c][$row['luogo']]['id_squadra'] = (int)$row['id_squadra'];
         
         $formazioni_[$count_c][$row['luogo']]['schieramento'][$ele]['nickname'] = $row['nickname'];
 		$formazioni_[$count_c][$row['luogo']]['schieramento'][$ele]['calciatore'] = $row['nome_calciatore'];

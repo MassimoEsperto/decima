@@ -28,11 +28,11 @@ if($result = mysqli_query($con,$sql_recuperate))
         	$ele++;
             $sc = 0;
         }
-    	$recuperate_[$ele]['squadra_id'] = $row['squadra_id'];
-		$recuperate_[$ele]['giornata'] = $row['giornata_id'];
-        $recuperate_[$ele]['id_risultato'] = $row['id_risultato'];
-        $recuperate_[$ele]['id_modulo'] = $row['modulo_id'];
-		$recuperate_[$ele]['schieramento'][$sc] = $row['calciatore_id'];
+    	$recuperate_[$ele]['squadra_id'] = (int)$row['squadra_id'];
+		$recuperate_[$ele]['giornata'] = (int)$row['giornata_id'];
+        $recuperate_[$ele]['id_risultato'] = (int)$row['id_risultato'];
+        $recuperate_[$ele]['id_modulo'] = (int)$row['modulo_id'];
+		$recuperate_[$ele]['schieramento'][$sc] = (int)$row['calciatore_id'];
         $sc++;
 	}
     

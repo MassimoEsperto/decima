@@ -3,7 +3,7 @@
     
 $calendario_ = [];
 
-$sql_calendario = "SELECT g.id_giornata,g.serie_a,g.fase_id,u.id_utente, ";
+$sql_calendario = "SELECT g.id_giornata,g.serie_a,g.turno_id,u.id_utente, ";
 $sql_calendario .="c.girone,c.id_calendario,r.luogo,s.squadra,r.id_risultato,s.id_squadra "; 
 $sql_calendario .="FROM giornate g  ";
 $sql_calendario .="INNER JOIN calendario c  ON c.giornata_id = g.id_giornata ";
@@ -25,9 +25,9 @@ if($result = mysqli_query($con,$sql_calendario))
     	if($tmp_giornata != $row['id_giornata']){
         	$count_g++;
             $tmp_giornata = $row['id_giornata'];
-            $calendario_[$count_g]['giornata'] 	= $row['id_giornata'];
-        	$calendario_[$count_g]['serie_a'] 	= $row['serie_a'];
-        	$calendario_[$count_g]['fase'] 		= $row['fase_id'];
+            $calendario_[$count_g]['giornata'] 	= (int)$row['id_giornata'];
+        	$calendario_[$count_g]['serie_a'] 	= (int)$row['serie_a'];
+        	$calendario_[$count_g]['turno'] 	= (int)$row['turno_id'];
             $ele = -1;
         }
  		
@@ -36,12 +36,12 @@ if($result = mysqli_query($con,$sql_calendario))
           $ele++;
         }
 		
-		$calendario_[$count_g]['partite'][$ele]['id_calendario'] 					= $tmp_calendario;
+		$calendario_[$count_g]['partite'][$ele]['id_calendario'] 					= (int)$tmp_calendario;
 		$calendario_[$count_g]['partite'][$ele]['girone'] 							= $row['girone'];
 		$calendario_[$count_g]['partite'][$ele][$row['luogo']]['squadra'] 			= $row['squadra'];
-        $calendario_[$count_g]['partite'][$ele][$row['luogo']]['id_squadra'] 		= $row['id_squadra'];
-        $calendario_[$count_g]['partite'][$ele][$row['luogo']]['id_utente'] 		= $row['id_utente'];
-        $calendario_[$count_g]['partite'][$ele][$row['luogo']]['id_risultato'] 		= $row['id_risultato'];
+        $calendario_[$count_g]['partite'][$ele][$row['luogo']]['id_squadra'] 		= (int)$row['id_squadra'];
+        $calendario_[$count_g]['partite'][$ele][$row['luogo']]['id_utente'] 		= (int)$row['id_utente'];
+        $calendario_[$count_g]['partite'][$ele][$row['luogo']]['id_risultato'] 		= (int)$row['id_risultato'];
  
 	}
     

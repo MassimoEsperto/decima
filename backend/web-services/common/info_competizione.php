@@ -12,7 +12,7 @@ if($result = mysqli_query($con,$sql_info))
     
 	while($row = mysqli_fetch_assoc($result))
 	{
-    	$valore = $row['valore'] != null ? $row['valore'] : $row['etichetta'];
+    	$valore = $row['tipo'] == "INT" ? (int) $row['valore'] : $row['valore'];
         
     	if($row['sub_tab'] != null){
         

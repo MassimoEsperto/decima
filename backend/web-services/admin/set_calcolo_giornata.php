@@ -17,9 +17,12 @@ foreach($risultati as $risultato)
 	$id = mysqli_real_escape_string($con, (int)$casa->id_risultato);
 	$goals = mysqli_real_escape_string($con, (int)$casa->goals);
 	$punti = mysqli_real_escape_string($con, (int)$casa->punti);
-	$somma = mysqli_real_escape_string($con, trim($casa->somma));
+    $somma = mysqli_real_escape_string($con, trim($casa->somma));
+    $rank = mysqli_real_escape_string($con, (int)$casa->rank);
+    
+     
 		
-	$sql .= "UPDATE risultati SET goals={$goals},punti={$punti},somma={$somma} ";
+	$sql .= "UPDATE risultati SET goals={$goals},punti={$punti},somma='{$somma}',ranking={$rank} ";
 	$sql .="WHERE id_risultato={$id} ;";
     
     $schieramento = $casa->schieramento;
@@ -40,8 +43,9 @@ foreach($risultati as $risultato)
 	$goals = mysqli_real_escape_string($con, (int)$trasferta->goals);
 	$punti = mysqli_real_escape_string($con, (int)$trasferta->punti);
     $somma = mysqli_real_escape_string($con, trim($trasferta->somma));
+    $rank = mysqli_real_escape_string($con, (int)$trasferta->rank);
 		
-	$sql .= "UPDATE risultati SET goals={$goals},punti={$punti},somma='{$somma}' ";
+	$sql .= "UPDATE risultati SET goals={$goals},punti={$punti},somma='{$somma}',ranking={$rank} ";
 	$sql .="WHERE id_risultato={$id} ;";
     
     $schieramento = $trasferta->schieramento;
@@ -66,7 +70,7 @@ if ($con->multi_query($sql) === TRUE)
 {
 	$ritono = [
 				'stato' => $con->affected_rows,
-				'risposta' => 'ok'
+				'risposta' => 'SUCCESS'
 			];
 	echo json_encode(['data'=>$ritono]);
 	} 

@@ -6,12 +6,12 @@ require_once '../config/validate.php';
 $elements = [];
 
 $sql = "SELECT c.id_calendario,r.luogo,r.squadra_id,l.id_calciatore,l.nickname,l.nome_calciatore,  ";
-$sql .="m.descrizione,m.bonus,s.squadra,f.schieramento,u.id_utente  "; 
+$sql .="m.indice,m.bonus,s.squadra,f.schieramento,u.id_utente  "; 
 $sql .="FROM calendario c  ";
 $sql .="INNER JOIN risultati r  ON c.id_calendario = r.calendario_id ";
 $sql .="LEFT JOIN formazioni f ON f.risultato_id = r.id_risultato ";
 $sql .="LEFT JOIN lista_calciatori l on l.id_calciatore = f.calciatore_id ";
-$sql .="LEFT JOIN moduli m on m.id_modulo = r.modulo_id ";
+$sql .="LEFT JOIN _moduli m on m.id_modulo = r.modulo_id ";
 $sql .="LEFT JOIN squadre s on s.id_squadra = r.squadra_id ";
 $sql .="LEFT JOIN utenti u on u.id_utente = s.utente_id ";
 $sql .="INNER JOIN giornate g ON g.id_giornata = c.giornata_id  ";
