@@ -87,9 +87,6 @@ export class FormGiornate {
       serie_a: input.serie_a,
       inizio_giornata: input.inizio_giornata.replace("T", " "),
       prima_partita: input.prima_partita.replace("T", " "),
-      //ultima_partita: input.ultima_partita.replace("T", " "),
-      //fine_giornata: input.fine_giornata.replace("T", " "),
-      is_upgrade: input.is_upgrade,
       turno: input.turno
     }
 

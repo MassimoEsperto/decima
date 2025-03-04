@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LanguageService } from './language.service';
-import { PayloadCalcolo, Risultato } from 'src/app/classi/entity/risultato.entity';
+import { PayloadCalcolo, Risultato } from 'src/app/classi/dto/risultato.dto';
 import { Giornata } from 'src/app/classi/dto/giornata.dto';
 import { LOOKUPS, RepTurni } from 'src/app/classi/dto/lookup.dto';
 import { BOLEANO } from 'src/environments/costanti';

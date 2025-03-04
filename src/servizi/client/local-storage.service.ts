@@ -45,7 +45,7 @@ export class LocalStorageService {
         return this.helper.decodeToken(token); // Decodifica il token
       } catch (error) {
         console.error('Errore nel decodificare il token', error);
-        return null;
+        this.clear()
       }
     }
     return null; // Se non troviamo il token

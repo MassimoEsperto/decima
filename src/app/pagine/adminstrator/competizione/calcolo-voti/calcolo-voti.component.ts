@@ -8,7 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ExcelService } from 'src/servizi/local/excel.service';
 import { UtilService } from 'src/servizi/local/util.service';
-import { PayloadCalcolo, Risultato } from 'src/app/classi/entity/risultato.entity';
+import { PayloadCalcolo, Risultato } from 'src/app/classi/dto/risultato.dto';
+import { FantaGazzettaService } from 'src/servizi/client/fanta-gazzetta.service';
 
 @Component({
   selector: 'calcolo-voti',
@@ -39,7 +40,8 @@ export class CalcoloVotiComponent {
     public language: LanguageService,
     private excelService: ExcelService,
     private adminService: AdminService,
-    private utilService: UtilService
+    private utilService: UtilService,
+    private fantaService: FantaGazzettaService,
   ) {
   }
 
@@ -82,6 +84,37 @@ export class CalcoloVotiComponent {
 
         next: (result: any) => {
           this.formazioni_inserite = result
+          this.votiByGionata()
+        },
+        error: (error: any) => {
+          this.alert.error(error);
+
+        }
+      })
+
+  }
+
+  votiByGionata() {
+    this.loading_btn = true;
+    this.loading_page = false;
+
+    this.fantaService.getVotiGionata(this.giornata_selezionata)
+      .pipe(finalize(() => {
+        this.loading_btn = false;
+        this.loading_page = true;
+      }
+      ))
+      .subscribe({
+
+        next: (result: any) => {
+
+          this.calcolo = this.utilService.getCalcolo(
+            this.formazioni_inserite, result,
+            this.calcolato.TURNO,
+            this.giornata_selezionata
+          );
+
+          this.voti_file = true
         },
         error: (error: any) => {
           this.alert.error(error);
@@ -109,7 +142,7 @@ export class CalcoloVotiComponent {
 
         next: (result: any) => {
           this.alert.success(this.language.label.alert.success);
-         // this.adminService.refreshPage();
+          // this.adminService.refreshPage();
         },
         error: (error: any) => {
           this.alert.error(error);

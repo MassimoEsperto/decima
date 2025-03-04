@@ -52,16 +52,6 @@
                 name="fine_giornata" readonly #fine_giornata="ngModel" />
         </div>
 
-        <!-- Mercato-->
-        <div class="pt-16">
-            <label for="select-upgrade">MERCATO</label>
-            <select id="select-upgrade" class="form-control custom-select" name="upgrade" [(ngModel)]="data.is_upgrade"
-                required>
-                <option *ngFor="let item of combo.boleano" [ngValue]="item.valore">{{item.descrizione}}</option>
-            </select>
-        </div>
-
-
         <!-- Sign in button -->
         <div class="pt-16">
             <my-button [submit]="true" [color]="'btn-primary'" [block]="true" [disabled]="!giornataForm.valid"

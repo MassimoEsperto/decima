@@ -75,6 +75,7 @@ export const FANTA_SERVICE = {
 
   GET_PROBABILI_FORMAZIONI: "get_probabili_formazioni",
   GET_VOTI_LIVE: "get_voti_live",
+  GET_VOTI_GIORNATA: "get_voti_giornata",
   GET_LEGA: "get_lega"
 
 }

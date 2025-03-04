@@ -21,7 +21,6 @@
                             <th class="text-center">PRIMA</th>
                             <th class="text-center">ULTIMA</th>
                             <th class="text-center">FINE</th>
-                            <th class="text-center">CHANGE</th>
                             <th class="text-center">UPD</th>
                             <th class="text-center">DEL</th>
                         </tr>
@@ -35,7 +34,6 @@
                             <td>{{item.prima_partita}}</td>
                             <td>{{item.ultima_partita}}</td>
                             <td>{{item.fine_giornata}}</td>
-                            <td>{{util.getBoleano(item.is_upgrade)}}</td>
                             <td>
                                 <div (click)="onUpdate(item)" class="text-center cursore" data-bs-toggle="modal"
                                     data-bs-target="#updGiornataModal">
